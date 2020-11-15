@@ -87,3 +87,50 @@ insert into estudiante (id_estudiante, nombres, apellidos, dni, fecha_nacimiento
 insert into nivel (nombre) values ('inicial');
 insert into nivel (nombre) values ('primaria');
 insert into nivel (nombre) values ('secundaria');
+
+-- grado (36)
+	-- inicial (3)
+	insert into grado (nombre, id_nivel) values ('3 años', 1);
+	insert into grado (nombre, id_nivel) values ('4 años', 1);
+	insert into grado (nombre, id_nivel) values ('5 años', 1);
+    -- primaria (15)
+		-- A 
+		insert into grado (nombre, id_nivel) values ('1ro', 2);
+		insert into grado (nombre, id_nivel) values ('2do', 2);
+		insert into grado (nombre, id_nivel) values ('3ro', 2);
+		insert into grado (nombre, id_nivel) values ('4to', 2);
+		insert into grado (nombre, id_nivel) values ('5to', 2);
+		-- B
+		insert into grado (nombre, id_nivel) values ('1ro', 2);
+		insert into grado (nombre, id_nivel) values ('2do', 2);
+		insert into grado (nombre, id_nivel) values ('3ro', 2);
+		insert into grado (nombre, id_nivel) values ('4to', 2);
+		insert into grado (nombre, id_nivel) values ('5to', 2);
+		-- C
+		insert into grado (nombre, id_nivel) values ('1ro', 2);
+		insert into grado (nombre, id_nivel) values ('2do', 2);
+		insert into grado (nombre, id_nivel) values ('3ro', 2);
+		insert into grado (nombre, id_nivel) values ('4to', 2);
+		insert into grado (nombre, id_nivel) values ('5to', 2);
+    -- secundaria (15)
+		-- A
+		insert into grado (nombre, id_nivel) values ('1ro', 3);
+		insert into grado (nombre, id_nivel) values ('2do', 3);
+		insert into grado (nombre, id_nivel) values ('3ro', 3);
+		insert into grado (nombre, id_nivel) values ('4to', 3);
+		insert into grado (nombre, id_nivel) values ('5to', 3);
+		insert into grado (nombre, id_nivel) values ('6to', 3);
+        -- B
+		insert into grado (nombre, id_nivel) values ('1ro', 3);
+		insert into grado (nombre, id_nivel) values ('2do', 3);
+		insert into grado (nombre, id_nivel) values ('3ro', 3);
+		insert into grado (nombre, id_nivel) values ('4to', 3);
+		insert into grado (nombre, id_nivel) values ('5to', 3);
+		insert into grado (nombre, id_nivel) values ('6to', 3);
+		-- C
+		insert into grado (nombre, id_nivel) values ('1ro', 3);
+		insert into grado (nombre, id_nivel) values ('2do', 3);
+		insert into grado (nombre, id_nivel) values ('3ro', 3);
+		insert into grado (nombre, id_nivel) values ('4to', 3);
+		insert into grado (nombre, id_nivel) values ('5to', 3);
+		insert into grado (nombre, id_nivel) values ('6to', 3);
