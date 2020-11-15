@@ -134,3 +134,50 @@ insert into nivel (nombre) values ('secundaria');
 		insert into grado (nombre, id_nivel) values ('4to', 3);
 		insert into grado (nombre, id_nivel) values ('5to', 3);
 		insert into grado (nombre, id_nivel) values ('6to', 3);
+    
+-- seccion (36)
+	-- inicial
+	insert into seccion (nombre, n_estudiantes) values ('1', 0, 1);
+	insert into seccion (nombre, n_estudiantes) values ('1', 0, 2);
+	insert into seccion (nombre, n_estudiantes) values ('1', 0, 3);
+	-- primaria
+		-- A
+		insert into seccion (nombre, n_estudiantes) values ('A', 0, 4);
+		insert into seccion (nombre, n_estudiantes) values ('A', 0, 5);
+		insert into seccion (nombre, n_estudiantes) values ('A', 0, 6);
+		insert into seccion (nombre, n_estudiantes) values ('A', 0, 7);
+		insert into seccion (nombre, n_estudiantes) values ('A', 0, 8);
+		-- B
+		insert into seccion (nombre, n_estudiantes) values ('B', 0, 9);
+		insert into seccion (nombre, n_estudiantes) values ('B', 0, 10);
+		insert into seccion (nombre, n_estudiantes) values ('B', 0, 11);
+		insert into seccion (nombre, n_estudiantes) values ('B', 0, 12);
+		insert into seccion (nombre, n_estudiantes) values ('B', 0, 13);
+		-- C
+		insert into seccion (nombre, n_estudiantes) values ('C', 0, 14);
+		insert into seccion (nombre, n_estudiantes) values ('C', 0, 15);
+		insert into seccion (nombre, n_estudiantes) values ('C', 0, 16);
+		insert into seccion (nombre, n_estudiantes) values ('C', 0, 17);
+		insert into seccion (nombre, n_estudiantes) values ('C', 0, 18);
+	-- secundaria
+		-- A
+		insert into seccion (nombre, n_estudiantes) values ('A', 0, 19);
+		insert into seccion (nombre, n_estudiantes) values ('A', 0, 20);
+		insert into seccion (nombre, n_estudiantes) values ('A', 0, 21);
+		insert into seccion (nombre, n_estudiantes) values ('A', 0, 22);
+		insert into seccion (nombre, n_estudiantes) values ('A', 0, 23);
+        insert into seccion (nombre, n_estudiantes) values ('A', 0, 24);
+		-- B
+		insert into seccion (nombre, n_estudiantes) values ('B', 0, 25);
+		insert into seccion (nombre, n_estudiantes) values ('B', 0, 26);
+		insert into seccion (nombre, n_estudiantes) values ('B', 0, 27);
+		insert into seccion (nombre, n_estudiantes) values ('B', 0, 28);
+        insert into seccion (nombre, n_estudiantes) values ('B', 0, 29);
+		insert into seccion (nombre, n_estudiantes) values ('B', 0, 30);
+		-- C
+		insert into seccion (nombre, n_estudiantes) values ('C', 0, 31);
+		insert into seccion (nombre, n_estudiantes) values ('C', 0, 32);
+		insert into seccion (nombre, n_estudiantes) values ('C', 0, 33);
+        insert into seccion (nombre, n_estudiantes) values ('C', 0, 34);
+        insert into seccion (nombre, n_estudiantes) values ('C', 0, 35);
+        insert into seccion (nombre, n_estudiantes) values ('C', 0, 36);
