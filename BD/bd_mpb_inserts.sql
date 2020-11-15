@@ -82,3 +82,8 @@ insert into estudiante (id_estudiante, nombres, apellidos, dni, fecha_nacimiento
 insert into estudiante (id_estudiante, nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, id_matricula) values (34, 'Brande', 'Hearty', 84497534, '2016-07-17', 13, 965872924, 'bheartyx@spiegel.de', 25, '5581 Pepper Wood Pass', 123, 34);
 insert into estudiante (id_estudiante, nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, id_matricula) values (35, 'Lise', 'Myall', 80306363, '2015-05-03', 7, 994217279, 'lmyally@hao123.com', 36, '53551 Novick Street', 123, 35);
 insert into estudiante (id_estudiante, nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, id_matricula) values (36, 'Leontine', 'Siddle', 96211022, '2016-01-24', 10, 985275744, 'lsiddlez@noaa.gov', 2, '8796 Esch Way', 123, 36);
+
+-- nivel (3)
+insert into nivel (nombre) values ('inicial');
+insert into nivel (nombre) values ('primaria');
+insert into nivel (nombre) values ('secundaria');
