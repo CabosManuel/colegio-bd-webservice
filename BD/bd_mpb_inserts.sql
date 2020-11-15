@@ -257,3 +257,23 @@ insert into estudiante (id_estudiante, nombres, apellidos, dni, fecha_nacimiento
 insert into estudiante (id_estudiante, nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, id_matricula) values (34, 'Martie', 'Suddell', 88055748, '2015-12-19', 5, 977781322, 'msuddellx@google.pl', 8, '54 Mayfield Junction', 123, 34);
 insert into estudiante (id_estudiante, nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, id_matricula) values (35, 'Jocelin', 'Took', 85375570, '2015-03-01', 15, 955183443, 'jtooky@whitehouse.gov', 9, '317 Gateway Way', 123, 35);
 insert into estudiante (id_estudiante, nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, id_matricula) values (36, 'Ronna', 'Byrch', 92949269, '2017-02-21', 1, 961009024, 'rbyrchz@princeton.edu', 1, '7 Mccormick Court', 123, 36);
+
+-- curso ()
+-- nota ()
+
+-- trabajador (10)
+	-- director
+	insert into trabajador (id_trabajador, cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values (1, 'director', 'Bart', 'Aires', 38125376, '1972-12-14', 916128890, 'baires0@dailymotion.com', 123, 31);
+	-- recepcion (4)
+	insert into trabajador (id_trabajador, cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values (2, 'recepcionista', 'Marena', 'Schoenfisch', 31554776, '1988-08-08', 907172850, 'mschoenfisch1@cornell.edu', 123, 10);
+	insert into trabajador (id_trabajador, cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values (3, 'recepcionista', 'Tomi', 'Mateu', 39352127, '1976-09-12', 915401027, 'tmateu2@liveinternet.ru', 123, 22);
+	insert into trabajador (id_trabajador, cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values (4, 'recepcionista', 'Enoch', 'Edgar', 11194793, '1981-07-15', 900427119, 'eedgar3@addtoany.com', 123, 3);
+	insert into trabajador (id_trabajador, cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values (5, 'docente', 'Tull', 'Haliburton', 17572125, '1977-10-04', 900998135, 'thaliburton4@howstuffworks.com', 123, 32);
+	-- docente (5)
+	insert into trabajador (id_trabajador, cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values (6, 'docente', 'Sianna', 'Exton', 26912488, '1971-06-23', 919103743, 'sexton5@irs.gov', 123, 41);
+	insert into trabajador (id_trabajador, cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values (7, 'docente', 'Kali', 'Walklate', 16391661, '1969-08-11', 907217981, 'kwalklate6@cafepress.com', 123, 9);
+	insert into trabajador (id_trabajador, cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values (8, 'docente', 'Nicolis', 'Emig', 31815330, '1977-10-12', 903733059, 'nemig7@instagram.com', 123, 41);
+	insert into trabajador (id_trabajador, cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values (9, 'docente', 'Guenevere', 'Longland', 26804629, '1965-12-01', 919314150, 'glongland8@hugedomains.com', 123, 14);
+	insert into trabajador (id_trabajador, cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values (10, 'docente', 'Rey', 'Luchelli', 29176017, '1967-08-05', 915945240, 'rluchelli9@oakley.com', 123, 31);
+
+
