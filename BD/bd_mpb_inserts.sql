@@ -276,4 +276,10 @@ insert into estudiante (id_estudiante, nombres, apellidos, dni, fecha_nacimiento
 	insert into trabajador (id_trabajador, cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values (9, 'docente', 'Guenevere', 'Longland', 26804629, '1965-12-01', 919314150, 'glongland8@hugedomains.com', 123, 14);
 	insert into trabajador (id_trabajador, cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values (10, 'docente', 'Rey', 'Luchelli', 29176017, '1967-08-05', 915945240, 'rluchelli9@oakley.com', 123, 31);
 
+-- horario ()
+-- asistencia ()
+-- malla ()
+-- justificion ()
+-- citaciones ()
+-- permisos ()
 
