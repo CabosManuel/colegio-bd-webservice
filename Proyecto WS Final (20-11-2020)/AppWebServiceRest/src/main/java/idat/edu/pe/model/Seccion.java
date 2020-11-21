@@ -66,6 +66,18 @@ public class Seccion implements Serializable{
 	public void setGrado(Grado grado) {
 		this.grado = grado;
 	}
+
+
+	public Collection<Aula> getItemsaula() {
+		return itemsaula;
+	}
+
+
+	public void setItemsaula(Collection<Aula> itemsaula) {
+		this.itemsaula = itemsaula;
+	}
+	
+	
 	
 	
 }

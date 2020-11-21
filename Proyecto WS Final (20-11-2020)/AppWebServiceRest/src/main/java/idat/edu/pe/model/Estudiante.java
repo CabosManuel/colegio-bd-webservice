@@ -55,7 +55,7 @@ public class Estudiante implements Serializable{
 	/*@ManyToMany(mappedBy = "itemsEstudiante", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	private Set<Curso> itemsCurso = new HashSet<>();*/
 	
-	@ManyToMany
+	@ManyToOne
 	@JoinColumn(name = "apoderado_id", nullable = false,
 	foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(apoderado_id) references apoderados(apoderado_id)"))
 	private Apoderado apoderado;
