@@ -21,14 +21,14 @@ public class Curso implements Serializable{
 	
 	@Column 
 	private Integer creditos;
-	
+	/*
 	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	@JoinTable(name = "Estudiantes_Cursos", joinColumns = @JoinColumn(
 			name="estudiante_id", nullable=false,
 			foreignKey=@ForeignKey(foreignKeyDefinition = "foreign key(estudiante_id) references estudiantes(estudiante_id)")),
 	        inverseJoinColumns=@JoinColumn(name = "curso_id", nullable = false,
 	        foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(curso_id) references cursos(curso_id)")))
-	private Set<Estudiante> itemsEstudiante = new HashSet<>();
+	private Set<Estudiante> itemsEstudiante = new HashSet<>();*/
 	
 	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	@JoinTable(name = "Profesores_Cursos", joinColumns = @JoinColumn(
@@ -70,7 +70,7 @@ public class Curso implements Serializable{
 	public void setCreditos(Integer creditos) {
 		this.creditos = creditos;
 	}
-
+/*
 	public Set<Estudiante> getItemsEstudiante() {
 		return itemsEstudiante;
 	}
@@ -78,7 +78,7 @@ public class Curso implements Serializable{
 	public void setItemsEstudiante(Set<Estudiante> itemsEstudiante) {
 		this.itemsEstudiante = itemsEstudiante;
 	}
-
+*/
 	public Set<Estudiante> getItemsProfesor() {
 		return itemsProfesor;
 	}

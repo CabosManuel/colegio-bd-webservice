@@ -52,8 +52,8 @@ public class Estudiante implements Serializable{
 	"foreign key(distrito_id) references distritos(distrito_id)"))
 	private Distrito distrito;
 	
-	@ManyToMany(mappedBy = "itemsEstudiante", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-	private Set<Curso> itemsCurso = new HashSet<>();
+	/*@ManyToMany(mappedBy = "itemsEstudiante", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	private Set<Curso> itemsCurso = new HashSet<>();*/
 	
 	@ManyToMany
 	@JoinColumn(name = "apoderado_id", nullable = false,
@@ -173,14 +173,14 @@ public class Estudiante implements Serializable{
 	public void setDistrito(Distrito distrito) {
 		this.distrito = distrito;
 	}
-
+/*
 	public Set<Curso> getItemsCurso() {
 		return itemsCurso;
 	}
 
 	public void setItemsCurso(Set<Curso> itemsCurso) {
 		this.itemsCurso = itemsCurso;
-	}
+	}*/
 
 	public Apoderado getApoderado() {
 		return apoderado;
