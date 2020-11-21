@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import idat.edu.pe.model.Estudiante;
 import idat.edu.pe.service.EstudianteService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/rest/estudiante")
 public class EstudianteRestController {
@@ -42,7 +44,7 @@ public class EstudianteRestController {
 		if(estudianteOb!=null) {
 			return new ResponseEntity<>(estudianteOb, HttpStatus.OK);
 		}
-		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(estudianteOb, HttpStatus.NOT_FOUND);
 		
 	}
 	
@@ -62,7 +64,7 @@ public class EstudianteRestController {
 			estudianteOb.setNombre(newEstudiante.getNombre());
 			estudianteOb.setApellido(newEstudiante.getApellido());
 			estudianteOb.setEdad(newEstudiante.getEdad());
-			estudianteOb.setTeléfono(newEstudiante.getTeléfono());
+			estudianteOb.setCelular(newEstudiante.getCelular());
 			
 			estudianteService.update(estudianteOb);
 			return new ResponseEntity<>(estudianteOb, HttpStatus.OK);

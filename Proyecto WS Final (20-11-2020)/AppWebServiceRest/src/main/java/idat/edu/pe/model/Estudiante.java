@@ -1,6 +1,9 @@
 package idat.edu.pe.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,11 +28,23 @@ public class Estudiante implements Serializable{
 	@Column
 	private Long dni;
 	
+	@Temporal(TemporalType.DATE)
+	private Date fnacimiento;
+	
 	@Column
 	private int edad;
 	
 	@Column
-	private String teléfono;
+	private String celular;
+	
+	@Column
+	private String correo;
+	
+	@Column
+	private String direccion;
+	
+	@Column
+	private String pass;
 
 	@ManyToOne
 	@JoinColumn(name ="distrito_id", nullable = false,
@@ -40,26 +55,36 @@ public class Estudiante implements Serializable{
 	@ManyToMany(mappedBy = "itemsEstudiante", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	private Set<Curso> itemsCurso = new HashSet<>();
 	
-	@OneToOne
+	@ManyToMany
+	@JoinColumn(name = "apoderado_id", nullable = false,
+	foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(apoderado_id) references apoderados(apoderado_id)"))
+	private Apoderado apoderado;
+	
+	@OneToMany(mappedBy = "estudiante")
+	private Collection<Matricula> itemsmatricula =  new ArrayList<>();
+	
+	/*@OneToOne
 	@JoinColumn(name = "direccion_id", nullable = false,
 	foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(direccion_id) references direcciones(direccion_id)"))
-	private Direccion direccion;
+	private Direccion direccion;*/
 	
 	public Estudiante() {
 		
 	}
 
-	
-
-	public Estudiante(int estudianteId, String nombre, String apellido, Long dni, int edad, String teléfono) {
+	public Estudiante(int estudianteId, String nombre, String apellido, Long dni, Date fnacimiento, int edad,
+			String celular, String correo, String direccion, String pass) {
 		this.estudianteId = estudianteId;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;
+		this.fnacimiento = fnacimiento;
 		this.edad = edad;
-		this.teléfono = teléfono;
+		this.celular = celular;
+		this.correo = correo;
+		this.direccion = direccion;
+		this.pass = pass;
 	}
-
 
 	public int getEstudianteId() {
 		return estudianteId;
@@ -85,6 +110,22 @@ public class Estudiante implements Serializable{
 		this.apellido = apellido;
 	}
 
+	public Long getDni() {
+		return dni;
+	}
+
+	public void setDni(Long dni) {
+		this.dni = dni;
+	}
+
+	public Date getFnacimiento() {
+		return fnacimiento;
+	}
+
+	public void setFnacimiento(Date fnacimiento) {
+		this.fnacimiento = fnacimiento;
+	}
+
 	public int getEdad() {
 		return edad;
 	}
@@ -93,20 +134,36 @@ public class Estudiante implements Serializable{
 		this.edad = edad;
 	}
 
-	public String getTeléfono() {
-		return teléfono;
+	public String getCelular() {
+		return celular;
 	}
 
-	public void setTeléfono(String teléfono) {
-		this.teléfono = teléfono;
+	public void setCelular(String celular) {
+		this.celular = celular;
 	}
 
-	public Set<Curso> getItemsCurso() {
-		return itemsCurso;
+	public String getCorreo() {
+		return correo;
 	}
 
-	public void setItemsCurso(Set<Curso> itemsCurso) {
-		this.itemsCurso = itemsCurso;
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 
 	public Distrito getDistrito() {
@@ -117,14 +174,28 @@ public class Estudiante implements Serializable{
 		this.distrito = distrito;
 	}
 
-	public Direccion getDireccion() {
-		return direccion;
+	public Set<Curso> getItemsCurso() {
+		return itemsCurso;
 	}
 
-	public void setDireccion(Direccion direccion) {
-		this.direccion = direccion;
+	public void setItemsCurso(Set<Curso> itemsCurso) {
+		this.itemsCurso = itemsCurso;
 	}
-	
-	
+
+	public Apoderado getApoderado() {
+		return apoderado;
+	}
+
+	public void setApoderado(Apoderado apoderado) {
+		this.apoderado = apoderado;
+	}
+
+	public Collection<Matricula> getItemsmatricula() {
+		return itemsmatricula;
+	}
+
+	public void setItemsmatricula(Collection<Matricula> itemsmatricula) {
+		this.itemsmatricula = itemsmatricula;
+	}
 	
 }
