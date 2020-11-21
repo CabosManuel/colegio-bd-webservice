@@ -24,13 +24,10 @@ public class Matricula implements Serializable{
 	@Column
 	private Integer grado;
 	
-	@Column
-	private Integer seccion;
-	
 	@ManyToOne
-	@JoinColumn(name = "aula_id", nullable = false,
-	foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(aula_id) references aulas(aula_id)" ))
-	private Aula aula;
+	@JoinColumn(name = "seccion_id", nullable = false,
+	foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(seccion_id) references secciones(seccion_id)"))
+	private Seccion seccion;
 	
 	@ManyToOne
 	@JoinColumn(name = "estudiante_id", nullable = false,
@@ -42,15 +39,12 @@ public class Matricula implements Serializable{
 
 	
 
-	public Matricula(Integer matriculaId, Date fecha, Integer nivel, Integer grado, Integer seccion) {
+	public Matricula(Integer matriculaId, Date fecha, Integer nivel, Integer grado) {
 		this.matriculaId = matriculaId;
 		this.fecha = fecha;
 		this.nivel = nivel;
 		this.grado = grado;
-		this.seccion = seccion;
 	}
-
-
 
 	@PrePersist
 	public void pre() {
@@ -89,33 +83,12 @@ public class Matricula implements Serializable{
 		this.grado = grado;
 	}
 
-	public Aula getAula() {
-		return aula;
-	}
-
-	public void setAula(Aula aula) {
-		this.aula = aula;
-	}
-
-	public Integer getSeccion() {
-		return seccion;
-	}
-
-	public void setSeccion(Integer seccion) {
-		this.seccion = seccion;
-	}
-
-
-
 	public Estudiante getEstudiante() {
 		return estudiante;
 	}
 
-
-
 	public void setEstudiante(Estudiante estudiante) {
 		this.estudiante = estudiante;
 	}
-	
 	
 }

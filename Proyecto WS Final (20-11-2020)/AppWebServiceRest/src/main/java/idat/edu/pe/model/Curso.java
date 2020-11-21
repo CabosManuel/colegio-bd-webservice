@@ -1,6 +1,8 @@
 package idat.edu.pe.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,14 +32,16 @@ public class Curso implements Serializable{
 	        foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(curso_id) references cursos(curso_id)")))
 	private Set<Estudiante> itemsEstudiante = new HashSet<>();*/
 	
-	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	/*@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	@JoinTable(name = "Profesores_Cursos", joinColumns = @JoinColumn(
 			name="profesor_id", nullable=false,
 			foreignKey=@ForeignKey(foreignKeyDefinition = "foreign key(profesor_id) references profesores(profesor_id)")),
 	        inverseJoinColumns=@JoinColumn(name = "curso_id", nullable = false,
 	        foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(curso_id) references cursos(curso_id)")))
 	private Set<Estudiante> itemsProfesor = new HashSet<>();
-
+*/
+	@OneToMany(mappedBy = "curso")
+	private Collection<Malla> mallas = new ArrayList<>(); 
 
 	public Curso() {
 	}
@@ -79,7 +83,7 @@ public class Curso implements Serializable{
 		this.itemsEstudiante = itemsEstudiante;
 	}
 */
-	public Set<Estudiante> getItemsProfesor() {
+	/*public Set<Estudiante> getItemsProfesor() {
 		return itemsProfesor;
 	}
 
@@ -87,7 +91,15 @@ public class Curso implements Serializable{
 		this.itemsProfesor = itemsProfesor;
 	}
 	
-	
+	*/
+
+	public Collection<Malla> getMallas() {
+		return mallas;
+	}
+
+	public void setMallas(Collection<Malla> mallas) {
+		this.mallas = mallas;
+	}
 	
 	
 	

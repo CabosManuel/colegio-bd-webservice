@@ -12,34 +12,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import idat.edu.pe.model.Aula;
-import idat.edu.pe.service.AulaService;
+import idat.edu.pe.model.Malla;
+import idat.edu.pe.service.MallaService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/rest/aulas")
-public class AulaRestController {
-	
+@RequestMapping("/rest/mallas")
+public class MallaRestController {
+
 	@Autowired
-	private AulaService service;
-	
+	private MallaService service;
+
 	@GetMapping("/listar")
 	public ResponseEntity<?> listar(){
 		
-		Collection<Aula> itemAula = service.findAll();
-		if(itemAula.isEmpty()) {
-			return new ResponseEntity<>(itemAula, HttpStatus.NO_CONTENT);
+		Collection<Malla> itemMalla = service.findAll();
+		if(itemMalla.isEmpty()) {
+			return new ResponseEntity<>(itemMalla, HttpStatus.NO_CONTENT);
 		}
 		
-		return new ResponseEntity<>(itemAula, HttpStatus.OK);
+		return new ResponseEntity<>(itemMalla, HttpStatus.OK);
 	}
 	
 	@PostMapping("/agregar")
-	public ResponseEntity<?> agregar(@RequestBody Aula aula){
+	public ResponseEntity<?> agregar(@RequestBody Malla malla){
 		
-		service.insert(aula);
-		return new ResponseEntity<>("Se creó correctamente",HttpStatus.CREATED);
+		service.insert(malla);
+		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	
 	}
-
 }

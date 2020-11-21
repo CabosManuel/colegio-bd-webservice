@@ -27,6 +27,9 @@ public class Grado implements Serializable{
 	
 	@OneToMany(mappedBy = "grado")
 	private Collection<Seccion> itemsseccion = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "grado")
+	private Collection<Malla> mallas = new ArrayList<>();
 
 	public Grado() {
 	}
@@ -66,6 +69,14 @@ public class Grado implements Serializable{
 
 	public void setItemsseccion(Collection<Seccion> itemsseccion) {
 		this.itemsseccion = itemsseccion;
+	}
+
+	public Collection<Malla> getMallas() {
+		return mallas;
+	}
+
+	public void setMallas(Collection<Malla> mallas) {
+		this.mallas = mallas;
 	}
 	
 	

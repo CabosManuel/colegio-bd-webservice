@@ -26,17 +26,15 @@ public class Seccion implements Serializable{
 	private Grado grado;
 	
 	@OneToMany(mappedBy = "seccion")
-	private Collection<Aula> itemsaula = new ArrayList<>();
+	private Collection<Matricula> itemsMatricula = new ArrayList<>();
 	
 	public Seccion() {
 	}
-
 
 	public Seccion(Integer seccionId, String nombre) {
 		this.seccionId = seccionId;
 		this.nombre = nombre;
 	}
-
 
 	public Integer getSeccionId() {
 		return seccionId;
@@ -68,16 +66,13 @@ public class Seccion implements Serializable{
 	}
 
 
-	public Collection<Aula> getItemsaula() {
-		return itemsaula;
+	public Collection<Matricula> getItemsMatricula() {
+		return itemsMatricula;
 	}
 
 
-	public void setItemsaula(Collection<Aula> itemsaula) {
-		this.itemsaula = itemsaula;
+	public void setItemsMatricula(Collection<Matricula> itemsMatricula) {
+		this.itemsMatricula = itemsMatricula;
 	}
-	
-	
-	
 	
 }
