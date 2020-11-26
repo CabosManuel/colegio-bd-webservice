@@ -32,9 +32,6 @@ public class Estudiante implements Serializable{
 	private Date fnacimiento;
 	
 	@Column
-	private int edad;
-	
-	@Column
 	private String celular;
 	
 	@Column
@@ -45,6 +42,9 @@ public class Estudiante implements Serializable{
 	
 	@Column
 	private String pass;
+	
+	@Column
+	private Integer estado;
 
 	@ManyToOne
 	@JoinColumn(name ="distrito_id", nullable = false,
@@ -72,18 +72,18 @@ public class Estudiante implements Serializable{
 		
 	}
 
-	public Estudiante(int estudianteId, String nombre, String apellido, Long dni, Date fnacimiento, int edad,
-			String celular, String correo, String direccion, String pass) {
+	public Estudiante(int estudianteId, String nombre, String apellido, Long dni, Date fnacimiento,
+			String celular, String correo, String direccion, String pass, Integer estado) {
 		this.estudianteId = estudianteId;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;
 		this.fnacimiento = fnacimiento;
-		this.edad = edad;
 		this.celular = celular;
 		this.correo = correo;
 		this.direccion = direccion;
 		this.pass = pass;
+		this.estado = estado;
 	}
 
 	public int getEstudianteId() {
@@ -125,15 +125,7 @@ public class Estudiante implements Serializable{
 	public void setFnacimiento(Date fnacimiento) {
 		this.fnacimiento = fnacimiento;
 	}
-
-	public int getEdad() {
-		return edad;
-	}
-
-	public void setEdad(int edad) {
-		this.edad = edad;
-	}
-
+	
 	public String getCelular() {
 		return celular;
 	}
@@ -164,6 +156,16 @@ public class Estudiante implements Serializable{
 
 	public void setPass(String pass) {
 		this.pass = pass;
+	}
+	
+	
+
+	public Integer getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Integer estado) {
+		this.estado = estado;
 	}
 
 	public Distrito getDistrito() {

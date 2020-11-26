@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import idat.edu.pe.mapper.EstudianteMapper;
+import idat.edu.pe.mapper.MapperUtil;
 import idat.edu.pe.model.Estudiante;
 import idat.edu.pe.service.EstudianteService;
 
@@ -29,22 +31,26 @@ public class EstudianteRestController {
 	@GetMapping("/listar")
 	public ResponseEntity<?> listar(){
 		
-		Collection<Estudiante> itemEstudiante = estudianteService.findAll();
-		if(itemEstudiante.isEmpty()) {
-			return new ResponseEntity<>(itemEstudiante, HttpStatus.NO_CONTENT);
+		Collection<Estudiante> itemsEstudiante = estudianteService.findAll();
+		Collection<EstudianteMapper> itemsEstudianteMapper = MapperUtil.convert(itemsEstudiante);
+		
+		if(itemsEstudiante.isEmpty()) {
+			return new ResponseEntity<>(itemsEstudiante, HttpStatus.NO_CONTENT);
 		}
 		
-		return new ResponseEntity<>(itemEstudiante, HttpStatus.OK);
+		return new ResponseEntity<>(itemsEstudianteMapper, HttpStatus.OK);
 	}
 	
 	@GetMapping("/buscar/{estudianteId}")
 	public ResponseEntity<?> buscar(@PathVariable Integer estudianteId){
 		
 		Estudiante estudianteOb = estudianteService.findById(estudianteId);
+		EstudianteMapper estudianteMapper = MapperUtil.convert(estudianteOb);
+		
 		if(estudianteOb!=null) {
-			return new ResponseEntity<>(estudianteOb, HttpStatus.OK);
+			return new ResponseEntity<>(estudianteMapper, HttpStatus.OK);
 		}
-		return new ResponseEntity<>(estudianteOb, HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(estudianteMapper, HttpStatus.NOT_FOUND);
 		
 	}
 	
@@ -63,7 +69,6 @@ public class EstudianteRestController {
 		if(estudianteOb!=null) {
 			estudianteOb.setNombre(newEstudiante.getNombre());
 			estudianteOb.setApellido(newEstudiante.getApellido());
-			estudianteOb.setEdad(newEstudiante.getEdad());
 			estudianteOb.setCelular(newEstudiante.getCelular());
 			
 			estudianteService.update(estudianteOb);
