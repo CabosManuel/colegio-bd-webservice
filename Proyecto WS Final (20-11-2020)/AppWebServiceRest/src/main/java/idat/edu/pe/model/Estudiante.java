@@ -47,7 +47,7 @@ public class Estudiante implements Serializable{
 	private Integer estado;
 
 	@ManyToOne
-	@JoinColumn(name ="distrito_id", nullable = false,
+	@JoinColumn(name ="distrito_id", nullable = false, updatable = false,
 	foreignKey = @ForeignKey(foreignKeyDefinition = 
 	"foreign key(distrito_id) references distritos(distrito_id)"))
 	private Distrito distrito;
@@ -55,9 +55,10 @@ public class Estudiante implements Serializable{
 	/*@ManyToMany(mappedBy = "itemsEstudiante", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	private Set<Curso> itemsCurso = new HashSet<>();*/
 	
-	@ManyToOne
-	@JoinColumn(name = "apoderado_id", nullable = false,
-	foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(apoderado_id) references apoderados(apoderado_id)"))
+	@ManyToOne//(fetch = FetchType.EAGER, targetEntity = Apoderado.class)
+	@JoinColumn(name = "apoderado_id", nullable = false, updatable = false,
+	foreignKey = @ForeignKey(foreignKeyDefinition = 
+	"foreign key(apoderado_id) references apoderados(apoderado_id)"))
 	private Apoderado apoderado;
 	
 	@OneToMany(mappedBy = "estudiante")
@@ -71,6 +72,26 @@ public class Estudiante implements Serializable{
 	public Estudiante() {
 		
 	}
+	
+	
+
+	public Estudiante(int estudianteId, String nombre, String apellido, Long dni, Date fnacimiento, String celular,
+			String correo, String direccion, String pass, Integer estado, Distrito distrito, Apoderado apoderado) {
+		this.estudianteId = estudianteId;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.dni = dni;
+		this.fnacimiento = fnacimiento;
+		this.celular = celular;
+		this.correo = correo;
+		this.direccion = direccion;
+		this.pass = pass;
+		this.estado = estado;
+		this.distrito = distrito;
+		this.apoderado = apoderado;
+	}
+
+
 
 	public Estudiante(int estudianteId, String nombre, String apellido, Long dni, Date fnacimiento,
 			String celular, String correo, String direccion, String pass, Integer estado) {

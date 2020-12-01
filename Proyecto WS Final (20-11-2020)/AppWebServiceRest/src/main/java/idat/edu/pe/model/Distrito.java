@@ -6,6 +6,9 @@ import java.util.Collection;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(name = "distritos")
 public class Distrito implements Serializable{
@@ -19,11 +22,18 @@ public class Distrito implements Serializable{
 	@Column
 	private String nombre;
 	
-	@OneToMany(mappedBy = "distrito")
+	@OneToMany(mappedBy = "distrito",cascade = CascadeType.ALL ,fetch =FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
 	private  Collection<Estudiante> estudiantes = new ArrayList<>();
 
 	public Distrito() {
 	}
+
+	
+	public Distrito(Integer distritoId) {
+		this.distritoId = distritoId;
+	}
+
 
 	public Distrito(Integer distritoId, String nombre) {
 		this.distritoId = distritoId;

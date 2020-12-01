@@ -14,10 +14,31 @@ public class EstudianteMapper
 	private String direccion;
 	private String pass;
 	private Integer estado;
+	private DistritoMapper distrito;
+	private ApoderadoMapper apoderado;
 	
 	public EstudianteMapper() {
 	}
 	
+	public EstudianteMapper(Integer estudianteId, String nombre, String apellido, Long dni, Date fnacimiento,
+			String celular, String correo, String direccion, String pass, Integer estado, DistritoMapper distrito,
+			ApoderadoMapper apoderado) {
+		this.estudianteId = estudianteId;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.dni = dni;
+		this.fnacimiento = fnacimiento;
+		this.celular = celular;
+		this.correo = correo;
+		this.direccion = direccion;
+		this.pass = pass;
+		this.estado = estado;
+		this.distrito = distrito;
+		this.apoderado = apoderado;
+	}
+
+
+
 	public EstudianteMapper(Integer estudianteId, String nombre, String apellido, Long dni, Date fnacimiento,
 			String celular, String correo, String direccion, String pass, Integer estado) {
 		this.estudianteId = estudianteId;
@@ -92,6 +113,22 @@ public class EstudianteMapper
 	}
 	public void setEstado(Integer estado) {
 		this.estado = estado;
+	}
+
+	public DistritoMapper getDistrito() {
+		return distrito;
+	}
+
+	public void setDistrito(DistritoMapper distrito) {
+		this.distrito = distrito;
+	}
+
+	public ApoderadoMapper getApoderado() {
+		return apoderado;
+	}
+
+	public void setApoderado(ApoderadoMapper apoderado) {
+		this.apoderado = apoderado;
 	}
 	
 	

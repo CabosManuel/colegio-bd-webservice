@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 import idat.edu.pe.mapper.EstudianteMapper;
 import idat.edu.pe.mapper.MapperUtil;
 import idat.edu.pe.model.Estudiante;
+import idat.edu.pe.service.ApoderadoService;
+import idat.edu.pe.service.DistritoService;
+import idat.edu.pe.service.DistritoServiceImpl;
 import idat.edu.pe.service.EstudianteService;
 
 @CrossOrigin("*")
@@ -27,6 +30,12 @@ public class EstudianteRestController {
 
 	@Autowired
 	private EstudianteService estudianteService;
+	
+	@Autowired 
+	private DistritoService DService;
+	
+	@Autowired 
+	private ApoderadoService AService;
 	
 	@GetMapping("/listar")
 	public ResponseEntity<?> listar(){
@@ -57,6 +66,9 @@ public class EstudianteRestController {
 	@PostMapping("/agregar")
 	public ResponseEntity<?> agregar(@RequestBody Estudiante estudiante){
 		
+		//EstudianteMapper est = MapperUtil.convertm(estudiante);
+	    estudiante.setDistrito(DService.findById(estudiante.getDistrito().getDistritoId()));
+	    estudiante.setApoderado(AService.findById(estudiante.getApoderado().getApoderadoId()));
 		estudianteService.insert(estudiante);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	

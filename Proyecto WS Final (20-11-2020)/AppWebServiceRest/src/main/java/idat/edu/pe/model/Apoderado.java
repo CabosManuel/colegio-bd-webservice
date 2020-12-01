@@ -6,6 +6,9 @@ import java.util.Collection;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(name = "apoderados")
 public class Apoderado implements Serializable{
@@ -15,6 +18,7 @@ public class Apoderado implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@Column(name = "apoderado_id", unique = true, nullable = false)
 	private Integer apoderadoId;
 	
 	@Column
@@ -35,10 +39,15 @@ public class Apoderado implements Serializable{
 	@Column
 	private String pass;
 	
-	@OneToMany(mappedBy = "apoderado")
+	@OneToMany(mappedBy = "apoderado", cascade = CascadeType.ALL ,fetch =FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
 	private Collection<Estudiante> itemsestudiante = new ArrayList<>();
 	
 	public Apoderado() {
+	}
+
+	public Apoderado(Integer apoderadoId) {
+		this.apoderadoId = apoderadoId;
 	}
 
 	public Apoderado(Integer apoderadoId, String nombre, String apellido, Long dni, String correo, String celular,
