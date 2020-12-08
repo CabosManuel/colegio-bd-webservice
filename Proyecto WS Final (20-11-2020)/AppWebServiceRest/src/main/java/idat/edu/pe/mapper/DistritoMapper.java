@@ -1,14 +1,18 @@
 package idat.edu.pe.mapper;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class DistritoMapper {
 	
+	@JsonProperty("distritoId")
 	private Integer distritoId;
 	
+	@JsonProperty("nombre")
 	private String nombre;
 
 	
-	public DistritoMapper(Integer distritoId) {
-		this.distritoId = distritoId;
+	public DistritoMapper() {
+		
 	}
 
 
@@ -18,10 +22,11 @@ public class DistritoMapper {
 	}
 
 
+
+
 	public Integer getDistritoId() {
 		return distritoId;
 	}
-
 
 	public void setDistritoId(Integer distritoId) {
 		this.distritoId = distritoId;
@@ -31,7 +36,6 @@ public class DistritoMapper {
 	public String getNombre() {
 		return nombre;
 	}
-
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;

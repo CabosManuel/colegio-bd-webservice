@@ -2,6 +2,9 @@ package idat.edu.pe.mapper;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import idat.edu.pe.model.Apoderado;
 import idat.edu.pe.model.Distrito;
@@ -26,6 +29,8 @@ public class MapperUtil
 			mapper.setDireccion(estudiante.getDireccion());
 			mapper.setPass(estudiante.getPass());
 			mapper.setEstado(estudiante.getEstado());
+			mapper.setDistrito(new DistritoMapper(estudiante.getDistrito().getDistritoId(), estudiante.getDistrito().getNombre()));
+			mapper.setApoderado(new ApoderadoMapper(estudiante.getApoderado().getApoderadoId()));
 			
 			itemsEstudianteMapper.add(mapper);
 		}
@@ -45,25 +50,26 @@ public class MapperUtil
 				mapper.setDireccion(estudiante.getDireccion());
 				mapper.setPass(estudiante.getPass());
 				mapper.setEstado(estudiante.getEstado());
+				mapper.setDistrito(new DistritoMapper(estudiante.getDistrito().getDistritoId(), estudiante.getDistrito().getNombre()));
+				mapper.setApoderado(new ApoderadoMapper(estudiante.getApoderado().getApoderadoId()));
 		return mapper;
 		
 	}
 	
-	public static EstudianteMapper convertm(Estudiante dto) {
-        EstudianteMapper entidad = new EstudianteMapper();
-        entidad.setNombre(dto.getNombre());
-        entidad.setApellido(dto.getApellido());
-        entidad.setDni(dto.getDni());
-        entidad.setFnacimiento(dto.getFnacimiento());
-        entidad.setCelular(dto.getCelular());
-        entidad.setCorreo(dto.getCorreo());
-        entidad.setDireccion(dto.getDireccion());
-        entidad.setPass(dto.getPass());
-        entidad.setEstado(dto.getEstado());
-        entidad.setDistrito(new DistritoMapper(dto.getDistrito().getDistritoId()));
-        entidad.setApoderado(new ApoderadoMapper(dto.getApoderado().getApoderadoId()));
-        return entidad;
-    }
-
-
+	public static List<DistritoMapper> convertD(List<Distrito> items){
+		List<DistritoMapper> itemsDistritoMapper = new ArrayList<>();
+		
+		
+		for(Distrito distrito: items) {
+			DistritoMapper mapper = new DistritoMapper();
+			mapper.setDistritoId(distrito.getDistritoId());
+			mapper.setNombre(distrito.getNombre());
+			
+			itemsDistritoMapper.add(mapper);
+		}
+		
+		
+		  
+		return itemsDistritoMapper;
+	}
 }
