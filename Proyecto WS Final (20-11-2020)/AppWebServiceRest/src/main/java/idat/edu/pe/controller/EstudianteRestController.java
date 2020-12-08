@@ -84,7 +84,7 @@ public class EstudianteRestController {
 			estudianteOb.setCelular(newEstudiante.getCelular());
 			
 			estudianteService.update(estudianteOb);
-			return new ResponseEntity<>(estudianteOb, HttpStatus.OK);
+			return new ResponseEntity<Void>(HttpStatus.OK);
 		}
 		
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);

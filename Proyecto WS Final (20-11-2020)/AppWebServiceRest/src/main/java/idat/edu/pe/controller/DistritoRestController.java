@@ -1,6 +1,9 @@
 package idat.edu.pe.controller;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import idat.edu.pe.mapper.DistritoMapper;
+import idat.edu.pe.mapper.EstudianteMapper;
+import idat.edu.pe.mapper.MapperUtil;
 import idat.edu.pe.model.Distrito;
 import idat.edu.pe.model.Estudiante;
 import idat.edu.pe.service.DistritoService;
@@ -26,15 +32,26 @@ public class DistritoRestController {
 	@Autowired
 	private DistritoService distritoService;
 	
+	//@Autowired
+	//private MapperUtil mapp;
+	
 	@GetMapping("/listar")
 	public ResponseEntity<?> listar(){
 		
-		Collection<Distrito> distritos = distritoService.findAll();
-		if(distritos.isEmpty()) {
-			return new ResponseEntity<>(distritos, HttpStatus.NO_CONTENT);
+		
+		//Map<String, List<DistritoMapper>> response = new HashMap<String, List<DistritoMapper>>();
+		List<Distrito> itemsDistrito = distritoService.findAll();
+		List<DistritoMapper> itemsDistritoMapper = MapperUtil.convertD(itemsDistrito);
+		
+		if(itemsDistrito.isEmpty()) {
+			return new ResponseEntity<>(itemsDistritoMapper, HttpStatus.NO_CONTENT);
 		}
 		
-		return new ResponseEntity<>(distritos, HttpStatus.OK);
+		return new ResponseEntity<>(itemsDistritoMapper, HttpStatus.OK);
+		/*List<Distrito> distritos = distritoService.findAll();
+		List<DistritoMapper> mapper = MapperUtil.convertD(distritos);
+		response.put("distritos", mapper);
+		return response;*/
 	}
 	
 	@GetMapping("/buscar/{distritoId}")

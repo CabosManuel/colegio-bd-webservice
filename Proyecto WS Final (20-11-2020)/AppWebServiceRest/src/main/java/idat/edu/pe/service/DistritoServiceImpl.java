@@ -1,6 +1,7 @@
 package idat.edu.pe.service;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,8 +42,8 @@ public class DistritoServiceImpl implements DistritoService{
 
 	@Transactional(readOnly = true)
 	@Override
-	public Collection<Distrito> findAll() {
-		return (Collection<Distrito>)repository.findAll();
+	public List<Distrito> findAll() {
+		return (List<Distrito>)repository.findAll();
 	}
 	
 	
