@@ -1,425 +1,573 @@
-use bd_mpb;
+USE bd_mpb;
 
 -- distrito (43)
-insert into distrito (nombre) values ('LIMA');
-insert into distrito (nombre) values ('ANCÓN');
-insert into distrito (nombre) values ('ATE');
-insert into distrito (nombre) values ('BARRANCO');
-insert into distrito (nombre) values ('BREÑA');
-insert into distrito (nombre) values ('CARABAYLLO');
-insert into distrito (nombre) values ('CHACLACAYO');
-insert into distrito (nombre) values ('CHORRILLOS');
-insert into distrito (nombre) values ('CIENEGUILLA');
-insert into distrito (nombre) values ('COMAS');
-insert into distrito (nombre) values ('EL AGUSTINO');
-insert into distrito (nombre) values ('INDEPENDENCIA');
-insert into distrito (nombre) values ('JESÚS MARÍA');
-insert into distrito (nombre) values ('LA MOLINA');
-insert into distrito (nombre) values ('LA VICTORIA');
-insert into distrito (nombre) values ('LINCE');
-insert into distrito (nombre) values ('LOS OLIVOS');
-insert into distrito (nombre) values ('LURIGANCHO');
-insert into distrito (nombre) values ('LURÍN');
-insert into distrito (nombre) values ('MAGDALENA DEL MAR');
-insert into distrito (nombre) values ('PUEBLO LIBRE');
-insert into distrito (nombre) values ('MIRAFLORES');
-insert into distrito (nombre) values ('PACHACAMAC');
-insert into distrito (nombre) values ('PUCUSANA');
-insert into distrito (nombre) values ('PUENTE PIEDRA');
-insert into distrito (nombre) values ('PUNTA HERMOSA');
-insert into distrito (nombre) values ('PUNTA NEGRA');
-insert into distrito (nombre) values ('RÍMAC');
-insert into distrito (nombre) values ('SAN BARTOLO');
-insert into distrito (nombre) values ('SAN BORJA');
-insert into distrito (nombre) values ('SAN ISIDRO');
-insert into distrito (nombre) values ('SAN JUAN DE LURIGANCHO');
-insert into distrito (nombre) values ('SAN JUAN DE MIRAFLORES');
-insert into distrito (nombre) values ('SAN LUIS');
-insert into distrito (nombre) values ('SAN MARTÍN DE PORRES');
-insert into distrito (nombre) values ('SAN MIGUEL');
-insert into distrito (nombre) values ('SANTA ANITA');
-insert into distrito (nombre) values ('SANTA MARÍA DEL MAR');
-insert into distrito (nombre) values ('SANTA ROSA');
-insert into distrito (nombre) values ('SANTIAGO DE SURCO');
-insert into distrito (nombre) values ('SURQUILLO');
-insert into distrito (nombre) values ('VILLA EL SALVADOR');
-insert into distrito (nombre) values ('VILLA MARÍA DEL TRIUNFO');
+INSERT INTO distrito (nombre) VALUES ('LIMA');
+INSERT INTO distrito (nombre) VALUES ('ANCÓN');
+INSERT INTO distrito (nombre) VALUES ('ATE');
+INSERT INTO distrito (nombre) VALUES ('BARRANCO');
+INSERT INTO distrito (nombre) VALUES ('BREÑA');
+INSERT INTO distrito (nombre) VALUES ('CARABAYLLO');
+INSERT INTO distrito (nombre) VALUES ('CHACLACAYO');
+INSERT INTO distrito (nombre) VALUES ('CHORRILLOS');
+INSERT INTO distrito (nombre) VALUES ('CIENEGUILLA');
+INSERT INTO distrito (nombre) VALUES ('COMAS');
+INSERT INTO distrito (nombre) VALUES ('EL AGUSTINO');
+INSERT INTO distrito (nombre) VALUES ('INDEPENDENCIA');
+INSERT INTO distrito (nombre) VALUES ('JESÚS MARÍA');
+INSERT INTO distrito (nombre) VALUES ('LA MOLINA');
+INSERT INTO distrito (nombre) VALUES ('LA VICTORIA');
+INSERT INTO distrito (nombre) VALUES ('LINCE');
+INSERT INTO distrito (nombre) VALUES ('LOS OLIVOS');
+INSERT INTO distrito (nombre) VALUES ('LURIGANCHO');
+INSERT INTO distrito (nombre) VALUES ('LURÍN');
+INSERT INTO distrito (nombre) VALUES ('MAGDALENA DEL MAR');
+INSERT INTO distrito (nombre) VALUES ('PUEBLO LIBRE');
+INSERT INTO distrito (nombre) VALUES ('MIRAFLORES');
+INSERT INTO distrito (nombre) VALUES ('PACHACAMAC');
+INSERT INTO distrito (nombre) VALUES ('PUCUSANA');
+INSERT INTO distrito (nombre) VALUES ('PUENTE PIEDRA');
+INSERT INTO distrito (nombre) VALUES ('PUNTA HERMOSA');
+INSERT INTO distrito (nombre) VALUES ('PUNTA NEGRA');
+INSERT INTO distrito (nombre) VALUES ('RÍMAC');
+INSERT INTO distrito (nombre) VALUES ('SAN BARTOLO');
+INSERT INTO distrito (nombre) VALUES ('SAN BORJA');
+INSERT INTO distrito (nombre) VALUES ('SAN ISIDRO');
+INSERT INTO distrito (nombre) VALUES ('SAN JUAN DE LURIGANCHO');
+INSERT INTO distrito (nombre) VALUES ('SAN JUAN DE MIRAFLORES');
+INSERT INTO distrito (nombre) VALUES ('SAN LUIS');
+INSERT INTO distrito (nombre) VALUES ('SAN MARTÍN DE PORRES');
+INSERT INTO distrito (nombre) VALUES ('SAN MIGUEL');
+INSERT INTO distrito (nombre) VALUES ('SANTA ANITA');
+INSERT INTO distrito (nombre) VALUES ('SANTA MARÍA DEL MAR');
+INSERT INTO distrito (nombre) VALUES ('SANTA ROSA');
+INSERT INTO distrito (nombre) VALUES ('SANTIAGO DE SURCO');
+INSERT INTO distrito (nombre) VALUES ('SURQUILLO');
+INSERT INTO distrito (nombre) VALUES ('VILLA EL SALVADOR');
+INSERT INTO distrito (nombre) VALUES ('VILLA MARÍA DEL TRIUNFO');
 
 -- apoderado (30)
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Sherill', 'Broadwell', 62248865, 921427627, 'sbroadwell0@mac.com', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Doralynne', 'Dreger', 41357893, 926218288, 'ddreger1@sina.com.cn', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Caril', 'Southwell', 44605997, 948374177, 'csouthwell2@a8.net', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Claresta', 'Godspede', 60142288, 948244843, 'cgodspede3@51.la', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Yalonda', 'Pautot', 61819970, 949142999, 'ypautot4@msu.edu', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Miller', 'Fairs', 52607744, 943982847, 'mfairs5@zdnet.com', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Rudyard', 'Bissett', 50483753, 928701628, 'rbissett6@apache.org', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Frasco', 'Inker', 53228587, 929268828, 'finker7@narod.ru', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Claudian', 'Pinckney', 75702802, 942849272, 'cpinckney8@wikispaces.com', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Frank', 'Petyt', 51737035, 934601226, 'fpetyt9@g.co', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Jarvis', 'Braney', 79990403, 949260295, 'jbraneya@cnbc.com', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Herschel', 'Kleeman', 40778657, 936146724, 'hkleemanb@economist.com', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Beverly', 'Clewlow', 55287914, 926845829, 'bclewlowc@phoca.cz', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Madeline', 'Dunridge', 68608622, 935472858, 'mdunridged@gizmodo.com', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Garrett', 'Hasnip', 51625835, 921613270, 'ghasnipe@plala.or.jp', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Vivia', 'MacCostigan', 77174018, 927008664, 'vmaccostiganf@amazon.co.jp', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Micki', 'Cheson', 61597929, 920609401, 'mchesong@barnesandnoble.com', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Petrina', 'McGebenay', 40778474, 935918646, 'pmcgebenayh@stanford.edu', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Aleksandr', 'Twinning', 64219435, 939432596, 'atwinningi@barnesandnoble.com', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Jeanne', 'Spini', 61667704, 945517566, 'jspinij@cyberchimps.com', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Creigh', 'Szymanski', 73969579, 922394210, 'cszymanskik@toplist.cz', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Lorri', 'Corrigan', 55330303, 937877261, 'lcorriganl@biblegateway.com', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Zachariah', 'Piesold', 66389460, 924830084, 'zpiesoldm@mashable.com', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Dorri', 'Burnside', 59099592, 942447205, 'dburnsiden@washington.edu', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Giacinta', 'Knightley', 40553530, 936654068, 'gknightleyo@blogger.com', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Englebert', 'Ruppelin', 73736633, 938744193, 'eruppelinp@mozilla.com', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Langsdon', 'Davion', 61339569, 937813645, 'ldavionq@ibm.com', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Durward', 'Dotterill', 74508803, 947576893, 'ddotterillr@imgur.com', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Fallon', 'O'' Liddy', 53712905, 947586001, 'foliddys@mail.ru', 123);
-insert into apoderado (nombres, apellidos, dni, celular, correo, pass) values ('Osborne', 'Douglass', 57529215, 949820532, 'odouglasst@eepurl.com', 123);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Glen', 'Guillet', 68154650, 932883923, 'gguillet0@netscape.com', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Gayelord', 'Drowsfield', 67005859, 935657330, 'gdrowsfield1@jugem.jp', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Tomasine', 'Redhills', 44389141, 934604474, 'tredhills2@gravatar.com', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Benedict', 'Simioli', 78261359, 935394641, 'bsimioli3@topsy.com', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Lucilia', 'Eddy', 49301304, 933460765, 'leddy4@apple.com', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Cassondra', 'Davidai', 68972794, 936959784, 'cdavidai5@amazon.com', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Callida', 'Gomery', 40032279, 925116245, 'cgomery6@earthlink.net', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Nicola', 'Twell', 69732675, 943229694, 'ntwell7@independent.co.uk', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Tiff', 'Castellucci', 64469320, 923313067, 'tcastellucci8@nhs.uk', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Hannis', 'Rawcliffe', 62660244, 924828835, 'hrawcliffe9@vk.com', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Sybila', 'de Courcy', 73165285, 946692000, 'sdecourcya@economist.com', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Bee', 'Darker', 43657138, 934136824, 'bdarkerb@jalbum.net', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Shaun', 'Fishby', 77871811, 926873024, 'sfishbyc@go.com', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Cloe', 'Espina', 56182225, 940413357, 'cespinad@creativecommons.org', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Honor', 'Diplock', 75451730, 941990821, 'hdiplocke@yahoo.com', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Em', 'Welbourn', 61387618, 924810257, 'ewelbournf@nydailynews.com', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Patrica', 'Rate', 65625301, 947758797, 'prateg@google.cn', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Angie', 'Noice', 78651735, 922393862, 'anoiceh@mediafire.com', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Zuzana', 'Hedman', 48156301, 944345261, 'zhedmani@fotki.com', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Isador', 'Goreway', 78172050, 928787881, 'igorewayj@oracle.com', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Sergent', 'Blakeney', 53896293, 920047514, 'sblakeneyk@twitter.com', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Brandise', 'Conaghy', 66293439, 942746565, 'bconaghyl@wikispaces.com', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Nichole', 'Leyland', 50297129, 931074969, 'nleylandm@amazon.com', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Isa', 'Stuckford', 59992197, 924876866, 'istuckfordn@un.org', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Gigi', 'Sugar', 59338610, 936939003, 'gsugaro@themeforest.net', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Van', 'Roughey', 42161177, 947728459, 'vrougheyp@kickstarter.com', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Thibaud', 'Hetterich', 54672176, 928623467, 'thetterichq@cargocollective.com', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Aluin', 'Davinet', 72819489, 941189408, 'adavinetr@weibo.com', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Madelena', 'Jorez', 76688326, 948857953, 'mjorezs@123-reg.co.uk', 123, 1);
+INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Rowney', 'Wyndham', 62867217, 944836373, 'rwyndhamt@devhub.com', 123, 1);
 
 -- estudiante (42)
-	-- inicial (9)
-		-- 3 años (05/15/2016 - 02/28/2017)
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Katharina', 'Christophersen', 87341016, '2016-07-01', 5, null, null, 29, '13 Ludington Center', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Jen', 'Rivelin', 98304976, '2016-05-18', 28, null, null, 4, '16107 Sullivan Park', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Joye', 'Bishop', 88138260, '2016-07-27', 3, null, null, 9, '90 Kinsman Plaza', 123, 1);
-        -- 4 años (05/15/2015 - 02/28/2016)
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Reyna', 'Coneley', 86423307, '2015-08-07', 24, null, null, 36, '4 Clarendon Point', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Dian', 'Chazelle', 86506485, '2015-10-02', 17, null, null, 19, '5 Bunker Hill Court', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Mae', 'Broyd', 86647513, '2015-10-18', 7, null, null, 7, '69280 Spenser Street', 123, 1);
-        -- 5 años (05/15/2014 - 02/28/2015)
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Blinnie', 'Jutson', 85344568, '2015-01-27', 26, null, null, 42, '67158 Crownhardt Place', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Flore', 'Streeten', 85325837, '2014-12-11', 29, null, null, 1, '8762 Buena Vista Crossing', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Siusan', 'Garrat', 85668049, '2015-01-05', 23, null, null, 43, '7 Orin Center', 123, 1);
-    -- primaria (18)
-		-- 1ro 6 (05/15/2013 - 02/28/2014)
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Lainey', 'China', 84111546, '2013-08-10', 14, null, null, 40, '36 Quincy Plaza', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Sonny', 'Impey', 83553013, '2013-06-05', 8, null, null, 29, '93374 Dawn Hill', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Dacie', 'Hedderly', 84525197, '2014-02-27', 16, null, null, 29, '7 Carey Crossing', 123, 1);
-        -- 2do 7 (05/15/2012 - 02/28/2013)
-        insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Rosaleen', 'Yurkevich', 83867662, '2012-09-13', 24, null, null, 10, '9601 Jenna Circle', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Georgeanne', 'Pellew', 83809323, '2012-11-03', 2, null, null, 33, '100 Westerfield Court', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Tildi', 'Cayley', 83010782, '2013-02-04', 7, null, null, 11, '805 Brown Circle', 123, 1);
-        -- 3ro 8 (05/15/2011 - 02/28/2012)
-        insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Ardeen', 'Beange', 81208197, '2011-05-19', 20, null, null, 4, '938 Clemons Pass', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Anabelle', 'Gantzman', 81526804, '2011-09-29', 1, null, null, 39, '9 Heffernan Circle', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Giuditta', 'Clemo', 82685319, '2011-08-10', 4, null, null, 5, '90178 Northland Road', 123, 1);
-        -- 4to 9 (05/15/2010 - 02/28/2011)
-        insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Virgie', 'I''anson', 80349962, '2010-11-09', 2, null, null, 22, '69507 Reinke Lane', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Tresa', 'Whilder', 79983677, '2011-01-12', 5, null, null, 3, '850 Jenifer Pass', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Noella', 'Djurisic', 80181190, '2010-06-03', 19, null, null, 21, '46639 Aberg Hill', 123, 1);
-        -- 5to 10 (05/15/2009 - 02/28/2010)
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Frederica', 'Brader', 79254526, '2009-06-24', 10, 965030921, 'fbrader0@jigsy.com', 24, '3624 Petterle Center', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Ophelia', 'Lovatt', 78636217, '2010-02-15', 17, 973501617, 'olovatt1@icq.com', 39, '7349 Bartillon Parkway', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Giuditta', 'Elijahu', 79385832, '2009-06-27', 1, 953015835, 'gelijahu2@tripadvisor.com', 11, '49651 Evergreen Crossing', 123, 1);
-        -- 6to 11 (05/15/2008 - 02/28/2009)
-        insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Merridie', 'Tomaello', 78460282, '2008-08-08', 30, 992231834, 'mtomaello0@squarespace.com', 39, '879 Spohn Court', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Lori', 'Rhelton', 77503592, '2009-02-05', 3, 951580517, 'lrhelton1@zdnet.com', 27, '4979 Sheridan Court', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Lenora', 'Bootton', 77180962, '2009-01-31', 13, 998498243, 'lbootton2@networkadvertising.org', 4, '36 Orin Center', 123, 1);
-    -- secundaria (15)
-		-- 1ro 12 (05/15/2007 - 02/28/2008)
-        insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Sallee', 'Lerohan', 76888040, '2007-06-25', 20, 907281511, 'slerohan0@netvibes.com', 43, '63 Porter Street', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Valentine', 'Howitt', 77808816, '2007-08-22', 14, 909005899, 'vhowitt1@guardian.co.uk', 20, '88 Laurel Street', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Ivett', 'Sloane', 77670179, '2007-11-11', 9, 961590299, 'isloane2@slate.com', 6, '61599 Blaine Way', 123, 1);
-        -- 2do 13 (05/15/2006 - 02/28/2007)
-        insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Gill', 'Fessions', 75033935, '2006-07-07', 27, 940918490, 'gfessions0@smugmug.com', 26, '761 Rusk Road', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Danny', 'Clutheram', 75319716, '2006-08-22', 11, 930458410, 'dclutheram1@house.gov', 9, '981 Helena Park', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Yvonne', 'Boule', 85465740, '2006-10-30', 9, 916548885, 'yboule2@walmart.com', 12, '462 Wayridge Center', 123, 1);
-        -- 3ro 14 (05/15/2005 - 02/28/2006)
-        insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Aloisia', 'Strowger', 35306021, '2005-10-04', 15, 953999906, 'astrowger0@xinhuanet.com', 14, '653 Raven Court', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Valina', 'Djurevic', 63288837, '2005-07-19', 29, 912181839, 'vdjurevic1@netvibes.com', 19, '885 Orin Place', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Harmony', 'Patriskson', 54354117, '2005-06-25', 4, 941945637, 'hpatriskson2@is.gd', 26, '8 Northport Center', 123, 1);
-        -- 4to 15 (05/15/2004 - 02/28/2005)
-        insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Tiertza', 'Toller', 78622486, '2005-02-24', 17, 999569604, 'ttoller0@instagram.com', 8, '97605 Merrick Parkway', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Claudette', 'Pattillo', 47572136, '2004-09-06', 26, 907241389, 'cpattillo1@zimbio.com', 33, '04 Briar Crest Parkway', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Nanice', 'Easbie', 67885243, '2004-07-01', 17, 903585717, 'neasbie2@scientificamerican.com', 7, '67562 Sundown Junction', 123, 1);
-        -- 5to 16 (05/15/2003 - 02/28/2004)
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Gabey', 'MacArd', 49934011, '2003-10-14', 2, 945573734, 'gmacard0@usa.gov', 12, '42 Upham Way', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Fran', 'Zanre', 58829423, '2004-01-31', 19, 930851508, 'fzanre1@deviantart.com', 6, '39015 Veith Place', 123, 1);
-		insert into estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) values ('Emmalynn', 'Lornsen', 36901530, '2003-05-19', 7, 906157302, 'elornsen2@cdc.gov', 26, '08225 Bayside Parkway', 123, 1);
+-- inicial (9)
+-- 3 años (05/15/2016 - 02/28/2017)
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Katharina', 'Christophersen', 87341016, '2016-07-01', 5, NULL, NULL, 29, '13 Ludington Center', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Jen', 'Rivelin', 98304976, '2016-05-18', 28, NULL, NULL, 4, '16107 Sullivan Park', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Joye', 'Bishop', 88138260, '2016-07-27', 3, NULL, NULL, 9, '90 Kinsman Plaza', 123, 1);
+-- 4 años (05/15/2015 - 02/28/2016)
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Reyna', 'Coneley', 86423307, '2015-08-07', 24, NULL, NULL, 36, '4 Clarendon Point', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Dian', 'Chazelle', 86506485, '2015-10-02', 17, NULL, NULL, 19, '5 Bunker Hill Court', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Mae', 'Broyd', 86647513, '2015-10-18', 7, NULL, NULL, 7, '69280 Spenser Street', 123, 1);
+-- 5 años (05/15/2014 - 02/28/2015)
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Blinnie', 'Jutson', 85344568, '2015-01-27', 26, NULL, NULL, 42, '67158 Crownhardt Place', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Flore', 'Streeten', 85325837, '2014-12-11', 29, NULL, NULL, 1, '8762 Buena Vista Crossing', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Siusan', 'Garrat', 85668049, '2015-01-05', 23, NULL, NULL, 43, '7 Orin Center', 123, 1);
+-- primaria (18)
+-- 1ro 6 (05/15/2013 - 02/28/2014)
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Lainey', 'China', 84111546, '2013-08-10', 14, NULL, NULL, 40, '36 Quincy Plaza', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Sonny', 'Impey', 83553013, '2013-06-05', 8, NULL, NULL, 29, '93374 Dawn Hill', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Dacie', 'Hedderly', 84525197, '2014-02-27', 16, NULL, NULL, 29, '7 Carey Crossing', 123, 1);
+-- 2do 7 (05/15/2012 - 02/28/2013)
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Rosaleen', 'Yurkevich', 83867662, '2012-09-13', 24, NULL, NULL, 10, '9601 Jenna Circle', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Georgeanne', 'Pellew', 83809323, '2012-11-03', 2, NULL, NULL, 33, '100 Westerfield Court', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Tildi', 'Cayley', 83010782, '2013-02-04', 7, NULL, NULL, 11, '805 Brown Circle', 123, 1);
+-- 3ro 8 (05/15/2011 - 02/28/2012)
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Ardeen', 'Beange', 81208197, '2011-05-19', 20, NULL, NULL, 4, '938 Clemons Pass', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Anabelle', 'Gantzman', 81526804, '2011-09-29', 1, NULL, NULL, 39, '9 Heffernan Circle', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Giuditta', 'Clemo', 82685319, '2011-08-10', 4, NULL, NULL, 5, '90178 Northland Road', 123, 1);
+-- 4to 9 (05/15/2010 - 02/28/2011)
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Virgie', 'I''anson', 80349962, '2010-11-09', 2, NULL, NULL, 22, '69507 Reinke Lane', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Tresa', 'Whilder', 79983677, '2011-01-12', 5, NULL, NULL, 3, '850 Jenifer Pass', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Noella', 'Djurisic', 80181190, '2010-06-03', 19, NULL, NULL, 21, '46639 Aberg Hill', 123, 1);
+-- 5to 10 (05/15/2009 - 02/28/2010)
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Frederica', 'Brader', 79254526, '2009-06-24', 10, 965030921, 'fbrader0@jigsy.com', 24, '3624 Petterle Center', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Ophelia', 'Lovatt', 78636217, '2010-02-15', 17, 973501617, 'olovatt1@icq.com', 39, '7349 Bartillon Parkway', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Giuditta', 'Elijahu', 79385832, '2009-06-27', 1, 953015835, 'gelijahu2@tripadvisor.com', 11, '49651 Evergreen Crossing', 123, 1);
+-- 6to 11 (05/15/2008 - 02/28/2009)
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Merridie', 'Tomaello', 78460282, '2008-08-08', 30, 992231834, 'mtomaello0@squarespace.com', 39, '879 Spohn Court', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Lori', 'Rhelton', 77503592, '2009-02-05', 3, 951580517, 'lrhelton1@zdnet.com', 27, '4979 Sheridan Court', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Lenora', 'Bootton', 77180962, '2009-01-31', 13, 998498243, 'lbootton2@networkadvertising.org', 4, '36 Orin Center', 123, 1);
+-- secundaria (15)
+-- 1ro 12 (05/15/2007 - 02/28/2008)
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Sallee', 'Lerohan', 76888040, '2007-06-25', 20, 907281511, 'slerohan0@netvibes.com', 43, '63 Porter Street', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Valentine', 'Howitt', 77808816, '2007-08-22', 14, 909005899, 'vhowitt1@guardian.co.uk', 20, '88 Laurel Street', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Ivett', 'Sloane', 77670179, '2007-11-11', 9, 961590299, 'isloane2@slate.com', 6, '61599 Blaine Way', 123, 1);
+-- 2do 13 (05/15/2006 - 02/28/2007)
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Gill', 'Fessions', 75033935, '2006-07-07', 27, 940918490, 'gfessions0@smugmug.com', 26, '761 Rusk Road', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Danny', 'Clutheram', 75319716, '2006-08-22', 11, 930458410, 'dclutheram1@house.gov', 9, '981 Helena Park', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Yvonne', 'Boule', 85465740, '2006-10-30', 9, 916548885, 'yboule2@walmart.com', 12, '462 Wayridge Center', 123, 1);
+-- 3ro 14 (05/15/2005 - 02/28/2006)
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Aloisia', 'Strowger', 35306021, '2005-10-04', 15, 953999906, 'astrowger0@xinhuanet.com', 14, '653 Raven Court', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Valina', 'Djurevic', 63288837, '2005-07-19', 29, 912181839, 'vdjurevic1@netvibes.com', 19, '885 Orin Place', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Harmony', 'Patriskson', 54354117, '2005-06-25', 4, 941945637, 'hpatriskson2@is.gd', 26, '8 Northport Center', 123, 1);
+ -- 4to 15 (05/15/2004 - 02/28/2005)
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Tiertza', 'Toller', 78622486, '2005-02-24', 17, 999569604, 'ttoller0@instagram.com', 8, '97605 Merrick Parkway', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Claudette', 'Pattillo', 47572136, '2004-09-06', 26, 907241389, 'cpattillo1@zimbio.com', 33, '04 Briar Crest Parkway', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Nanice', 'Easbie', 67885243, '2004-07-01', 17, 903585717, 'neasbie2@scientificamerican.com', 7, '67562 Sundown Junction', 123, 1);
+-- 5to 16 (05/15/2003 - 02/28/2004)
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Gabey', 'MacArd', 49934011, '2003-10-14', 2, 945573734, 'gmacard0@usa.gov', 12, '42 Upham Way', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Fran', 'Zanre', 58829423, '2004-01-31', 19, 930851508, 'fzanre1@deviantart.com', 6, '39015 Veith Place', 123, 1);
+INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Emmalynn', 'Lornsen', 36901530, '2003-05-19', 7, 906157302, 'elornsen2@cdc.gov', 26, '08225 Bayside Parkway', 123, 1);
 
 -- trabajador (10)
-	-- director
-	insert into trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values ('director', 'Row', 'Couper', 21808589, '1971-04-28', 913145929, 'rcouper9@google.ca', 123, 42);
-	-- recepcion (3)
-	insert into trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values ('recepcionista', 'Tarra', 'Standeven', 20695762, '1970-01-17', 901178478, 'tstandeven7@arizona.edu', 123, 24);
-	insert into trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values ('recepcionista', 'Cecily', 'Malyon', 33916612, '1970-09-30', 919308837, 'cmalyon8@usgs.gov', 123, 3);
-	-- docente (5)
-	insert into trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values ('docente', 'Henry', 'Southouse', 20247869, '1961-10-05', 913990471, 'hsouthouse0@exblog.jp', 123, 2);
-	insert into trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values ('docente', 'Marris', 'Braycotton', 23694271, '1977-03-28', 903589358, 'mbraycotton1@npr.org', 123, 5);
-	insert into trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values ('docente', 'Elka', 'Abrahim', 20367259, '1973-11-10', 901059327, 'eabrahim2@nhs.uk', 123, 8);
-	insert into trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values ('docente', 'Bobbette', 'Fishley', 39370949, '1990-03-02', 913250770, 'bfishley3@bluehost.com', 123, 22);
-	insert into trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values ('docente', 'Quill', 'Grayshon', 26643159, '1977-03-16', 909502667, 'qgrayshon4@yahoo.com', 123, 10);
-	insert into trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values ('docente', 'Christophorus', 'Rountree', 25424832, '1970-04-17', 904768311, 'crountree5@chron.com', 123, 2);
-	insert into trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, correo, pass, id_distrito) values ('docente', 'Farley', 'Fryett', 16607546, '1978-11-03', 910666506, 'ffryett6@dell.com', 123, 37);
+-- directora
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('directora', 'Constantina', 'Wrightam', 32842520, '1986-01-12', 910727483, 7, '79 Loomis Court', 'cwrightam3@craigslist.org', 123, 1);
+-- recepcion (3)
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('recepcionista', 'Damaris', 'Breddy', 28606359, '1963-02-06', 903888102, 17, '092 Manufacturers Crossing', 'dbreddy0@jiathis.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('recepcionista', 'Noel', 'Mardlin', 21974639, '1983-12-20', 909967406, 32, '06 Birchwood Parkway', 'nmardlin1@goo.ne.jp', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('recepcionista', 'Analise', 'Shapero', 38343562, '1986-11-11', 912256458, 16, '19329 Summit Parkway', 'ashapero2@seesaa.net', 123, 1);
+-- docente (96)
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Elizabet', 'Edds', 32580790, '1983-06-11', 909204921, 21, '23 Towne Street', 'eedds4@google.de', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Shelley', 'Cookes', 35797777, '1984-05-18', 913342627, 25, '078 Dorton Junction', 'scookes5@cnn.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Cariotta', 'Kettel', 17980319, '1977-05-11', 901607361, 24, '8 Independence Crossing', 'ckettel6@discuz.net', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Delilah', 'Carabine', 27192553, '1965-03-16', 915133327, 37, '50392 Portage Point', 'dcarabine7@amazon.co.uk', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Marjorie', 'Ducarne', 29476950, '1981-11-27', 919895048, 35, '91796 Hansons Alley', 'mducarne8@hao123.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Page', 'Mattersey', 37925158, '1989-04-12', 912388639, 9, '4 Quincy Avenue', 'pmattersey9@cmu.edu', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Manfred', 'Dewsbury', 22009633, '1974-03-12', 912243094, 12, '82052 2nd Circle', 'mdewsburya@ed.gov', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Chadwick', 'Murden', 16026184, '1983-08-19', 904750754, 36, '365 Paget Park', 'cmurdenb@miibeian.gov.cn', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Raffaello', 'Pitchers', 22883352, '1965-09-06', 916574642, 5, '8056 Orin Park', 'rpitchersc@myspace.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Carleen', 'Ratray', 21338930, '1983-12-22', 913182719, 15, '6999 Stephen Street', 'cratrayd@ezinearticles.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Armand', 'Dugall', 25620270, '1976-07-10', 910989896, 24, '6269 Eagle Crest Parkway', 'adugalle@nytimes.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Jamal', 'Runge', 20360247, '1974-09-14', 910323857, 40, '920 Golf Course Terrace', 'jrungef@globo.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Karol', 'Palfreman', 34905855, '1979-12-25', 912749474, 30, '852 Burrows Junction', 'kpalfremang@domainmarket.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Katrina', 'Seabridge', 19672800, '1988-03-29', 902244704, 20, '7565 Golf Course Pass', 'kseabridgeh@toplist.cz', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Natala', 'Chaplin', 31389920, '1961-09-21', 908419984, 24, '9 Grayhawk Way', 'nchaplini@netscape.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Aidan', 'Simonson', 10116912, '1983-07-09', 905526316, 6, '5 Pond Hill', 'asimonsonj@google.nl', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Ellary', 'Lago', 38173697, '1963-12-18', 905840264, 10, '4490 Arapahoe Park', 'elagok@aol.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Ekaterina', 'Jado', 38565041, '1972-05-21', 919654746, 24, '887 Oak Crossing', 'ejadol@google.de', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Berti', 'Presho', 21425257, '1967-02-27', 913411594, 32, '5573 Monica Pass', 'bpreshom@mtv.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Mayer', 'Klee', 17955247, '1973-09-14', 909063614, 23, '6414 Pine View Terrace', 'mkleen@discuz.net', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Corri', 'Andryushchenko', 33677204, '1970-03-19', 905395801, 30, '86467 Macpherson Circle', 'candryushchenkoo@ucoz.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Matteo', 'Goodreid', 29776626, '1974-08-05', 912760138, 41, '57780 Orin Point', 'mgoodreidp@xing.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Wilma', 'Abramamov', 33333248, '1968-11-16', 914888632, 23, '4 Ilene Street', 'wabramamovq@cpanel.net', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Eadith', 'Abbitt', 14376000, '1981-08-21', 910850848, 40, '05043 Killdeer Street', 'eabbittr@hibu.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Clive', 'Cottill', 28121888, '1974-11-20', 906197716, 33, '5005 Darwin Center', 'ccottills@com.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Guglielmo', 'Paddingdon', 16872571, '1983-02-26', 912405098, 37, '2 Morrow Place', 'gpaddingdont@google.fr', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Abram', 'Hurst', 13106460, '1963-08-09', 917462230, 18, '843 John Wall Terrace', 'ahurstu@statcounter.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Skipp', 'Kunzelmann', 23828196, '1961-08-20', 901985424, 11, '86281 Starling Place', 'skunzelmannv@yolasite.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Suzie', 'Robert', 31783274, '1965-12-28', 919883716, 25, '26312 Montana Road', 'srobertw@seesaa.net', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Ninnette', 'Tysack', 30445515, '1973-07-27', 900212127, 16, '469 Petterle Way', 'ntysackx@wix.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Yule', 'MacKeogh', 20307106, '1989-01-22', 909376211, 43, '606 Pepper Wood Place', 'ymackeoghy@businessinsider.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Steward', 'Dudden', 28581568, '1981-04-12', 916166617, 28, '0208 Gulseth Hill', 'sduddenz@google.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Cosette', 'Marquot', 34914987, '1974-01-16', 911150619, 37, '404 Arizona Avenue', 'cmarquot10@purevolume.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Libbey', 'Winscomb', 34297561, '1974-03-14', 910840053, 6, '634 Truax Way', 'lwinscomb11@mit.edu', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Imelda', 'Tellesson', 23383343, '1974-05-21', 906533826, 34, '70998 Bartillon Parkway', 'itellesson12@wunderground.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Dolorita', 'Stienton', 18891403, '1978-07-26', 914363994, 30, '5451 Mitchell Avenue', 'dstienton13@pen.io', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Wilmette', 'Nunnery', 30057869, '1967-11-02', 913454054, 38, '2 Kennedy Court', 'wnunnery14@mozilla.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Jeffry', 'Zottoli', 26436621, '1969-05-17', 911893062, 25, '57950 Montana Place', 'jzottoli15@sohu.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Donnajean', 'Hedden', 25788594, '1990-05-24', 903925200, 11, '18 Starling Hill', 'dhedden16@cisco.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Tobe', 'Mulliss', 28274961, '1973-07-03', 919651411, 35, '67336 Prentice Park', 'tmulliss17@imageshack.us', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Mag', 'Spiteri', 14875899, '1976-01-18', 919312799, 24, '106 Westend Alley', 'mspiteri18@alibaba.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Melony', 'Shrimpling', 13514804, '1986-07-21', 915310206, 32, '9 Lighthouse Bay Road', 'mshrimpling19@wikimedia.org', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Borden', 'Cords', 36571681, '1980-02-16', 915583611, 19, '6 Claremont Street', 'bcords1a@edublogs.org', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Andreas', 'Elphinston', 22311256, '1965-03-30', 909977308, 13, '8376 Rutledge Lane', 'aelphinston1b@360.cn', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Casie', 'Dreier', 17573969, '1978-05-15', 910538368, 10, '72 Del Sol Junction', 'cdreier1c@blinklist.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Shir', 'Eldrett', 15900584, '1960-06-18', 914126383, 28, '1 Anniversary Circle', 'seldrett1d@infoseek.co.jp', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Starlin', 'Tinsley', 34529853, '1981-12-10', 916610803, 21, '736 Anthes Hill', 'stinsley1e@woothemes.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Wallache', 'Hickford', 14346159, '1978-04-09', 916737210, 37, '31 Spenser Parkway', 'whickford1f@fema.gov', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Pip', 'Costain', 32170930, '1979-07-17', 912259493, 5, '24922 Barby Lane', 'pcostain1g@mediafire.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Jessee', 'Miall', 22524540, '1980-11-14', 913357936, 17, '9568 Memorial Road', 'jmiall1h@mail.ru', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Sherie', 'Totton', 33467926, '1978-06-03', 910181417, 11, '87 Kedzie Lane', 'stotton1i@1688.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Godart', 'Lessmare', 32502633, '1986-11-06', 909762828, 14, '48 Mcbride Circle', 'glessmare1j@biglobe.ne.jp', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Karel', 'Gertz', 35611645, '1960-11-15', 912505268, 34, '30 Goodland Road', 'kgertz1k@techcrunch.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Annecorinne', 'Storek', 30918866, '1966-06-15', 900888075, 6, '6416 Dakota Crossing', 'astorek1l@list-manage.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Pollyanna', 'Louth', 20924834, '1979-12-10', 916655392, 9, '1014 5th Point', 'plouth1m@dot.gov', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Joletta', 'Callendar', 13181382, '1982-02-26', 911423267, 15, '9291 Di Loreto Plaza', 'jcallendar1n@buzzfeed.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Celine', 'Abramovicz', 35713165, '1971-12-26', 919191728, 40, '32 Prairieview Lane', 'cabramovicz1o@multiply.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Derby', 'Chetham', 14490220, '1978-10-15', 902820619, 26, '360 Loeprich Crossing', 'dchetham1p@chicagotribune.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Bowie', 'Josovich', 14635340, '1972-12-20', 916667872, 9, '0384 New Castle Parkway', 'bjosovich1q@tmall.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Lizzie', 'Dykes', 32217543, '1980-08-30', 918161988, 15, '93 Brown Lane', 'ldykes1r@flickr.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Chrissie', 'Teissier', 31072357, '1968-04-18', 907889443, 9, '134 Elmside Point', 'cteissier1s@unc.edu', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Dorris', 'Kyngdon', 17381782, '1981-04-05', 914548277, 43, '3 Cody Pass', 'dkyngdon1t@surveymonkey.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Bryon', 'Hudleston', 36888361, '1970-02-08', 919455486, 37, '2 Toban Street', 'bhudleston1u@domainmarket.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Ignatius', 'Espasa', 25756602, '1989-12-15', 914046001, 31, '479 Cardinal Lane', 'iespasa1v@google.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Antonia', 'Huffer', 31246866, '1976-08-04', 915336949, 33, '94 Maywood Lane', 'ahuffer1w@amazon.co.jp', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Bradan', 'Presho', 17259574, '1964-10-19', 903909129, 8, '660 Barnett Junction', 'bpresho1x@shop-pro.jp', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Diannne', 'Paulmann', 34971376, '1977-11-08', 909764696, 31, '6638 Algoma Terrace', 'dpaulmann1y@ca.gov', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Christabel', 'Tasker', 19043790, '1983-02-03', 903575576, 37, '669 Fulton Crossing', 'ctasker1z@ucoz.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Ketti', 'Glynne', 27771946, '1985-12-31', 913360736, 26, '566 Granby Pass', 'kglynne20@ca.gov', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Annmarie', 'Brokenbrow', 18387223, '1962-05-04', 904884280, 42, '8 Prentice Alley', 'abrokenbrow21@feedburner.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Verile', 'Cowx', 30671234, '1979-06-11', 906245643, 21, '70929 Center Plaza', 'vcowx22@google.it', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Silvia', 'Schrir', 38792081, '1977-05-29', 914337449, 13, '8747 Laurel Street', 'sschrir23@t-online.de', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Padget', 'McQuaide', 25472166, '1966-07-03', 918343137, 37, '2 Orin Park', 'pmcquaide24@yale.edu', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Pate', 'Meachem', 35619045, '1981-05-16', 908417789, 33, '90053 Gulseth Circle', 'pmeachem25@state.tx.us', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Marion', 'Fundell', 10237014, '1965-02-06', 908823573, 24, '57627 Heffernan Park', 'mfundell26@google.cn', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Hal', 'McSherry', 18328203, '1979-08-18', 907370394, 6, '7 Granby Park', 'hmcsherry27@altervista.org', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Edmon', 'Blampey', 28542226, '1967-09-29', 902360986, 12, '05979 Saint Paul Drive', 'eblampey28@phoca.cz', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Candide', 'Siegertsz', 15436990, '1983-04-14', 909192355, 6, '0 Ridge Oak Drive', 'csiegertsz29@histats.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Leda', 'Askew', 37585237, '1971-02-10', 903120275, 37, '04253 Manitowish Way', 'laskew2a@nature.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Deni', 'Payton', 31253636, '1990-07-16', 909216522, 9, '463 Merchant Crossing', 'dpayton2b@biglobe.ne.jp', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Martyn', 'Messenger', 34816366, '1966-11-24', 905549799, 38, '058 Sunnyside Pass', 'mmessenger2c@aboutads.info', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Elliott', 'Giffkins', 37642027, '1970-11-30', 917002862, 34, '537 Sommers Terrace', 'egiffkins2d@merriam-webster.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Nil', 'Brand-Hardy', 23258269, '1967-07-26', 907537947, 1, '2502 Scott Trail', 'nbrandhardy2e@barnesandnoble.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Darb', 'Younge', 39866466, '1977-02-11', 909736166, 35, '7793 Dexter Circle', 'dyounge2f@aboutads.info', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Barth', 'Mateiko', 18999571, '1961-10-28', 907228684, 22, '4105 Birchwood Terrace', 'bmateiko2g@shutterfly.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Rae', 'Pennino', 14205448, '1968-03-21', 917363234, 14, '5868 Thierer Drive', 'rpennino2h@cdbaby.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Kristo', 'Sinnocke', 33924458, '1967-02-08', 915602274, 23, '23 Hauk Trail', 'ksinnocke2i@freewebs.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Liana', 'Buckby', 12525553, '1973-03-08', 913436045, 9, '402 Express Avenue', 'lbuckby2j@opensource.org', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Elnore', 'Bolesworth', 12706792, '1970-04-22', 913355539, 9, '69633 Armistice Circle', 'ebolesworth2k@google.com.br', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Neill', 'Clohissy', 38655219, '1963-07-07', 911544681, 8, '6031 La Follette Drive', 'nclohissy2l@friendfeed.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Marjory', 'Humbee', 23239236, '1977-05-01', 915521381, 33, '952 Lake View Street', 'mhumbee2m@ed.gov', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Claiborn', 'Howlings', 38670195, '1963-09-06', 901086885, 8, '20851 Sheridan Lane', 'chowlings2n@weibo.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Zoe', 'Edmonstone', 31227967, '1962-03-13', 914558008, 38, '042 Mendota Trail', 'zedmonstone2o@woothemes.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Wenona', 'Wormell', 17502979, '1969-06-11', 916450619, 22, '84 Bellgrove Plaza', 'wwormell2p@redcross.org', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Evyn', 'Cramphorn', 20788690, '1985-03-18', 905659745, 13, '843 Schurz Road', 'ecramphorn2q@go.com', 123, 1);
+INSERT INTO trabajador (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, id_distrito, direccion, correo, pass, estado) VALUES ('docente', 'Sharline', 'Gheorghescu', 30148787, '1968-08-11', 903041017, 35, '96065 Springs Park', 'sgheorghescu2r@dot.gov', 123, 1);
 
 -- nivel (3)
-insert into nivel (nombre) values ('inicial');
-insert into nivel (nombre) values ('primaria');
-insert into nivel (nombre) values ('secundaria');
+INSERT INTO nivel (nombre) VALUES ('inicial');
+INSERT INTO nivel (nombre) VALUES ('primaria');
+INSERT INTO nivel (nombre) VALUES ('secundaria');
 
--- grado (42)
-	-- inicial (9)
-		-- A
-		insert into grado (nombre, id_nivel) values ('3 años', 1);
-		insert into grado (nombre, id_nivel) values ('4 años', 1);
-		insert into grado (nombre, id_nivel) values ('5 años', 1);
-		-- B
-		insert into grado (nombre, id_nivel) values ('3 años', 1);
-		insert into grado (nombre, id_nivel) values ('4 años', 1);
-		insert into grado (nombre, id_nivel) values ('5 años', 1);
-        -- C
-        insert into grado (nombre, id_nivel) values ('3 años', 1);
-		insert into grado (nombre, id_nivel) values ('4 años', 1);
-		insert into grado (nombre, id_nivel) values ('5 años', 1);
-    -- primaria (18)
-		-- A
-		insert into grado (nombre, id_nivel) values ('1ro', 2);
-		insert into grado (nombre, id_nivel) values ('2do', 2);
-		insert into grado (nombre, id_nivel) values ('3ro', 2);
-		insert into grado (nombre, id_nivel) values ('4to', 2);
-		insert into grado (nombre, id_nivel) values ('5to', 2);
-		insert into grado (nombre, id_nivel) values ('6to', 2);
-        -- B
-		insert into grado (nombre, id_nivel) values ('1ro', 2);
-		insert into grado (nombre, id_nivel) values ('2do', 2);
-		insert into grado (nombre, id_nivel) values ('3ro', 2);
-		insert into grado (nombre, id_nivel) values ('4to', 2);
-		insert into grado (nombre, id_nivel) values ('5to', 2);
-		insert into grado (nombre, id_nivel) values ('6to', 2);
-		-- C
-		insert into grado (nombre, id_nivel) values ('1ro', 2);
-		insert into grado (nombre, id_nivel) values ('2do', 2);
-		insert into grado (nombre, id_nivel) values ('3ro', 2);
-		insert into grado (nombre, id_nivel) values ('4to', 2);
-		insert into grado (nombre, id_nivel) values ('5to', 2);
-		insert into grado (nombre, id_nivel) values ('6to', 2);
-    -- secundaria (15)
-		-- A 
-		insert into grado (nombre, id_nivel) values ('1ro', 3);
-		insert into grado (nombre, id_nivel) values ('2do', 3);
-		insert into grado (nombre, id_nivel) values ('3ro', 3);
-		insert into grado (nombre, id_nivel) values ('4to', 3);
-		insert into grado (nombre, id_nivel) values ('5to', 3);
-		-- B
-		insert into grado (nombre, id_nivel) values ('1ro', 3);
-		insert into grado (nombre, id_nivel) values ('2do', 3);
-		insert into grado (nombre, id_nivel) values ('3ro', 3);
-		insert into grado (nombre, id_nivel) values ('4to', 3);
-		insert into grado (nombre, id_nivel) values ('5to', 3);
-		-- C
-		insert into grado (nombre, id_nivel) values ('1ro', 3);
-		insert into grado (nombre, id_nivel) values ('2do', 3);
-		insert into grado (nombre, id_nivel) values ('3ro', 3);
-		insert into grado (nombre, id_nivel) values ('4to', 3);
-		insert into grado (nombre, id_nivel) values ('5to', 3);
-    
+-- grado (14)
+-- inicial (3)
+-- A
+INSERT INTO grado (nombre, id_nivel) VALUES ('3 años', 1);
+INSERT INTO grado (nombre, id_nivel) VALUES ('4 años', 1);
+INSERT INTO grado (nombre, id_nivel) VALUES ('5 años', 1);
+ -- primaria (6)
+INSERT INTO grado (nombre, id_nivel) VALUES ('1ro', 2);
+INSERT INTO grado (nombre, id_nivel) VALUES ('2do', 2);
+INSERT INTO grado (nombre, id_nivel) VALUES ('3ro', 2);
+INSERT INTO grado (nombre, id_nivel) VALUES ('4to', 2);
+INSERT INTO grado (nombre, id_nivel) VALUES ('5to', 2);
+INSERT INTO grado (nombre, id_nivel) VALUES ('6to', 2);
+ -- secundaria (5)
+INSERT INTO grado (nombre, id_nivel) VALUES ('1ro', 3);
+INSERT INTO grado (nombre, id_nivel) VALUES ('2do', 3);
+INSERT INTO grado (nombre, id_nivel) VALUES ('3ro', 3);
+INSERT INTO grado (nombre, id_nivel) VALUES ('4to', 3);
+INSERT INTO grado (nombre, id_nivel) VALUES ('5to', 3);
+ 
 -- seccion (42)
-	-- inicial
-		-- A
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('A', 1, 1);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('A', 1, 2);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('A', 1, 3);
-        -- B
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('B', 1, 4);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('B', 1, 5);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('B', 1, 6);
-        -- C
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('C', 1, 7);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('C', 1, 8);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('C', 1, 9);
-	-- primaria
-		-- A
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('A', 1, 10);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('A', 1, 11);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('A', 1, 12);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('A', 1, 13);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('A', 1, 14);
-        insert into seccion (nombre, n_estudiantes, id_grado) values ('A', 1, 15);
-		-- B
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('B', 1, 16);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('B', 1, 17);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('B', 1, 18);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('B', 1, 19);
-        insert into seccion (nombre, n_estudiantes, id_grado) values ('B', 1, 20);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('B', 1, 21);
-		-- C
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('C', 1, 22);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('C', 1, 23);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('C', 1, 24);
-        insert into seccion (nombre, n_estudiantes, id_grado) values ('C', 1, 25);
-        insert into seccion (nombre, n_estudiantes, id_grado) values ('C', 1, 26);
-        insert into seccion (nombre, n_estudiantes, id_grado) values ('C', 1, 27);
-	-- secundaria
-		-- A
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('A', 1, 28);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('A', 1, 29);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('A', 1, 30);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('A', 1, 31);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('A', 1, 32);
-		-- B
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('B', 1, 33);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('B', 1, 34);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('B', 1, 35);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('B', 1, 36);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('B', 1, 37);
-		-- C
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('C', 1, 38);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('C', 1, 39);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('C', 1, 40);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('C', 1, 41);
-		insert into seccion (nombre, n_estudiantes, id_grado) values ('C', 1, 42);
+-- inicial
+-- A
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('A', 1, 1);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('A', 1, 2);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('A', 1, 3);
+-- B
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('B', 1, 1);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('B', 1, 2);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('B', 1, 3);
+-- C
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('C', 1, 1);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('C', 1, 2);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('C', 1, 3);
+		
+-- primaria
+-- A
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('A', 1, 4);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('A', 1, 5);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('A', 1, 6);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('A', 1, 7);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('A', 1, 8);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('A', 1, 9);
+-- B
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('B', 1, 4);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('B', 1, 5);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('B', 1, 6);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('B', 1, 7);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('B', 1, 8);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('B', 1, 9);
+-- C
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('C', 1, 4);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('C', 1, 5);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('C', 1, 6);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('C', 1, 7);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('C', 1, 8);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('C', 1, 9);
+-- secundaria
+-- A
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('A', 1, 10);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('A', 1, 11);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('A', 1, 12);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('A', 1, 13);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('A', 1, 14);
+-- B
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('B', 1, 10);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('B', 1, 11);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('B', 1, 12);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('B', 1, 13);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('B', 1, 14);
+-- C
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('C', 1, 10);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('C', 1, 11);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('C', 1, 12);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('C', 1, 13);
+INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('C', 1, 14);
 
--- matricula ()
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-01-24 04:53:12', 1, 1, 1, 1, 1);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-02-13 12:09:57', 1, 2, 2, 2, 2);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-01-14 00:26:08', 1, 3, 3, 3, 2);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-02-21 01:17:35', 1, 4, 4, 4, 1);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-01-30 18:31:30', 1, 5, 5, 5, 3);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-01-20 04:05:12', 1, 6, 6, 6, 3);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-01-25 15:13:13', 1, 7, 7, 7, 3);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-03-11 05:54:50', 1, 8, 8, 8, 1);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-01-17 23:35:40', 1, 9, 9, 9, 1);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-03-08 12:58:11', 2, 10, 10, 10, 3);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-01-22 12:01:19', 2, 11, 11, 11, 2);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-01-30 08:54:18', 2, 12, 12, 12, 3);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-01-11 12:55:02', 2, 13, 13, 13, 1);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-02-28 13:48:02', 2, 14, 14, 14, 3);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-02-13 07:20:27', 2, 15, 15, 15, 1);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-02-05 09:04:23', 2, 16, 16, 16, 2);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-01-12 11:57:27', 2, 17, 17, 17, 1);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-03-09 08:47:01', 2, 18, 18, 18, 3);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-03-09 08:47:01', 2, 19, 19, 19, 3);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-03-05 10:38:48', 2, 20, 20, 20, 2);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-02-23 09:51:27', 2, 21, 21, 21, 2);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-02-09 07:52:04', 2, 22, 22, 22, 2);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-02-05 08:12:36', 2, 23, 23, 23, 3);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-02-05 06:29:08', 2, 24, 24, 24, 2);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-03-13 13:50:35', 2, 25, 25, 25, 3);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-02-16 09:01:17', 2, 26, 26, 26, 2);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-03-13 13:10:55', 2, 27, 27, 27, 2);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-02-22 13:34:45', 2, 28, 28, 28, 3);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-01-27 13:12:37', 3, 29, 29, 29, 3);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-02-10 10:47:25', 3, 30, 30, 30, 1);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-01-27 12:14:20', 3, 31, 31, 31, 1);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-03-06 11:30:21', 3, 32, 32, 32, 2);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-02-03 10:14:12', 3, 33, 33, 33, 3);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-01-05 09:32:03', 3, 34, 34, 34, 1);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-03-06 06:02:30', 3, 35, 35, 35, 1);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-02-20 07:19:08', 3, 36, 36, 36, 2);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-03-02 08:52:40', 3, 37, 37, 37, 1);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-01-30 08:52:49', 3, 38, 38, 38, 1);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-02-06 06:59:44', 3, 39, 39, 39, 2);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-01-10 07:40:00', 3, 40, 40, 40, 1);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-02-09 08:15:52', 3, 41, 41, 41, 1);
-insert into matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) values ('2020-03-06 08:38:58', 3, 42, 42, 42, 2);
+-- matricula (42)
+-- inicial (9)
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-24 04:53:12', 1, 1, 1, 1, 1);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-13 12:09:57', 1, 2, 2, 2, 2);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-14 00:26:08', 1, 3, 3, 3, 2);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-21 01:17:35', 1, 4, 4, 4, 1);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-30 18:31:30', 1, 5, 5, 5, 3);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-20 04:05:12', 1, 6, 6, 6, 3);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-25 15:13:13', 1, 7, 7, 7, 3);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-11 05:54:50', 1, 8, 8, 8, 1);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-17 23:35:40', 1, 9, 9, 9, 1);
+ -- primaria (18)
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-08 12:58:11', 2, 10, 10, 10, 3);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-22 12:01:19', 2, 11, 11, 11, 2);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-30 08:54:18', 2, 12, 12, 12, 3);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-11 12:55:02', 2, 13, 13, 13, 1);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-28 13:48:02', 2, 14, 14, 14, 3);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-13 07:20:27', 2, 15, 15, 15, 1);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-05 09:04:23', 2, 16, 16, 16, 2);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-12 11:57:27', 2, 17, 17, 17, 1);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-09 08:47:01', 2, 18, 18, 18, 3);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-09 08:47:01', 2, 19, 19, 19, 3);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-05 10:38:48', 2, 20, 20, 20, 2);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-23 09:51:27', 2, 21, 21, 21, 2);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-09 07:52:04', 2, 22, 22, 22, 2);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-05 08:12:36', 2, 23, 23, 23, 3);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-05 06:29:08', 2, 24, 24, 24, 2);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-13 13:50:35', 2, 25, 25, 25, 3);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-16 09:01:17', 2, 26, 26, 26, 2);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-13 13:10:55', 2, 27, 27, 27, 2);
+ -- secundaria (15)
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-22 13:34:45', 2, 28, 28, 28, 3);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-27 13:12:37', 3, 29, 29, 29, 3);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-10 10:47:25', 3, 30, 30, 30, 1);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-27 12:14:20', 3, 31, 31, 31, 1);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-06 11:30:21', 3, 32, 32, 32, 2);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-03 10:14:12', 3, 33, 33, 33, 3);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-05 09:32:03', 3, 34, 34, 34, 1);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-06 06:02:30', 3, 35, 35, 35, 1);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-20 07:19:08', 3, 36, 36, 36, 2);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-02 08:52:40', 3, 37, 37, 37, 1);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-30 08:52:49', 3, 38, 38, 38, 1);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-06 06:59:44', 3, 39, 39, 39, 2);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-10 07:40:00', 3, 40, 40, 40, 1);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-09 08:15:52', 3, 41, 41, 41, 1);
+INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-06 08:38:58', 3, 42, 42, 42, 2);
 
 -- curso (26)
-	-- inicial (6) http://www.minedu.gob.pe/curriculo/pdf/programa-curricular-educacion-inicial.pdf
-	insert into curso (nombre, descripcion) values ('PERSONAL SOCIAL','El  desarrollo  personal  y  social  de  nuestros  niños  y  niñas  es  un  proceso  que  se  inicia  en  la  familia y se construye sobre la base de las relaciones seguras y afectivas que establecen con las personas que los cuidan. Estas relaciones significativas constituyen el vínculo de apego, el  cual  les  brinda  la  seguridad  y  contención  que  necesitan  para  construirse  como  personas  únicas y especiales, e interactuar con el mundo. Este vínculo les brinda, además, la seguridad de creer y confiar en ese adulto que los cuida y acompaña.Durante los primeros meses de vida, el niño siente que es uno solo con su madre. A partir de la interacción respetuosa y afectuosa con ella, y a medida que va creciendo, comienza a diferenciar su cuerpo del cuerpo de su madre y a sentirse una persona distinta, con emociones, sentimientos y percepciones propias, y diferente a los demás. Este proceso de separación favorece su tránsito hacia una socialización con confianza y seguridad, con la capacidad de decidir frente a sus intereses de exploración y juego, y a algunas acciones de cuidado.Así  también,  sus  experiencias  de  socialización  le  permiten  vivir  diferentes  situaciones  con  niños, niñas y adultos distintos a los de su familia, y conocer otras creencias y costumbres. En el caso de la IE, esta se presenta como primer espacio público de socialización, donde aprende a convivir aportando a su grupo de aula y a su comunidad educativa.Por ello, la atención educativa en este nivel, se orienta a favorecer la formación personal y social  de  los  niños  y  niñas  promoviendo  y  acompañando  procesos  como  la  construcción  de su identidad a partir del conocimiento y valoración de sí mismos; el reconocimiento de las creencias y costumbres de su familia; así como la expresión y el reconocimiento de sus emociones, que los llevan al inicio de la regulación de las mismas. De igual manera, promueve el establecimiento de relaciones seguras, la integración de valores, límites y normas que les permitan aprender a cuidarse, y cuidar los espacios y recursos comunes; a convivir con otros, respetar diferencias tanto culturales, de creencias y costumbres, como conocer y ejercer sus derechos, y asumir responsabilidades acordes a su nivel de desarrollo y madurez.');
-    insert into curso (nombre, descripcion) values ('PSICOMOTRIZ','Todas las personas, desde que nacemos, actuamos y nos relacionamos con el entorno a través de nuestro cuerpo. Con este nos movemos, experimentamos, comunicamos y aprendemos de una manera única, acorde a nuestras propias características, deseos, afectos, necesidades, estados de ánimo y demás. Esto da cuenta de la dimensión psicomotriz de la vida del hombre; es decir, de esa estrecha y permanente relación que existe entre el cuerpo, las emociones y los pensamientos de cada persona al actuar. Desde los primeros meses de vida, el cuerpo y el movimiento son el principal medio que los niños  y  las  niñas  emplean  para  expresar  sus  deseos,  sensaciones  y  emociones,  así  también  para conocerse y abrirse al mundo que los rodea. De esta manera, el bebé va adquiriendo progresivamente las primeras posturas –como pasar de boca arriba a boca abajo o viceversa, sentarse, arrodillarse y pararse– hasta alcanzar el desplazamiento y continuar ampliando sus posibilidades de movimiento y acción.Al mismo tiempo, es a través de estas vivencias que el niño va desarrollando un progresivo control  y  dominio  de  su  cuerpo  reajustándose  corporalmente  (acomodándose)  según  sus  necesidades en las diversas situaciones cotidianas de exploración o de juego que experimenta. Es a partir de estas experiencias y en la constante interacción con su medio que el niño va construyendo su esquema e imagen corporal; es decir, va desarrollando una representación mental de su cuerpo y una imagen de sí mismo.En medio de este proceso, es necesario tomar en cuenta que los niños y las niñas son sujetos plenos  de  emociones,  sensaciones,  afectos,  pensamientos,  necesidades  e  intereses  propios,  los cuales, durante los primeros años, son vividos y expresados intensamente a través de su cuerpo (gestos, tono, posturas, acciones, movimientos y juegos). Así, esto da cuenta de esa vinculación permanente que existe entre su cuerpo, sus pensamientos y sus emociones.');
-    insert into curso (nombre, descripcion) values ('COMUNICACIÓN','Nuestro país tiene una gran diversidad lingüística y cultural, por ello, en las aulas se cuenta con  niños  y  niñas  que,  como  parte  de  su  herencia  cultural  y  lingüística,  hablan  una  lengua  originaria o indígena, la cual suele ser su lengua materna. Según el contexto lingüístico en el  que  se  ubiquen,  además  de  consolidar  el  aprendizaje  de  su  propia  lengua,  lo  harán  en  una segunda lengua: el castellano. Esta será el puente de comunicación intercultural entre hablantes de diferentes lenguas y, además, una forma de acceder a nuevos conocimientos. Si bien hay similitudes entre la adquisición de la lengua materna y la segunda lengua, los procesos son diferentes. En el caso de la adquisición de la segunda lengua en la IE, los niños y niñas tienen que desarrollar competencias comunicativas en una segunda lengua a partir del desarrollo paulatino de competencias en su lengua materna.El desarrollo de las competencias comunicativas en castellano como segunda lengua permitirá que los estudiantes establezcan relaciones sociales con otras personas en diferentes ámbitos de sus vidas, y puedan comunicarse y ejercer su ciudadanía en contextos públicos y privados, más allá del ámbito escolar.');
-    insert into curso (nombre, descripcion) values ('DESCUBRIMIENTO DEL MUNDO','Los niños y niñas, desde que nacen, son sujetos de acción, e interactúan con las personas, los objetos y seres vivos que forman parte de su ambiente. Desde sus posibilidades de movimiento, desplazamiento  y  emoción  en  su  cotidianidad,  empiezan  a  explorar  espontáneamente  el  entorno que los rodea y a vivir experiencias que les permiten poco a poco ir descubriendo el mundo. Su curiosidad natural y la seguridad afectiva, los anima a explorar y experimentar por propia iniciativa con todo su cuerpo, y a estar atentos a los hechos que les suceden y a situaciones que se dan a su alrededor. Así, al chupar, morder, mirar, escuchar, oler, tocar, cargar, golpear, tirar, jalar, girar, van experimentando y empiezan a descubrir algunas características perceptuales, a asignar o reconocer usos de los objetos para actuar en su entorno; empiezan a compararlos, ordenarlos, juntarlos y agruparlos según sus propios criterios. Los niños y niñas poco a poco van volviendo más complejas sus acciones sobre los objetos y, en la medida que adquieren mayor dominio en sus posturas y movimientos, se desplazan descubriendo algunas relaciones espaciales entre sus cuerpos y las personas y objetos de su entorno y en el ambiente. A partir de estas acciones exploratorias, van construyendo sus primeras nociones de espacio, de  cantidad,  de  tiempo  y  de  causalidad,  así  como  también  construyen  sus  ideas  acerca  de  lo que es y de lo que sucede en el mundo. En estas acciones, los niños se transforman y transforman su entorno; encuentran significados que dan sentido a su experiencia y, así, amplían sus posibilidades de conocer el mundo. La  intención  pedagógica  garantiza  que  cada  niño  y  niña,  en  su  cotidianidad  –durante  los  momentos de cuidados (alimentación, lactancia, el cambio de ropa, el aseo, el descanso), de actividades autónomas y de juego libre–, cuente con condiciones apropiadas que les permitan explorar el mundo y desarrollar sus competencias. Para ello, se debe partir de la observación de las características, necesidades, intereses, y formas de aprender de cada niño y niña; con esta  información,  el  docente  o  promotor  educativo  acondiciona  los  espacios,  materiales  y  brinda las orientaciones a los adultos significativos del niño para que puedan interactuar con ellos y acompañarlos en su propio proceso de desarrollo y aprendizaje. Los niños y niñas deben contar con adultos “responsivos”, es decir, que estén siempre atentos a las necesidades e intereses de los niños, y que los acompañen o interactúen con ellos con respeto y calidez, sin invadirlos o interferir en sus acciones. ');
-    insert into curso (nombre, descripcion) values ('MATEMÁTICA','Los niños y niñas, desde que nacen, exploran de manera natural todo aquello que los rodea y  usan  todos  sus  sentidos  para  captar  información  y  resolver  los  problemas  que  se  les  presentan. Durante esta exploración, ellos actúan sobre los objetos y establecen relaciones que les permiten agrupar, ordenar y realizar correspondencias según sus propios criterios. Asimismo,  los  niños  y  niñas  poco  a  poco  van  logrando  una  mejor  comprensión  de  las  relaciones espaciales entre su cuerpo y el espacio, otras personas y los objetos que están en su entorno. Progresivamente, irán estableciendo relaciones más complejas que los llevarán a resolver situaciones referidas a la cantidad, forma, movimiento y localización.El acercamiento de los niños a la matemática en este nivel se da en forma gradual y progresiva, acorde  con  el  desarrollo  de  su  pensamiento;  es  decir,  la  madurez  neurológica,  emocional,  afectiva  y  corporal  del  niño,  así  como  las  condiciones  que  se  generan  en  el  aula  para  el  aprendizaje, les permitirá desarrollar y organizar su pensamiento matemático.Por  las  características  de  los  niños  y  niñas  en  estas  edades,  las  situaciones  de  aprendizaje  deben desarrollarse a partir de actividades que despierten el interés por resolver problemas que requieran establecer relaciones, probar diversas estrategias y comunicar sus resultados.');
-    insert into curso (nombre, descripcion) values ('CIENCIA Y TECNOLOGÍA','Los niños y niñas, desde sus primeros años, sienten curiosidad, asombro y fascinación por todo aquello que se presenta ante sus ojos; es así que exploran y experimentan diversas sensaciones que les permiten descubrirse y descubrir el mundo que los rodea para conocerlo y comprenderlo mejor. A partir de estas experiencias, comienzan a reconocer y a diferenciar sensaciones internas y externas de su cuerpo, a explorar el espacio y los objetos que hay en él; así descubren texturas, formas y otras características. Además, empiezan a comparar y establecer ciertas relaciones entre sus acciones y los efectos que producen en los objetos que manipulan. De esta manera, obtienen información que los aproxima a un conocimiento más profundo y complejo de su propio cuerpo y de los objetos, así como de los fenómenos y hechos que acontecen en la naturaleza. Además, en este proceso, el desarrollo de su lenguaje les permitirá expresar y comunicar sus descubrimientos, describir lo que observan o experimentan, y dar a conocer sus propias “ideas y teorías”.En la vida cotidiana, la ciencia y la tecnología están integradas y convergen todo el tiempo; es así que los niños, al tener una mirada curiosa sobre el mundo, no solo tienen la necesidad de conocerlo, sino de entender cómo funcionan las cosas. Por ello, las desarman, arman y transforman para ver qué sucede con ellas. En el nivel de Educación Inicial, la tecnología se centra en la satisfacción de necesidades y en la resolución de situaciones problemáticas que los impulsan a imaginar, diseñar, inventar y crear posibles alternativas de solución. De esta manera,  logran  desarrollar  su  pensamiento,  adquirir  habilidades,  conocimientos  y  actitudes  que les permitirán comprender, respetar y sensibilizarse con el ambiente en el que viven. Es así que, para el desarrollo de la competencia relacionada con el área, se parte de la curiosidad natural de los niños, de su asombro, deseo y necesidad de conocer y comprender el qué y cómo funciona el mundo que los rodea. En el área, se tiene como propósito promover experiencias que los motiven a explorar, inventar y cuestionarse sobre los objetos, seres vivos, hechos y fenómenos que observan; a buscar información para responder a aquellas preguntas que los intrigan; poner a prueba sus “ideas y teorías” para reafirmarlas o transformarlas; descubrir posibles  relaciones  entre  las  características  de  los  objetos;  y  describir  lo  que  observan,  así  como explicar y comunicar sus descubrimientos.');
-    
-	-- primaria (9) http://www.minedu.gob.pe/curriculo/pdf/programa-nivel-primaria-ebr.pdf
-	insert into curso (nombre, descripcion) values ('PERSONAL SOCIAL', "Para  la  realización  plena  de  las  personas  en  una  sociedad  cambiante  como  la  actual  son primordiales tanto el desarrollo personal como la ciudadanía activa. En relación a lo primero, la autorregulación de las emociones resulta fundamental para manejar los conflictos de maneras no  violentas  y  para  elaborar  y  asumir  normas;  la  valoración  de  nosotros  mismos   y  la consolidación de nuestra identidad nos permite convivir de manera democrática y participar en nuestra comunidad a partir de la deliberación sobre asuntos que nos involucran. De igual forma, la ética, entendida tanto como el compromiso con principios morales como el cuidado del otro, es indispensable para generar una convivencia armónica que reconozca y respete a los demás y busque  el  bien  común.  Por  otro  lado,  la  ciudadanía  activa  enriquece  el  desarrollo  personal  a partir del reconocimiento de las personas como sujetos de derecho y de los principios de libertad y dignidad humana, y a través de las oportunidades de crecimiento personal que la participación social  ofrece.  La  búsqueda por  fortalecer  una sociedad  más  equitativa,  en  la  que  los  derechos humanos estén en plena vigencia, así como el cumplimiento de los deberes ciudadanos, permitirá que cada persona se desarrolle plenamente.");
-	insert into curso (nombre, descripcion) values ('EDUCACIÓN FÍSICA',	"La  evolución  de  la  Educación  Física  está  determinada  actualmente  por  los avances  sociales, científicos y tecnológicos en el mundo. Las demandas sociales respecto a la formación de hábitos relacionados  con  el  logro  del  bienestar  físico,  psicológico  y  emocional,  han  hecho  que  el  área haya  tomado  cada  vez  más  importancia  en  los  currículos  escolares.  Por  ello,  a  través  de  la Educación  Física  se  pretende  que  los  estudiantes  desarrollen  una  conciencia  crítica  hacia  el cuidado de su salud y la de los demás, buscando que sean autónomos y capaces de asumir sus propias decisiones para la mejora de la calidad de vida.");
-	insert into curso (nombre, descripcion) values ('COMUNICACIÓN', "El  área  de  Comunicación  tiene  por  finalidad  que  los  estudiantes  desarrollen  competencias comunicativas  para  interactuar  con  otras  personas,  comprender  y  construir  la realidad,  y representar  el  mundo  de  forma  real  o  imaginaria.  Este  desarrollo  se  da  mediante  el  uso  del lenguaje, una herramienta fundamental para la formación de las personas pues permite tomar conciencia  de  nosotros  mismos  al  organizar  y  dar  sentido  a  nuestras  vivencias  y  saberes.  Los aprendizajes  que  propicia  el  área  de  Comunicación  contribuyen  a  comprender  el  mundo contemporáneo, tomar decisiones y actuar éticamente en diferentes ámbitos de la vida.");
-	insert into curso (nombre, descripcion) values ('ARTE Y CULTURA', "Desde los inicios de la civilización y a lo largo de la historia los hombres y mujeres han construido, diseñado y creado imágenes que les permitan simbolizar y representar su entorno, sus formas de vida, sus cosmovisiones e identidades.  Las artes son una parte integral de la vida cotidiana y están presentes en todas las culturas y sociedades. Abarcan desde las formas más tradicionales que se encuentran integradas a la vida de una comunidad (como los rituales, las celebraciones, los  ornamentos  y  las  artes  utilitarias),  hasta  las  formas  más  emergentes  y  contemporáneas (como las animaciones digitales, el arte involucrado con la ecología, las performances, etc.).  A  través  de  las  artes,  las  personas  hemos  podido  reconocer  las  influencias  culturales  que  nos rodean e indagar acerca de quiénes somos y cómo nos relacionamos con los demás.  Además, son  un  registro  incomparable  del  pasado,  de  la  manera  en  que  nuestras  sociedades  han evolucionado a través del tiempo y un vehículo para comprender “cómo el arte se enfrenta con ideas, necesidades y valores que pueden encontrarse en todos los tiempos y lugares”.");
-	insert into curso (nombre, descripcion) values ('INGLÉS', "En  la  actualidad,  aprender  inglés  es  una  necesidad  por  ser  una  lengua  extranjera  clave  para acceder a lo último en avances tecnológicos, científicos y académicos, así como para conectarse con diversas realidades y contextos. Por ello buscamos desarrollarla competencia comunicativa de nuestros estudiantes en el idioma inglés,  para  facilitar  su  inserción  eficaz  en  la  economía  global  al  ampliar  su  acceso  a oportunidades académicas, tecnológicas, científicas, culturales y laborales.");
-	insert into curso (nombre, descripcion) values ('MATEMÁTICA', "La  matemática  es  una  actividad  humana  y  ocupa  un  lugar  relevante  en  el  desarrollo  del conocimiento  y  de  la  cultura  de  nuestras  sociedades.  Se  encuentra  en  constante  desarrollo  y reajuste,  y  por  ello  sustenta  una  creciente  variedad  de  investigaciones  en  las  ciencias,  las tecnologías modernas y otras, las cuales son fundamentales para el desarrollo integral del país. Esta  área  de  aprendizaje  contribuye  en  formar  ciudadanos  capaces  de  buscar,  organizar, sistematizar y analizar información, entender el mundo que los rodea, desenvolverse en él, tomar decisiones pertinentes y resolver problemas en distintas contextos de manera creativa.");
-	insert into curso (nombre, descripcion) values ('CIENCIA Y TECNOLOGÍA', "La  ciencia  y  la  tecnología  están  presentes  en  diversos contextos  de  la  actividad  humana, ocupando  un  lugar  importante  en  el  desarrollo  del  conocimiento  y  de  la  cultura  de  nuestras sociedades,  que  han  ido  transformando  nuestras  concepciones  sobre  el  universo  y  nuestras formas  de  vida.  Este  contexto  exige  ciudadanos  que  sean  capaces  de  cuestionarse,  buscar información confiable, sistematizarla, analizarla, explicarla y tomar decisiones fundamentadas en conocimientos científicos, considerando las implicancias sociales y ambientales. Así también, ciudadanos  que  usen  el  conocimiento  científico  para  aprender  constantemente  y  tener  una forma de comprender los fenómenos que acontecen a su alrededor.");
-	insert into curso (nombre, descripcion) values ('EDUCACIÓN RELIGIOSA', "El área de Educación Religiosa se ocupa particularmente de promover y facilitar el desarrollo de lassiguientes competencias de los estudiantes que eligen voluntariamente ser educados en el catolicismo: Construye su identidad como persona humana, amada por Dios, digna, libre y trascendente, comprendiendo la doctrina de su propia religión, abierto al diálogo con las que le son cercanas. Asume la experiencia el encuentro personal y comunitario con Dios en su proyecto de vida en coherencia con su creencia religiosa. Según  la  Ley  N°  29635  Ley  de  Libertad  Religiosa,  el  estudiante,  cuya  confesión  religiosa  es distinta a la Católica puede solicitar exoneración del área de Religión.");
-	insert into curso (nombre, descripcion) values ('CASTELLANO COMO SEGUNDA LENGUA', "Nuestro país tiene una gran diversidad lingüística y cultural, por ello en nuestras aulas contamos con estudiantes que como parte de su herencia cultural y lingüística hablan una lengua originaria o  indígena,  la  cual  suele  ser  su  lengua  materna.  Según  el  contexto  lingüístico  en  el  que  se ubiquen,  además  de  consolidar  el  aprendizaje  de  su  propia  lengua  lo  harán  en  una  segunda lengua,  el  castellano.  Esta  será  el  puente  de  comunicación  intercultural  entre  hablantes  de diferentes lenguas además de una forma de acceder a nuevos conocimientos. Si  bien  hay  similaridades  entre  la  adquisición  de  la  lengua  materna  y  la  segunda  lengua,  los procesos son diferentes. La mayor parte de la adquisición de la lengua materna está completa cuando  un  niño  o  niña  ingresa  a  la  escuela  a  los  cinco  años  de  edad.  Es  más,  este  desarrollo usualmente ocurre sin un esfuerzo consciente. En el caso de la adquisición de la L2 en la escuela, el niño o niña tiene que desarrollar competencias comunicativas en una segunda lengua a partir del logro paulatino de competencias en su lengua materna. Por ello, con el objetivo de respetar el proceso de adquisición de ambas lenguas, contamos con un  área  de  castellano  como  segunda  lengua.  Esta  área  contribuiría  a  que  los  estudiantes establezcan   relaciones   sociales   con   otras   personas   endiferentes   ámbitos   de   sus   vidas, comunicarse,  y  ejercer  su  ciudadanía  en  contextos  públicos  y  privados,  más  allá  del  ámbito escolar.");
+-- inicial (6) http://www.minedu.gob.pe/curriculo/pdf/programa-curricular-educacion-inicial.pdf
+INSERT INTO curso (nombre, descripcion) VALUES ('PERSONAL SOCIAL','1');
+INSERT INTO curso (nombre, descripcion) VALUES ('PSICOMOTRIZ','2');
+INSERT INTO curso (nombre, descripcion) VALUES ('COMUNICACIÓN','3');
+INSERT INTO curso (nombre, descripcion) VALUES ('DESCUBRIMIENTO DEL MUNDO','4');
+INSERT INTO curso (nombre, descripcion) VALUES ('MATEMÁTICA','5');
+INSERT INTO curso (nombre, descripcion) VALUES ('CIENCIA Y TECNOLOGÍA','6');
+ 
+-- primaria (8) http://www.minedu.gob.pe/curriculo/pdf/programa-nivel-primaria-ebr.pdf
+INSERT INTO curso (nombre, descripcion) VALUES ('PERSONAL SOCIAL', '7');
+INSERT INTO curso (nombre, descripcion) VALUES ('EDUCACIÓN FÍSICA',	'8');
+INSERT INTO curso (nombre, descripcion) VALUES ('COMUNICACIÓN', '9');
+INSERT INTO curso (nombre, descripcion) VALUES ('ARTE Y CULTURA', '10');
+INSERT INTO curso (nombre, descripcion) VALUES ('INGLÉS', '11');
+INSERT INTO curso (nombre, descripcion) VALUES ('MATEMÁTICA', '12');
+INSERT INTO curso (nombre, descripcion) VALUES ('CIENCIA Y TECNOLOGÍA', '13');
+INSERT INTO curso (nombre, descripcion) VALUES ('RELIGIÓN', '14');
 	
-    -- secundaria (11) http://www.minedu.gob.pe/curriculo/pdf/03062016-programa-nivel-secundaria-ebr.pdf
-    insert into curso (nombre, descripcion) values ('MATEMÁTICA','');
-    insert into curso (nombre, descripcion) values ('COMUNICACIÓN','');
-    insert into curso (nombre, descripcion) values ('CIENCIA TECNOLOGÍA Y AMBIENTE','');
-    insert into curso (nombre, descripcion) values ('EDUCACIÓN RELIGIOSA','5');
-    insert into curso (nombre, descripcion) values ('RELACIONES HUMANAS','');
-    insert into curso (nombre, descripcion) values ('FORMACIÓN CIUDADANA','5');
-    insert into curso (nombre, descripcion) values ('HISTORIA','5');
-    insert into curso (nombre, descripcion) values ('GEOGRAFÍA','');
-    insert into curso (nombre, descripcion) values ('EDUCACIÓN FÍSICA','5');
-    insert into curso (nombre, descripcion) values ('COMPUTACIÓN','5');
-    insert into curso (nombre, descripcion) values ('ARTE','5');
-    insert into curso (nombre, descripcion) values ('LENGUAJE','');
-    insert into curso (nombre, descripcion) values ('LITERATURA','5');			
-    insert into curso (nombre, descripcion) values ('INGLÉS','5');
-    insert into curso (nombre, descripcion) values ('ÁLGEBRA','');
-    insert into curso (nombre, descripcion) values ('ARITMÉTICA','');
-    insert into curso (nombre, descripcion) values ('TRIGONOMETRÍA','');
-    insert into curso (nombre, descripcion) values ('GEOMETRÍA','5');
-    insert into curso (nombre, descripcion) values ('FÍSICA','5');
-    insert into curso (nombre, descripcion) values ('QUÍMICA','');
-	insert into curso (nombre, descripcion) values ('EDUCACIÓN PARA EL TRABAJO','5');
+-- secundaria (12) http://www.minedu.gob.pe/curriculo/pdf/03062016-programa-nivel-secundaria-ebr.pdf
+INSERT INTO curso (nombre, descripcion) VALUES ('MATEMÁTICA','15');
+INSERT INTO curso (nombre, descripcion) VALUES ('COMUNICACIÓN','16');
+INSERT INTO curso (nombre, descripcion) VALUES ('CIENCIA TECNOLOGÍA Y AMBIENTE','17');
+INSERT INTO curso (nombre, descripcion) VALUES ('RELIGIÓN','18');
+INSERT INTO curso (nombre, descripcion) VALUES ('RELACIONES HUMANAS','19');
+INSERT INTO curso (nombre, descripcion) VALUES ('FORMACIÓN CIUDADANA','20');
+INSERT INTO curso (nombre, descripcion) VALUES ('HISTORIA','21');
+INSERT INTO curso (nombre, descripcion) VALUES ('EDUCACIÓN FÍSICA','22');
+INSERT INTO curso (nombre, descripcion) VALUES ('COMPUTACIÓN','23');
+INSERT INTO curso (nombre, descripcion) VALUES ('ARTE','24');
+INSERT INTO curso (nombre, descripcion) VALUES ('INGLÉS','25');
+INSERT INTO curso (nombre, descripcion) VALUES ('EDUCACIÓN PARA EL TRABAJO','26');
+ /*
+-- cursos más específicos que creo no se tomarán en cuenta
+    INSERT into curso (nombre, descripcion) values ('GEOGRAFÍA','');
+    INSERT into curso (nombre, descripcion) values ('LENGUAJE','');
+    INSERT into curso (nombre, descripcion) values ('LITERATURA','5');	
+    INSERT into curso (nombre, descripcion) values ('ÁLGEBRA','');
+    INSERT into curso (nombre, descripcion) values ('ARITMÉTICA','');
+    INSERT into curso (nombre, descripcion) values ('TRIGONOMETRÍA','');
+    INSERT into curso (nombre, descripcion) values ('GEOMETRÍA','5');
+    INSERT into curso (nombre, descripcion) values ('FÍSICA','5');
+    INSERT into curso (nombre, descripcion) values ('QUÍMICA','');
+    */
 
--- malla ()
-	-- inicial (6) 
-	/*insert into malla (id_curso, id_grado) values (1, 1);
-    insert into malla (id_curso, id_grado) values (2, 1);
-    insert into malla (id_curso, id_grado) values (3, 1);
-    insert into malla (id_curso, id_grado) values (4, 1);
-    insert into malla (id_curso, id_grado) values (5, 1);
-    insert into malla (id_curso, id_grado) values (6, 1);
-    
-	-- primaria (9)
-	insert into malla (id_curso, id_grado) values (7, 2);
-	insert into malla (id_curso, id_grado) values (8, 2);
-    insert into malla (id_curso, id_grado) values (9, 2);
-    insert into malla (id_curso, id_grado) values (10, 2);
-	insert into malla (id_curso, id_grado) values (11, 2);
-    insert into malla (id_curso, id_grado) values (12, 2);
-    insert into malla (id_curso, id_grado) values (13, 2);
-    insert into malla (id_curso, id_grado) values (14, 2);
-    insert into malla (id_curso, id_grado) values (15, 2);
+-- malla (14)
+-- inicial
+-- 3
+INSERT INTO malla (id_curso, id_grado) VALUES (1, 1);
+INSERT INTO malla (id_curso, id_grado) VALUES (2, 1);
+INSERT INTO malla (id_curso, id_grado) VALUES (3, 1);
+INSERT INTO malla (id_curso, id_grado) VALUES (4, 1);
+INSERT INTO malla (id_curso, id_grado) VALUES (5, 1);
+INSERT INTO malla (id_curso, id_grado) VALUES (6, 1);
+-- 4
+INSERT INTO malla (id_curso, id_grado) VALUES (1, 2);
+INSERT INTO malla (id_curso, id_grado) VALUES (2, 2);
+INSERT INTO malla (id_curso, id_grado) VALUES (3, 2);
+INSERT INTO malla (id_curso, id_grado) VALUES (4, 2);
+INSERT INTO malla (id_curso, id_grado) VALUES (5, 2);
+INSERT INTO malla (id_curso, id_grado) VALUES (6, 2);
+-- 5
+INSERT INTO malla (id_curso, id_grado) VALUES (1, 3);
+INSERT INTO malla (id_curso, id_grado) VALUES (2, 3);
+INSERT INTO malla (id_curso, id_grado) VALUES (3, 3);
+INSERT INTO malla (id_curso, id_grado) VALUES (4, 3);
+INSERT INTO malla (id_curso, id_grado) VALUES (5, 3);
+INSERT INTO malla (id_curso, id_grado) VALUES (6, 3);
+-- primaria
+-- 1
+INSERT INTO malla (id_curso, id_grado) VALUES (7, 4);
+INSERT INTO malla (id_curso, id_grado) VALUES (8, 4);
+INSERT INTO malla (id_curso, id_grado) VALUES (9, 4);
+INSERT INTO malla (id_curso, id_grado) VALUES (10, 4);
+INSERT INTO malla (id_curso, id_grado) VALUES (11, 4);
+INSERT INTO malla (id_curso, id_grado) VALUES (12, 4);
+INSERT INTO malla (id_curso, id_grado) VALUES (13, 4);
+INSERT INTO malla (id_curso, id_grado) VALUES (14, 4);
+-- 2
+INSERT INTO malla (id_curso, id_grado) VALUES (7, 5);
+INSERT INTO malla (id_curso, id_grado) VALUES (8, 5);
+INSERT INTO malla (id_curso, id_grado) VALUES (9, 5);
+INSERT INTO malla (id_curso, id_grado) VALUES (10, 5);
+INSERT INTO malla (id_curso, id_grado) VALUES (11, 5);
+INSERT INTO malla (id_curso, id_grado) VALUES (12, 5);
+INSERT INTO malla (id_curso, id_grado) VALUES (13, 5);
+INSERT INTO malla (id_curso, id_grado) VALUES (14, 5);
+-- 3
+INSERT INTO malla (id_curso, id_grado) VALUES (7, 6);
+INSERT INTO malla (id_curso, id_grado) VALUES (8, 6);
+INSERT INTO malla (id_curso, id_grado) VALUES (9, 6);
+INSERT INTO malla (id_curso, id_grado) VALUES (10, 6);
+INSERT INTO malla (id_curso, id_grado) VALUES (11, 6);
+INSERT INTO malla (id_curso, id_grado) VALUES (12, 6);
+INSERT INTO malla (id_curso, id_grado) VALUES (13, 6);
+INSERT INTO malla (id_curso, id_grado) VALUES (14, 6);
+-- 4
+INSERT INTO malla (id_curso, id_grado) VALUES (7, 7);
+INSERT INTO malla (id_curso, id_grado) VALUES (8, 7);
+INSERT INTO malla (id_curso, id_grado) VALUES (9, 7);
+INSERT INTO malla (id_curso, id_grado) VALUES (10, 7);
+INSERT INTO malla (id_curso, id_grado) VALUES (11, 7);
+INSERT INTO malla (id_curso, id_grado) VALUES (12, 7);
+INSERT INTO malla (id_curso, id_grado) VALUES (13, 7);
+INSERT INTO malla (id_curso, id_grado) VALUES (14, 7);
+-- 5
+INSERT INTO malla (id_curso, id_grado) VALUES (7, 8);
+INSERT INTO malla (id_curso, id_grado) VALUES (8, 8);
+INSERT INTO malla (id_curso, id_grado) VALUES (9, 8);
+INSERT INTO malla (id_curso, id_grado) VALUES (10, 8);
+INSERT INTO malla (id_curso, id_grado) VALUES (11, 8);
+INSERT INTO malla (id_curso, id_grado) VALUES (12, 8);
+INSERT INTO malla (id_curso, id_grado) VALUES (13, 8);
+INSERT INTO malla (id_curso, id_grado) VALUES (14, 8);
+-- 6
+INSERT INTO malla (id_curso, id_grado) VALUES (7, 9);
+INSERT INTO malla (id_curso, id_grado) VALUES (8, 9);
+INSERT INTO malla (id_curso, id_grado) VALUES (9, 9);
+INSERT INTO malla (id_curso, id_grado) VALUES (10, 9);
+INSERT INTO malla (id_curso, id_grado) VALUES (11, 9);
+INSERT INTO malla (id_curso, id_grado) VALUES (12, 9);
+INSERT INTO malla (id_curso, id_grado) VALUES (13, 9);
+INSERT INTO malla (id_curso, id_grado) VALUES (14, 9);
+-- secundaria
+-- 1
+INSERT INTO malla (id_curso, id_grado) VALUES (15, 10);
+INSERT INTO malla (id_curso, id_grado) VALUES (16, 10);
+INSERT INTO malla (id_curso, id_grado) VALUES (17, 10);
+INSERT INTO malla (id_curso, id_grado) VALUES (18, 10);
+INSERT INTO malla (id_curso, id_grado) VALUES (19, 10);
+INSERT INTO malla (id_curso, id_grado) VALUES (20, 10);
+INSERT INTO malla (id_curso, id_grado) VALUES (21, 10);
+INSERT INTO malla (id_curso, id_grado) VALUES (22, 10);
+INSERT INTO malla (id_curso, id_grado) VALUES (23, 10);
+INSERT INTO malla (id_curso, id_grado) VALUES (24, 10);
+INSERT INTO malla (id_curso, id_grado) VALUES (25, 10);
+INSERT INTO malla (id_curso, id_grado) VALUES (26, 10);
+-- 2
+INSERT INTO malla (id_curso, id_grado) VALUES (15, 11);
+INSERT INTO malla (id_curso, id_grado) VALUES (16, 11);
+INSERT INTO malla (id_curso, id_grado) VALUES (17, 11);
+INSERT INTO malla (id_curso, id_grado) VALUES (18, 11);
+INSERT INTO malla (id_curso, id_grado) VALUES (19, 11);
+INSERT INTO malla (id_curso, id_grado) VALUES (20, 11);
+INSERT INTO malla (id_curso, id_grado) VALUES (21, 11);
+INSERT INTO malla (id_curso, id_grado) VALUES (22, 11);
+INSERT INTO malla (id_curso, id_grado) VALUES (23, 11);
+INSERT INTO malla (id_curso, id_grado) VALUES (24, 11);
+INSERT INTO malla (id_curso, id_grado) VALUES (25, 11);
+INSERT INTO malla (id_curso, id_grado) VALUES (26, 11);
+-- 3
+INSERT INTO malla (id_curso, id_grado) VALUES (15, 12);
+INSERT INTO malla (id_curso, id_grado) VALUES (16, 12);
+INSERT INTO malla (id_curso, id_grado) VALUES (17, 12);
+INSERT INTO malla (id_curso, id_grado) VALUES (18, 12);
+INSERT INTO malla (id_curso, id_grado) VALUES (19, 12);
+INSERT INTO malla (id_curso, id_grado) VALUES (20, 12);
+INSERT INTO malla (id_curso, id_grado) VALUES (21, 12);
+INSERT INTO malla (id_curso, id_grado) VALUES (22, 12);
+INSERT INTO malla (id_curso, id_grado) VALUES (23, 12);
+INSERT INTO malla (id_curso, id_grado) VALUES (24, 12);
+INSERT INTO malla (id_curso, id_grado) VALUES (25, 12);
+INSERT INTO malla (id_curso, id_grado) VALUES (26, 12);
+-- 4
+INSERT INTO malla (id_curso, id_grado) VALUES (15, 13);
+INSERT INTO malla (id_curso, id_grado) VALUES (16, 13);
+INSERT INTO malla (id_curso, id_grado) VALUES (17, 13);
+INSERT INTO malla (id_curso, id_grado) VALUES (18, 13);
+INSERT INTO malla (id_curso, id_grado) VALUES (19, 13);
+INSERT INTO malla (id_curso, id_grado) VALUES (20, 13);
+INSERT INTO malla (id_curso, id_grado) VALUES (21, 13);
+INSERT INTO malla (id_curso, id_grado) VALUES (22, 13);
+INSERT INTO malla (id_curso, id_grado) VALUES (23, 13);
+INSERT INTO malla (id_curso, id_grado) VALUES (24, 13);
+INSERT INTO malla (id_curso, id_grado) VALUES (25, 13);
+INSERT INTO malla (id_curso, id_grado) VALUES (26, 13);
+-- 5
+INSERT INTO malla (id_curso, id_grado) VALUES (15, 14);
+INSERT INTO malla (id_curso, id_grado) VALUES (16, 14);
+INSERT INTO malla (id_curso, id_grado) VALUES (17, 14);
+INSERT INTO malla (id_curso, id_grado) VALUES (18, 14);
+INSERT INTO malla (id_curso, id_grado) VALUES (19, 14);
+INSERT INTO malla (id_curso, id_grado) VALUES (20, 14);
+INSERT INTO malla (id_curso, id_grado) VALUES (21, 14);
+INSERT INTO malla (id_curso, id_grado) VALUES (22, 14);
+INSERT INTO malla (id_curso, id_grado) VALUES (23, 14);
+INSERT INTO malla (id_curso, id_grado) VALUES (24, 14);
+INSERT INTO malla (id_curso, id_grado) VALUES (25, 14);
+INSERT INTO malla (id_curso, id_grado) VALUES (26, 14);
 
-    -- secundaria ()
-    insert into malla (id_curso, id_grado) values (16, 3);
-    insert into malla (id_curso, id_grado) values (17, 3);
-    insert into malla (id_curso, id_grado) values (18, 3);
-    insert into malla (id_curso, id_grado) values (19, 3);
-    insert into malla (id_curso, id_grado) values (20, 3);
-    insert into malla (id_curso, id_grado) values (21, 3);
-    insert into malla (id_curso, id_grado) values (22, 3);
-    insert into malla (id_curso, id_grado) values (23, 3);
-    insert into malla (id_curso, id_grado) values (24, 3);
-    insert into malla (id_curso, id_grado) values (25, 3);
-    insert into malla (id_curso, id_grado) values (26, 3);
-    insert into malla (id_curso, id_grado) values (27, 3);
-    insert into malla (id_curso, id_grado) values (28, 3);
-    insert into malla (id_curso, id_grado) values (29, 3);
-    insert into malla (id_curso, id_grado) values (30, 3);
-    insert into malla (id_curso, id_grado) values (31, 3);
-    insert into malla (id_curso, id_grado) values (32, 3);
-    insert into malla (id_curso, id_grado) values (33, 3);
-    insert into malla (id_curso, id_grado) values (34, 3);
-    insert into malla (id_curso, id_grado) values (35, 3);
-    insert into malla (id_curso, id_grado) values (36, 3);*/
-    
--- horario (12)
-insert into horario (dia, hora_inicio, hora_fin, aula, id_curso, id_trabajador) values ('LUNES','7:00:00','9:15:00',101,17,2);
-insert into horario (dia, hora_inicio, hora_fin, aula, id_curso, id_trabajador) values ('LUNES','10:00:00','11:30:00',101,4,2);
-insert into horario (dia, hora_inicio, hora_fin, aula, id_curso, id_trabajador) values ('MARTES','7:00:00','9:15:00',102,34,2);
-insert into horario (dia, hora_inicio, hora_fin, aula, id_curso, id_trabajador) values ('MARTES','10:00:00','12:15:00',101,32,2);
-insert into horario (dia, hora_inicio, hora_fin, aula, id_curso, id_trabajador) values ('MIÉRCOLES','7:00:00','8:30:00',101,24,2);
-insert into horario (dia, hora_inicio, hora_fin, aula, id_curso, id_trabajador) values ('MIÉRCOLES','8:30:00','9:15:00',101,26,2);
-insert into horario (dia, hora_inicio, hora_fin, aula, id_curso, id_trabajador) values ('MIÉRCOLES','10:00:00','11:30:00',101,21,2);
-insert into horario (dia, hora_inicio, hora_fin, aula, id_curso, id_trabajador) values ('JUEVES','7:00:00','8:30:00',101,34,2);
-insert into horario (dia, hora_inicio, hora_fin, aula, id_curso, id_trabajador) values ('JUEVES','8:30:00','9:15:00',101,25,2);
-insert into horario (dia, hora_inicio, hora_fin, aula, id_curso, id_trabajador) values ('JUEVES','10:00:00','11:30:00',101,29,2);
-insert into horario (dia, hora_inicio, hora_fin, aula, id_curso, id_trabajador) values ('VIERNES','7:00:00','9:15:00',101,33,2);
-insert into horario (dia, hora_inicio, hora_fin, aula, id_curso, id_trabajador) values ('VIERNES','10:00:00','11:30:00',101,22,2);
-    
--- select id_curso, nombre from curso where nombre like 'COMUNICACIÓN';
--- select * from trabajador;
-    
+-- horario_cabecera
+-- horario_detalle ()
 -- nota ()
 -- asistencia ()
 -- justificion ()
 -- citaciones ()
 -- permisos ()
+-- comunicados ()
 
