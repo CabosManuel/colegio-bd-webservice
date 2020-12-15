@@ -327,50 +327,50 @@ INSERT INTO seccion (nombre, n_estudiantes, id_grado) VALUES ('C', 1, 14);
 
 -- matricula (42)
 -- inicial (9)
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-24 04:53:12', 1, 1, 1, 1, 1);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-13 12:09:57', 1, 2, 2, 2, 2);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-14 00:26:08', 1, 3, 3, 3, 2);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-21 01:17:35', 1, 4, 4, 4, 1);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-30 18:31:30', 1, 5, 5, 5, 3);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-20 04:05:12', 1, 6, 6, 6, 3);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-25 15:13:13', 1, 7, 7, 7, 3);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-11 05:54:50', 1, 8, 8, 8, 1);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-17 23:35:40', 1, 9, 9, 9, 1);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-25 22:12:34', 1, 1, 85325837, 1, 3);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-24 09:08:54', 1, 2, 79983677, 2, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-23 15:53:04', 1, 3, 77180962, 3, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-10 19:16:03', 1, 1, 81208197, 4, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-04 23:58:17', 1, 2, 98304976, 5, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-01-16 02:33:18', 1, 3, 82685319, 6, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-03-19 13:14:52', 1, 1, 58829423, 7, 3);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-19 06:49:56', 1, 2, 77670179, 8, 3);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-01-28 13:21:08', 1, 3, 67885243, 9, 3);
  -- primaria (18)
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-08 12:58:11', 2, 10, 10, 10, 3);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-22 12:01:19', 2, 11, 11, 11, 2);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-30 08:54:18', 2, 12, 12, 12, 3);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-11 12:55:02', 2, 13, 13, 13, 1);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-28 13:48:02', 2, 14, 14, 14, 3);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-13 07:20:27', 2, 15, 15, 15, 1);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-05 09:04:23', 2, 16, 16, 16, 2);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-12 11:57:27', 2, 17, 17, 17, 1);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-09 08:47:01', 2, 18, 18, 18, 3);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-09 08:47:01', 2, 19, 19, 19, 3);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-05 10:38:48', 2, 20, 20, 20, 2);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-23 09:51:27', 2, 21, 21, 21, 2);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-09 07:52:04', 2, 22, 22, 22, 2);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-05 08:12:36', 2, 23, 23, 23, 3);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-05 06:29:08', 2, 24, 24, 24, 2);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-13 13:50:35', 2, 25, 25, 25, 3);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-16 09:01:17', 2, 26, 26, 26, 2);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-13 13:10:55', 2, 27, 27, 27, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-12 15:32:03', 2, 4, 86647513, 10, 3);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-19 08:42:15', 2, 5, 78622486, 11, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-05 21:58:47', 2, 6, 75319716, 12, 3);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-22 22:51:53', 2, 7, 88138260, 13, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-16 09:55:25', 2, 8, 83867662, 14, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-03-05 02:39:20', 2, 9, 79385832, 15, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-19 15:58:59', 2, 4, 83010782, 16, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-03-21 09:23:17', 2, 5, 49934011, 17, 3);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-03-29 11:38:47', 2, 6, 85465740, 18, 3);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-03-08 20:59:53', 2, 7, 35306021, 19, 3);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-03-22 10:57:35', 2, 8, 63288837, 20, 3);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-11 17:35:47', 2, 9, 86506485, 21, 3);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-03-11 23:16:27', 2, 4, 77808816, 22, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-03-18 20:23:25', 2, 5, 80181190, 23, 3);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-01-17 02:53:52', 2, 6, 80349962, 24, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-01-21 22:48:45', 2, 7, 79254526, 25, 3);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-26 23:57:58', 2, 8, 36901530, 26, 3);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-03-12 14:43:36', 2, 9, 54354117, 27, 3);
  -- secundaria (15)
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-22 13:34:45', 2, 28, 28, 28, 3);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-27 13:12:37', 3, 29, 29, 29, 3);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-10 10:47:25', 3, 30, 30, 30, 1);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-27 12:14:20', 3, 31, 31, 31, 1);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-06 11:30:21', 3, 32, 32, 32, 2);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-03 10:14:12', 3, 33, 33, 33, 3);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-05 09:32:03', 3, 34, 34, 34, 1);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-06 06:02:30', 3, 35, 35, 35, 1);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-20 07:19:08', 3, 36, 36, 36, 2);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-02 08:52:40', 3, 37, 37, 37, 1);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-30 08:52:49', 3, 38, 38, 38, 1);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-06 06:59:44', 3, 39, 39, 39, 2);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-01-10 07:40:00', 3, 40, 40, 40, 1);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-02-09 08:15:52', 3, 41, 41, 41, 1);
-INSERT INTO matricula (fecha, nivel, grado, id_estudiante, id_seccion, id_trabajador) VALUES ('2020-03-06 08:38:58', 3, 42, 42, 42, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-03-03 07:13:48', 3, 10, 75033935, 28, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-03-30 13:52:08', 3, 11, 77503592, 29, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-03-30 01:30:52', 3, 12, 83553013, 30, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-12 08:46:26', 3, 13, 84525197, 31, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-03-27 00:21:02', 3, 14, 87341016, 32, 3);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-01-16 09:37:29', 3, 10, 47572136, 33, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-01-24 09:23:57', 3, 11, 83809323, 34, 3);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-13 05:03:15', 3, 12, 86423307, 35, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-11 05:28:51', 3, 13, 78460282, 36, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-02 16:06:16', 3, 14, 78636217, 37, 3);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-20 19:09:47', 3, 10, 81526804, 38, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-03-29 19:09:24', 3, 11, 84111546, 39, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-03-02 11:39:58', 3, 12, 85344568, 40, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-03-07 11:29:12', 3, 13, 76888040, 41, 2);
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-01-25 21:00:38', 3, 14, 85668049, 42, 3);
 
 -- curso (26)
 -- inicial (6) http://www.minedu.gob.pe/curriculo/pdf/programa-curricular-educacion-inicial.pdf
@@ -563,9 +563,48 @@ INSERT INTO malla (id_curso, id_grado) VALUES (25, 14);
 INSERT INTO malla (id_curso, id_grado) VALUES (26, 14);
 
 -- horario_cabecera
+/* -- no lo he actualizado todavía
+INSERT INTO horario_cabecera (id_trabajador, estado, id_seccion) VALUES (2,1,40);
+*/
 -- horario_detalle ()
+/* -- no lo he actualizado todavía
+INSERT INTO horario_detalle (fecha, dia, hora_inicio, hora_fin, id_curso, id_horario_cabecera) VALUES ('2020-08-07','LUNES','7:00:00','9:15:00',17,1);
+INSERT INTO horario_detalle (fecha, dia, hora_inicio, hora_fin, id_curso, id_horario_cabecera) VALUES ('2020-08-07','LUNES','10:00:00','11:30:00',4,1);
+INSERT INTO horario_detalle (fecha, dia, hora_inicio, hora_fin, id_curso, id_horario_cabecera) VALUES ('2020-08-08','MARTES','7:00:00','9:15:00',34,1);
+INSERT INTO horario_detalle (fecha, dia, hora_inicio, hora_fin, id_curso, id_horario_cabecera) VALUES ('2020-08-08','MARTES','10:00:00','12:15:00',32,1);
+INSERT INTO horario_detalle (fecha, dia, hora_inicio, hora_fin, id_curso, id_horario_cabecera) VALUES ('2020-08-09','MIÉRCOLES','7:00:00','8:30:00',24,1);
+INSERT INTO horario_detalle (fecha, dia, hora_inicio, hora_fin, id_curso, id_horario_cabecera) VALUES ('2020-08-09','MIÉRCOLES','8:30:00','9:15:00',26,1);
+INSERT INTO horario_detalle (fecha, dia, hora_inicio, hora_fin, id_curso, id_horario_cabecera) VALUES ('2020-08-09','MIÉRCOLES','10:00:00','11:30:00',21,1);
+INSERT INTO horario_detalle (fecha, dia, hora_inicio, hora_fin, id_curso, id_horario_cabecera) VALUES ('2020-08-10','JUEVES','7:00:00','8:30:00',34,1);
+INSERT INTO horario_detalle (fecha, dia, hora_inicio, hora_fin, id_curso, id_horario_cabecera) VALUES ('2020-08-10','JUEVES','8:30:00','9:15:00',25,1);
+INSERT INTO horario_detalle (fecha, dia, hora_inicio, hora_fin, id_curso, id_horario_cabecera) VALUES ('2020-08-10','JUEVES','10:00:00','11:30:00',29,1);
+INSERT INTO horario_detalle (fecha, dia, hora_inicio, hora_fin, id_curso, id_horario_cabecera) VALUES ('2020-08-11','VIERNES','7:00:00','9:15:00',33,1);
+INSERT INTO horario_detalle (fecha, dia, hora_inicio, hora_fin, id_curso, id_horario_cabecera) VALUES ('2020-08-11','VIERNES','10:00:00','11:30:00',22,1);
+*/
+		
 -- nota ()
+-- incial
+-- primaria
+-- secundaria
+-- 5to A (cursos 15-26)
+INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (15, 20, 20, 20, 20, 87341016);
+INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (16, 20, 20, 20, 20, 87341016);
+INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (17, 20, 20, 20, 20, 87341016);
+INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (18, 20, 20, 20, 20, 87341016);
+INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (19, 20, 20, 20, 20, 87341016);
+INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (20, 20, 20, 20, 20, 87341016);
+INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (21, 20, 20, 20, 20, 87341016);
+INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (22, 20, 20, 20, 20, 87341016);
+INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (23, 20, 20, 20, 20, 87341016);
+INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (24, 20, 20, 20, 20, 87341016);
+INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (25, 20, 20, 20, 20, 87341016);
+INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (26, 20, 20, 20, 20, 87341016);
+
 -- asistencia ()
+/*
+INSERT INTO asistencia (dni_estudiante, estado, hora_asistencia, id_horario_detalle) VALUES (15,'7:03:00',1,1);
+*/
+
 -- justificion ()
 -- citaciones ()
 -- permisos ()
