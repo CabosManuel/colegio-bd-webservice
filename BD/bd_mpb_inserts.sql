@@ -46,97 +46,97 @@ INSERT INTO distrito (nombre) VALUES ('VILLA EL SALVADOR');
 INSERT INTO distrito (nombre) VALUES ('VILLA MARÍA DEL TRIUNFO');
 
 -- apoderado (30)
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Glen', 'Guillet', 68154650, 932883923, 'gguillet0@netscape.com', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Gayelord', 'Drowsfield', 67005859, 935657330, 'gdrowsfield1@jugem.jp', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Tomasine', 'Redhills', 44389141, 934604474, 'tredhills2@gravatar.com', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Benedict', 'Simioli', 78261359, 935394641, 'bsimioli3@topsy.com', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Lucilia', 'Eddy', 49301304, 933460765, 'leddy4@apple.com', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Cassondra', 'Davidai', 68972794, 936959784, 'cdavidai5@amazon.com', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Callida', 'Gomery', 40032279, 925116245, 'cgomery6@earthlink.net', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Nicola', 'Twell', 69732675, 943229694, 'ntwell7@independent.co.uk', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Tiff', 'Castellucci', 64469320, 923313067, 'tcastellucci8@nhs.uk', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Hannis', 'Rawcliffe', 62660244, 924828835, 'hrawcliffe9@vk.com', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Sybila', 'de Courcy', 73165285, 946692000, 'sdecourcya@economist.com', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Bee', 'Darker', 43657138, 934136824, 'bdarkerb@jalbum.net', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Shaun', 'Fishby', 77871811, 926873024, 'sfishbyc@go.com', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Cloe', 'Espina', 56182225, 940413357, 'cespinad@creativecommons.org', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Honor', 'Diplock', 75451730, 941990821, 'hdiplocke@yahoo.com', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Em', 'Welbourn', 61387618, 924810257, 'ewelbournf@nydailynews.com', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Patrica', 'Rate', 65625301, 947758797, 'prateg@google.cn', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Angie', 'Noice', 78651735, 922393862, 'anoiceh@mediafire.com', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Zuzana', 'Hedman', 48156301, 944345261, 'zhedmani@fotki.com', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Isador', 'Goreway', 78172050, 928787881, 'igorewayj@oracle.com', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Sergent', 'Blakeney', 53896293, 920047514, 'sblakeneyk@twitter.com', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Brandise', 'Conaghy', 66293439, 942746565, 'bconaghyl@wikispaces.com', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Nichole', 'Leyland', 50297129, 931074969, 'nleylandm@amazon.com', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Isa', 'Stuckford', 59992197, 924876866, 'istuckfordn@un.org', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Gigi', 'Sugar', 59338610, 936939003, 'gsugaro@themeforest.net', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Van', 'Roughey', 42161177, 947728459, 'vrougheyp@kickstarter.com', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Thibaud', 'Hetterich', 54672176, 928623467, 'thetterichq@cargocollective.com', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Aluin', 'Davinet', 72819489, 941189408, 'adavinetr@weibo.com', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Madelena', 'Jorez', 76688326, 948857953, 'mjorezs@123-reg.co.uk', 123, 1);
-INSERT INTO apoderado (nombres, apellidos, dni, celular, correo, pass, estado) VALUES ('Rowney', 'Wyndham', 62867217, 944836373, 'rwyndhamt@devhub.com', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (68154650,'Glen', 'Guillet',  932883923, 'gguillet0@netscape.com', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (67005859,'Gayelord', 'Drowsfield',  935657330, 'gdrowsfield1@jugem.jp', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (44389141,'Tomasine', 'Redhills',  934604474, 'tredhills2@gravatar.com', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (78261359, 'Benedict', 'Simioli', 935394641, 'bsimioli3@topsy.com', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (49301304, 'Lucilia', 'Eddy', 933460765, 'leddy4@apple.com', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (68972794, 'Cassondra', 'Davidai', 936959784, 'cdavidai5@amazon.com', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (40032279, 'Callida', 'Gomery', 925116245, 'cgomery6@earthlink.net', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (69732675, 'Nicola', 'Twell', 943229694, 'ntwell7@independent.co.uk', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (64469320, 'Tiff', 'Castellucci', 923313067, 'tcastellucci8@nhs.uk', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (62660244, 'Hannis', 'Rawcliffe', 924828835, 'hrawcliffe9@vk.com', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (73165285, 'Sybila', 'de Courcy', 946692000, 'sdecourcya@economist.com', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (43657138, 'Bee', 'Darker', 934136824, 'bdarkerb@jalbum.net', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (77871811, 'Shaun', 'Fishby', 926873024, 'sfishbyc@go.com', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (56182225, 'Cloe', 'Espina', 940413357, 'cespinad@creativecommons.org', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (75451730, 'Honor', 'Diplock', 941990821, 'hdiplocke@yahoo.com', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (61387618, 'Em', 'Welbourn', 924810257, 'ewelbournf@nydailynews.com', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (65625301, 'Patrica', 'Rate', 947758797, 'prateg@google.cn', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (78651735, 'Angie', 'Noice', 922393862, 'anoiceh@mediafire.com', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (48156301, 'Zuzana', 'Hedman', 944345261, 'zhedmani@fotki.com', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (78172050, 'Isador', 'Goreway', 928787881, 'igorewayj@oracle.com', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (53896293, 'Sergent', 'Blakeney', 920047514, 'sblakeneyk@twitter.com', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (66293439, 'Brandise', 'Conaghy', 942746565, 'bconaghyl@wikispaces.com', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (50297129, 'Nichole', 'Leyland', 931074969, 'nleylandm@amazon.com', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (59992197, 'Isa', 'Stuckford', 924876866, 'istuckfordn@un.org', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (59338610, 'Gigi', 'Sugar', 936939003, 'gsugaro@themeforest.net', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (42161177, 'Van', 'Roughey', 947728459, 'vrougheyp@kickstarter.com', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (54672176, 'Thibaud', 'Hetterich',  928623467, 'thetterichq@cargocollective.com', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (72819489, 'Aluin', 'Davinet', 941189408, 'adavinetr@weibo.com', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (76688326, 'Madelena', 'Jorez', 948857953, 'mjorezs@123-reg.co.uk', 123, 1);
+INSERT INTO apoderado (dni, nombres, apellidos, celular, correo, pass, estado) VALUES (62867217, 'Rowney', 'Wyndham', 944836373, 'rwyndhamt@devhub.com', 123, 1);
 
 -- estudiante (42)
 -- inicial (9)
 -- 3 años (05/15/2016 - 02/28/2017)
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Katharina', 'Christophersen', 87341016, '2016-07-01', 5, NULL, NULL, 29, '13 Ludington Center', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Jen', 'Rivelin', 98304976, '2016-05-18', 28, NULL, NULL, 4, '16107 Sullivan Park', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Joye', 'Bishop', 88138260, '2016-07-27', 3, NULL, NULL, 9, '90 Kinsman Plaza', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (87341016, 'Katharina', 'Christophersen', '2016-07-01', 68154650, NULL, NULL, 29, '13 Ludington Center', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (98304976, 'Jen', 'Rivelin', '2016-05-18', 40032279, NULL, NULL, 4, '16107 Sullivan Park', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (88138260, 'Joye', 'Bishop', '2016-07-27', 68154650, NULL, NULL, 9, '90 Kinsman Plaza', 123, 1);
 -- 4 años (05/15/2015 - 02/28/2016)
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Reyna', 'Coneley', 86423307, '2015-08-07', 24, NULL, NULL, 36, '4 Clarendon Point', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Dian', 'Chazelle', 86506485, '2015-10-02', 17, NULL, NULL, 19, '5 Bunker Hill Court', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Mae', 'Broyd', 86647513, '2015-10-18', 7, NULL, NULL, 7, '69280 Spenser Street', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (86423307, 'Reyna', 'Coneley', '2015-08-07', 43657138, NULL, NULL, 36, '4 Clarendon Point', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (86506485, 'Dian', 'Chazelle', '2015-10-02', 48156301, NULL, NULL, 19, '5 Bunker Hill Court', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (86647513, 'Mae', 'Broyd', '2015-10-18', 42161177, NULL, NULL, 7, '69280 Spenser Street', 123, 1);
 -- 5 años (05/15/2014 - 02/28/2015)
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Blinnie', 'Jutson', 85344568, '2015-01-27', 26, NULL, NULL, 42, '67158 Crownhardt Place', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Flore', 'Streeten', 85325837, '2014-12-11', 29, NULL, NULL, 1, '8762 Buena Vista Crossing', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Siusan', 'Garrat', 85668049, '2015-01-05', 23, NULL, NULL, 43, '7 Orin Center', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (85344568, 'Blinnie', 'Jutson', '2015-01-27', 68972794, NULL, NULL, 42, '67158 Crownhardt Place', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (85325837, 'Flore', 'Streeten', '2014-12-11', 76688326, NULL, NULL, 1, '8762 Buena Vista Crossing', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (85668049, 'Siusan', 'Garrat', '2015-01-05', 44389141, NULL, NULL, 43, '7 Orin Center', 123, 1);
 -- primaria (18)
 -- 1ro 6 (05/15/2013 - 02/28/2014)
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Lainey', 'China', 84111546, '2013-08-10', 14, NULL, NULL, 40, '36 Quincy Plaza', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Sonny', 'Impey', 83553013, '2013-06-05', 8, NULL, NULL, 29, '93374 Dawn Hill', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Dacie', 'Hedderly', 84525197, '2014-02-27', 16, NULL, NULL, 29, '7 Carey Crossing', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (84111546, 'Lainey', 'China', '2013-08-10', 62660244, NULL, NULL, 40, '36 Quincy Plaza', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (83553013, 'Sonny', 'Impey', '2013-06-05', 69732675, NULL, NULL, 29, '93374 Dawn Hill', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (84525197, 'Dacie', 'Hedderly', '2014-02-27', 61387618, NULL, NULL, 29, '7 Carey Crossing', 123, 1);
 -- 2do 7 (05/15/2012 - 02/28/2013)
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Rosaleen', 'Yurkevich', 83867662, '2012-09-13', 24, NULL, NULL, 10, '9601 Jenna Circle', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Georgeanne', 'Pellew', 83809323, '2012-11-03', 2, NULL, NULL, 33, '100 Westerfield Court', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Tildi', 'Cayley', 83010782, '2013-02-04', 7, NULL, NULL, 11, '805 Brown Circle', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (83867662, 'Rosaleen', 'Yurkevich', '2012-09-13', 42161177, NULL, NULL, 10, '9601 Jenna Circle', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (83809323, 'Georgeanne', 'Pellew', '2012-11-03', 78651735, NULL, NULL, 33, '100 Westerfield Court', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (83010782, 'Tildi', 'Cayley', '2013-02-04', 50297129, NULL, NULL, 11, '805 Brown Circle', 123, 1);
 -- 3ro 8 (05/15/2011 - 02/28/2012)
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Ardeen', 'Beange', 81208197, '2011-05-19', 20, NULL, NULL, 4, '938 Clemons Pass', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Anabelle', 'Gantzman', 81526804, '2011-09-29', 1, NULL, NULL, 39, '9 Heffernan Circle', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Giuditta', 'Clemo', 82685319, '2011-08-10', 4, NULL, NULL, 5, '90178 Northland Road', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (81208197, 'Ardeen', 'Beange', '2011-05-19', 59338610, NULL, NULL, 4, '938 Clemons Pass', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (81526804, 'Anabelle', 'Gantzman', '2011-09-29', 54672176, NULL, NULL, 39, '9 Heffernan Circle', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (82685319, 'Giuditta', 'Clemo', '2011-08-10', 72819489, NULL, NULL, 5, '90178 Northland Road', 123, 1);
 -- 4to 9 (05/15/2010 - 02/28/2011)
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Virgie', 'I''anson', 80349962, '2010-11-09', 2, NULL, NULL, 22, '69507 Reinke Lane', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Tresa', 'Whilder', 79983677, '2011-01-12', 5, NULL, NULL, 3, '850 Jenifer Pass', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Noella', 'Djurisic', 80181190, '2010-06-03', 19, NULL, NULL, 21, '46639 Aberg Hill', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (80349962, 'Virgie', 'I''anson', '2010-11-09', 75451730, NULL, NULL, 22, '69507 Reinke Lane', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (79983677, 'Tresa', 'Whilder', '2011-01-12', 65625301, NULL, NULL, 3, '850 Jenifer Pass', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (80181190, 'Noella', 'Djurisic', '2010-06-03', 78172050, NULL, NULL, 21, '46639 Aberg Hill', 123, 1);
 -- 5to 10 (05/15/2009 - 02/28/2010)
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Frederica', 'Brader', 79254526, '2009-06-24', 10, 965030921, 'fbrader0@jigsy.com', 24, '3624 Petterle Center', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Ophelia', 'Lovatt', 78636217, '2010-02-15', 17, 973501617, 'olovatt1@icq.com', 39, '7349 Bartillon Parkway', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Giuditta', 'Elijahu', 79385832, '2009-06-27', 1, 953015835, 'gelijahu2@tripadvisor.com', 11, '49651 Evergreen Crossing', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (79254526, 'Frederica', 'Brader', '2009-06-24', 72819489, 965030921, 'fbrader0@jigsy.com', 24, '3624 Petterle Center', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (78636217, 'Ophelia', 'Lovatt', '2010-02-15', 61387618, 973501617, 'olovatt1@icq.com', 39, '7349 Bartillon Parkway', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (79385832,'Elijahu', 'Giuditta',  '2009-06-27', 76688326, 953015835, 'gelijahu2@tripadvisor.com', 11, '49651 Evergreen Crossing', 123, 1);
 -- 6to 11 (05/15/2008 - 02/28/2009)
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Merridie', 'Tomaello', 78460282, '2008-08-08', 30, 992231834, 'mtomaello0@squarespace.com', 39, '879 Spohn Court', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Lori', 'Rhelton', 77503592, '2009-02-05', 3, 951580517, 'lrhelton1@zdnet.com', 27, '4979 Sheridan Court', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Lenora', 'Bootton', 77180962, '2009-01-31', 13, 998498243, 'lbootton2@networkadvertising.org', 4, '36 Orin Center', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (78460282, 'Merridie', 'Tomaello', '2008-08-08', 68154650, 992231834, 'mtomaello0@squarespace.com', 39, '879 Spohn Court', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (77503592, 'Lori', 'Rhelton', '2009-02-05', 75451730, 951580517, 'lrhelton1@zdnet.com', 27, '4979 Sheridan Court', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (77180962, 'Lenora', 'Bootton', '2009-01-31', 42161177, 998498243, 'lbootton2@networkadvertising.org', 4, '36 Orin Center', 123, 1);
 -- secundaria (15)
 -- 1ro 12 (05/15/2007 - 02/28/2008)
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Sallee', 'Lerohan', 76888040, '2007-06-25', 20, 907281511, 'slerohan0@netvibes.com', 43, '63 Porter Street', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Valentine', 'Howitt', 77808816, '2007-08-22', 14, 909005899, 'vhowitt1@guardian.co.uk', 20, '88 Laurel Street', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Ivett', 'Sloane', 77670179, '2007-11-11', 9, 961590299, 'isloane2@slate.com', 6, '61599 Blaine Way', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (76888040, 'Sallee', 'Lerohan', '2007-06-25', 50297129, 907281511, 'slerohan0@netvibes.com', 43, '63 Porter Street', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (77808816, 'Valentine', 'Howitt', '2007-08-22', 42161177, 909005899, 'vhowitt1@guardian.co.uk', 20, '88 Laurel Street', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (77670179, 'Ivett', 'Sloane', '2007-11-11', 64469320, 961590299, 'isloane2@slate.com', 6, '61599 Blaine Way', 123, 1);
 -- 2do 13 (05/15/2006 - 02/28/2007)
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Gill', 'Fessions', 75033935, '2006-07-07', 27, 940918490, 'gfessions0@smugmug.com', 26, '761 Rusk Road', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Danny', 'Clutheram', 75319716, '2006-08-22', 11, 930458410, 'dclutheram1@house.gov', 9, '981 Helena Park', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Yvonne', 'Boule', 85465740, '2006-10-30', 9, 916548885, 'yboule2@walmart.com', 12, '462 Wayridge Center', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (75033935, 'Gill', 'Fessions', '2006-07-07', 73165285, 940918490, 'gfessions0@smugmug.com', 26, '761 Rusk Road', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (75319716, 'Danny', 'Clutheram', '2006-08-22', 49301304, 930458410, 'dclutheram1@house.gov', 9, '981 Helena Park', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (85465740, 'Yvonne', 'Boule', '2006-10-30', 40032279, 916548885, 'yboule2@walmart.com', 12, '462 Wayridge Center', 123, 1);
 -- 3ro 14 (05/15/2005 - 02/28/2006)
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Aloisia', 'Strowger', 35306021, '2005-10-04', 15, 953999906, 'astrowger0@xinhuanet.com', 14, '653 Raven Court', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Valina', 'Djurevic', 63288837, '2005-07-19', 29, 912181839, 'vdjurevic1@netvibes.com', 19, '885 Orin Place', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Harmony', 'Patriskson', 54354117, '2005-06-25', 4, 941945637, 'hpatriskson2@is.gd', 26, '8 Northport Center', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (35306021, 'Aloisia', 'Strowger', '2005-10-04', 62660244, 953999906, 'astrowger0@xinhuanet.com', 14, '653 Raven Court', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (63288837, 'Valina', 'Djurevic', '2005-07-19', 77871811, 912181839, 'vdjurevic1@netvibes.com', 19, '885 Orin Place', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (54354117, 'Harmony', 'Patriskson', '2005-06-25', 78172050, 941945637, 'hpatriskson2@is.gd', 26, '8 Northport Center', 123, 1);
  -- 4to 15 (05/15/2004 - 02/28/2005)
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Tiertza', 'Toller', 78622486, '2005-02-24', 17, 999569604, 'ttoller0@instagram.com', 8, '97605 Merrick Parkway', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Claudette', 'Pattillo', 47572136, '2004-09-06', 26, 907241389, 'cpattillo1@zimbio.com', 33, '04 Briar Crest Parkway', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Nanice', 'Easbie', 67885243, '2004-07-01', 17, 903585717, 'neasbie2@scientificamerican.com', 7, '67562 Sundown Junction', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (78622486, 'Tiertza', 'Toller', '2005-02-24', 59992197, 999569604, 'ttoller0@instagram.com', 8, '97605 Merrick Parkway', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (47572136, 'Claudette', 'Pattillo', '2004-09-06', 59338610, 907241389, 'cpattillo1@zimbio.com', 33, '04 Briar Crest Parkway', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (67885243, 'Nanice', 'Easbie', '2004-07-01', 42161177, 903585717, 'neasbie2@scientificamerican.com', 7, '67562 Sundown Junction', 123, 1);
 -- 5to 16 (05/15/2003 - 02/28/2004)
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Gabey', 'MacArd', 49934011, '2003-10-14', 2, 945573734, 'gmacard0@usa.gov', 12, '42 Upham Way', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Fran', 'Zanre', 58829423, '2004-01-31', 19, 930851508, 'fzanre1@deviantart.com', 6, '39015 Veith Place', 123, 1);
-INSERT INTO estudiante (nombres, apellidos, dni, fecha_nacimiento, id_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES ('Emmalynn', 'Lornsen', 36901530, '2003-05-19', 7, 906157302, 'elornsen2@cdc.gov', 26, '08225 Bayside Parkway', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (49934011, 'Gabey', 'MacArd', '2003-10-14', 78651735, 945573734, 'gmacard0@usa.gov', 12, '42 Upham Way', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (58829423, 'Fran', 'Zanre', '2004-01-31', 76688326, 930851508, 'fzanre1@deviantart.com', 6, '39015 Veith Place', 123, 1);
+INSERT INTO estudiante (dni, nombres, apellidos, fecha_nacimiento, dni_apoderado, celular, correo, id_distrito, direccion, pass, estado) VALUES (36901530, 'Emmalynn', 'Lornsen', '2003-05-19', 43657138, 906157302, 'elornsen2@cdc.gov', 26, '08225 Bayside Parkway', 123, 1);
 
 -- trabajador (10)
 -- directora
