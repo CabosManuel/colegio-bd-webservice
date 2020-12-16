@@ -19,18 +19,17 @@ public class MapperUtil
 		for(Estudiante estudiante: itemsEstudiante) {
 			
 			EstudianteMapper mapper = new EstudianteMapper();
-			mapper.setEstudianteId(estudiante.getEstudianteId());
+			mapper.setDniEstudiante(estudiante.getDniEstudiante());
 			mapper.setNombre(estudiante.getNombre());
 			mapper.setApellido(estudiante.getApellido());
-			mapper.setDni(estudiante.getDni());
 			mapper.setFnacimiento(estudiante.getFnacimiento());
 			mapper.setCelular(estudiante.getCelular());
 			mapper.setCorreo(estudiante.getCorreo());
 			mapper.setDireccion(estudiante.getDireccion());
-			mapper.setPass(estudiante.getPass());
+			//mapper.setPass(estudiante.getPass());
 			mapper.setEstado(estudiante.getEstado());
 			mapper.setDistrito(new DistritoMapper(estudiante.getDistrito().getDistritoId(), estudiante.getDistrito().getNombre()));
-			mapper.setApoderado(new ApoderadoMapper(estudiante.getApoderado().getApoderadoId()));
+			//mapper.setApoderado(new ApoderadoMapper(estudiante.getApoderado().getDniApoderado()));
 			
 			itemsEstudianteMapper.add(mapper);
 		}
@@ -40,10 +39,9 @@ public class MapperUtil
 	public static EstudianteMapper convert(Estudiante estudiante){
 	
 		EstudianteMapper mapper = new EstudianteMapper();
-				mapper.setEstudianteId(estudiante.getEstudianteId());
+				mapper.setDniEstudiante(estudiante.getDniEstudiante());
 				mapper.setNombre(estudiante.getNombre());
 				mapper.setApellido(estudiante.getApellido());
-				mapper.setDni(estudiante.getDni());
 				mapper.setFnacimiento(estudiante.getFnacimiento());
 				mapper.setCelular(estudiante.getCelular());
 				mapper.setCorreo(estudiante.getCorreo());
@@ -51,7 +49,7 @@ public class MapperUtil
 				mapper.setPass(estudiante.getPass());
 				mapper.setEstado(estudiante.getEstado());
 				mapper.setDistrito(new DistritoMapper(estudiante.getDistrito().getDistritoId(), estudiante.getDistrito().getNombre()));
-				mapper.setApoderado(new ApoderadoMapper(estudiante.getApoderado().getApoderadoId()));
+				mapper.setApoderado(new ApoderadoMapper(estudiante.getApoderado().getDniApoderado()));
 		return mapper;
 		
 	}
@@ -67,9 +65,7 @@ public class MapperUtil
 			
 			itemsDistritoMapper.add(mapper);
 		}
-		
-		
-		  
+	
 		return itemsDistritoMapper;
 	}
 }

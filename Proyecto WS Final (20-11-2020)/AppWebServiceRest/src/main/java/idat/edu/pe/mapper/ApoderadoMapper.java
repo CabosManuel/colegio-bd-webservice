@@ -2,19 +2,21 @@ package idat.edu.pe.mapper;
 
 public class ApoderadoMapper {
 
-	private Integer apoderadoId;
+	private String dniApoderado;
 
-	public ApoderadoMapper(Integer apoderadoId) {
-		this.apoderadoId = apoderadoId;
-	}
-
-	public Integer getApoderadoId() {
-		return apoderadoId;
-	}
-
-	public void setApoderadoId(Integer apoderadoId) {
-		this.apoderadoId = apoderadoId;
+	public ApoderadoMapper() {
 	}
 	
+	public ApoderadoMapper(String dniApoderado) {
+		this.dniApoderado = dniApoderado;
+	}
+
+	public String getDniApoderado() {
+		return dniApoderado;
+	}
+
+	public void setDniApoderado(String dniApoderado) {
+		this.dniApoderado = dniApoderado;
+	}
 	
 }

@@ -17,19 +17,14 @@ public class Apoderado implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	//@Column(name = "apoderado_id", unique = true, nullable = false)
-	private Integer apoderadoId;
+	private String dniApoderado;
 	
 	@Column
 	private String nombre;
 	
 	@Column
 	private String apellido;
-	
-	@Column(unique = true)
-	private Long dni;
-	
+
 	@Column
 	private String correo;
 	
@@ -46,86 +41,62 @@ public class Apoderado implements Serializable{
 	public Apoderado() {
 	}
 
-	public Apoderado(Integer apoderadoId) {
-		this.apoderadoId = apoderadoId;
+	public Apoderado(String dniApoderado) {
+		this.dniApoderado = dniApoderado;
 	}
 
-	public Apoderado(Integer apoderadoId, String nombre, String apellido, Long dni, String correo, String celular,
-			String pass) {
-		this.apoderadoId = apoderadoId;
+	public Apoderado(String dniApoderado, String nombre, String apellido, String correo, String celular, String pass) {
+		this.dniApoderado = dniApoderado;
 		this.nombre = nombre;
 		this.apellido = apellido;
-		this.dni = dni;
 		this.correo = correo;
 		this.celular = celular;
 		this.pass = pass;
 	}
 
-
-	public Integer getApoderadoId() {
-		return apoderadoId;
+	public String getDniApoderado() {
+		return dniApoderado;
 	}
 
-
-	public void setApoderadoId(Integer apoderadoId) {
-		this.apoderadoId = apoderadoId;
+	public void setDniApoderado(String dniApoderado) {
+		this.dniApoderado = dniApoderado;
 	}
-
 
 	public String getNombre() {
 		return nombre;
 	}
 
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
 
 	public String getApellido() {
 		return apellido;
 	}
 
-
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-
-
-	public Long getDni() {
-		return dni;
-	}
-
-
-	public void setDni(Long dni) {
-		this.dni = dni;
-	}
-
 
 	public String getCorreo() {
 		return correo;
 	}
 
-
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-
 
 	public String getCelular() {
 		return celular;
 	}
 
-
 	public void setCelular(String celular) {
 		this.celular = celular;
 	}
 
-
 	public String getPass() {
 		return pass;
 	}
-
 
 	public void setPass(String pass) {
 		this.pass = pass;
@@ -138,6 +109,6 @@ public class Apoderado implements Serializable{
 	public void setItemsestudiante(Collection<Estudiante> itemsestudiante) {
 		this.itemsestudiante = itemsestudiante;
 	}
-	
-	
+
+		
 }

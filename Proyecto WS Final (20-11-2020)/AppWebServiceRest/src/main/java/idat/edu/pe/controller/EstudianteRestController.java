@@ -50,10 +50,10 @@ public class EstudianteRestController {
 		return new ResponseEntity<>(itemsEstudianteMapper, HttpStatus.OK);
 	}
 	
-	@GetMapping("/buscar/{estudianteId}")
-	public ResponseEntity<?> buscar(@PathVariable Integer estudianteId){
+	@GetMapping("/buscar/{dniEstudiante}")
+	public ResponseEntity<?> buscar(@PathVariable String dniEstudiante){
 		
-		Estudiante estudianteOb = estudianteService.findById(estudianteId);
+		Estudiante estudianteOb = estudianteService.findByDniEstudiante(dniEstudiante);
 		EstudianteMapper estudianteMapper = MapperUtil.convert(estudianteOb);
 		
 		if(estudianteOb!=null) {
@@ -68,16 +68,16 @@ public class EstudianteRestController {
 		
 		//EstudianteMapper est = MapperUtil.convertm(estudiante);
 	    estudiante.setDistrito(DService.findById(estudiante.getDistrito().getDistritoId()));
-	    estudiante.setApoderado(AService.findById(estudiante.getApoderado().getApoderadoId()));
+	    estudiante.setApoderado(AService.findByDniApoderado(estudiante.getApoderado().getDniApoderado()));
 		estudianteService.insert(estudiante);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	
 	}
 	
-	@PutMapping("/editar/{estudianteId}")
-	public ResponseEntity<?> editar(@PathVariable Integer estudianteId, @RequestBody Estudiante newEstudiante){
+	@PutMapping("/editar/{dniEstudiante}")
+	public ResponseEntity<?> editar(@PathVariable String dniEstudiante, @RequestBody Estudiante newEstudiante){
 		
-		Estudiante estudianteOb = estudianteService.findById(estudianteId);
+		Estudiante estudianteOb = estudianteService.findByDniEstudiante(dniEstudiante);
 		if(estudianteOb!=null) {
 			estudianteOb.setNombre(newEstudiante.getNombre());
 			estudianteOb.setApellido(newEstudiante.getApellido());
@@ -90,7 +90,7 @@ public class EstudianteRestController {
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 	}
 	
-	@DeleteMapping("/eliminar/{estudianteId}")
+	/*@DeleteMapping("/eliminar/{dniEstudiante}")
 	public ResponseEntity<?> eliminar(@PathVariable Integer estudianteId){
 		
 		//Estudiante estudianteOb = estudianteService.findById(estudianteId);
@@ -101,6 +101,6 @@ public class EstudianteRestController {
 		}
 		
 		return new ResponseEntity<>(estudianteId, HttpStatus.NOT_FOUND);
-	}
+	}*/
 	
 }

@@ -16,17 +16,13 @@ public class Estudiante implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int estudianteId;
+	private String dniEstudiante;
 	
 	@Column
 	private String nombre;
 	
 	@Column
 	private String apellido;
-	
-	@Column
-	private Long dni;
 	
 	@Temporal(TemporalType.DATE)
 	private Date fnacimiento;
@@ -56,9 +52,9 @@ public class Estudiante implements Serializable{
 	private Set<Curso> itemsCurso = new HashSet<>();*/
 	
 	@ManyToOne//(fetch = FetchType.EAGER, targetEntity = Apoderado.class)
-	@JoinColumn(name = "apoderado_id", nullable = false, updatable = false,
+	@JoinColumn(name = "dni_apoderado", nullable = false, updatable = false,
 	foreignKey = @ForeignKey(foreignKeyDefinition = 
-	"foreign key(apoderado_id) references apoderados(apoderado_id)"))
+	"foreign key(dni_apoderado) references apoderados(dni_apoderado)"))
 	private Apoderado apoderado;
 	
 	@OneToMany(mappedBy = "estudiante")
@@ -72,33 +68,16 @@ public class Estudiante implements Serializable{
 	public Estudiante() {
 		
 	}
-	
-	
 
-	public Estudiante(int estudianteId, String nombre, String apellido, Long dni, Date fnacimiento, String celular,
-			String correo, String direccion, String pass, Integer estado, Distrito distrito, Apoderado apoderado) {
-		this.estudianteId = estudianteId;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.dni = dni;
-		this.fnacimiento = fnacimiento;
-		this.celular = celular;
-		this.correo = correo;
-		this.direccion = direccion;
-		this.pass = pass;
-		this.estado = estado;
-		this.distrito = distrito;
-		this.apoderado = apoderado;
+	public Estudiante(String dniEstudiante) {
+		this.dniEstudiante = dniEstudiante;
 	}
 
-
-
-	public Estudiante(int estudianteId, String nombre, String apellido, Long dni, Date fnacimiento,
-			String celular, String correo, String direccion, String pass, Integer estado) {
-		this.estudianteId = estudianteId;
+	public Estudiante(String dniEstudiante, String nombre, String apellido, Date fnacimiento, String celular,
+			String correo, String direccion, String pass, Integer estado) {
+		this.dniEstudiante = dniEstudiante;
 		this.nombre = nombre;
 		this.apellido = apellido;
-		this.dni = dni;
 		this.fnacimiento = fnacimiento;
 		this.celular = celular;
 		this.correo = correo;
@@ -107,12 +86,12 @@ public class Estudiante implements Serializable{
 		this.estado = estado;
 	}
 
-	public int getEstudianteId() {
-		return estudianteId;
+	public String getDniEstudiante() {
+		return dniEstudiante;
 	}
 
-	public void setEstudianteId(int estudianteId) {
-		this.estudianteId = estudianteId;
+	public void setDniEstudiante(String dniEstudiante) {
+		this.dniEstudiante = dniEstudiante;
 	}
 
 	public String getNombre() {
@@ -131,14 +110,6 @@ public class Estudiante implements Serializable{
 		this.apellido = apellido;
 	}
 
-	public Long getDni() {
-		return dni;
-	}
-
-	public void setDni(Long dni) {
-		this.dni = dni;
-	}
-
 	public Date getFnacimiento() {
 		return fnacimiento;
 	}
@@ -146,7 +117,7 @@ public class Estudiante implements Serializable{
 	public void setFnacimiento(Date fnacimiento) {
 		this.fnacimiento = fnacimiento;
 	}
-	
+
 	public String getCelular() {
 		return celular;
 	}
@@ -178,8 +149,6 @@ public class Estudiante implements Serializable{
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	
-	
 
 	public Integer getEstado() {
 		return estado;
@@ -196,14 +165,6 @@ public class Estudiante implements Serializable{
 	public void setDistrito(Distrito distrito) {
 		this.distrito = distrito;
 	}
-/*
-	public Set<Curso> getItemsCurso() {
-		return itemsCurso;
-	}
-
-	public void setItemsCurso(Set<Curso> itemsCurso) {
-		this.itemsCurso = itemsCurso;
-	}*/
 
 	public Apoderado getApoderado() {
 		return apoderado;
@@ -221,4 +182,7 @@ public class Estudiante implements Serializable{
 		this.itemsmatricula = itemsmatricula;
 	}
 	
+	
+
+		
 }

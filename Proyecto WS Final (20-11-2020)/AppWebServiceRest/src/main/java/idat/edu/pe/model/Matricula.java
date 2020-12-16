@@ -30,8 +30,8 @@ public class Matricula implements Serializable{
 	private Seccion seccion;
 	
 	@ManyToOne
-	@JoinColumn(name = "estudiante_id", nullable = false,
-	foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(estudiante_id) references estudiantes(estudiante_id)"))
+	@JoinColumn(name = "dni_estudiante", nullable = false,
+	foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(dni_estudiante) references estudiantes(dni_estudiante)"))
 	private Estudiante estudiante; 
 	
 	public Matricula() {

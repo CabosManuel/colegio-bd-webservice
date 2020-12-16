@@ -76,17 +76,11 @@ public class EstudianteServiceImpl implements EstudianteService{
 		
 	}
 
-	@Transactional
-	@Override
-	public void delete(Integer estudianteId) {
-		repository.deleteById(estudianteId);
-		
-	}
-
 	@Transactional(readOnly = true)
 	@Override
-	public Estudiante findById(Integer estudianteId) {
-		return repository.findById(estudianteId).orElse(null);
+	public Estudiante findByDniEstudiante(String dniEstudiante) {
+		return repository.findByDniEstudiante(dniEstudiante);
+		
 	}
 
 	@Transactional(readOnly = true)

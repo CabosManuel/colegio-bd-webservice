@@ -3,6 +3,7 @@ package idat.edu.pe.service;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,22 +28,16 @@ public class ApoderadoServiceImpl implements ApoderadoService{
 		r.save(apoderado);		
 	}
 
-	@Transactional
-	@Override
-	public void delete(Integer apoderadoId) {
-		r.deleteById(apoderadoId);		
-	}
-
-	@Transactional(readOnly = true)
-	@Override
-	public Apoderado findById(Integer apoderadoId) {
-		return r.findById(apoderadoId).orElse(null);
-	}
-
 	@Transactional(readOnly = true)
 	@Override
 	public Collection<Apoderado> findAll() {
 		return (Collection<Apoderado>)r.findAll();
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Apoderado findByDniApoderado(String dniApoderado) {
+		return r.findByDniApoderado(dniApoderado);
 	}
 
 }

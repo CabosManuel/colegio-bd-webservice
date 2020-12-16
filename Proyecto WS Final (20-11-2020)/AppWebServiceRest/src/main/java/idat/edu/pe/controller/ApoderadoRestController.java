@@ -36,10 +36,10 @@ public class ApoderadoRestController {
 		return new ResponseEntity<>(itemApoderado, HttpStatus.OK);
 	}
 	
-	@GetMapping("/buscar/{apoderadoId}")
-	public ResponseEntity<?> buscar(@PathVariable Integer apoderadoId){
+	@GetMapping("/buscar/{dniApoderado}")
+	public ResponseEntity<?> buscar(@PathVariable String dniApoderado){
 		
-		Apoderado apoderadoOb = service.findById(apoderadoId);
+		Apoderado apoderadoOb = service.findByDniApoderado(dniApoderado);
 		if(apoderadoOb!=null) {
 			return new ResponseEntity<>(apoderadoOb, HttpStatus.OK);
 		}
