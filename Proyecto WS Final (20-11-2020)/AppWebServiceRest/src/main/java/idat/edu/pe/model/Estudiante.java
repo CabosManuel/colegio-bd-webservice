@@ -41,6 +41,9 @@ public class Estudiante implements Serializable{
 	
 	@Column
 	private Boolean estado;
+	
+	@Column 
+	private String condicion;
 
 	@ManyToOne
 	@JoinColumn(name ="distrito_id", nullable = false, updatable = false,
@@ -77,7 +80,7 @@ public class Estudiante implements Serializable{
 	}
 
 	public Estudiante(String dniEstudiante, String nombre, String apellido, Date fnacimiento, String celular,
-			String correo, String direccion, String pass, Boolean estado) {
+			String correo, String direccion, String pass, Boolean estado, String condicion) {
 		this.dniEstudiante = dniEstudiante;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -87,6 +90,7 @@ public class Estudiante implements Serializable{
 		this.direccion = direccion;
 		this.pass = pass;
 		this.estado = estado;
+		this.condicion = condicion;
 	}
 
 	public String getDniEstudiante() {
@@ -184,8 +188,22 @@ public class Estudiante implements Serializable{
 	public void setItemsmatricula(Collection<Matricula> itemsmatricula) {
 		this.itemsmatricula = itemsmatricula;
 	}
-	
-	
 
-		
+	public String getCondicion() {
+		return condicion;
+	}
+
+	public void setCondicion(String condicion) {
+		this.condicion = condicion;
+	}
+
+	public Collection<Nota> getNotas() {
+		return notas;
+	}
+
+	public void setNotas(Collection<Nota> notas) {
+		this.notas = notas;
+	}
+	
+	
 }

@@ -29,6 +29,7 @@ public class MapperUtil
 			mapper.setDireccion(estudiante.getDireccion());
 			//mapper.setPass(estudiante.getPass());
 			mapper.setEstado(estudiante.getEstado());
+			mapper.setCondicion(estudiante.getCondicion());
 			mapper.setDistrito(new DistritoMapper(estudiante.getDistrito().getDistritoId(), estudiante.getDistrito().getNombre()));
 			//mapper.setApoderado(new ApoderadoMapper(estudiante.getApoderado().getDniApoderado()));
 			
@@ -49,6 +50,7 @@ public class MapperUtil
 				mapper.setDireccion(estudiante.getDireccion());
 				mapper.setPass(estudiante.getPass());
 				mapper.setEstado(estudiante.getEstado());
+				mapper.setCondicion(estudiante.getCondicion());
 				mapper.setDistrito(new DistritoMapper(estudiante.getDistrito().getDistritoId(), estudiante.getDistrito().getNombre()));
 				mapper.setApoderado(new ApoderadoMapper(estudiante.getApoderado().getDniApoderado()));
 		return mapper;
@@ -96,4 +98,43 @@ public class MapperUtil
 		
 		return notaMapper;
 	}
+	
+	//Listar todos los apoderados
+		public static Collection<ApoderadoMapper> convertApoderados(Collection<Apoderado> itemsApoderado){
+				
+				Collection<ApoderadoMapper> itemsApoderadoMapper = new ArrayList<>();
+				
+				for(Apoderado apoderado: itemsApoderado) {
+					
+					ApoderadoMapper mapper = new ApoderadoMapper();
+					mapper.setDniApoderado(apoderado.getDniApoderado());
+					mapper.setNombre(apoderado.getNombre());
+					mapper.setApellido(apoderado.getApellido());
+					mapper.setCelular(apoderado.getCelular());
+					mapper.setCorreo(apoderado.getCorreo());
+					//mapper.setPass(estudiante.getPass());
+					mapper.setEstado(apoderado.getEstado());
+					mapper.setDistrito(new DistritoMapper(apoderado.getDistrito().getDistritoId(), apoderado.getDistrito().getNombre()));
+					
+					itemsApoderadoMapper.add(mapper);
+				}
+				return itemsApoderadoMapper;
+		}
+		
+		//Listar por dni del apoderado
+		public static ApoderadoMapper convert(Apoderado apoderado){
+			
+			ApoderadoMapper mapper = new ApoderadoMapper();
+					mapper.setDniApoderado(apoderado.getDniApoderado());
+					mapper.setNombre(apoderado.getNombre());
+					mapper.setApellido(apoderado.getApellido());
+					mapper.setCelular(apoderado.getCelular());
+					mapper.setCorreo(apoderado.getCorreo());
+					mapper.setPass(apoderado.getPass());
+					mapper.setEstado(apoderado.getEstado());
+					mapper.setDistrito(new DistritoMapper(apoderado.getDistrito().getDistritoId(), apoderado.getDistrito().getNombre()));
+			return mapper;
+			
+		}
+	
 }

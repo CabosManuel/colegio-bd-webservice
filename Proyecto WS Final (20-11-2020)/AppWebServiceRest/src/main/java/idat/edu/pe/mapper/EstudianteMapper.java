@@ -13,6 +13,7 @@ public class EstudianteMapper
 	private String direccion;
 	private String pass;
 	private Boolean estado;
+	private String condicion;
 	private DistritoMapper distrito;
 	private ApoderadoMapper apoderado;
 	
@@ -20,7 +21,7 @@ public class EstudianteMapper
 	}
 
 	public EstudianteMapper(String dniEstudiante, String nombre, String apellido, Date fnacimiento, String celular,
-			String correo, String direccion, String pass, Boolean estado, DistritoMapper distrito,
+			String correo, String direccion, String pass, Boolean estado, String condicion, DistritoMapper distrito,
 			ApoderadoMapper apoderado) {
 		this.dniEstudiante = dniEstudiante;
 		this.nombre = nombre;
@@ -33,10 +34,11 @@ public class EstudianteMapper
 		this.estado = estado;
 		this.distrito = distrito;
 		this.apoderado = apoderado;
+		this.condicion = condicion;
 	}
 	
 	public EstudianteMapper(String dniEstudiante, String nombre, String apellido, Date fnacimiento, String celular,
-			String correo, String direccion, String pass, Boolean estado) {
+			String correo, String direccion, String pass, Boolean estado, String condicion) {
 		this.dniEstudiante = dniEstudiante;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -46,12 +48,13 @@ public class EstudianteMapper
 		this.direccion = direccion;
 		this.pass = pass;
 		this.estado = estado;
+		this.condicion = condicion;
 	}
 	
 	
 
 	public EstudianteMapper(String dniEstudiante, String nombre, String apellido, Date fnacimiento, String celular,
-			String correo, String direccion, Boolean estado, DistritoMapper distrito) {
+			String correo, String direccion, Boolean estado, String condicion, DistritoMapper distrito) {
 		this.dniEstudiante = dniEstudiante;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -60,6 +63,7 @@ public class EstudianteMapper
 		this.correo = correo;
 		this.direccion = direccion;
 		this.estado = estado;
+		this.condicion = condicion;
 		this.distrito = distrito;
 	}
 
@@ -133,6 +137,14 @@ public class EstudianteMapper
 
 	public void setEstado(Boolean estado) {
 		this.estado = estado;
+	}
+
+	public String getCondicion() {
+		return condicion;
+	}
+
+	public void setCondicion(String condicion) {
+		this.condicion = condicion;
 	}
 
 	public DistritoMapper getDistrito() {
