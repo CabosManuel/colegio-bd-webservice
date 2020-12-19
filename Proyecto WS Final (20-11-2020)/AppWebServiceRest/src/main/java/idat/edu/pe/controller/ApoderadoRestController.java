@@ -9,12 +9,17 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import idat.edu.pe.mapper.ApoderadoMapper;
+import idat.edu.pe.mapper.EstudianteMapper;
+import idat.edu.pe.mapper.MapperUtil;
 import idat.edu.pe.model.Apoderado;
 import idat.edu.pe.model.Distrito;
+import idat.edu.pe.model.Estudiante;
 import idat.edu.pe.service.ApoderadoService;
 
 @CrossOrigin("*")
@@ -29,21 +34,25 @@ public class ApoderadoRestController {
 	public ResponseEntity<?> listar(){
 		
 		Collection<Apoderado> itemApoderado = service.findAll();
+		Collection<ApoderadoMapper> itemsApoderadoMapper = MapperUtil.convertApoderados(itemApoderado);
+		
 		if(itemApoderado.isEmpty()) {
-			return new ResponseEntity<>(itemApoderado, HttpStatus.NO_CONTENT);
+			return new ResponseEntity<>("No hay apoderados registrados", HttpStatus.NO_CONTENT);
 		}
 		
-		return new ResponseEntity<>(itemApoderado, HttpStatus.OK);
+		return new ResponseEntity<>(itemsApoderadoMapper, HttpStatus.OK);
 	}
 	
 	@GetMapping("/buscar/{dniApoderado}")
 	public ResponseEntity<?> buscar(@PathVariable String dniApoderado){
 		
 		Apoderado apoderadoOb = service.findByDniApoderado(dniApoderado);
+		ApoderadoMapper apoderadoMapper = MapperUtil.convert(apoderadoOb);
+		
 		if(apoderadoOb!=null) {
-			return new ResponseEntity<>(apoderadoOb, HttpStatus.OK);
+			return new ResponseEntity<>(apoderadoMapper, HttpStatus.OK);
 		}
-		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>("Apoderado con el dni " + dniApoderado + " no existente.", HttpStatus.NOT_FOUND);
 		
 	}
 	
@@ -53,6 +62,38 @@ public class ApoderadoRestController {
 		service.insert(apoderado);
 		return new ResponseEntity<>("Se creó correctamente",HttpStatus.CREATED);
 	
+	}
+	
+	@PutMapping("/editar/{dniApoderado}")
+	public ResponseEntity<?> editar(@PathVariable String dniApoderado, @RequestBody Apoderado newApoderado){
+		
+		Apoderado apoderadoOb = service.findByDniApoderado(dniApoderado);
+		if(apoderadoOb!=null) {
+			apoderadoOb.setNombre(newApoderado.getNombre());
+			apoderadoOb.setApellido(newApoderado.getApellido());
+			apoderadoOb.setCelular(newApoderado.getCelular());
+			apoderadoOb.setCorreo(newApoderado.getCorreo());
+			apoderadoOb.setDistrito(newApoderado.getDistrito());
+			apoderadoOb.setPass(newApoderado.getPass());
+			apoderadoOb.setDniApoderado(newApoderado.getDniApoderado());
+			service.update(apoderadoOb);
+			return new ResponseEntity<>("El apoderado con el dni " + dniApoderado + " se actualizó correctamente",HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+	}
+	
+	@PutMapping("/desactivar/{dniApoderado}")
+	public ResponseEntity<?> desactivar(@PathVariable String dniApoderado, @RequestBody Apoderado newApoderado){
+		
+		Apoderado apoderadoOb = service.findByDniApoderado(dniApoderado);
+		if(apoderadoOb!=null) {
+			apoderadoOb.setEstado(newApoderado.getEstado());
+			service.update(apoderadoOb);
+			return new ResponseEntity<>("El apoderado con el dni " + dniApoderado + " se desactivó correctamente", HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 	}
 
 

@@ -25,6 +25,10 @@ public class Distrito implements Serializable{
 	@OneToMany(mappedBy = "distrito",cascade = CascadeType.ALL ,fetch =FetchType.EAGER)
     @Fetch(value = FetchMode.SUBSELECT)
 	private  Collection<Estudiante> estudiantes = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "distrito",cascade = CascadeType.ALL ,fetch =FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
+	private  Collection<Apoderado> apoderados = new ArrayList<>();
 
 	public Distrito() {
 	}
@@ -64,9 +68,16 @@ public class Distrito implements Serializable{
 		this.estudiantes = estudiantes;
 	}
 
+
+	public Collection<Apoderado> getApoderados() {
+		return apoderados;
+	}
+
+
+	public void setApoderados(Collection<Apoderado> apoderados) {
+		this.apoderados = apoderados;
+	}
 	
-	
-	
-	
+	 
 	
 }

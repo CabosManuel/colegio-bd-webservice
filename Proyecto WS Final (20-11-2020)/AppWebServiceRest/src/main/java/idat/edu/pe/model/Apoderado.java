@@ -34,6 +34,15 @@ public class Apoderado implements Serializable{
 	@Column
 	private String pass;
 	
+	@Column
+	private Boolean estado;
+	
+	@ManyToOne
+	@JoinColumn(name ="distrito_id", nullable = false, updatable = false,
+	foreignKey = @ForeignKey(foreignKeyDefinition = 
+	"foreign key(distrito_id) references distritos(distrito_id)"))
+	private Distrito distrito;
+	
 	@OneToMany(mappedBy = "apoderado", cascade = CascadeType.ALL ,fetch =FetchType.EAGER)
     @Fetch(value = FetchMode.SUBSELECT)
 	private Collection<Estudiante> itemsestudiante = new ArrayList<>();
@@ -45,13 +54,15 @@ public class Apoderado implements Serializable{
 		this.dniApoderado = dniApoderado;
 	}
 
-	public Apoderado(String dniApoderado, String nombre, String apellido, String correo, String celular, String pass) {
+	public Apoderado(String dniApoderado, String nombre, String apellido, String correo, String celular, String pass,
+			Boolean estado) {
 		this.dniApoderado = dniApoderado;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.correo = correo;
 		this.celular = celular;
 		this.pass = pass;
+		this.estado = estado;
 	}
 
 	public String getDniApoderado() {
@@ -110,5 +121,21 @@ public class Apoderado implements Serializable{
 		this.itemsestudiante = itemsestudiante;
 	}
 
-		
+	public Boolean getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
+	}
+
+	public Distrito getDistrito() {
+		return distrito;
+	}
+
+	public void setDistrito(Distrito distrito) {
+		this.distrito = distrito;
+	}
+
+	
 }

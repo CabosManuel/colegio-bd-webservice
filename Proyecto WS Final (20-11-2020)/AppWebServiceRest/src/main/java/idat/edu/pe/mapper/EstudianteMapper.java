@@ -12,7 +12,7 @@ public class EstudianteMapper
 	private String correo;
 	private String direccion;
 	private String pass;
-	private Integer estado;
+	private Boolean estado;
 	private DistritoMapper distrito;
 	private ApoderadoMapper apoderado;
 	
@@ -20,7 +20,7 @@ public class EstudianteMapper
 	}
 
 	public EstudianteMapper(String dniEstudiante, String nombre, String apellido, Date fnacimiento, String celular,
-			String correo, String direccion, String pass, Integer estado, DistritoMapper distrito,
+			String correo, String direccion, String pass, Boolean estado, DistritoMapper distrito,
 			ApoderadoMapper apoderado) {
 		this.dniEstudiante = dniEstudiante;
 		this.nombre = nombre;
@@ -36,7 +36,7 @@ public class EstudianteMapper
 	}
 	
 	public EstudianteMapper(String dniEstudiante, String nombre, String apellido, Date fnacimiento, String celular,
-			String correo, String direccion, String pass, Integer estado) {
+			String correo, String direccion, String pass, Boolean estado) {
 		this.dniEstudiante = dniEstudiante;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -51,7 +51,7 @@ public class EstudianteMapper
 	
 
 	public EstudianteMapper(String dniEstudiante, String nombre, String apellido, Date fnacimiento, String celular,
-			String correo, String direccion, Integer estado, DistritoMapper distrito) {
+			String correo, String direccion, Boolean estado, DistritoMapper distrito) {
 		this.dniEstudiante = dniEstudiante;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -127,11 +127,11 @@ public class EstudianteMapper
 		this.pass = pass;
 	}
 
-	public Integer getEstado() {
+	public Boolean getEstado() {
 		return estado;
 	}
 
-	public void setEstado(Integer estado) {
+	public void setEstado(Boolean estado) {
 		this.estado = estado;
 	}
 

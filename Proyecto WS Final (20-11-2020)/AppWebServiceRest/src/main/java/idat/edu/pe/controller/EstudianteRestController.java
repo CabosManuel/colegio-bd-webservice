@@ -59,7 +59,7 @@ public class EstudianteRestController {
 		if(estudianteOb!=null) {
 			return new ResponseEntity<>(estudianteMapper, HttpStatus.OK);
 		}
-		return new ResponseEntity<>(estudianteMapper, HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>("Estudiante con el dni " + dniEstudiante + " no existente.", HttpStatus.NOT_FOUND);
 		
 	}
 	
@@ -82,9 +82,30 @@ public class EstudianteRestController {
 			estudianteOb.setNombre(newEstudiante.getNombre());
 			estudianteOb.setApellido(newEstudiante.getApellido());
 			estudianteOb.setCelular(newEstudiante.getCelular());
+			estudianteOb.setCorreo(newEstudiante.getCorreo());
+			estudianteOb.setDireccion(newEstudiante.getDireccion());
+			estudianteOb.setDistrito(newEstudiante.getDistrito());
+			estudianteOb.setDniEstudiante(newEstudiante.getDniEstudiante());
+			estudianteOb.setApoderado(newEstudiante.getApoderado());
+			estudianteOb.setFnacimiento(newEstudiante.getFnacimiento());
+			estudianteOb.setPass(newEstudiante.getPass());
 			
 			estudianteService.update(estudianteOb);
-			return new ResponseEntity<Void>(HttpStatus.OK);
+			return new ResponseEntity<>("La estudiante con el dni " + dniEstudiante + " se actualizó correctamente.",HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+	}
+	
+	@PutMapping("/desactivar/{dniEstudiante}")
+	public ResponseEntity<?> desactivar(@PathVariable String dniEstudiante, @RequestBody Estudiante newEstudiante){
+		
+		Estudiante estudianteOb = estudianteService.findByDniEstudiante(dniEstudiante);
+		if(estudianteOb!=null) {
+			estudianteOb.setEstado(newEstudiante.getEstado());
+			
+			estudianteService.update(estudianteOb);
+			return new ResponseEntity<>("La estudiante con el dni " + dniEstudiante + " se desactivó correctamente.", HttpStatus.OK);
 		}
 		
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
@@ -96,11 +117,11 @@ public class EstudianteRestController {
 		//Estudiante estudianteOb = estudianteService.findById(estudianteId);
 		if(estudianteId != null) {
 			
-			estudianteService.delete(estudianteId);
+			estudianteService.dele(estudianteId);
 			return new ResponseEntity<Void>(HttpStatus.OK);
 		}
 		
-		return new ResponseEntity<>(estudianteId, HttpStatus.NOT_FOUND);
-	}*/
-	
+		return new ResponseEntity<>("Estudiante no encontrado", HttpStatus.NOT_FOUND);
+	}
+	*/
 }

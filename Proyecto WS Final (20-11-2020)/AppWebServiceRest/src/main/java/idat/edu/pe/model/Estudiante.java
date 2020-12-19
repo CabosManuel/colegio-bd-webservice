@@ -40,7 +40,7 @@ public class Estudiante implements Serializable{
 	private String pass;
 	
 	@Column
-	private Integer estado;
+	private Boolean estado;
 
 	@ManyToOne
 	@JoinColumn(name ="distrito_id", nullable = false, updatable = false,
@@ -74,7 +74,7 @@ public class Estudiante implements Serializable{
 	}
 
 	public Estudiante(String dniEstudiante, String nombre, String apellido, Date fnacimiento, String celular,
-			String correo, String direccion, String pass, Integer estado) {
+			String correo, String direccion, String pass, Boolean estado) {
 		this.dniEstudiante = dniEstudiante;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -150,11 +150,11 @@ public class Estudiante implements Serializable{
 		this.pass = pass;
 	}
 
-	public Integer getEstado() {
+	public Boolean getEstado() {
 		return estado;
 	}
 
-	public void setEstado(Integer estado) {
+	public void setEstado(Boolean estado) {
 		this.estado = estado;
 	}
 
