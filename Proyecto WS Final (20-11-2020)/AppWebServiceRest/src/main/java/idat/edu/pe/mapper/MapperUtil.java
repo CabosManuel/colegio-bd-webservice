@@ -9,6 +9,7 @@ import java.util.Map;
 import idat.edu.pe.model.Apoderado;
 import idat.edu.pe.model.Distrito;
 import idat.edu.pe.model.Estudiante;
+import idat.edu.pe.model.Nota;
 
 public class MapperUtil 
 {
@@ -67,5 +68,32 @@ public class MapperUtil
 		}
 	
 		return itemsDistritoMapper;
+	}
+	
+	/**
+	 * MAPPERS NOTA
+	 */
+	
+	// Mapper Collection<Object[]> a Collection<NotaMapper>
+	public static Collection<NotaMapper> convertCollObjects_NotasMapper(Collection<Object[]> objetos) {
+		Collection<NotaMapper> notasMapper = new ArrayList<>();
+		
+		for(Object[] obj:objetos) {
+			notasMapper.add(convertObjectNota(obj));
+		}
+		
+		return notasMapper;
+	}
+	
+	// Mapper Object[] a NotaMapper
+	public static NotaMapper convertObjectNota(Object[] obj) {
+		NotaMapper notaMapper = new NotaMapper();
+		
+		notaMapper.setCurso((String) obj[0]);
+		notaMapper.setNota1((Integer) obj[1]);
+		notaMapper.setNota2((Integer) obj[2]);
+		notaMapper.setNota3((Integer) obj[3]);
+		
+		return notaMapper;
 	}
 }

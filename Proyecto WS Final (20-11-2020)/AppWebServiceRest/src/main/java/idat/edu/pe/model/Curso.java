@@ -43,6 +43,9 @@ public class Curso implements Serializable{
 	@OneToMany(mappedBy = "curso")
 	private Collection<Malla> mallas = new ArrayList<>(); 
 
+	@OneToMany(mappedBy = "curso")
+	private Collection<Nota> notas = new ArrayList<>();
+	
 	public Curso() {
 	}
 
