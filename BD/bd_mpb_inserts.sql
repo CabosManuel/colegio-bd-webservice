@@ -360,7 +360,13 @@ insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_traba
 insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-03-30 13:52:08', 3, 11, 77503592, 29, 2);
 insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-03-30 01:30:52', 3, 12, 83553013, 30, 2);
 insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-12 08:46:26', 3, 13, 84525197, 31, 2);
+--
+-- marticulas de la alumna 87341016
+-- 2020 - 5to A
 insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-03-27 00:21:02', 3, 14, 87341016, 32, 3);
+-- 2019 - 4to A 
+insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2019-03-27 00:21:02', 3, 13, 87341016, 31, 3);
+--
 insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-01-16 09:37:29', 3, 10, 47572136, 33, 2);
 insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-01-24 09:23:57', 3, 11, 83809323, 34, 3);
 insert into matricula (fecha, nivel, grado, dni_estudiante, id_seccion, id_trabajador) values ('2020-02-13 05:03:15', 3, 12, 86423307, 35, 2);
@@ -583,22 +589,32 @@ INSERT INTO horario_detalle (fecha, dia, hora_inicio, hora_fin, id_curso, id_hor
 */
 		
 -- nota ()
--- incial
--- primaria
--- secundaria
--- 5to A (cursos 15-26)
-INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (15, 20, 20, 20, 20, 87341016);
-INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (16, 20, 20, 20, 20, 87341016);
-INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (17, 20, 20, 20, 20, 87341016);
-INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (18, 20, 20, 20, 20, 87341016);
-INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (19, 20, 20, 20, 20, 87341016);
-INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (20, 20, 20, 20, 20, 87341016);
-INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (21, 20, 20, 20, 20, 87341016);
-INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (22, 20, 20, 20, 20, 87341016);
-INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (23, 20, 20, 20, 20, 87341016);
-INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (24, 20, 20, 20, 20, 87341016);
-INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (25, 20, 20, 20, 20, 87341016);
-INSERT INTO nota (id_curso, nota_1, nota_2, nota_3, promedio, dni_estudiante) VALUES (26, 20, 20, 20, 20, 87341016);
+-- 87341016 - 5to A (cursos 15-26)
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (15, 2, 17, 10, null, '2020-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (16, 18, 16, 9, null, '2020-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (17, 2, 3, 19, null, '2020-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (18, 11, 4, 6, null, '2020-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (19, 12, 9, 6, null, '2020-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (20, 2, 6, 15, null, '2020-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (21, 6, 16, 9, null, '2020-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (22, 12, 7, 11, null, '2020-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (23, 17, 3, 13, null, '2020-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (24, 17, 19, 10, null, '2020-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (25, 20, 14, 2, null, '2020-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (26, 17, 18, 15, null, '2020-12-10', 87341016);
+-- 87341016 - 4to A (cursos 15-26)
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (15, 0, 1, 5, null, '2019-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (16, 13, 13, 4, null, '2019-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (17, 14, 15, 11, null, '2019-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (18, 6, 18, 9, null, '2019-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (19, 16, 11, 15, null, '2019-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (20, 17, 11, 5, null, '2019-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (21, 7, 20, 1, null, '2019-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (22, 1, 2, 10, null, '2019-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (23, 12, 16, 4, null, '2019-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (24, 0, 17, 1, null, '2019-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (25, 9, 3, 2, null, '2019-12-10', 87341016);
+insert into nota (id_curso, nota_1, nota_2, nota_3, promedio, fecha, dni_estudiante) values (26, 9, 19, 20, null, '2019-12-10', 87341016);
 
 -- asistencia ()
 /*
