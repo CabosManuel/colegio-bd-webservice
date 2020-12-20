@@ -50,14 +50,12 @@ public class NotaMapper {
 	public void setNota3(Integer nota3) {
 		this.nota3 = nota3;
 	}
-	/*
-	public String getFecha() {
+	
+	/*public String getFecha() {
 		return fecha;
 	}
 
-	
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
-	}
-	*/
+	}*/
 }

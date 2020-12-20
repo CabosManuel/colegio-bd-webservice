@@ -9,7 +9,6 @@ import java.util.Map;
 import idat.edu.pe.model.Apoderado;
 import idat.edu.pe.model.Distrito;
 import idat.edu.pe.model.Estudiante;
-import idat.edu.pe.model.Nota;
 
 public class MapperUtil 
 {
@@ -95,6 +94,7 @@ public class MapperUtil
 		notaMapper.setNota1((Integer) obj[1]);
 		notaMapper.setNota2((Integer) obj[2]);
 		notaMapper.setNota3((Integer) obj[3]);
+		//notaMapper.setFecha((String) obj[4]);
 		
 		return notaMapper;
 	}
