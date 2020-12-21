@@ -68,7 +68,7 @@ public class Estudiante implements Serializable{
 	foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(direccion_id) references direcciones(direccion_id)"))
 	private Direccion direccion;*/
 	
-	@OneToMany(mappedBy = "estudiante")
+	@OneToMany(mappedBy = "dniEstudiante")
 	private Collection<Nota> notas = new ArrayList<>();
 	
 	public Estudiante() {

@@ -19,6 +19,14 @@ public class EstudianteMapper
 	
 	public EstudianteMapper() {
 	}
+	
+	
+
+	public EstudianteMapper(String dniEstudiante) {
+		this.dniEstudiante = dniEstudiante;
+	}
+
+
 
 	public EstudianteMapper(String dniEstudiante, String nombre, String apellido, Date fnacimiento, String celular,
 			String correo, String direccion, String pass, Boolean estado, String condicion, DistritoMapper distrito,

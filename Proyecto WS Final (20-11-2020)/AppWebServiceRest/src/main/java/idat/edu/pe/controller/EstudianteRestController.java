@@ -63,6 +63,19 @@ public class EstudianteRestController {
 		
 	}
 	
+	/*@GetMapping("/buscarMatricula/{dniEstudiante}")
+	public ResponseEntity<?> buscarParaMatricula(@PathVariable String dniEstudiante){
+		
+		Estudiante estudianteOb = estudianteService.findByDniEstudiante(dniEstudiante);
+		EstudianteMapper estudianteMapper = MapperUtil.EstudiantePersonalizada(estudianteOb);
+		
+		if(estudianteOb!=null) {
+			return new ResponseEntity<>(estudianteMapper, HttpStatus.OK);
+		}
+		return new ResponseEntity<>("Estudiante con el dni " + dniEstudiante + " no existente.", HttpStatus.NOT_FOUND);
+		
+	}*/
+	
 	@PostMapping("/agregar")
 	public ResponseEntity<?> agregar(@RequestBody Estudiante estudiante){
 		

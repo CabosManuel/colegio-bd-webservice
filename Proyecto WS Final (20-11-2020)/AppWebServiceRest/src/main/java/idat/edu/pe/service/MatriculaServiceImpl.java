@@ -47,6 +47,12 @@ public class MatriculaServiceImpl implements MatriculaService{
 	public Collection<Matricula> findAll() {
 		return (Collection<Matricula>)r.findAll();
 	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Matricula findByEstudiante(String dniEstudiante) {
+		return r.findByEstudiante(dniEstudiante);
+	}
 	
 	
 }

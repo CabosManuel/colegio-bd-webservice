@@ -12,4 +12,6 @@ public interface MatriculaService {
 	public abstract Matricula findById(Integer matriculaId);
 	public abstract Collection<Matricula> findAll();
 	
+	public Matricula findByEstudiante(String dniEstudiante);
+	
 }

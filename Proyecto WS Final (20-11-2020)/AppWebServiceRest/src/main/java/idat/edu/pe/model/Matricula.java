@@ -90,5 +90,19 @@ public class Matricula implements Serializable{
 	public void setEstudiante(Estudiante estudiante) {
 		this.estudiante = estudiante;
 	}
+
+
+
+	public Seccion getSeccion() {
+		return seccion;
+	}
+
+
+
+	public void setSeccion(Seccion seccion) {
+		this.seccion = seccion;
+	}
+	
+	
 	
 }

@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import idat.edu.pe.model.Estudiante;
 import idat.edu.pe.model.Nota;
 
 public interface NotaRepository extends CrudRepository<Nota, Integer>{
@@ -14,4 +15,8 @@ public interface NotaRepository extends CrudRepository<Nota, Integer>{
 	
 	@Query(value = "select distinct year(n.fecha) from notas n inner join estudiantes e on e.dni_estudiante = n.dni_estudiante where e.dni_estudiante = ?",nativeQuery = true)
 	public abstract Collection<Object> getAniosByDniEstudiante(String dniEstudiante);
+	
+	@Query(value = "select n.nota_id, c.curso_id, e.dni_estudiante, n.fecha, c.nombre, n.nota1, n.nota2, n.nota3 from notas n inner join cursos c on n.curso_id = c.curso_id inner join estudiantes e on n.dni_estudiante = e.dni_estudiante\r\n" + 
+			"where e.dni_estudiante = ?",nativeQuery = true)
+	public abstract Collection<Nota> findByDniEstudiante(String dniEstudiante);
 }

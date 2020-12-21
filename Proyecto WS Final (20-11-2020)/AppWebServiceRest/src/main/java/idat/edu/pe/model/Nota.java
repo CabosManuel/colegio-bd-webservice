@@ -29,7 +29,7 @@ public class Nota implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "dni_estudiante", nullable = false, updatable = false, foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(dni_estudiante) references estudiantes(dni_estudiante)"))
-	private Estudiante estudiante;
+	private Estudiante dniEstudiante;
 
 	public Nota() {
 	}
@@ -91,12 +91,12 @@ public class Nota implements Serializable {
 		this.curso = curso;
 	}
 
-	public Estudiante getEstudiante() {
-		return estudiante;
+	public Estudiante getDniEstudiante() {
+		return dniEstudiante;
 	}
 
-	public void setEstudiante(Estudiante estudiante) {
-		this.estudiante = estudiante;
+	public void setDniEstudiante(Estudiante dni_Estudiante) {
+		this.dniEstudiante = dni_Estudiante;
 	}
 
 }

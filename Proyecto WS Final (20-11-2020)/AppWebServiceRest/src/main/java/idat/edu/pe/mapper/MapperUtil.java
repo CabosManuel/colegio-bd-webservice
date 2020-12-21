@@ -6,12 +6,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import idat.edu.pe.model.Apoderado;
 import idat.edu.pe.model.Distrito;
 import idat.edu.pe.model.Estudiante;
+import idat.edu.pe.model.Grado;
+import idat.edu.pe.model.Matricula;
+import idat.edu.pe.model.Nivel;
+import idat.edu.pe.model.Nota;
+import idat.edu.pe.service.GradoService;
 
 public class MapperUtil 
 {
+	
+	@Autowired
+	private GradoService gservice; 
+	
 	public static Collection<EstudianteMapper> convert(Collection<Estudiante> itemsEstudiante){
 		
 		Collection<EstudianteMapper> itemsEstudianteMapper = new ArrayList<>();
@@ -30,8 +41,7 @@ public class MapperUtil
 			mapper.setEstado(estudiante.getEstado());
 			mapper.setCondicion(estudiante.getCondicion());
 			mapper.setDistrito(new DistritoMapper(estudiante.getDistrito().getDistritoId(), estudiante.getDistrito().getNombre()));
-			//mapper.setApoderado(new ApoderadoMapper(estudiante.getApoderado().getDniApoderado()));
-			
+			mapper.setApoderado(new ApoderadoMapper(estudiante.getApoderado().getDniApoderado()));
 			itemsEstudianteMapper.add(mapper);
 		}
 		return itemsEstudianteMapper;
@@ -56,6 +66,25 @@ public class MapperUtil
 		
 	}
 	
+	public static Collection<NotaMapper> convertNotas(Collection<Nota> itemsNota){
+		
+		Collection<NotaMapper> itemsNotaMapper = new ArrayList<>();
+		
+		for(Nota nota: itemsNota) {
+				NotaMapper mapper = new NotaMapper();
+				//mapper.setNota_id(nota.getNotaId());
+				mapper.setDni_estudiante(new EstudianteMapper(nota.getDniEstudiante().getDniEstudiante()));
+				mapper.setCursom(new CursoMapper(nota.getCurso().getCursoId(), nota.getCurso().getNombre()));
+				mapper.setNota1(nota.getNota1());
+				mapper.setNota2(nota.getNota2());
+				mapper.setNota3(nota.getNota3());
+				mapper.setFecha(nota.getFecha());
+				//n.nota_id, c.curso_id, e.dni_estudiante, n.fecha,
+				itemsNotaMapper.add(mapper);
+		}
+		return itemsNotaMapper;
+		
+	}
 	public static List<DistritoMapper> convertD(List<Distrito> items){
 		List<DistritoMapper> itemsDistritoMapper = new ArrayList<>();
 		
@@ -136,5 +165,28 @@ public class MapperUtil
 			return mapper;
 			
 		}
+		
+		//MATRICULA
+		public MatriculaMapper convert(Matricula matricula){
+			
+			MatriculaMapper mapper = new MatriculaMapper();
+			Collection<Grado> grados = gservice.findByNivel(matricula.getNivel());
+			//Nivel n = new Nivel();
+			Grado g = new Grado();
+			
+					mapper.setEstudiante(new EstudianteMapper(matricula.getEstudiante().getDniEstudiante()));
+					mapper.setFecha(matricula.getFecha());
+					mapper.setNivel(matricula.getNivel());
+					
+					for(Grado grado: grados) {
+						if(g.getGradoId() == matricula.getGrado()) {
+							mapper.setGrado(matricula.getGrado());
+							mapper.setNombregrado(g.getNombre());
+						}
+					}
+					mapper.setSeccion(new SeccionMapper(matricula.getSeccion().getSeccionId(), matricula.getSeccion().getNombre()));
+			return mapper;
+		}
+		
 	
 }

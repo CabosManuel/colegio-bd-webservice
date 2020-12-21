@@ -11,5 +11,6 @@ public interface GradoService {
 	public abstract void delete(Integer gradoId);
 	public abstract Grado findById(Integer gradoId);
 	public abstract Collection<Grado> findAll();
+	public Collection<Grado> findByNivel(Integer nivelId);
 	
 }
