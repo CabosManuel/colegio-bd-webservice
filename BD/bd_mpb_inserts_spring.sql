@@ -491,18 +491,18 @@ insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values 
 insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (26, 17, 20, 10, '2019-12-06', 61933011);
 
 -- 61933011 - 5to A (cursos 15-26)
-insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (15, 18, 20, null, '2020-02-27', 61933011);
-insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (16, 20, 17, null, '2020-03-03', 61933011);
-insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (17, 13, 15, null, '2020-01-30', 61933011);
-insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (18, 19, 20, null, '2020-01-24', 61933011);
-insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (19, 17, 16, null, '2020-01-05', 61933011);
-insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (20, 18, 17, null, '2020-01-12', 61933011);
-insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (21, 16, 16, null, '2020-01-06', 61933011);
-insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (22, 18, 19, null, '2020-01-18', 61933011);
-insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (23, 17, 20, null, '2020-02-06', 61933011);
-insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (24, 14, 16, null, '2020-12-25', 61933011);
-insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (25, 13, 16, null, '2020-01-06', 61933011);
-insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (26, 17, 19, null, '2020-12-11', 61933011);
+insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (15, 18, 20, 14, '2020-02-27', 61933011);
+insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (16, 20, 17, 14, '2020-03-03', 61933011);
+insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (17, 13, 15, 16, '2020-01-30', 61933011);
+insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (18, 19, 20, 17, '2020-01-24', 61933011);
+insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (19, 17, 16, 13, '2020-01-05', 61933011);
+insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (20, 18, 17, 16, '2020-01-12', 61933011);
+insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (21, 16, 16, 17, '2020-01-06', 61933011);
+insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (22, 18, 19, 16, '2020-01-18', 61933011);
+insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (23, 17, 20, 13, '2020-02-06', 61933011);
+insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (24, 14, 16, 16, '2020-12-25', 61933011);
+insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (25, 13, 16, 14, '2020-01-06', 61933011);
+insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (26, 17, 19, 14, '2020-12-11', 61933011);
 
 -- asistencia ()
 /*
