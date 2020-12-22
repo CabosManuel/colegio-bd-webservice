@@ -1,4 +1,4 @@
-USE bd_spring_mpb;
+USE bd_webservicerest;
 
 -- distritos (43)
 INSERT INTO distritos (nombre) VALUES ('LIMA');
@@ -45,8 +45,39 @@ INSERT INTO distritos (nombre) VALUES ('SURQUILLO');
 INSERT INTO distritos (nombre) VALUES ('VILLA EL SALVADOR');
 INSERT INTO distritos (nombre) VALUES ('VILLA MARÍA DEL TRIUNFO');
 
--- apoderados (30)
+-- apoderados (30) 
 insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (34887445, 'Dena', 'Cardnell', 900469120, 'dcardnell0@tuttocitta.it', 123, 39, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (81464165, 'Ichabod', 'Cicchinelli', 973637497, 'icicchinelli0@newsvine.com', 123, 3, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (67294996, 'Nikolai', 'Tieman', 929901641, 'ntieman1@apache.org', 123, 40, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (73075298, 'Josephine', 'Van Arsdall', 957331388, 'jvanarsdall2@whitehouse.gov', 123, 13, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (52004961, 'Kelsy', 'Yitzhakov', 985366749, 'kyitzhakov3@spotify.com', 123, 32, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (95904233, 'Maisey', 'Unitt', 909703223, 'munitt4@ameblo.jp', 123, 21, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (24772789, 'Gordy', 'McPaik', 945227135, 'gmcpaik5@ameblo.jp', 123, 42, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (33418489, 'Shir', 'Yakubov', 902870573, 'syakubov6@time.com', 123, 10, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (84382327, 'Allard', 'Skottle', 911146199, 'askottle7@icio.us', 123, 24, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (41176568, 'Connie', 'Melling', 970901155, 'cmelling8@imdb.com', 123, 21, 1);
+
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (25649104, 'Dore', 'Cordet', 935683185, 'dcordet9@slate.com', 123, 15, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (87432154, 'Austin', 'Garshore', 959461020, 'agarshorea@mediafire.com', 123, 21, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (37358342, 'Blaire', 'Snoxall', 907899589, 'bsnoxallb@feedburner.com', 123, 2, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (19140415, 'Sallie', 'Buckwell', 995126787, 'sbuckwellc@eepurl.com', 123, 37, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (95904386, 'Anderson', 'Faley', 909554270, 'afaleyd@hostgator.com', 123, 19, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (12247488, 'Maryanne', 'Maling', 917441128, 'mmalinge@biglobe.ne.jp', 123, 6, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (66563048, 'Karin', 'Billam', 905652839, 'kbillamf@discovery.com', 123, 21, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (20982350, 'Jillie', 'Orfeur', 968630912, 'jorfeurg@nymag.com', 123, 8, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (87673066, 'Rozanna', 'Richarson', 988457535, 'rricharsonh@unc.edu', 123, 5, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (71652455, 'Aimee', 'Hamshere', 954164868, 'ahamsherei@imageshack.us', 123, 27, 1);
+
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (72713455, 'Zaccaria', 'Jiles', 988396380, 'zjilesj@timesonline.co.uk', 123, 21, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (39948404, 'Rebecka', 'Crowder', 924370198, 'rcrowderk@webnode.com', 123, 30, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (16029997, 'Meredeth', 'Drewet', 966654611, 'mdrewetl@live.com', 123, 24, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (12076402, 'Harlin', 'Versey', 919869610, 'hverseym@state.tx.us', 123, 7, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (96982269, 'Silas', 'Malek', 927841140, 'smalekn@over-blog.com', 123, 25, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (38536222, 'Hadley', 'Forman', 909767684, 'hformano@jimdo.com', 123, 40, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (36023841, 'Melvyn', 'Croson', 931568416, 'mcrosonp@craigslist.org', 123, 25, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (24152943, 'Judy', 'Tallow', 990200916, 'jtallowq@ask.com', 123, 26, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (13866466, 'Wendye', 'Sigert', 977763453, 'wsigertr@guardian.co.uk', 123, 31, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (21747230, 'Vally', 'Bensusan', 955954139, 'vbensusans@creativecommons.org', 123, 24, 1);
 
 -- estudiantes (42)
 -- inicial (9)
@@ -107,8 +138,55 @@ insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, 
 -- 5to 16 (05/15/2003 - 02/28/2004)
 -- A
 INSERT INTO estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) VALUES (61933011, 'Gabey', 'MacArd', '2003-10-14', 34887445, 945573734, 'gmacard0@usa.gov', 12, '42 Upham Way', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (91659690, 'Camellia', 'Cominoli', '2003-10-14', 34887445, 950692477, 'ccominoli0@mashable.com', 21, '6042 Veith Circle', 123, 1, 'no promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (48132101, 'Willey', 'Geare', '2003-06-06', 34887445, 933802870, 'wgeare1@jalbum.net', 42, '33 Mallory Parkway', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (62402219, 'Sandro', 'Hawtry', '2003-08-09', 81464165, 940585804, 'shawtry2@xrea.com', 19, '98983 Grim Trail', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (16467683, 'Margarethe', 'Montrose', '2003-07-16', 81464165, 918202150, 'mmontrose3@google.pl', 33, '03 Mifflin Avenue', 123, 1, 'no promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (53386197, 'Sorcha', 'Giovannetti', '2003-08-10', 81464165, 997212279, 'sgiovannetti4@arstechnica.com', 5, '65 Artisan Lane', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (54362254, 'Carlyle', 'McCurrie', '2003-08-10', 12247488, 910844487, 'cmccurrie5@mayoclinic.com', 46, '05615 Bashford Place', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (82558919, 'Tracey', 'Lendrem', '2003-11-27', 12247488, 987148841, 'tlendrem6@eventbrite.com', 29, '38 Nova Junction', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (37725688, 'Brew', 'Ivankov', '2003-06-14', 12247488, 986190014, 'bivankov7@simplemachines.org', 4, '92326 Killdeer Plaza', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (18700336, 'Freida', 'Consadine', '2004-02-10', 73075298, 900426313, 'fconsadine8@nih.gov', 43, '91635 Oakridge Street', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (63858166, 'Shandie', 'Herrema', '2003-05-26', 73075298, 962243037, 'sherrema9@feedburner.com', 25, '27 Southridge Way', 123, 1, 'no promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (63404827, 'Bentley', 'Shevels', '2004-02-17', 73075298, 908271255, 'bshevelsa@google.com.au', 26, '82 Mendota Plaza', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (13223720, 'Alexander', 'Ghilks', '2003-08-13', 52004961, 950906967, 'aghilksb@hao123.com', 39, '7748 Farragut Terrace', 123, 1, 'no promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (19500546, 'Vanna', 'Gino', '2003-06-23', 52004961, 928023584, 'vginoc@themeforest.net', 4, '18 Meadow Valley Parkway', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (83147487, 'Hatti', 'Ramey', '2003-06-26', 52004961, 935835156, 'hrameyd@tripod.com', 37, '8649 Dapin Parkway', 123, 1, 'promovido');
+
+
 -- B
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (37735153, 'Ardyth', 'Janisson', '2003-11-09', 95904233, 974577605, 'ajanissonx@twitter.com', 23, '54 Armistice Place', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (75534314, 'Deeanne', 'Devinn', '2003-07-29', 95904233, 907858710, 'ddevinny@edublogs.org', 29, '88 Del Mar Lane', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (64257828, 'Alaster', 'Levings', '2003-10-31', 95904233, 957260465, 'alevingsz@theguardian.com', 9, '50 Burrows Park', 123, 1, 'no promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (47596968, 'Chloette', 'O''Henehan', '2004-01-31', 24772789, 921213078, 'cohenehan10@google.fr', 2, '4 Fulton Road', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (30123294, 'Benjamen', 'Bunker', '2004-01-19', 24772789, 944229034, 'bbunker11@examiner.com', 28, '7120 Ludington Way', 123, 1, 'no promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (33249248, 'Jodie', 'Ottewell', '2003-06-05', 24772789, 942787367, 'jottewell12@nyu.edu', 26, '908 Carpenter Trail', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (58400462, 'Gregorius', 'Woodyear', '2004-02-18', 33418489, 933359743, 'gwoodyear13@com.com', 45, '022 Miller Plaza', 123, 1, 'no promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (29056625, 'Rod', 'Woodier', '2003-06-15', 33418489, 960366292, 'rwoodier14@google.pl', 16, '789 International Avenue', 123, 1, 'no promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (96618207, 'Wes', 'Rosenkrantz', '2003-05-28', 33418489, 942071596, 'wrosenkrantz15@mail.ru', 7, '5 Crowley Road', 123, 1, 'no promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (94497607, 'Avigdor', 'Stansell', '2003-10-29', 84382327, 906849409, 'astansell16@bigcartel.com', 41, '04 South Alley', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (22149469, 'Collete', 'Wingatt', '2003-08-15', 84382327, 974544300, 'cwingatt17@sun.com', 44, '4 Ludington Park', 123, 1, 'no promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (72724085, 'Julianne', 'Stammer', '2004-01-09', 84382327, 962794704, 'jstammer18@latimes.com', 10, '47522 Packers Trail', 123, 1, 'no promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (16226730, 'Cori', 'Lambshine', '2004-02-04', 41176568, 921914177, 'clambshine19@miibeian.gov.cn', 20, '88 Thackeray Plaza', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (56712526, 'Harli', 'Utton', '2003-10-25', 41176568, 976922631, 'hutton1a@intel.com', 18, '5984 Union Crossing', 123, 1, 'no promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (32235278, 'Hewett', 'O''Sherrin', '2003-12-06', 41176568, 918664157, 'hosherrin1b@last.fm', 2, '709 Chinook Trail', 123, 1, 'promovido');
+
 -- C
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (70248558, 'Iggie', 'Frounks', '2003-12-15', 25649104, 995015862, 'ifrounkse@cbslocal.com', 23, '50257 Pierstorff Drive', 123, 1, 'no promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (63684042, 'Jammal', 'Hemshall', '2003-08-27', 25649104, 966004085, 'jhemshallf@shutterfly.com', 15, '5878 Onsgard Hill', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (16618401, 'Cacilie', 'Mochar', '2003-05-20', 25649104, 982440639, 'cmocharg@usa.gov', 42, '6497 Anniversary Hill', 123, 1, 'no promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (44578429, 'Pepillo', 'Dinley', '2004-02-11', 87432154, 903259918, 'pdinleyh@epa.gov', 39, '09646 Monterey Alley', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (39229133, 'Savina', 'Torbett', '2003-05-31', 87432154, 962683015, 'storbetti@harvard.edu', 35, '2 Lakeland Alley', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (89838630, 'Elfrida', 'Snar', '2003-09-27', 87432154, 901771581, 'esnarj@posterous.com', 34, '6 Butternut Hill', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (98164983, 'Joshia', 'Swaile', '2003-06-06', 37358342, 950473976, 'jswailek@paginegialle.it', 28, '52206 Cascade Hill', 123, 1, 'no promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (20965768, 'Jenni', 'Wilber', '2003-05-23', 37358342, 934822675, 'jwilberl@salon.com', 3, '3 Pine View Road', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (94686124, 'Gwenore', 'Drummond', '2003-08-09', 37358342, 995403309, 'gdrummondm@ihg.com', 2, '29295 Autumn Leaf Terrace', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (24766404, 'Wash', 'Sellor', '2003-06-11', 19140415, 902668337, 'wsellorn@netscape.com', 11, '2073 Michigan Park', 123, 1, 'no promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (42595730, 'Amos', 'Eastlake', '2003-10-06', 19140415, 924138806, 'aeastlakeo@github.io', 10, '396 8th Plaza', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (94625674, 'Norris', 'Newlove', '2003-12-30', 19140415, 954153535, 'nnewlovep@ameblo.jp', 24, '706 Spohn Parkway', 123, 1, 'no promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (59142175, 'Giordano', 'Borzoni', '2003-10-23', 95904386, 949967347, 'gborzoniq@sohu.com', 13, '2 Fremont Lane', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (50133668, 'Sol', 'Broek', '2004-01-14', 95904386, 992874412, 'sbroekr@4shared.com', 3, '51811 Red Cloud Center', 123, 1, 'promovido');
+insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (60773948, 'Fredrika', 'Peplay', '2004-01-13', 95904386, 983461070, 'fpeplays@blogs.com', 3, '8217 Orin Parkway', 123, 1, 'no promovido');
 
 -- trabajadores (10)
 -- directora
