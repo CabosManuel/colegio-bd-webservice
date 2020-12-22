@@ -15,6 +15,7 @@ import idat.edu.pe.model.Grado;
 import idat.edu.pe.model.Matricula;
 import idat.edu.pe.model.Nivel;
 import idat.edu.pe.model.Nota;
+import idat.edu.pe.model.Seccion;
 import idat.edu.pe.service.GradoService;
 
 public class MapperUtil 
@@ -167,26 +168,41 @@ public class MapperUtil
 		}
 		
 		//MATRICULA
-		public MatriculaMapper convert(Matricula matricula){
+		public static MatriculaMapper convert(Matricula matricula){
 			
 			MatriculaMapper mapper = new MatriculaMapper();
-			Collection<Grado> grados = gservice.findByNivel(matricula.getNivel());
+			//Collection<Grado> grados = gservice.findByNivel(matricula.getNivel());
 			//Nivel n = new Nivel();
 			Grado g = new Grado();
 			
 					mapper.setEstudiante(new EstudianteMapper(matricula.getEstudiante().getDniEstudiante()));
 					mapper.setFecha(matricula.getFecha());
 					mapper.setNivel(matricula.getNivel());
+					//mapper.setNombrenivel(matricula.get);
 					
-					for(Grado grado: grados) {
-						if(g.getGradoId() == matricula.getGrado()) {
+					//for(Grado grado: grados) {
+						//if(g.getGradoId() == matricula.getGrado()) {
 							mapper.setGrado(matricula.getGrado());
-							mapper.setNombregrado(g.getNombre());
-						}
-					}
+							//mapper.setNombregrado(g.getNombre());
+						//}
+					//}
 					mapper.setSeccion(new SeccionMapper(matricula.getSeccion().getSeccionId(), matricula.getSeccion().getNombre()));
 			return mapper;
 		}
 		
+		//SECCION
+		public static Collection<SeccionMapper> convertSeccion(Collection<Seccion> itemsSeccion){
+			
+			Collection<SeccionMapper> itemsSeccionMapper = new ArrayList<>();
+			
+			for(Seccion seccion: itemsSeccion) {
+				
+				SeccionMapper mapper = new SeccionMapper();
+				mapper.setSeccion_id(seccion.getSeccionId());
+				mapper.setNombre(seccion.getNombre());
+				itemsSeccionMapper.add(mapper);
+			}
+			return itemsSeccionMapper;
+		}
 	
 }

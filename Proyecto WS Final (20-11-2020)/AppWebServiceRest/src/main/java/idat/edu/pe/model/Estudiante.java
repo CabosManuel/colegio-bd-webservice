@@ -9,6 +9,9 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(name="estudiantes")
 public class Estudiante implements Serializable{
@@ -60,7 +63,8 @@ public class Estudiante implements Serializable{
 	"foreign key(dni_apoderado) references apoderados(dni_apoderado)"))
 	private Apoderado apoderado;
 	
-	@OneToMany(mappedBy = "estudiante")
+	@OneToMany(mappedBy = "estudiante",  cascade = CascadeType.ALL ,fetch =FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private Collection<Matricula> itemsmatricula =  new ArrayList<>();
 	
 	/*@OneToOne

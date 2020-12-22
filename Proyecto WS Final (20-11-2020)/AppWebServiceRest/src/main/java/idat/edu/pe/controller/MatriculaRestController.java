@@ -15,8 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import idat.edu.pe.mapper.MapperUtil;
 import idat.edu.pe.mapper.MatriculaMapper;
+import idat.edu.pe.model.Grado;
 import idat.edu.pe.model.Matricula;
+import idat.edu.pe.model.Nivel;
+import idat.edu.pe.service.EstudianteService;
+import idat.edu.pe.service.GradoService;
 import idat.edu.pe.service.MatriculaService;
+import idat.edu.pe.service.NivelService;
+import idat.edu.pe.service.SeccionService;
 
 @CrossOrigin("*")
 @RestController
@@ -25,6 +31,18 @@ public class MatriculaRestController {
 	
 	@Autowired
 	private MatriculaService service;
+	
+	@Autowired
+	private GradoService gservice;
+	
+	@Autowired
+	private NivelService nservice;
+	
+	@Autowired
+	private SeccionService sservice;
+	
+	@Autowired
+	private EstudianteService eservice;
 	
 	@GetMapping("/listar")
 	public ResponseEntity<?> listar(){
@@ -40,6 +58,8 @@ public class MatriculaRestController {
 	@PostMapping("/agregar")
 	public ResponseEntity<?> agregar(@RequestBody Matricula matricula){
 		
+		matricula.setEstudiante(eservice.findById(matricula.getEstudiante().getDniEstudiante()));
+	    matricula.setSeccion(sservice.findById(matricula.getSeccion().getSeccionId()));
 		service.insert(matricula);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	
@@ -50,6 +70,23 @@ public class MatriculaRestController {
 		
 		Matricula matriculaOb = service.findByEstudiante(dniEstudiante);
 		MatriculaMapper matriculaMapper = MapperUtil.convert(matriculaOb);
+		Collection<Nivel> niveles = nservice.findAll();
+		Collection<Grado> grados = gservice.findByNivel(matriculaMapper.getNivel());
+		
+		for(Nivel nivel: niveles) {
+			if(nivel.getNivelId() == matriculaMapper.getNivel()) {
+				matriculaMapper.setNivel(nivel.getNivelId());
+				matriculaMapper.setNombrenivel(nivel.getNombre());
+			}
+		}
+		for(Grado grado: grados) {
+			Grado g = new Grado();
+			if(grado.getGradoId() == matriculaMapper.getGrado()) {
+				matriculaMapper.setGrado(grado.getGradoId());
+				matriculaMapper.setNombregrado(grado.getNombre());
+			}
+		}
+		
 		if(matriculaOb != null) {
 			return new ResponseEntity<>(matriculaMapper, HttpStatus.OK);
 		}

@@ -48,4 +48,10 @@ public class SeccionServiceImpl implements SeccionService {
 		return (Collection<Seccion>)r.findAll();
 	}
 
+	@Transactional(readOnly = true)
+	@Override
+	public Collection<Seccion> findByGrado(Integer gradoId) {
+		return (Collection<Seccion>)r.findByGrado(gradoId);
+	}
+
 }

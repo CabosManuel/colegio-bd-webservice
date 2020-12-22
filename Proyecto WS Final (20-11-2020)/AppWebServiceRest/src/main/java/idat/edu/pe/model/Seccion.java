@@ -6,6 +6,9 @@ import java.util.Collection;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(name = "secciones")
 public class Seccion implements Serializable{
@@ -25,7 +28,8 @@ public class Seccion implements Serializable{
 	"foreign key(grado_id) references grados(grado_id)"))
 	private Grado grado;
 	
-	@OneToMany(mappedBy = "seccion")
+	@OneToMany(mappedBy = "seccion", cascade = CascadeType.ALL ,fetch =FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private Collection<Matricula> itemsMatricula = new ArrayList<>();
 	
 	public Seccion() {
@@ -39,7 +43,6 @@ public class Seccion implements Serializable{
 	public Integer getSeccionId() {
 		return seccionId;
 	}
-
 
 	public void setSeccionId(Integer seccionId) {
 		this.seccionId = seccionId;

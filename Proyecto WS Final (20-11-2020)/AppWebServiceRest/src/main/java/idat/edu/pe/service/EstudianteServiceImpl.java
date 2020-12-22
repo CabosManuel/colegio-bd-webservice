@@ -89,4 +89,10 @@ public class EstudianteServiceImpl implements EstudianteService{
 		return(Collection<Estudiante>)repository.findAll();
 	}
 
+	@Transactional(readOnly = true)
+	@Override
+	public Estudiante findById(String dni_Estudiante) {
+		return repository.findById(dni_Estudiante).orElse(null);
+	}
+
 }

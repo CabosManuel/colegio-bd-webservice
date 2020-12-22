@@ -12,4 +12,6 @@ public interface SeccionService {
 	public abstract Seccion findById(Integer seccionId);
 	public abstract Collection<Seccion> findAll();
 	
+	public Collection<Seccion> findByGrado(Integer gradoId);
+	
 }
