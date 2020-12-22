@@ -1,6 +1,7 @@
 package idat.edu.pe.model;
 
-import java.time.LocalDate;
+
+import java.util.Date;
 
 import javax.persistence.*;
 
@@ -10,7 +11,7 @@ public class Trabajador {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idTrabajador;
+	private Integer trabajadorId;
 
 	@Column
 	private String cargo;
@@ -20,9 +21,9 @@ public class Trabajador {
 	private String apellidos;
 	@Column
 	private String dni;
-	//@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE)
 	@Column
-	private LocalDate fechaNacimiento;
+	private Date fechaNacimiento;
 	@Column
 	private String celular;
 	@Column
@@ -33,16 +34,16 @@ public class Trabajador {
 	private String pass;
 
 	@ManyToOne
-	@JoinColumn(name = "id_distrito", nullable = false, foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(id_distrito) references distritos(distrito_id)"))
+	@JoinColumn(name = "distrito_id", nullable = false, foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(distrito_id) references distritos(distrito_id)"))
 	private Distrito distrito;
 
 	public Trabajador() {
 	}
 
-	public Trabajador(Integer idTrabajador, String cargo, String nombres, String apellidos, String dni,
-			LocalDate fechaNacimiento, String celular, String direccion, String correo, String pass) {
+	public Trabajador(Integer trabajadorId, String cargo, String nombres, String apellidos, String dni,
+			Date fechaNacimiento, String celular, String direccion, String correo, String pass) {
 		super();
-		this.idTrabajador = idTrabajador;
+		this.trabajadorId = trabajadorId;
 		this.cargo = cargo;
 		this.nombres = nombres;
 		this.apellidos = apellidos;
@@ -54,12 +55,12 @@ public class Trabajador {
 		this.pass = pass;
 	}
 
-	public Integer getIdTrabajador() {
-		return idTrabajador;
+	public Integer getTrabajadorId() {
+		return trabajadorId;
 	}
 
-	public void setIdTrabajador(Integer idTrabajador) {
-		this.idTrabajador = idTrabajador;
+	public void setTrabajadorId(Integer trabajadorId) {
+		this.trabajadorId = trabajadorId;
 	}
 
 	public String getCargo() {
@@ -94,11 +95,11 @@ public class Trabajador {
 		this.dni = dni;
 	}
 
-	public LocalDate getFechaNacimiento() {
+	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(LocalDate fechaNacimiento) {
+	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
