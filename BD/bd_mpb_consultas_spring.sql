@@ -1,12 +1,19 @@
 USE bd_spring_mpb;
 
 SELECT * FROM apoderados;
+select * from asistencias;
 SELECT * FROM cursos;
 select * from estudiantes;
 select * from grados;
 select * from mallas;
 SELECT * FROM matriculas;
 select * from secciones;
+
+-- listar asistencias en cada mes
+select a.estado, convert(a.asistencia,date) 
+from asistencias a
+where week(a.asistencia) between week('2020-11-01') and (week(last_day('2020-11-01')))
+group by dayofyear(convert(a.asistencia,date));
 
 -- listar cursos de la malla más reciente de una estudiante
 select cu.curso_id, cu.nombre from cursos cu
