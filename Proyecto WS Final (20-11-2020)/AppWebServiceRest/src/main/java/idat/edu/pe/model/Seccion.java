@@ -32,6 +32,9 @@ public class Seccion implements Serializable{
 	@Fetch(value = FetchMode.SUBSELECT)
 	private Collection<Matricula> itemsMatricula = new ArrayList<>();
 	
+	@OneToMany(mappedBy = "seccion")
+	private Collection<HorarioCabecera> HorariosCabecera = new ArrayList<>();
+	
 	public Seccion() {
 	}
 

@@ -23,33 +23,33 @@ public class HorarioCabecera implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idHorarioCabecera;
+	private Integer horarioCabeceraId;
 
 	@Column
 	private Boolean estado;
 
+	@ManyToOne
+	@JoinColumn(name = "seccion_id", nullable = false,
+	foreignKey = @ForeignKey(foreignKeyDefinition = 
+	"foreign key(seccion_id) references secciones(seccion_id)"))
+	private Seccion seccion;
+	
 	@OneToMany(mappedBy = "horarioCabecera")
 	private Collection<HorarioDetalle> horarioDetalle = new ArrayList<>();
-
-	@ManyToOne
-	@JoinColumn(name = "id_trabajador", nullable = false, foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(id_trabajador) references trabajadores(id_trabajador)"))
-	private Trabajador trabajador;
 
 	public HorarioCabecera() {
 	}
 
-	public HorarioCabecera(Integer idHorarioCabecera, Boolean estado, Trabajador trabajador) {
-		super();
-		this.idHorarioCabecera = idHorarioCabecera;
-		this.estado = estado;
+	public Integer getHorarioCabeceraId() {
+		return horarioCabeceraId;
 	}
 
-	public Integer getidHorarioCabecera() {
-		return idHorarioCabecera;
+	public void setHorarioCabeceraId(Integer horarioCabeceraId) {
+		this.horarioCabeceraId = horarioCabeceraId;
 	}
 
-	public void setidHorarioCabecera(Integer idHorarioCabecera) {
-		this.idHorarioCabecera = idHorarioCabecera;
+	public void sethorarioCabeceraId(Integer horarioCabeceraId) {
+		this.horarioCabeceraId = horarioCabeceraId;
 	}
 
 	public Boolean getEstado() {
@@ -60,12 +60,20 @@ public class HorarioCabecera implements Serializable {
 		this.estado = estado;
 	}
 
-	public Trabajador getTrabajador() {
-		return trabajador;
+	public Seccion getSeccion() {
+		return seccion;
 	}
 
-	public void setTrabajador(Trabajador trabajador) {
-		this.trabajador = trabajador;
+	public void setSeccion(Seccion seccion) {
+		this.seccion = seccion;
+	}
+
+	public Collection<HorarioDetalle> getHorarioDetalle() {
+		return horarioDetalle;
+	}
+
+	public void setHorarioDetalle(Collection<HorarioDetalle> horarioDetalle) {
+		this.horarioDetalle = horarioDetalle;
 	}
 
 }

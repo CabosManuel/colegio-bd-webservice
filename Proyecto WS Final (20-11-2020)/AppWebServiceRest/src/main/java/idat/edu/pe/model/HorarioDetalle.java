@@ -1,16 +1,21 @@
 package idat.edu.pe.model;
 
+import java.io.Serializable;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.persistence.*;
 
 @Table
 @Entity(name = "horario_detalle")
-public class HorarioDetalle {
+public class HorarioDetalle implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idHorarioDetalle;
+	private Integer horarioDetalleId;
 
 	@Column
 	private String dia;
@@ -18,32 +23,36 @@ public class HorarioDetalle {
 	private LocalTime horaInicio;
 	@Column
 	private LocalTime horaFin;
-	@Column
+	
+	@ManyToOne
+	@JoinColumn(name ="curso_id", nullable = false, 
+	foreignKey = @ForeignKey(foreignKeyDefinition = 
+	"foreign key(curso_id) references cursos(curso_id)"))
 	private Curso curso;
 
 	@ManyToOne
-	@JoinColumn(name = "id_horario_cabecera", nullable = false, 
-	foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(id_horario_cabecera) references horario_cabecera(id_horario_cabecera)"))
+	@JoinColumn(name ="horario_cabecera_id", nullable = false, 
+	foreignKey = @ForeignKey(foreignKeyDefinition = 
+	"foreign key(horario_cabecera_id) references horario_cabecera(horario_cabecera_id)"))
 	private HorarioCabecera horarioCabecera;
 
 	public HorarioDetalle() {
 	}
 
-	public HorarioDetalle(Integer idHorarioDetalle, String dia, LocalTime horaInicio, LocalTime horaFin, Curso curso) {
-		super();
-		this.idHorarioDetalle = idHorarioDetalle;
+	public HorarioDetalle(Integer horarioDetalleId, String dia, LocalTime horaInicio, LocalTime horaFin, Curso curso) {
+		this.horarioDetalleId = horarioDetalleId;
 		this.dia = dia;
 		this.horaInicio = horaInicio;
 		this.horaFin = horaFin;
 		this.curso = curso;
 	}
 
-	public Integer getidHorarioDetalle() {
-		return idHorarioDetalle;
+	public Integer getHorarioDetalleId() {
+		return horarioDetalleId;
 	}
 
-	public void setidHorarioDetalle(Integer idHorarioDetalle) {
-		this.idHorarioDetalle = idHorarioDetalle;
+	public void setHorarioDetalleId(Integer horarioDetalleId) {
+		this.horarioDetalleId = horarioDetalleId;
 	}
 
 	public String getDia() {
@@ -85,5 +94,4 @@ public class HorarioDetalle {
 	public void setHorarioCabecera(HorarioCabecera horarioCabecera) {
 		this.horarioCabecera = horarioCabecera;
 	}
-
 }
