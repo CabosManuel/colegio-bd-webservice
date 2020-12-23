@@ -35,6 +35,9 @@ public class HorarioDetalle implements Serializable{
 	foreignKey = @ForeignKey(foreignKeyDefinition = 
 	"foreign key(horario_cabecera_id) references horario_cabecera(horario_cabecera_id)"))
 	private HorarioCabecera horarioCabecera;
+	
+	@OneToMany(mappedBy = "horarioDetalleId")
+	private Collection<Asistencia> asistencias = new ArrayList<>();
 
 	public HorarioDetalle() {
 	}
