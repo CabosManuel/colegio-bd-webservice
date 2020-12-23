@@ -25,7 +25,4 @@ public class CursoMapper {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	
-
 }
