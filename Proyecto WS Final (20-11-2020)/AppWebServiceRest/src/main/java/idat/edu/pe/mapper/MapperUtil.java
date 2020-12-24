@@ -1,5 +1,6 @@
 package idat.edu.pe.mapper;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -231,5 +232,30 @@ public class MapperUtil {
 		cursoMapper.setNombre((String) obj[1]);
 
 		return cursoMapper;
+	}
+	
+	/**
+	 * MAPPERS ASISTENCIA
+	 */
+
+	// Mapper Collection<Object[]> a Collection<AsistenciaMapper>
+	public static Collection<AsistenciaMapper> convertCollObjects_AsistenciaMapper(Collection<Object[]> objetos) {
+		Collection<AsistenciaMapper> asistenciaMapper = new ArrayList<>();
+
+		for (Object[] obj : objetos) {
+			asistenciaMapper.add(convertObjectAsistencia(obj));
+		}
+
+		return asistenciaMapper;
+	}
+
+	// Mapper Object[] a AsistenciaMapper
+	public static AsistenciaMapper convertObjectAsistencia(Object[] obj) {
+		AsistenciaMapper asistenciaMapper = new AsistenciaMapper();
+
+		asistenciaMapper.setEstado((Boolean) obj[0]);
+		asistenciaMapper.setFecha((LocalDate.parse(obj[1].toString())) );
+
+		return asistenciaMapper;
 	}
 }

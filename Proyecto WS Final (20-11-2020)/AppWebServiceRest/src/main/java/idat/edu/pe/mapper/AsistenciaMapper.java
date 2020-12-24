@@ -2,14 +2,14 @@ package idat.edu.pe.mapper;
 
 import java.time.LocalDate;
 
-public class TestMapper {
+public class AsistenciaMapper {
 	private Boolean estado;
 	private LocalDate fecha;
 
-	public TestMapper() {
+	public AsistenciaMapper() {
 	}
 
-	public TestMapper(Boolean estado, LocalDate fecha) {
+	public AsistenciaMapper(Boolean estado, LocalDate fecha) {
 		this.estado = estado;
 		this.fecha = fecha;
 	}
