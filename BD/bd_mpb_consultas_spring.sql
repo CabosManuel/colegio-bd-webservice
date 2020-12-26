@@ -12,7 +12,7 @@ select * from secciones;
 -- listar asistencias en cada mes
 select a.estado, convert(a.asistencia,date) 
 from asistencias a
-where week(a.asistencia) between week('2020-11-01') and (week(last_day('2020-11-01')))
+where week(a.asistencia) between week('2020-12-01') and (week(last_day('2020-12-01'))) and a.dni_estudiante like '61933011'
 group by dayofyear(convert(a.asistencia,date));
 
 -- listar cursos de la malla más reciente de una estudiante

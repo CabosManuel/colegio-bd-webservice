@@ -254,7 +254,8 @@ public class MapperUtil {
 		AsistenciaMapper asistenciaMapper = new AsistenciaMapper();
 
 		asistenciaMapper.setEstado((Boolean) obj[0]);
-		asistenciaMapper.setFecha((LocalDate.parse(obj[1].toString())) );
+		LocalDate fehcaAumentada = LocalDate.parse(obj[1].toString());
+		asistenciaMapper.setFecha(fehcaAumentada.plusDays(1));
 
 		return asistenciaMapper;
 	}

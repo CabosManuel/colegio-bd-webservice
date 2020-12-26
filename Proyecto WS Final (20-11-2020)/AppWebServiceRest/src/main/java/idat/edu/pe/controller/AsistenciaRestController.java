@@ -22,8 +22,10 @@ public class AsistenciaRestController {
 	private AsistenciaService s;
 	
 	@GetMapping("/consultar_asistencias")
-	public ResponseEntity<?> listarAsistenciasMes(@RequestParam String fecha){
-		Collection<Object[]> asistencias = s.getAsistenciasByFecha(fecha);
+	public ResponseEntity<?> listarAsistenciasMes(@RequestParam String dniEstudiante, @RequestParam String fecha){
+		Collection<Object[]> asistencias = s.getAsistenciasByDniEstudianteFecha(dniEstudiante, fecha);
+		
+		System.out.println("primera fecha: "+asistencias);
 		
 		if(asistencias.isEmpty()) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
