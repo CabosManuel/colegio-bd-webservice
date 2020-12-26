@@ -20,4 +20,14 @@ public class AsistenciaServiceImpl implements AsistenciaService{
 		return r.getAsistenciasByDniEstudianteFecha(dniEstudiante, fecha);
 	}
 
+	@Override
+	public Collection<Object[]> getAsistenciasByDniEstudianteMesCurso(String dniEstudiante, Integer mes, String cursoId) {
+		return r.getAsistenciasByDniEstudianteMesCurso(dniEstudiante, mes, cursoId);
+	}
+
+	@Override
+	public Collection<Object> getMesesByDniEstudiante(String dniEstudiante) {
+		return r.getMesesByDniEstudiante(dniEstudiante);
+	}
+
 }

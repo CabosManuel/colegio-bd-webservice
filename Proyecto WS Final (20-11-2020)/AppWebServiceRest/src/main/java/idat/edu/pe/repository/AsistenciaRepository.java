@@ -17,4 +17,16 @@ public interface AsistenciaRepository extends CrudRepository<Asistencia, Integer
 			"and a.dni_estudiante like ?1 "+
 			"group by dayofyear(convert(a.asistencia,date))",nativeQuery=true) // agrupado por día, porque en un día hay más de un curso
 	public abstract Collection<Object[]> getAsistenciasByDniEstudianteFecha(String dniEstudiante, String fecha);
+	
+	@Query(value = "select a.estado, convert(a.asistencia,date) ,hd.curso_id " + 
+			"from asistencias a " + 
+			"inner join horario_detalle hd " + 
+			"on hd.horario_detalle_id = a.horario_detalle_id " + 
+			"where a.dni_estudiante like ?1 and month(a.asistencia) = ?2 and hd.curso_id = ?3",nativeQuery = true)
+	public abstract Collection<Object[]> getAsistenciasByDniEstudianteMesCurso(String dniEstudiante, Integer mes, String cursoId);
+	
+	@Query(value = "select distinct month(a.asistencia) " +
+			"from asistencias a "+
+			"where a.dni_estudiante like ? and year(a.asistencia) = year(now())",nativeQuery = true)
+	public abstract Collection<Object> getMesesByDniEstudiante(String dniEstudiante);
 }

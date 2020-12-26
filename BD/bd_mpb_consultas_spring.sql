@@ -9,11 +9,25 @@ select * from mallas;
 SELECT * FROM matriculas;
 select * from secciones;
 
--- listar asistencias en cada mes
+-- --------------------------------
+-- CONSULTAR ASISTENCIAS
+-- --------------------------------
+select a.estado, convert(a.asistencia,date) ,hd.curso_id
+from asistencias a
+inner join horario_detalle hd
+on hd.horario_detalle_id = a.horario_detalle_id
+where a.dni_estudiante like '61933011' and hd.curso_id = 21 and month(a.asistencia) = 12;
+
+select distinct month(a.asistencia)
+from asistencias a
+where a.dni_estudiante like '61933011' and year(a.asistencia) = year(now())
+
+/*
 select a.estado, convert(a.asistencia,date) 
 from asistencias a
 where week(a.asistencia) between week('2020-12-01') and (week(last_day('2020-12-01'))) and a.dni_estudiante like '61933011'
 group by dayofyear(convert(a.asistencia,date));
+*/
 
 -- listar cursos de la malla más reciente de una estudiante
 select cu.curso_id, cu.nombre from cursos cu
@@ -23,6 +37,8 @@ inner join matriculas mtr on mtr.grado = g.grado_id
 inner join estudiantes e on e.dni_estudiante = mtr.dni_estudiante
 where e.dni_estudiante = '61933011' and
 	year(mtr.fecha) like year(now());
+-- ------------------------------------------------------------------
+
 
 -- seleccionar curso y notas por el DNI del estudiante
 select distinct c.nombre,n.nota1,n.nota2,n.nota3, year(n.fecha)
