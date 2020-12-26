@@ -1364,6 +1364,38 @@ insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id)
 insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-03 22:14:54', true, 61933011, 9);
 insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-04 05:52:13', false, 61933011, 10);
 insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-04 05:28:18', false, 61933011, 11);
+--
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-07 20:55:01', false, 61933011, 1);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-07 04:03:28', false, 61933011, 2);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-08 15:48:07', true, 61933011, 3);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-08 14:37:23', true, 61933011, 4);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-08 01:39:04', true, 61933011, 5);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-09 00:36:29', true, 61933011, 6);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-09 05:46:40', true, 61933011, 7);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-10 03:02:21', true, 61933011, 8);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-10 22:14:54', true, 61933011, 9);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-11 05:52:13', false, 61933011, 10);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-11 05:28:18', false, 61933011, 11);
+--
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-14 20:55:01', false, 61933011, 1);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-14 04:03:28', false, 61933011, 2);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-15 15:48:07', true, 61933011, 3);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-15 14:37:23', true, 61933011, 4);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-15 01:39:04', true, 61933011, 5);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-16 00:36:29', true, 61933011, 6);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-16 05:46:40', true, 61933011, 7);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-17 03:02:21', true, 61933011, 8);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-17 22:14:54', true, 61933011, 9);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-18 05:52:13', false, 61933011, 10);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-18 05:28:18', false, 61933011, 11);
+--
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-21 20:55:01', false, 61933011, 1);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-21 04:03:28', false, 61933011, 2);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-22 15:48:07', true, 61933011, 3);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-22 14:37:23', true, 61933011, 4);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-22 01:39:04', true, 61933011, 5);
+insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-23 00:36:29', true, 61933011, 6);
+
 
 -- justificion ()
 -- citaciones ()
