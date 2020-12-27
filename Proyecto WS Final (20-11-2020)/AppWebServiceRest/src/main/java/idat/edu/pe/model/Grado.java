@@ -39,6 +39,12 @@ public class Grado implements Serializable{
 		this.nombre = nombre;
 	}
 
+	public Grado(Integer gradoId, String nombre, Nivel nivel) {
+		this.gradoId = gradoId;
+		this.nombre = nombre;
+		this.nivel = nivel;
+	}
+
 	public Integer getGradoId() {
 		return gradoId;
 	}

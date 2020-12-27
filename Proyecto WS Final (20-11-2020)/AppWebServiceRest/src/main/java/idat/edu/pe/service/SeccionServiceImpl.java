@@ -54,4 +54,10 @@ public class SeccionServiceImpl implements SeccionService {
 		return (Collection<Seccion>)r.findByGrado(gradoId);
 	}
 
+	@Transactional(readOnly = true)
+	@Override
+	public Collection<Seccion> getfindByNivel(Integer nivelId) {
+		return (Collection<Seccion>)r.getfindByNivel(nivelId);
+	}
+
 }

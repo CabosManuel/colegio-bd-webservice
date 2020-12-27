@@ -43,6 +43,12 @@ public class Seccion implements Serializable{
 		this.nombre = nombre;
 	}
 
+	public Seccion(Integer seccionId, String nombre, Grado grado) {
+		this.seccionId = seccionId;
+		this.nombre = nombre;
+		this.grado = grado;
+	}
+
 	public Integer getSeccionId() {
 		return seccionId;
 	}

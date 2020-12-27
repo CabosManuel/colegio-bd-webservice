@@ -14,4 +14,6 @@ public interface SeccionService {
 	
 	public Collection<Seccion> findByGrado(Integer gradoId);
 	
+	public Collection<Seccion> getfindByNivel(Integer nivelId);
+	
 }

@@ -2,29 +2,33 @@ package idat.edu.pe.mapper;
 
 public class SeccionMapper {
 	
-	private Integer seccion_id;
+	private Integer seccionId;
 	private String nombre;
-	private GradoMapper grado_id;
+	private GradoMapper grado;
+	private String nombreSeccion;
+	
 	public SeccionMapper() {
 	}
-	public SeccionMapper(Integer seccion_id) {
-		this.seccion_id = seccion_id;
+	public SeccionMapper(Integer seccionId) {
+		this.seccionId = seccionId;
 	}
 	
-	public SeccionMapper(Integer seccion_id, String nombre) {
-		this.seccion_id = seccion_id;
+	public SeccionMapper(Integer seccionId, String nombre) {
+		this.seccionId = seccionId;
 		this.nombre = nombre;
 	}
-	public SeccionMapper(Integer seccion_id, String nombre, GradoMapper grado_id) {
-		this.seccion_id = seccion_id;
+	
+	public SeccionMapper(Integer seccionId, String nombre, GradoMapper grado, String nombreSeccion) {
+		this.seccionId = seccionId;
 		this.nombre = nombre;
-		this.grado_id = grado_id;
+		this.grado = grado;
+		this.nombreSeccion = nombreSeccion;
 	}
-	public Integer getSeccion_id() {
-		return seccion_id;
+	public Integer getSeccionId() {
+		return seccionId;
 	}
-	public void setSeccion_id(Integer seccion_id) {
-		this.seccion_id = seccion_id;
+	public void setSeccionId(Integer seccionId) {
+		this.seccionId = seccionId;
 	}
 	public String getNombre() {
 		return nombre;
@@ -32,11 +36,17 @@ public class SeccionMapper {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public GradoMapper getGrado_id() {
-		return grado_id;
+	public GradoMapper getGrado() {
+		return grado;
 	}
-	public void setGrado_id(GradoMapper grado_id) {
-		this.grado_id = grado_id;
+	public void setGrado(GradoMapper grado) {
+		this.grado = grado;
+	}
+	public String getNombreSeccion() {
+		return nombreSeccion;
+	}
+	public void setNombreSeccion(String nombreSeccion) {
+		this.nombreSeccion = nombreSeccion;
 	}
 	
 	

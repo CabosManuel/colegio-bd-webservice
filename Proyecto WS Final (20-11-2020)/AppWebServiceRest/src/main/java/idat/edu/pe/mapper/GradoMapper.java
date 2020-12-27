@@ -8,8 +8,14 @@ public class GradoMapper {
 	
 	public GradoMapper() {
 	}
+	
 	public GradoMapper(Integer grado_id) {
 		this.grado_id = grado_id;
+	}
+	
+	public GradoMapper(Integer grado_id, String nombre) {
+		this.grado_id = grado_id;
+		this.nombre = nombre;
 	}
 	public GradoMapper(Integer grado_id, String nombre, NivelMapper nivel_id) {
 		this.grado_id = grado_id;
@@ -35,6 +41,4 @@ public class GradoMapper {
 		this.nivel_id = nivel_id;
 	}
 	
-	
-
 }

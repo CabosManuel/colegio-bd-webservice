@@ -9,7 +9,8 @@ import idat.edu.pe.model.Grado;
 
 public interface GradoRepository extends CrudRepository<Grado, Integer>{
 	
-	@Query(value="select * from grados g\r\n" + 
+	@Query(value="select n.nivel_id, g.grado_id, g.nombre as Grado, s.nombre as Seccion from grados g \r\n" + 
+			"inner join secciones s on s.grado_id = g.grado_id \r\n" + 
 			"inner join niveles n on g.nivel_id = n.nivel_id\r\n" + 
 			"where n.nivel_id = ?", nativeQuery=true)
 	public abstract Collection<Grado> findByNivel(Integer nivelId);

@@ -52,6 +52,19 @@ public class SeccionRestController {
 		
 	}
 	
+	@GetMapping("/buscarNivel/{nivelId}")
+	public ResponseEntity<?> buscarPorNivel(@PathVariable Integer nivelId){
+		
+		Collection<Seccion> seccionOb = service.getfindByNivel(nivelId);
+		Collection<SeccionMapper> seccionMapper = MapperUtil.convertSecciones(seccionOb);
+		
+		if(seccionOb!=null) {
+			return new ResponseEntity<>(seccionMapper, HttpStatus.OK);
+		}
+		return new ResponseEntity<>("Nivel con el número " + nivelId + " no existente.", HttpStatus.NOT_FOUND);
+		
+	}
+	
 	@PostMapping("/agregar")
 	public ResponseEntity<?> agregar(@RequestBody Seccion seccion){
 		

@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,10 +15,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import idat.edu.pe.mapper.MapperUtil;
+import idat.edu.pe.mapper.TrabajadorMapper;
 import idat.edu.pe.model.Trabajador;
 import idat.edu.pe.service.DistritoService;
 import idat.edu.pe.service.TrabajadorService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/rest/trabajador")
 public class TrabajadorRestController {
@@ -30,11 +34,12 @@ public class TrabajadorRestController {
 	@GetMapping("/listar")
 	public ResponseEntity<?> listar(){
 		Collection<Trabajador> trabajadores = serviceT.findAll();
+		Collection<TrabajadorMapper> trabajadoresmapper = MapperUtil.convertTrabajadores(trabajadores);
 		
 		if(trabajadores.isEmpty()) {
 			return new ResponseEntity<>("No hay trabajadores registrados.",HttpStatus.NO_CONTENT);
 		}
-		return new ResponseEntity<>(trabajadores, HttpStatus.OK);
+		return new ResponseEntity<>(trabajadoresmapper, HttpStatus.OK);
 	}
 	
 	@GetMapping("/buscar/{trabajadorId}")
