@@ -20,7 +20,7 @@ public class Grado implements Serializable{
 	private String nombre;
 	
 	@ManyToOne
-	@JoinColumn(name ="nivel_id", nullable = false,
+	@JoinColumn(name ="nivel_id", nullable = false, updatable =false,
 	foreignKey = @ForeignKey(foreignKeyDefinition = 
 	"foreign key(nivel_id) references niveles(nivel_id)"))
 	private Nivel nivel;

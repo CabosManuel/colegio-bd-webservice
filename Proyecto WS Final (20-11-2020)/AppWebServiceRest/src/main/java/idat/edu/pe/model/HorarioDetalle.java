@@ -25,13 +25,13 @@ public class HorarioDetalle implements Serializable{
 	private LocalTime horaFin;
 	
 	@ManyToOne
-	@JoinColumn(name ="curso_id", nullable = false, 
+	@JoinColumn(name ="curso_id", nullable = false, updatable =false,
 	foreignKey = @ForeignKey(foreignKeyDefinition = 
 	"foreign key(curso_id) references cursos(curso_id)"))
 	private Curso curso;
 
 	@ManyToOne
-	@JoinColumn(name ="horario_cabecera_id", nullable = false, 
+	@JoinColumn(name ="horario_cabecera_id", nullable = false, updatable =false,
 	foreignKey = @ForeignKey(foreignKeyDefinition = 
 	"foreign key(horario_cabecera_id) references horario_cabecera(horario_cabecera_id)"))
 	private HorarioCabecera horarioCabecera;
