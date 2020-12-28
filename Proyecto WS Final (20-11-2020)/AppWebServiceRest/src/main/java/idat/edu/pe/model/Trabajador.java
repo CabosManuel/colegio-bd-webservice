@@ -49,7 +49,7 @@ public class Trabajador {
 	
 	@OneToMany(mappedBy = "trabajador",cascade = CascadeType.ALL ,fetch =FetchType.EAGER)
     @Fetch(value = FetchMode.SUBSELECT)
-	private  Collection<HorarioCabecera> horarioCabeceras = new ArrayList<>();
+	private  Collection<HorarioCabecera> horarioCabecera = new ArrayList<>();
 
 	public Trabajador() {
 	}

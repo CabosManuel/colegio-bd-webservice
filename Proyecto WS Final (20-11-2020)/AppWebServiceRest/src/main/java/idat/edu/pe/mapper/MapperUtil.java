@@ -10,6 +10,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import idat.edu.pe.model.Apoderado;
+import idat.edu.pe.model.Curso;
 import idat.edu.pe.model.Distrito;
 import idat.edu.pe.model.Estudiante;
 import idat.edu.pe.model.Grado;
@@ -288,5 +289,20 @@ public class MapperUtil {
 		asistenciaMapper.setFecha(fehcaAumentada.plusDays(1));
 
 		return asistenciaMapper;
+	}
+	
+	//Listar Curso por Nivel y Grado
+	public static Collection<CursoMapper> convertCursosPorNivelGrado(Collection<Curso> itemsCurso) {
+
+		Collection<CursoMapper> itemsCursoMapper = new ArrayList<>();
+
+		for (Curso curso : itemsCurso) {
+
+			CursoMapper mapper = new CursoMapper();
+			mapper.setCurso_id(curso.getCursoId());
+			mapper.setNombre(curso.getNombre());
+			itemsCursoMapper.add(mapper);
+		}
+		return itemsCursoMapper;
 	}
 }
