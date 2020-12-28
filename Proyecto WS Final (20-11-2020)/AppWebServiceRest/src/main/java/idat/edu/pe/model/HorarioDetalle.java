@@ -97,4 +97,12 @@ public class HorarioDetalle implements Serializable{
 	public void setHorarioCabecera(HorarioCabecera horarioCabecera) {
 		this.horarioCabecera = horarioCabecera;
 	}
+
+	public Collection<Asistencia> getAsistencias() {
+		return asistencias;
+	}
+
+	public void setAsistencias(Collection<Asistencia> asistencias) {
+		this.asistencias = asistencias;
+	}	
 }

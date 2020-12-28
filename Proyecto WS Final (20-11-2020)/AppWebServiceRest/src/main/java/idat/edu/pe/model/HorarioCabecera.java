@@ -29,13 +29,18 @@ public class HorarioCabecera implements Serializable {
 	private Boolean estado;
 
 	@ManyToOne
-	@JoinColumn(name = "seccion_id", nullable = false,
+	@JoinColumn(name = "seccion_id", nullable = false, updatable = false,
 	foreignKey = @ForeignKey(foreignKeyDefinition = 
 	"foreign key(seccion_id) references secciones(seccion_id)"))
 	private Seccion seccion;
 	
 	@OneToMany(mappedBy = "horarioCabecera")
 	private Collection<HorarioDetalle> horarioDetalle = new ArrayList<>();
+	
+	@ManyToOne
+	@JoinColumn(name = "trabajador_id", nullable = false, updatable=false,
+	foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(trabajador_id) references trabajadores(trabajador_id)"))
+	private Trabajador trabajador;
 
 	public HorarioCabecera() {
 	}
@@ -76,4 +81,12 @@ public class HorarioCabecera implements Serializable {
 		this.horarioDetalle = horarioDetalle;
 	}
 
+	public Trabajador getTrabajador() {
+		return trabajador;
+	}
+
+	public void setTrabajador(Trabajador trabajador) {
+		this.trabajador = trabajador;
+	}
+	
 }
