@@ -23,23 +23,7 @@ public class Curso implements Serializable{
 	
 	@Column 
 	private Integer creditos;
-	/*
-	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-	@JoinTable(name = "Estudiantes_Cursos", joinColumns = @JoinColumn(
-			name="estudiante_id", nullable=false,
-			foreignKey=@ForeignKey(foreignKeyDefinition = "foreign key(estudiante_id) references estudiantes(estudiante_id)")),
-	        inverseJoinColumns=@JoinColumn(name = "curso_id", nullable = false,
-	        foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(curso_id) references cursos(curso_id)")))
-	private Set<Estudiante> itemsEstudiante = new HashSet<>();*/
 	
-	/*@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-	@JoinTable(name = "Profesores_Cursos", joinColumns = @JoinColumn(
-			name="profesor_id", nullable=false,
-			foreignKey=@ForeignKey(foreignKeyDefinition = "foreign key(profesor_id) references profesores(profesor_id)")),
-	        inverseJoinColumns=@JoinColumn(name = "curso_id", nullable = false,
-	        foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(curso_id) references cursos(curso_id)")))
-	private Set<Estudiante> itemsProfesor = new HashSet<>();
-*/
 	@OneToMany(mappedBy = "curso")
 	private Collection<Malla> mallas = new ArrayList<>(); 
 
@@ -48,6 +32,10 @@ public class Curso implements Serializable{
 	
 	@OneToMany(mappedBy = "curso")
 	private Collection<HorarioDetalle> horarios_detalle = new ArrayList<>();
+	
+	@ManyToMany(mappedBy = "itemsCurso", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	private Set<Trabajador> itemsTrabajador = new HashSet<>();
+
 	
 	public Curso() {
 	}
@@ -105,6 +93,30 @@ public class Curso implements Serializable{
 
 	public void setMallas(Collection<Malla> mallas) {
 		this.mallas = mallas;
+	}
+
+	public Collection<Nota> getNotas() {
+		return notas;
+	}
+
+	public void setNotas(Collection<Nota> notas) {
+		this.notas = notas;
+	}
+
+	public Collection<HorarioDetalle> getHorarios_detalle() {
+		return horarios_detalle;
+	}
+
+	public void setHorarios_detalle(Collection<HorarioDetalle> horarios_detalle) {
+		this.horarios_detalle = horarios_detalle;
+	}
+
+	public Set<Trabajador> getItemsTrabajador() {
+		return itemsTrabajador;
+	}
+
+	public void setItemsTrabajador(Set<Trabajador> itemsTrabajador) {
+		this.itemsTrabajador = itemsTrabajador;
 	}
 	
 	

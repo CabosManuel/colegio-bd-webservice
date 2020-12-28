@@ -4,6 +4,8 @@ package idat.edu.pe.model;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -50,6 +52,15 @@ public class Trabajador {
 	@OneToMany(mappedBy = "trabajador",cascade = CascadeType.ALL ,fetch =FetchType.EAGER)
     @Fetch(value = FetchMode.SUBSELECT)
 	private  Collection<HorarioCabecera> horarioCabecera = new ArrayList<>();
+	
+	//Relación muchos a muchos
+	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JoinTable(name = "trabajador_Curso", joinColumns = @JoinColumn(
+			name="trabajador_id", nullable=false,
+			foreignKey=@ForeignKey(foreignKeyDefinition = "foreign key(trabajador_id) references trabajadores(trabajador_id)")),
+	        inverseJoinColumns=@JoinColumn(name = "curso_id", nullable = false,
+	        foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(curso_id) references cursos(curso_id)")))
+   	private Set<Curso> itemsCurso = new HashSet<>();
 
 	public Trabajador() {
 	}
@@ -165,6 +176,16 @@ public class Trabajador {
 
 	public void setEstado(Boolean estado) {
 		this.estado = estado;
+	}
+
+
+	public Set<Curso> getItemsCurso() {
+		return itemsCurso;
+	}
+
+
+	public void setItemsCurso(Set<Curso> itemsCurso) {
+		this.itemsCurso = itemsCurso;
 	}
 	
 

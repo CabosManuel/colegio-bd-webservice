@@ -250,6 +250,21 @@ public class MapperUtil {
 		return itemsTrabajadorMapper;
 	}
 	
+	public static Collection<TrabajadorMapper> convertTrabajadoresPorCurso(Collection<Trabajador> itemsTrabajador) {
+
+		Collection<TrabajadorMapper> itemsTrabajadorMapper = new ArrayList<>();
+
+		for (Trabajador trabajador : itemsTrabajador) {
+
+			TrabajadorMapper mapper = new TrabajadorMapper();
+			mapper.setTrabajadorId(trabajador.getTrabajadorId());
+			mapper.setNombres(trabajador.getNombres());
+			mapper.setApellidos(trabajador.getApellidos());
+			itemsTrabajadorMapper.add(mapper);
+		}
+		return itemsTrabajadorMapper;
+	}
+	
 	public static Collection<SeccionMapper> convertSecciones(Collection<Seccion> itemsSeccion) {
 
 		Collection<SeccionMapper> itemsSeccionMapper = new ArrayList<>();

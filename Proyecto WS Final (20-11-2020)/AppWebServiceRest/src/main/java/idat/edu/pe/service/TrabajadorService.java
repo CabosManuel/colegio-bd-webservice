@@ -9,4 +9,6 @@ public interface TrabajadorService {
 	public void delete(Integer trabajadorId);
 	public Trabajador findById(Integer trabajadorId);
 	public Collection<Trabajador> findAll();
+	
+	public Collection<Trabajador> getfindByCurso(Integer cursoId);
 }

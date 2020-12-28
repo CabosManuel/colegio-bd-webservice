@@ -44,4 +44,9 @@ public class TrabajadorServiceIml implements TrabajadorService{
 	public Collection<Trabajador> findAll() {
 		return (Collection<Trabajador>) r.findAll();
 	}
+
+	@Override
+	public Collection<Trabajador> getfindByCurso(Integer cursoId) {
+		return (Collection<Trabajador>)r.getfindByCurso(cursoId);
+	}
 }
