@@ -78,6 +78,9 @@ public class Estudiante implements Serializable{
 	@OneToMany(mappedBy = "dniEstudiante")
 	private Collection<Asistencia> asistencias = new ArrayList<>();
 	
+	@OneToMany(mappedBy = "dniEstudiante")
+	private Collection<Notificacion> notificaciones = new ArrayList<>();
+	
 	public Estudiante() {
 		
 	}

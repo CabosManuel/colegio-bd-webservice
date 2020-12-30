@@ -17,6 +17,7 @@ import idat.edu.pe.model.Grado;
 import idat.edu.pe.model.Matricula;
 import idat.edu.pe.model.Nivel;
 import idat.edu.pe.model.Nota;
+import idat.edu.pe.model.Notificacion;
 import idat.edu.pe.model.Seccion;
 import idat.edu.pe.model.Trabajador;
 import idat.edu.pe.service.GradoService;
@@ -69,6 +70,27 @@ public class MapperUtil {
 		mapper.setApoderado(new ApoderadoMapper(estudiante.getApoderado().getDniApoderado()));
 		return mapper;
 
+	}
+	
+	// Mapper Collection<Object[]> a Collection<EstudianteMapper>
+	public static Collection<EstudianteMapper> convertCollObjects_EstudianteMapper(Collection<Object[]> objetos) {
+		Collection<EstudianteMapper> estudiantesMapper = new ArrayList<>();
+
+		for (Object[] obj : objetos) {
+			estudiantesMapper.add(convertObjectEstudiante(obj));
+		}
+
+		return estudiantesMapper;
+	}
+
+	// Mapper Object[] a EstudianteMapper
+	public static EstudianteMapper convertObjectEstudiante(Object[] obj) {
+		EstudianteMapper estudianteMapper = new EstudianteMapper();
+		
+		estudianteMapper.setDniEstudiante((String) obj[0]);
+		estudianteMapper.setNombre((String) obj[1]);
+
+		return estudianteMapper;
 	}
 
 	public static Collection<NotaMapper> convertNotas(Collection<Nota> itemsNota) {
@@ -320,4 +342,32 @@ public class MapperUtil {
 		}
 		return itemsCursoMapper;
 	}
+	
+	/**
+	 * Mapper Collection<Object[]> a Collection<NotificacionMapper>
+	 */
+	public static Collection<NotificacionMapper> convertCollObjects_NotificacionMapper(Collection<Object[]> objetos) {
+		Collection<NotificacionMapper> notificacionesMapper = new ArrayList<>();
+	
+		for (Object[] obj : objetos) {
+			NotificacionMapper notfMapp = new NotificacionMapper();
+			
+			notfMapp.setIdNofiticacion((Integer) obj[0]);
+			notfMapp.setTitulo(obj[1].toString());
+			notfMapp.setTipo(obj[2].toString());
+			notfMapp.setFechaEnvio(obj[3].toString());
+			notfMapp.setDniEstudiante(obj[6].toString());
+			notfMapp.setDescripcion(obj[7].toString());
+			
+			if(!notfMapp.getTipo().equals("comunicado")) {
+				notfMapp.setFechaLimite(obj[4].toString());
+				notfMapp.setEstado((Character) obj[5]);
+			}
+			
+			notificacionesMapper.add(notfMapp);
+		}
+	
+		return notificacionesMapper;
+	}
+	
 }
