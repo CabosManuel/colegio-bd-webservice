@@ -56,7 +56,6 @@ public class Apoderado implements Serializable {
 
 	public Apoderado(String dniApoderado, String nombre, String apellido, String correo, String celular, String pass,
 			String direccion, Boolean estado) {
-		super();
 		this.dniApoderado = dniApoderado;
 		this.nombre = nombre;
 		this.apellido = apellido;

@@ -12,15 +12,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import idat.edu.pe.mapper.ApoderadoMapper;
-import idat.edu.pe.mapper.EstudianteMapper;
 import idat.edu.pe.mapper.MapperUtil;
 import idat.edu.pe.model.Apoderado;
-import idat.edu.pe.model.Distrito;
-import idat.edu.pe.model.Estudiante;
 import idat.edu.pe.service.ApoderadoService;
+import idat.edu.pe.service.NotificacionService;
 
 @CrossOrigin("*")
 @RestController
@@ -29,6 +28,9 @@ public class ApoderadoRestController {
 
 	@Autowired
 	private ApoderadoService service;
+	
+	@Autowired
+	private NotificacionService serviceNotificacion;
 	
 	@GetMapping("/listar")
 	public ResponseEntity<?> listar(){
@@ -96,5 +98,27 @@ public class ApoderadoRestController {
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 	}
 
-
+	@GetMapping("/nombre_estudiantes/{dniApoderado}")
+	public ResponseEntity<?> getEstudiantesPorDniApoderado(@PathVariable String dniApoderado){
+		Apoderado apoderadoDb = service.findByDniApoderado(dniApoderado);
+		
+		if(apoderadoDb!=null) {
+			Collection<Object[]> estudiantes = service.getEstudiantesByDniApoderado(dniApoderado);
+			return new ResponseEntity<>(MapperUtil.convertCollObjects_EstudianteMapper(estudiantes), HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+	}
+	
+	@GetMapping("/bandeja_entrada")
+	public ResponseEntity<?> getNotificacionesPorDniEstudianteTipo(@RequestParam String dniEstudiante, @RequestParam String tipo1, 
+			@RequestParam String tipo2, @RequestParam String tipo3){
+		 System.out.println("datos a consultar: "+dniEstudiante+" "+tipo1+" "+tipo2+" "+tipo3);
+		Collection<Object[]> notificaciones = serviceNotificacion.getNotificacionesByDniEstudianteTipo(dniEstudiante, tipo1, tipo2, tipo3);
+		
+		if(notificaciones!=null) {
+			return new ResponseEntity<>(MapperUtil.convertCollObjects_NotificacionMapper(notificaciones), HttpStatus.OK);
+		}
+	 	return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+	}
 }

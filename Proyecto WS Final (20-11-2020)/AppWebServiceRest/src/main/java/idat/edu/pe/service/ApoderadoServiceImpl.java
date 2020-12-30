@@ -3,7 +3,6 @@ package idat.edu.pe.service;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,6 +37,12 @@ public class ApoderadoServiceImpl implements ApoderadoService{
 	@Override
 	public Apoderado findByDniApoderado(String dniApoderado) {
 		return r.findByDniApoderado(dniApoderado);
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Collection<Object[]> getEstudiantesByDniApoderado(String dniApoderado) {
+		return r.getEstudiantesByDniApoderado(dniApoderado);
 	}
 
 }

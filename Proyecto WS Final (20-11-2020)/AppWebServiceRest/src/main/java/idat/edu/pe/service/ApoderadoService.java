@@ -14,4 +14,6 @@ public interface ApoderadoService {
 	public abstract Collection<Apoderado> findAll();
 	
 	public Apoderado findByDniApoderado(String dniApoderado);
+	
+	public Collection<Object[]> getEstudiantesByDniApoderado(String dniApoderado);
 }
