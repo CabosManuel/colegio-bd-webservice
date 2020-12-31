@@ -25,4 +25,10 @@ public class CursoServiceImpl implements CursoService{
 	public Collection<Curso> getfindByNivelGrado(Integer nivelId, Integer gradoId) {
 		return r.getfindByNivelGrado(nivelId, gradoId);
 	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Curso findById(Integer cursoId) {
+		return r.findById(cursoId).orElse(null);
+	}
 }

@@ -53,10 +53,6 @@ public class HorarioCabecera implements Serializable {
 		this.horarioCabeceraId = horarioCabeceraId;
 	}
 
-	public void sethorarioCabeceraId(Integer horarioCabeceraId) {
-		this.horarioCabeceraId = horarioCabeceraId;
-	}
-
 	public Boolean getEstado() {
 		return estado;
 	}

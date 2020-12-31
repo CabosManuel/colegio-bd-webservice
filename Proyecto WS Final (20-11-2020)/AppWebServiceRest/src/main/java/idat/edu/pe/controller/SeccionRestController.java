@@ -38,7 +38,18 @@ public class SeccionRestController {
 		
 		return new ResponseEntity<>(itemSeccion, HttpStatus.OK);
 	}
-	
+	@GetMapping("/buscarSeccion/{seccionId}")
+	public ResponseEntity<?> buscarPorId(@PathVariable Integer seccionId){
+		
+		Seccion seccionOb = service.findById(seccionId);
+		SeccionMapper seccionMapper = MapperUtil.convertOneSeccion(seccionOb);
+		
+		if(seccionOb!=null) {
+			return new ResponseEntity<>(seccionMapper, HttpStatus.OK);
+		}
+		return new ResponseEntity<>("Estudiante con el dni " + seccionId + " no existente.", HttpStatus.NOT_FOUND);
+		
+	}
 	@GetMapping("/buscar/{gradoId}")
 	public ResponseEntity<?> buscar(@PathVariable Integer gradoId){
 		

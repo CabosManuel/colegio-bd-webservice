@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import idat.edu.pe.mapper.GradoMapper;
 import idat.edu.pe.mapper.MapperUtil;
+import idat.edu.pe.mapper.SeccionMapper;
 import idat.edu.pe.model.Grado;
 import idat.edu.pe.model.Seccion;
 import idat.edu.pe.model.Trabajador;
@@ -41,6 +42,19 @@ public class GradoRestController {
 		}
 		
 		return new ResponseEntity<>(itemGrado, HttpStatus.OK);
+	}
+	
+	@GetMapping("/buscar/{gradoId}")
+	public ResponseEntity<?> buscarPorId(@PathVariable Integer gradoId){
+		
+		Grado gradoOb = service.findById(gradoId);
+		GradoMapper gradoMapper = MapperUtil.convertOneGrado(gradoOb);
+		
+		if(gradoOb!=null) {
+			return new ResponseEntity<>(gradoMapper, HttpStatus.OK);
+		}
+		return new ResponseEntity<>("Estudiante con el dni " + gradoId + " no existente.", HttpStatus.NOT_FOUND);
+		
 	}
 	
 	@PostMapping("/agregar")

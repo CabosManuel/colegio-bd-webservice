@@ -1,6 +1,7 @@
 package idat.edu.pe.model;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -14,7 +15,9 @@ import org.hibernate.annotations.FetchMode;
 
 @Table
 @Entity(name = "trabajadores")
-public class Trabajador {
+public class Trabajador implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,6 +55,10 @@ public class Trabajador {
 	@OneToMany(mappedBy = "trabajador",cascade = CascadeType.ALL ,fetch =FetchType.EAGER)
     @Fetch(value = FetchMode.SUBSELECT)
 	private  Collection<HorarioCabecera> horarioCabecera = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "trabajador",cascade = CascadeType.ALL ,fetch =FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
+	private  Collection<HorarioDetalle> horarioDetalle = new ArrayList<>();
 	
 	//Relación muchos a muchos
 	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
@@ -178,15 +185,32 @@ public class Trabajador {
 		this.estado = estado;
 	}
 
-
 	public Set<Curso> getItemsCurso() {
 		return itemsCurso;
 	}
 
-
 	public void setItemsCurso(Set<Curso> itemsCurso) {
 		this.itemsCurso = itemsCurso;
 	}
-	
 
+
+	public Collection<HorarioCabecera> getHorarioCabecera() {
+		return horarioCabecera;
+	}
+
+
+	public void setHorarioCabecera(Collection<HorarioCabecera> horarioCabecera) {
+		this.horarioCabecera = horarioCabecera;
+	}
+
+
+	public Collection<HorarioDetalle> getHorarioDetalle() {
+		return horarioDetalle;
+	}
+
+
+	public void setHorarioDetalle(Collection<HorarioDetalle> horarioDetalle) {
+		this.horarioDetalle = horarioDetalle;
+	}
+	
 }

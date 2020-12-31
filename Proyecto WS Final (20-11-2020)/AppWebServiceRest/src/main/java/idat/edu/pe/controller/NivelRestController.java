@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import idat.edu.pe.mapper.MapperUtil;
+import idat.edu.pe.mapper.NivelMapper;
 import idat.edu.pe.model.Nivel;
 import idat.edu.pe.service.NivelService;
 
@@ -39,8 +41,10 @@ public class NivelRestController {
 	public ResponseEntity<?> buscar(@PathVariable Integer nivelId){
 		
 		Nivel nivelOb = service.findById(nivelId);
+		NivelMapper nivelMapper = MapperUtil.convertOneNivel(nivelOb);
+		
 		if(nivelOb!=null) {
-			return new ResponseEntity<>(nivelOb, HttpStatus.OK);
+			return new ResponseEntity<>(nivelMapper, HttpStatus.OK);
 		}
 		return new ResponseEntity<>(nivelOb, HttpStatus.NOT_FOUND);
 		

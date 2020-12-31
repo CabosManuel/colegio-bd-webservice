@@ -79,7 +79,6 @@ public class EstudianteRestController {
 	@PostMapping("/agregar")
 	public ResponseEntity<?> agregar(@RequestBody Estudiante estudiante){
 		
-		//EstudianteMapper est = MapperUtil.convertm(estudiante);
 	    estudiante.setDistrito(DService.findById(estudiante.getDistrito().getDistritoId()));
 	    estudiante.setApoderado(AService.findByDniApoderado(estudiante.getApoderado().getDniApoderado()));
 		estudianteService.insert(estudiante);

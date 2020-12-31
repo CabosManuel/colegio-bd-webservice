@@ -12,7 +12,10 @@ import idat.edu.pe.model.Apoderado;
 import idat.edu.pe.model.Curso;
 import idat.edu.pe.model.Distrito;
 import idat.edu.pe.model.Estudiante;
+import idat.edu.pe.model.Grado;
+import idat.edu.pe.model.HorarioCabecera;
 import idat.edu.pe.model.Matricula;
+import idat.edu.pe.model.Nivel;
 import idat.edu.pe.model.Nota;
 import idat.edu.pe.model.Seccion;
 import idat.edu.pe.model.Trabajador;
@@ -67,7 +70,7 @@ public class MapperUtil {
 		return mapper;
 
 	}
-	
+
 	// Mapper Collection<Object[]> a Collection<EstudianteMapper>
 	public static Collection<EstudianteMapper> convertCollObjects_EstudianteMapper(Collection<Object[]> objetos) {
 		Collection<EstudianteMapper> estudiantesMapper = new ArrayList<>();
@@ -82,7 +85,7 @@ public class MapperUtil {
 	// Mapper Object[] a EstudianteMapper
 	public static EstudianteMapper convertObjectEstudiante(Object[] obj) {
 		EstudianteMapper estudianteMapper = new EstudianteMapper();
-		
+
 		estudianteMapper.setDniEstudiante((String) obj[0]);
 		estudianteMapper.setNombre((String) obj[1]);
 
@@ -242,7 +245,7 @@ public class MapperUtil {
 
 		return cursoMapper;
 	}
-	
+
 	public static Collection<TrabajadorMapper> convertTrabajadores(Collection<Trabajador> itemsTrabajador) {
 
 		Collection<TrabajadorMapper> itemsTrabajadorMapper = new ArrayList<>();
@@ -267,7 +270,7 @@ public class MapperUtil {
 		}
 		return itemsTrabajadorMapper;
 	}
-	
+
 	public static Collection<TrabajadorMapper> convertTrabajadoresPorCurso(Collection<Trabajador> itemsTrabajador) {
 
 		Collection<TrabajadorMapper> itemsTrabajadorMapper = new ArrayList<>();
@@ -282,7 +285,7 @@ public class MapperUtil {
 		}
 		return itemsTrabajadorMapper;
 	}
-	
+
 	public static Collection<SeccionMapper> convertSecciones(Collection<Seccion> itemsSeccion) {
 
 		Collection<SeccionMapper> itemsSeccionMapper = new ArrayList<>();
@@ -292,12 +295,13 @@ public class MapperUtil {
 			SeccionMapper mapper = new SeccionMapper();
 			mapper.setSeccionId(seccion.getSeccionId());
 			mapper.setNombre(seccion.getNombre());
-			mapper.setGrado(new GradoMapper(seccion.getGrado().getGradoId(), seccion.getGrado().getNombre(), new NivelMapper(seccion.getGrado().getNivel().getNivelId())));
+			mapper.setGrado(new GradoMapper(seccion.getGrado().getGradoId(), seccion.getGrado().getNombre(),
+					new NivelMapper(seccion.getGrado().getNivel().getNivelId())));
 			itemsSeccionMapper.add(mapper);
 		}
 		return itemsSeccionMapper;
 	}
-	
+
 	/**
 	 * MAPPERS ASISTENCIA
 	 */
@@ -323,8 +327,8 @@ public class MapperUtil {
 
 		return asistenciaMapper;
 	}
-	
-	//Listar Curso por Nivel y Grado
+
+	// Listar Curso por Nivel y Grado
 	public static Collection<CursoMapper> convertCursosPorNivelGrado(Collection<Curso> itemsCurso) {
 
 		Collection<CursoMapper> itemsCursoMapper = new ArrayList<>();
@@ -338,32 +342,79 @@ public class MapperUtil {
 		}
 		return itemsCursoMapper;
 	}
-	
+
 	/**
 	 * Mapper Collection<Object[]> a Collection<NotificacionMapper>
 	 */
 	public static Collection<NotificacionMapper> convertCollObjects_NotificacionMapper(Collection<Object[]> objetos) {
 		Collection<NotificacionMapper> notificacionesMapper = new ArrayList<>();
-	
+
 		for (Object[] obj : objetos) {
 			NotificacionMapper notfMapp = new NotificacionMapper();
-			
+
 			notfMapp.setIdNofiticacion((Integer) obj[0]);
 			notfMapp.setTitulo(obj[1].toString());
 			notfMapp.setTipo(obj[2].toString());
 			notfMapp.setFechaEnvio(obj[3].toString());
 			notfMapp.setDniEstudiante(obj[6].toString());
 			notfMapp.setDescripcion(obj[7].toString());
-			
-			if(!notfMapp.getTipo().equals("comunicado")) {
+
+			if (!notfMapp.getTipo().equals("comunicado")) {
 				notfMapp.setFechaLimite(obj[4].toString());
 				notfMapp.setEstado((Character) obj[5]);
 			}
-			
+
 			notificacionesMapper.add(notfMapp);
 		}
-	
+
 		return notificacionesMapper;
 	}
-	
+
+	public static SeccionMapper convertOneSeccion(Seccion seccion) {
+
+		SeccionMapper mapper = new SeccionMapper();
+		mapper.setSeccionId(seccion.getSeccionId());
+		mapper.setNombre(seccion.getNombre());
+
+		return mapper;
+	}
+
+	/**
+	 * GRADO
+	 */
+	public static GradoMapper convertOneGrado(Grado grado) {
+
+		GradoMapper mapper = new GradoMapper();
+		mapper.setGrado_id(grado.getGradoId());
+		mapper.setNombre(grado.getNombre());
+
+		return mapper;
+	}
+
+	/**
+	 * NIVEL
+	 */
+	public static NivelMapper convertOneNivel(Nivel nivel) {
+
+		NivelMapper mapper = new NivelMapper();
+		mapper.setNivel_id(nivel.getNivelId());
+		mapper.setNombre(nivel.getNombre());
+
+		return mapper;
+	}
+
+//HORARIO CABECERA
+	public static HorarioCabeceraMapper convertHorarioCabeceraId(HorarioCabecera horarioCabecera) {
+
+		HorarioCabeceraMapper mapper = new HorarioCabeceraMapper();
+		HorarioDetalleMapper mapperDetalle = new HorarioDetalleMapper();
+
+		mapper.setEstado(horarioCabecera.getEstado());
+		mapper.setSeccion(new SeccionMapper(horarioCabecera.getSeccion().getSeccionId()));
+		mapper.setTrabajador(new TrabajadorMapper(horarioCabecera.getTrabajador().getTrabajadorId()));
+		mapperDetalle.setHorarioCabecera(new HorarioCabeceraMapper(horarioCabecera.getHorarioCabeceraId()));
+		return mapper;
+
+	}
+
 }

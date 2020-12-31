@@ -19,10 +19,12 @@ public class HorarioDetalle implements Serializable{
 
 	@Column
 	private String dia;
+	
 	@Column
-	private LocalTime horaInicio;
+	private String horaInicio;
+	
 	@Column
-	private LocalTime horaFin;
+	private String horaFin;
 	
 	@ManyToOne
 	@JoinColumn(name ="curso_id", nullable = false, updatable =false,
@@ -36,13 +38,18 @@ public class HorarioDetalle implements Serializable{
 	"foreign key(horario_cabecera_id) references horario_cabecera(horario_cabecera_id)"))
 	private HorarioCabecera horarioCabecera;
 	
+	@ManyToOne
+	@JoinColumn(name = "trabajador_id", nullable = false, updatable=false,
+	foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(trabajador_id) references trabajadores(trabajador_id)"))
+	private Trabajador trabajador;
+	
 	@OneToMany(mappedBy = "horarioDetalleId")
 	private Collection<Asistencia> asistencias = new ArrayList<>();
 
 	public HorarioDetalle() {
 	}
 
-	public HorarioDetalle(Integer horarioDetalleId, String dia, LocalTime horaInicio, LocalTime horaFin, Curso curso) {
+	public HorarioDetalle(Integer horarioDetalleId, String dia, String horaInicio, String horaFin, Curso curso) {
 		this.horarioDetalleId = horarioDetalleId;
 		this.dia = dia;
 		this.horaInicio = horaInicio;
@@ -66,19 +73,19 @@ public class HorarioDetalle implements Serializable{
 		this.dia = dia;
 	}
 
-	public LocalTime getHoraInicio() {
+	public String getHoraInicio() {
 		return horaInicio;
 	}
 
-	public void setHoraInicio(LocalTime horaInicio) {
+	public void setHoraInicio(String horaInicio) {
 		this.horaInicio = horaInicio;
 	}
 
-	public LocalTime getHoraFin() {
+	public String getHoraFin() {
 		return horaFin;
 	}
 
-	public void setHoraFin(LocalTime horaFin) {
+	public void setHoraFin(String horaFin) {
 		this.horaFin = horaFin;
 	}
 
@@ -104,5 +111,14 @@ public class HorarioDetalle implements Serializable{
 
 	public void setAsistencias(Collection<Asistencia> asistencias) {
 		this.asistencias = asistencias;
+	}
+
+	public Trabajador getTrabajador() {
+		return trabajador;
+	}
+
+	public void setTrabajador(Trabajador trabajador) {
+		this.trabajador = trabajador;
 	}	
+	
 }
