@@ -3,9 +3,8 @@ package idat.edu.pe.mapper;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,11 +12,8 @@ import idat.edu.pe.model.Apoderado;
 import idat.edu.pe.model.Curso;
 import idat.edu.pe.model.Distrito;
 import idat.edu.pe.model.Estudiante;
-import idat.edu.pe.model.Grado;
 import idat.edu.pe.model.Matricula;
-import idat.edu.pe.model.Nivel;
 import idat.edu.pe.model.Nota;
-import idat.edu.pe.model.Notificacion;
 import idat.edu.pe.model.Seccion;
 import idat.edu.pe.model.Trabajador;
 import idat.edu.pe.service.GradoService;

@@ -3,7 +3,6 @@ package idat.edu.pe.service;
 import java.util.Collection;
 
 import idat.edu.pe.model.Apoderado;
-import idat.edu.pe.model.Estudiante;
 
 public interface ApoderadoService {
 	
