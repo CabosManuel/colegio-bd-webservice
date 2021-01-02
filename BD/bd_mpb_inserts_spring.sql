@@ -905,7 +905,10 @@ insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id)
 insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-12-23 00:36:29', true, 61933011, 6);
 
 
--- justificion ()
+-- justificiones ()
+insert into justificaciones (titulo, fecha_envio, fecha_justificacion, dni_estudiante, descripcion) values ('Justificación #1', '2020-08-01 21:57:00', '2020-01-20', 61933011, 'in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat ');
+insert into justificaciones (titulo, fecha_envio, fecha_justificacion, dni_estudiante, descripcion) values ('Justificación #2', '2020-10-04 21:57:00', '2020-01-20', 61933011, 'odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi');
+
 -- notificaciones ()
 -- citaciones [estados: P = pendiente (FF9315), V = vencido (FF9315), C = confirmado (14BE58), R = rechazado (F1212B)]
 insert into notificaciones (titulo, tipo, fecha_envio, fecha_limite, estado, dni_estudiante, descripcion) values ('Reunión de padres #5', 'citacion', '2020-03-04 21:57:00', '2020-03-29 12:00:00', 'V', 61933011, 'in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices');
