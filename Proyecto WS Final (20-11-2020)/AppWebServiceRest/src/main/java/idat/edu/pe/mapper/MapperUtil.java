@@ -344,7 +344,7 @@ public class MapperUtil {
 	}
 
 	/**
-	 * Mapper Collection<Object[]> a Collection<NotificacionMapper>
+	 * MAPPER NOTIFICACIONES
 	 */
 	public static Collection<NotificacionMapper> convertCollObjects_NotificacionMapper(Collection<Object[]> objetos) {
 		Collection<NotificacionMapper> notificacionesMapper = new ArrayList<>();
@@ -368,6 +368,28 @@ public class MapperUtil {
 		}
 
 		return notificacionesMapper;
+	}
+	
+	/**
+	 * MAPPER JUSTIFICACIONES
+	 */
+	public static Collection<JustificacionMapper> convertCollObjects_JustificacionMapper(Collection<Object[]> objetos) {
+		Collection<JustificacionMapper> justificacionesMapper = new ArrayList<>();
+
+		for (Object[] obj : objetos) {
+			JustificacionMapper jstfMapp = new JustificacionMapper();
+
+			jstfMapp.setJustificacionId((Integer) obj[0]);
+			jstfMapp.setTitulo(obj[1].toString());
+			jstfMapp.setFechaEnvio(obj[2].toString());
+			jstfMapp.setFechaJustificacion(obj[3].toString());
+			jstfMapp.setDniEstudiante(obj[4].toString());
+			jstfMapp.setDescripcion(obj[5].toString());
+
+			justificacionesMapper.add(jstfMapp);
+		}
+
+		return justificacionesMapper;
 	}
 
 	public static SeccionMapper convertOneSeccion(Seccion seccion) {
