@@ -13,5 +13,6 @@ public interface EstudianteService {
 	public abstract Collection<Estudiante> findAll();
 	
 	public Estudiante findByDniEstudiante(String dniEstudiante);
-
+	
+	public Estudiante findByDniEstudianteAndPass(String dniEstudiante, String pass);
 }

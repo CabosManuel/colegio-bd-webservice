@@ -11,6 +11,8 @@ public interface ApoderadoRepository extends CrudRepository<Apoderado, String>{
 
 	public abstract Apoderado findByDniApoderado(String dniApoderado);
 	
+	public abstract Apoderado findByDniApoderadoAndPass(String dniApoderado, String pass);
+	
 	@Query(value="select e.dni_estudiante, e.nombre " + 
 			"from estudiantes e " + 
 			"where e.dni_apoderado like ? ", nativeQuery=true)

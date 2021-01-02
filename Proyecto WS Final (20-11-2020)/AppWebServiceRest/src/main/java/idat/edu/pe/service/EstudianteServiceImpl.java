@@ -95,4 +95,9 @@ public class EstudianteServiceImpl implements EstudianteService{
 		return repository.findById(dni_Estudiante).orElse(null);
 	}
 
+	@Override
+	public Estudiante findByDniEstudianteAndPass(String dniEstudiante, String pass) {
+		return repository.findByDniEstudianteAndPass(dniEstudiante, pass);
+	}
+
 }

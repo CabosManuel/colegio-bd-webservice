@@ -9,6 +9,7 @@ public class ApoderadoMapper {
 	private String apellido;
 	private String correo;
 	private String celular;
+	private String direccion;
 	private String pass;
 	private Boolean estado;
 	private DistritoMapper distrito;
@@ -19,14 +20,15 @@ public class ApoderadoMapper {
 	public ApoderadoMapper(String dniApoderado) {
 		this.dniApoderado = dniApoderado;
 	}
-	
+
 	public ApoderadoMapper(String dniApoderado, String nombre, String apellido, String correo, String celular,
-			String pass, Boolean estado, DistritoMapper distrito) {
+			String direccion, String pass, Boolean estado, DistritoMapper distrito) {
 		this.dniApoderado = dniApoderado;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.correo = correo;
 		this.celular = celular;
+		this.direccion = direccion;
 		this.pass = pass;
 		this.estado = estado;
 		this.distrito = distrito;
@@ -72,6 +74,14 @@ public class ApoderadoMapper {
 		this.celular = celular;
 	}
 
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
 	public String getPass() {
 		return pass;
 	}
@@ -95,6 +105,5 @@ public class ApoderadoMapper {
 	public void setDistrito(DistritoMapper distrito) {
 		this.distrito = distrito;
 	}
-	
 	
 }

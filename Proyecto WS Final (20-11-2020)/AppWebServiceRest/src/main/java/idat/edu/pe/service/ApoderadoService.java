@@ -14,5 +14,7 @@ public interface ApoderadoService {
 	
 	public Apoderado findByDniApoderado(String dniApoderado);
 	
+	public Apoderado findByDniApoderadoAndPass(String dniApoderado, String pass);
+	
 	public Collection<Object[]> getEstudiantesByDniApoderado(String dniApoderado);
 }

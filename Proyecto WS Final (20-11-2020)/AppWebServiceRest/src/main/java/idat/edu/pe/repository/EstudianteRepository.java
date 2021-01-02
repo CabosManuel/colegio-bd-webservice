@@ -9,6 +9,8 @@ public interface EstudianteRepository extends CrudRepository<Estudiante, String>
 	
 	public abstract Estudiante findByDniEstudiante(String dniEstudiante);
 	
+	public Estudiante findByDniEstudianteAndPass(String dniEstudiante, String pass);
+	
 	/*@Query(name = "update estudiantes set estado = false where dni_estudiante =?", nativeQuery = true)
 	public abstract void actualizarEstado(String dniEstudiante);*/
 

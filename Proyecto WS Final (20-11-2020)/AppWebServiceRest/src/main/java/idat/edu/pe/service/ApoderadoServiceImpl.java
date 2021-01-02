@@ -39,6 +39,11 @@ public class ApoderadoServiceImpl implements ApoderadoService{
 		return r.findByDniApoderado(dniApoderado);
 	}
 
+	@Override
+	public Apoderado findByDniApoderadoAndPass(String dniApoderado, String pass) {
+		return r.findByDniApoderadoAndPass(dniApoderado, pass);
+	}
+	
 	@Transactional(readOnly = true)
 	@Override
 	public Collection<Object[]> getEstudiantesByDniApoderado(String dniApoderado) {

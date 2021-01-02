@@ -70,6 +70,16 @@ public class MapperUtil {
 		return mapper;
 
 	}
+	
+	// Estudiante a EstudianteRespuestaMapper (sin "rpta" y "mensaje")
+	public static EstudianteRespuestaMapper convertEstudianteToRespuesta(Estudiante estudiante) {
+		EstudianteMapper estudianteMapper = convert(estudiante);
+		
+		EstudianteRespuestaMapper estudianteRespuestaMapper = new EstudianteRespuestaMapper();
+		estudianteRespuestaMapper.setEstudiante(estudianteMapper);
+		
+		return estudianteRespuestaMapper;
+	}
 
 	// Mapper Collection<Object[]> a Collection<EstudianteMapper>
 	public static Collection<EstudianteMapper> convertCollObjects_EstudianteMapper(Collection<Object[]> objetos) {
@@ -154,6 +164,10 @@ public class MapperUtil {
 		return notaMapper;
 	}
 
+	/**
+	 * MAPPERS APODERADO
+	 */
+	
 	// Listar todos los apoderados
 	public static Collection<ApoderadoMapper> convertApoderados(Collection<Apoderado> itemsApoderado) {
 
@@ -169,6 +183,7 @@ public class MapperUtil {
 			mapper.setCorreo(apoderado.getCorreo());
 			// mapper.setPass(estudiante.getPass());
 			mapper.setEstado(apoderado.getEstado());
+			mapper.setDireccion(apoderado.getDireccion());
 			mapper.setDistrito(
 					new DistritoMapper(apoderado.getDistrito().getDistritoId(), apoderado.getDistrito().getNombre()));
 
@@ -188,10 +203,21 @@ public class MapperUtil {
 		mapper.setCorreo(apoderado.getCorreo());
 		mapper.setPass(apoderado.getPass());
 		mapper.setEstado(apoderado.getEstado());
+		mapper.setDireccion(apoderado.getDireccion());
 		mapper.setDistrito(
 				new DistritoMapper(apoderado.getDistrito().getDistritoId(), apoderado.getDistrito().getNombre()));
 		return mapper;
 
+	}
+	
+	// Apoderado a ApoderadoRespuestaMapper (sin "rpta" y "mensaje") 
+	public static ApoderadoRespuestaMapper convertApoderadoToRespuesta(Apoderado apoderado) {
+		ApoderadoMapper apoderadoMapper = convert(apoderado);
+		
+		ApoderadoRespuestaMapper apoderadoRespuestaMapper = new ApoderadoRespuestaMapper();
+		apoderadoRespuestaMapper.setApoderado(apoderadoMapper);
+		
+		return apoderadoRespuestaMapper;
 	}
 
 	// MATRICULA
