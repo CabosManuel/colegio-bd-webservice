@@ -19,6 +19,12 @@ public class HorarioDetalleServiceImpl implements HorarioDetalleService{
 		r.save(horarioDetalle);
 		
 	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public HorarioDetalle getfindBySeccion(Integer seccionId, Integer trabajadorId) {
+		return r.getfindBySeccion(seccionId, trabajadorId);
+	}
 	
 	
 

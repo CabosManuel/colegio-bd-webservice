@@ -14,5 +14,10 @@ public interface GradoRepository extends CrudRepository<Grado, Integer>{
 			"inner join niveles n on g.nivel_id = n.nivel_id\r\n" + 
 			"where n.nivel_id = ?", nativeQuery=true)
 	public abstract Collection<Grado> findByNivel(Integer nivelId);
+	
+	@Query(value="select * from grados g\r\n" + 
+			"inner join niveles n on g.nivel_id = n.nivel_id\r\n" + 
+			"where n.nivel_id = ?", nativeQuery=true)
+	public abstract Collection<Grado> getfindByNivel(Integer nivelId);
 
 }

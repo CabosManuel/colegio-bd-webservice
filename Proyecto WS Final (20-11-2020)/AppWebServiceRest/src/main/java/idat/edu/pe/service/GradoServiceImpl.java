@@ -53,5 +53,11 @@ public class GradoServiceImpl implements GradoService {
 		return (Collection<Grado>)r.findByNivel(nivelId);
 	}
 
+	@Transactional(readOnly = true)
+	@Override
+	public Collection<Grado> getfindByNivel(Integer nivelId) {
+		return r.getfindByNivel(nivelId);
+	}
+
 	
 }

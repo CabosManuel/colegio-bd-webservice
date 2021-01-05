@@ -30,11 +30,12 @@ public class NivelRestController {
 	public ResponseEntity<?> listar(){
 		
 		Collection<Nivel> itemNivel = service.findAll();
+		Collection<NivelMapper> itemsNivelMapper = MapperUtil.convertNiveles(itemNivel);
 		if(itemNivel.isEmpty()) {
-			return new ResponseEntity<>(itemNivel, HttpStatus.NO_CONTENT);
+			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 		}
 		
-		return new ResponseEntity<>(itemNivel, HttpStatus.OK);
+		return new ResponseEntity<>(itemsNivelMapper, HttpStatus.OK);
 	}
 
 	@GetMapping("/buscar/{nivelId}")

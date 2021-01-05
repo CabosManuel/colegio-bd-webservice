@@ -17,6 +17,7 @@ import idat.edu.pe.mapper.GradoMapper;
 import idat.edu.pe.mapper.MapperUtil;
 import idat.edu.pe.mapper.SeccionMapper;
 import idat.edu.pe.model.Grado;
+import idat.edu.pe.model.Nivel;
 import idat.edu.pe.model.Seccion;
 import idat.edu.pe.model.Trabajador;
 import idat.edu.pe.service.GradoService;
@@ -54,6 +55,19 @@ public class GradoRestController {
 			return new ResponseEntity<>(gradoMapper, HttpStatus.OK);
 		}
 		return new ResponseEntity<>("Estudiante con el dni " + gradoId + " no existente.", HttpStatus.NOT_FOUND);
+		
+	}
+	
+	@GetMapping("/buscarNivel/{nivelId}")
+	public ResponseEntity<?> buscarPorNivel(@PathVariable Integer nivelId){
+		
+		Collection<Grado> gradoOb = service.getfindByNivel(nivelId);
+		Collection<GradoMapper> gradoMapper = MapperUtil.convertGrados(gradoOb);
+		
+		if(gradoOb!=null) {
+			return new ResponseEntity<>(gradoMapper, HttpStatus.OK);
+		}
+		return new ResponseEntity<>("Nivel con el número " + nivelId + " no existente.", HttpStatus.NOT_FOUND);
 		
 	}
 	

@@ -13,4 +13,6 @@ public interface GradoService {
 	public abstract Collection<Grado> findAll();
 	public Collection<Grado> findByNivel(Integer nivelId);
 	
+	public Collection<Grado> getfindByNivel(Integer nivelId);
+	
 }

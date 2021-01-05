@@ -6,22 +6,24 @@ public class HorarioDetalleMapper {
 
 	private Integer horarioDetalleId;
 	private String dia;
-	private LocalTime horaInicio;
-	private LocalTime horaFin;
+	private String horaInicio;
+	private String horaFin;
 	private CursoMapper curso;
+	private TrabajadorMapper trabajador;
 	private HorarioCabeceraMapper horarioCabecera;
 	public HorarioDetalleMapper() {
 	}
 	public HorarioDetalleMapper(Integer horarioDetalleId) {
 		this.horarioDetalleId = horarioDetalleId;
 	}
-	public HorarioDetalleMapper(Integer horarioDetalleId, String dia, LocalTime horaInicio, LocalTime horaFin,
-			CursoMapper curso, HorarioCabeceraMapper horarioCabecera) {
+	public HorarioDetalleMapper(Integer horarioDetalleId, String dia, String horaInicio, String horaFin,
+			CursoMapper curso, TrabajadorMapper trabajador, HorarioCabeceraMapper horarioCabecera) {
 		this.horarioDetalleId = horarioDetalleId;
 		this.dia = dia;
 		this.horaInicio = horaInicio;
 		this.horaFin = horaFin;
 		this.curso = curso;
+		this.trabajador = trabajador;
 		this.horarioCabecera = horarioCabecera;
 	}
 	public Integer getHorarioDetalleId() {
@@ -36,16 +38,16 @@ public class HorarioDetalleMapper {
 	public void setDia(String dia) {
 		this.dia = dia;
 	}
-	public LocalTime getHoraInicio() {
+	public String getHoraInicio() {
 		return horaInicio;
 	}
-	public void setHoraInicio(LocalTime horaInicio) {
+	public void setHoraInicio(String horaInicio) {
 		this.horaInicio = horaInicio;
 	}
-	public LocalTime getHoraFin() {
+	public String getHoraFin() {
 		return horaFin;
 	}
-	public void setHoraFin(LocalTime horaFin) {
+	public void setHoraFin(String horaFin) {
 		this.horaFin = horaFin;
 	}
 	public CursoMapper getCurso() {
@@ -60,6 +62,11 @@ public class HorarioDetalleMapper {
 	public void setHorarioCabecera(HorarioCabeceraMapper horarioCabecera) {
 		this.horarioCabecera = horarioCabecera;
 	}
-	
+	public TrabajadorMapper getTrabajador() {
+		return trabajador;
+	}
+	public void setTrabajador(TrabajadorMapper trabajador) {
+		this.trabajador = trabajador;
+	}
 	
 }
