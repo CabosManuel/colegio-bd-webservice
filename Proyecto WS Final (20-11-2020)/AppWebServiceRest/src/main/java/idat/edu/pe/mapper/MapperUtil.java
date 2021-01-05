@@ -14,6 +14,7 @@ import idat.edu.pe.model.Distrito;
 import idat.edu.pe.model.Estudiante;
 import idat.edu.pe.model.Grado;
 import idat.edu.pe.model.HorarioCabecera;
+import idat.edu.pe.model.HorarioDetalle;
 import idat.edu.pe.model.Matricula;
 import idat.edu.pe.model.Nivel;
 import idat.edu.pe.model.Nota;
@@ -464,5 +465,55 @@ public class MapperUtil {
 		return mapper;
 
 	}
+
+
+	/*
+	 * CAMBIOS A LA FECHA 03/01/2021*/
+	public static HorarioDetalleMapper convert(HorarioDetalle horariod) {
+
+		HorarioDetalleMapper mapper = new HorarioDetalleMapper();
+		mapper.setHorarioDetalleId(horariod.getHorarioDetalleId());
+		mapper.setDia(horariod.getDia());
+		mapper.setCurso(new CursoMapper(horariod.getCurso().getCursoId(), horariod.getCurso().getNombre()));
+		mapper.setTrabajador(new TrabajadorMapper(horariod.getTrabajador().getTrabajadorId()));
+		mapper.setHoraInicio(horariod.getHoraInicio());
+		mapper.setHoraFin(horariod.getHoraFin());
+		mapper.setHorarioCabecera(new HorarioCabeceraMapper(horariod.getHorarioCabecera().getHorarioCabeceraId()));
+		return mapper;
+
+	}
+	
+	public static Collection<GradoMapper> convertGrados(Collection<Grado> itemsGrado) {
+
+		Collection<GradoMapper> itemsGradoMapper = new ArrayList<>();
+
+		for (Grado grado : itemsGrado) {
+
+			GradoMapper mapper = new GradoMapper();
+			mapper.setGrado_id(grado.getGradoId());
+			mapper.setNombre(grado.getNombre());
+			itemsGradoMapper.add(mapper);
+		}
+		return itemsGradoMapper;
+	}
+
+	/**
+	 * NIVEL
+	 */
+
+	public static Collection<NivelMapper> convertNiveles(Collection<Nivel> itemsNivel) {
+
+		Collection<NivelMapper> itemsNivelMapper = new ArrayList<>();
+
+		for (Nivel nivel : itemsNivel) {
+
+			NivelMapper mapper = new NivelMapper();
+			mapper.setNivel_id(nivel.getNivelId());
+			mapper.setNombre(nivel.getNombre());
+			itemsNivelMapper.add(mapper);
+		}
+		return itemsNivelMapper;
+	}
+
 
 }
