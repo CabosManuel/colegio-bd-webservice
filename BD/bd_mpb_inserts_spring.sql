@@ -788,22 +788,22 @@ insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values 
 insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (25, 13, 16, 14, '2020-01-06', 61933011);
 insert into notas (curso_id, nota1, nota2, nota3, fecha, dni_estudiante) values (26, 17, 19, 14, '2020-12-11', 61933011);
 
--- horario_cabecera ()
+-- horario_cabecera ()						ya no habrá , trabajador_id
 INSERT INTO horario_cabecera (estado, seccion_id, trabajador_id) VALUES (1, 32, 2);
 
--- horario_detalle (12)
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id) VALUES ('LUNES','7:00:00','9:15:00',16,1);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id) VALUES ('LUNES','10:00:00','11:30:00',18,1);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id) VALUES ('MARTES','7:00:00','9:15:00',17,1);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id) VALUES ('MARTES','10:00:00','12:15:00',26,1);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id) VALUES ('MIÉRCOLES','7:00:00','8:30:00',22,1);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id) VALUES ('MIÉRCOLES','8:30:00','9:15:00',24,1);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id) VALUES ('MIÉRCOLES','10:00:00','11:30:00',20,1);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id) VALUES ('JUEVES','7:00:00','8:30:00',19,1);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id) VALUES ('JUEVES','8:30:00','9:15:00',23,1);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id) VALUES ('JUEVES','10:00:00','11:30:00',25,1);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id) VALUES ('VIERNES','7:00:00','9:15:00',15,1);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id) VALUES ('VIERNES','10:00:00','11:30:00',21,1);
+-- horario_detalle (12)			[solo estoy insertando al docente con id: 3, deberían ser más] 
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('LUNES','7:00:00','9:15:00',16,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('LUNES','10:00:00','11:30:00',18,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MARTES','7:00:00','9:15:00',17,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MARTES','10:00:00','12:15:00',26,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MIÉRCOLES','7:00:00','8:30:00',22,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MIÉRCOLES','8:30:00','9:15:00',24,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MIÉRCOLES','10:00:00','11:30:00',20,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('JUEVES','7:00:00','8:30:00',19,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('JUEVES','8:30:00','9:15:00',23,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('JUEVES','10:00:00','11:30:00',25,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('VIERNES','7:00:00','9:15:00',15,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('VIERNES','10:00:00','11:30:00',21,1,3);
 
 -- asistencia ()
 insert into asistencias (asistencia, estado, dni_estudiante, horario_detalle_id) values ('2020-11-02 14:27:39', true, 61933011, 1);
