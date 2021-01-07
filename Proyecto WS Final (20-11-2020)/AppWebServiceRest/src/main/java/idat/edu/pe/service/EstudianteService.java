@@ -1,6 +1,7 @@
 package idat.edu.pe.service;
 
 import java.util.Collection;
+import java.util.Map;
 
 import idat.edu.pe.model.Estudiante;
 
@@ -15,4 +16,6 @@ public interface EstudianteService {
 	public Estudiante findByDniEstudiante(String dniEstudiante);
 	
 	public Estudiante findByDniEstudianteAndPass(String dniEstudiante, String pass);
+	
+	Collection<Map<String, ?>> findByDniApoderado(String dniApoderado);
 }

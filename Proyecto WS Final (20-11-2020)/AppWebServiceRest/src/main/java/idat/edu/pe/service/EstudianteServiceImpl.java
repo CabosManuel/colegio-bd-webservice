@@ -2,6 +2,7 @@ package idat.edu.pe.service;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -98,6 +99,12 @@ public class EstudianteServiceImpl implements EstudianteService{
 	@Override
 	public Estudiante findByDniEstudianteAndPass(String dniEstudiante, String pass) {
 		return repository.findByDniEstudianteAndPass(dniEstudiante, pass);
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Collection<Map<String, ?>> findByDniApoderado(String dniApoderado) {
+		return repository.findByDniApoderado(dniApoderado);
 	}
 
 }
