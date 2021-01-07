@@ -1,33 +1,72 @@
-USE bd_spring_mpb;
+USE bd_mpb_spring;
 
 SELECT * FROM apoderados;
 select * from asistencias;
 SELECT * FROM cursos;
+select * from distritos;
 select * from estudiantes;
 select * from grados;
+select * from horario_cabecera;
+select * from horario_detalle;
 select * from mallas;
 SELECT * FROM matriculas;
+select * from notificaciones;
 select * from secciones;
+select * from trabajadores;
+
+-- --------------------------------
+-- ACCEDER INFO ESTUDIANTES
+-- --------------------------------
+SELECT e.dni_estudiante, e.nombre, e.apellido
+from estudiantes e
+where e.dni_apoderado like '06662516'
+;
+-- --------------------------------
+-- LISTAR JUSTIFICACIONES
+-- --------------------------------
+select j.justificacion_id, j.titulo, j.fecha_envio, j.fecha_justificacion, j.dni_estudiante, j.descripcion
+from justificaciones j
+where j.dni_estudiante like '61933011'
+order by j.fecha_envio desc;
+
+-- --------------------------------
+-- LOGIN
+-- --------------------------------
+select * from apoderados a
+where a.dni_apoderado like '06662516' and a.pass like '12345678';
+select * from estudiantes e
+where e.dni_estudiante like '61933011' and e.pass like '12345678';
+-- --------------------------------
+-- BANDEJA DE ENTRADA
+-- --------------------------------
+select e.dni_estudiante, e.nombre
+from estudiantes e
+where e.dni_apoderado like '06662516' and e.nombre like 'Nicole'
+;
+-- titulo, tipo, fecha_envio, fecha_limite, estado, dni_estudiante, descripcion
+select n.notificaion_id, n.titulo, n.tipo, n.fecha_envio, n.fecha_limite, n.estado, n.dni_estudiante, n.descripcion
+from notificaciones n
+where n.dni_estudiante like '61933011' and -- 61933011 comunicado citacion permiso
+	(n.tipo like 'citacion' or n.tipo like 'permiso' or n.tipo like 'comunicado')
+order by n.fecha_envio desc
+;
+-- ------------------------------------------------------------------
+
 
 -- --------------------------------
 -- CONSULTAR ASISTENCIAS
 -- --------------------------------
+-- listar asistencias por dni, curso_id y mes
 select a.estado, convert(a.asistencia,date) ,hd.curso_id
 from asistencias a
 inner join horario_detalle hd
 on hd.horario_detalle_id = a.horario_detalle_id
 where a.dni_estudiante like '61933011' and hd.curso_id = 21 and month(a.asistencia) = 12;
 
+-- lista meses que tenga asistencias
 select distinct month(a.asistencia)
 from asistencias a
-where a.dni_estudiante like '61933011' and year(a.asistencia) = year(now())
-
-/*
-select a.estado, convert(a.asistencia,date) 
-from asistencias a
-where week(a.asistencia) between week('2020-12-01') and (week(last_day('2020-12-01'))) and a.dni_estudiante like '61933011'
-group by dayofyear(convert(a.asistencia,date));
-*/
+where a.dni_estudiante like '61933011' and year(a.asistencia) = year(now());
 
 -- listar cursos de la malla más reciente de una estudiante
 select cu.curso_id, cu.nombre from cursos cu
@@ -36,7 +75,7 @@ inner join grados g on g.grado_id = mll1.grado_id
 inner join matriculas mtr on mtr.grado = g.grado_id
 inner join estudiantes e on e.dni_estudiante = mtr.dni_estudiante
 where e.dni_estudiante = '61933011' and
-	year(mtr.fecha) like year(now());
+	year(mtr.fecha) like 2020 /*year(now())*/;
 -- ------------------------------------------------------------------
 
 
@@ -94,3 +133,12 @@ INNER JOIN estudiante e ON e.dni = a.dni_estudiante
 INNER JOIN horario_detalle hd ON a.id_horario_detalle = hd.id_horario_detalle
 INNER JOIN curso c ON hd.id_curso = c.id_curso;
 */
+
+-- REINICIO DE TABLAS
+-- HORARIO DETALLE
+delete from horario_detalle where horario_detalle_id < 100;
+ALTER TABLE horario_detalle AUTO_INCREMENT = 1;
+
+-- JUSTIFICACIONES
+delete from justificaciones where justificacion_id < 100;
+ALTER TABLE justificaciones AUTO_INCREMENT = 1;
