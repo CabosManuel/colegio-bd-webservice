@@ -1,5 +1,5 @@
 USE bd_webservicerest;
--- use bd_mpb_spring
+-- use bd_mpb_spring;
 
 -- distritos (43)
 INSERT INTO distritos (nombre) VALUES ('LIMA');
@@ -46,7 +46,7 @@ INSERT INTO distritos (nombre) VALUES ('SURQUILLO');
 INSERT INTO distritos (nombre) VALUES ('VILLA EL SALVADOR');
 INSERT INTO distritos (nombre) VALUES ('VILLA MARÍA DEL TRIUNFO');
 
--- apoderados (30) 
+-- apoderados (30)
 insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (34887445, 'Dena', 'Cardnell', 900469120, 'dcardnell0@tuttocitta.it', 123, 39, 1);
 insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (81464165, 'Ichabod', 'Cicchinelli', 973637497, 'icicchinelli0@newsvine.com', 123, 3, 1);
 insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (67294996, 'Nikolai', 'Tieman', 929901641, 'ntieman1@apache.org', 123, 40, 1);
@@ -189,11 +189,11 @@ insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apod
 -- A
 insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (97751016, 'Odelle', 'Darko', '2010-06-03', 37358342, 957990200, 'odarko0@omniture.com', 9, '011 Blue Bill Park Junction', 123, 1, 'promovido');
 insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (22481152, 'Arley', 'Eouzan', '2011-02-05', 37358342, 909584696, 'aeouzan1@google.it', 9, '9 Bultman Court', 123, 1, 'promovido');
-
-
 -- Cabos: estudiante hermana menor de 61933011 - apoderado: 06662516 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) VALUES (61933012, 'Nicole', 'MacArd', '2011-03-05', '06662516', 945573734, 'nmacard0@gmail.com', 12, '42 Upham Way', 12345678, 1, 'promovido'); -- en uso
 -- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 -- B
 insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (76218506, 'Fabiano', 'Thoms', '2011-01-24', 19140415, 965003404, 'fthomsi@delicious.com', 6, '93 Valley Edge Plaza', 123, 1, 'promovido');
 insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (90418187, 'Even', 'Barrable', '2011-01-01', 19140415, 925516449, 'ebarrablek@globo.com', 15, '7585 Mallard Place', 123, 1, 'no promovido');
@@ -308,13 +308,12 @@ insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apod
 
 -- 5to 16 (05/15/2003 - 02/28/2004)
 -- A
-INSERT INTO estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) VALUES (61933011, 'Gabey', 'MacArd', '2003-10-14', 34887445, 945573734, 'gmacard0@usa.gov', 12, '42 Upham Way', 123, 1, 'promovido');
 insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (66216258, 'Kelvin', 'Guiu', '2003-08-01', 36023841, 974536556, 'kguiu0@themeforest.net', 41, '5 Scoville Avenue', 123, 1, 'no promovido');
-
-
 -- Cabos: estudiante con matricula, horario, asistencias - apoderado: 06662516
 INSERT INTO estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) VALUES (61933011, 'Gabey', 'MacArd', '2003-10-14', '06662516', 945573734, 'gmacard0@usa.gov', 12, '42 Upham Way', 12345678, 1, 'promovido'); -- en uso
 -- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 -- B
 insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (93456824, 'Clint', 'Markussen', '2003-10-26', 36023841, 968530556, 'cmarkussene@statcounter.com', 5, '993 Muir Place', 123, 1, 'promovido');
 insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apoderado, celular, correo, distrito_id, direccion, pass, estado, condicion) values (23811922, 'Grantley', 'Selwyn', '2003-08-31', 24152943, 939965712, 'gselwynf@biblegateway.com', 31, '99355 Green Ridge Junction', 123, 1, 'promovido');
@@ -330,10 +329,13 @@ insert into estudiantes (dni_estudiante, nombre, apellido, fnacimiento, dni_apod
 INSERT INTO trabajadores (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, distrito_id, direccion, correo, pass) VALUES ('directora', 'Constantina', 'Wrightam', 32842520, '1986-01-12', 910727483, 7, '79 Loomis Court', 'cwrightam3@craigslist.org', 123);
 -- recepcion (3)
 INSERT INTO trabajadores (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, distrito_id, direccion, correo, pass) VALUES ('recepcionista', 'Damaris', 'Breddy', 28606359, '1963-02-06', 903888102, 17, '092 Manufacturers Crossing', 'dbreddy0@jiathis.com', 123);
+/*
 INSERT INTO trabajadores (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, distrito_id, direccion, correo, pass) VALUES ('recepcionista', 'Noel', 'Mardlin', 21974639, '1983-12-20', 909967406, 32, '06 Birchwood Parkway', 'nmardlin1@goo.ne.jp', 123);
 INSERT INTO trabajadores (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, distrito_id, direccion, correo, pass) VALUES ('recepcionista', 'Analise', 'Shapero', 38343562, '1986-11-11', 912256458, 16, '19329 Summit Parkway', 'ashapero2@seesaa.net', 123);
+*/
 -- docente (96)
 INSERT INTO trabajadores (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, distrito_id, direccion, correo, pass) VALUES ('docente', 'Elizabet', 'Edds', 32580790, '1983-06-11', 909204921, 21, '23 Towne Street', 'eedds4@google.de', 123);
+/*
 insert into trabajadores (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, distrito_id, direccion, correo, pass) values ('docente', 'Kriste', 'Rickert', 83738304, '1960-08-22', 954775012, 7, '84 Westport Alley', 'krickert0@census.gov', 123);
 insert into trabajadores (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, distrito_id, direccion, correo, pass) values ('docente', 'Clerkclaude', 'Plunket', 67767632, '1978-02-06', 944805007, 8, '714 Towne Terrace', 'cplunket1@examiner.com', 123);
 insert into trabajadores (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, distrito_id, direccion, correo, pass) values ('docente', 'Wald', 'Skeemor', 10397079, '1982-05-23', 916505929, 15, '48 Mcbride Park', 'wskeemor2@mit.edu', 123);
@@ -438,6 +440,7 @@ insert into trabajadores (cargo, nombres, apellidos, dni, fecha_nacimiento, celu
 insert into trabajadores (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, distrito_id, direccion, correo, pass) values ('docente', 'Fey', 'Death', 12342880, '1970-02-03', 907148771, 24, '5830 American Ash Point', 'fdeath1a@t-online.de', 123);
 insert into trabajadores (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, distrito_id, direccion, correo, pass) values ('docente', 'Rudd', 'Chartre', 60027027, '1977-07-26', 929187779, 46, '48 Graedel Street', 'rchartre1b@mediafire.com', 123);
 insert into trabajadores (cargo, nombres, apellidos, dni, fecha_nacimiento, celular, distrito_id, direccion, correo, pass) values ('docente', 'Christin', 'Radsdale', 70461434, '1959-04-04', 922102610, 28, '4407 Badeau Center', 'cradsdale0@hp.com', 123);
+*/
 
 -- nivel (3)
 INSERT INTO niveles (nombre) VALUES ('inicial');
@@ -563,7 +566,7 @@ INSERT INTO cursos (nombre, creditos) VALUES ('COMPUTACIÓN','23');
 INSERT INTO cursos (nombre, creditos) VALUES ('ARTE','24');
 INSERT INTO cursos (nombre, creditos) VALUES ('INGLÉS','25');
 INSERT INTO cursos (nombre, creditos) VALUES ('EDUCACIÓN PARA EL TRABAJO','26');
- /*
+/*
 -- cursos más específicos que creo no se tomarán en cuenta
     INSERT into cursos (nombre, creditos) VALUES ('GEOGRAFÍA','');
     INSERT into cursos (nombre, creditos) VALUES ('LENGUAJE','');
