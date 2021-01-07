@@ -18,11 +18,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import idat.edu.pe.mapper.ApoderadoMapper;
+import idat.edu.pe.mapper.EstudianteMapper;
 import idat.edu.pe.mapper.MapperUtil;
 import idat.edu.pe.model.Apoderado;
 import idat.edu.pe.model.Distrito;
 import idat.edu.pe.service.ApoderadoService;
 import idat.edu.pe.service.DistritoService;
+import idat.edu.pe.service.EstudianteService;
 import idat.edu.pe.service.NotificacionService;
 
 @CrossOrigin("*")
@@ -38,6 +40,9 @@ public class ApoderadoRestController {
 	
 	@Autowired
 	private DistritoService serviceDistrito;
+	
+	@Autowired
+	private EstudianteService serviceEstudiante;
 	
 	@GetMapping("/listar")
 	public ResponseEntity<?> listar(){
@@ -166,5 +171,22 @@ public class ApoderadoRestController {
 			return new ResponseEntity<>(MapperUtil.convertCollObjects_NotificacionMapper(notificaciones), HttpStatus.OK);
 		}
 	 	return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+	}
+	
+	@GetMapping("/n_estudiantes")
+	public ResponseEntity<?> getCantidadEstudiantes(@RequestParam String dniApoderado){
+		
+		Collection<EstudianteMapper> estudiantes = MapperUtil.convert(serviceEstudiante.findAll());
+		Integer cantidadEstudaintes = 0;
+		
+		for(EstudianteMapper e:estudiantes) {
+			if(e.getApoderado().getDniApoderado().equals(dniApoderado)) {
+				cantidadEstudaintes++;
+			}
+		}
+		
+		Map<String, Object> rpta = new HashMap<>();
+		rpta.put("nE", cantidadEstudaintes);
+	 	return new ResponseEntity<>(rpta, HttpStatus.OK);
 	}
 }
