@@ -12,8 +12,9 @@ public interface CursoRepository extends CrudRepository<Curso, Integer>{
 			"inner join mallas mll1 on mll1.curso_id = cu.curso_id " + 
 			"inner join grados g on g.grado_id = mll1.grado_id " + 
 			"inner join matriculas mtr on mtr.grado = g.grado_id " + 
-			"inner join estudiantes e on e.dni_estudiante = mtr.dni_estudiante " + 
-			"where e.dni_estudiante = ? and year(mtr.fecha) like year(now());",nativeQuery = true)
+			"inner join estudiantes e on e.dni_estudiante = mtr.dni_estudiante " +
+						//todavía no empieza el año escolar por eso pongo 2020, para traer lo del año pasado
+			"where e.dni_estudiante = ? and year(mtr.fecha) like 2020"/* year(now());"*/,nativeQuery = true)
 	public abstract Collection<Object[]> findByDniEstudiante(String dniEstudiante);
 	
 	@Query(value = "select c.curso_id, c.nombre, c.creditos from cursos c\r\n" + 

@@ -51,7 +51,7 @@ public class LoginController {
 		}else if(estudiante!=null){
 			EstudianteRespuestaMapper respuestaE = MapperUtil.convertEstudianteToRespuesta(estudiante);
 			respuestaE.setRpta(true);
-			respuestaA.setTipo("estudiante");
+			respuestaE.setTipo("estudiante");
 			respuestaE.setMensaje("¡Bienvenida "+respuestaE.getEstudiante().getNombre()+"!");
 			
 			return new ResponseEntity<>(respuestaE,HttpStatus.OK);

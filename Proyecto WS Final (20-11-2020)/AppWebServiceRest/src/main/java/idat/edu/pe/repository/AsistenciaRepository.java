@@ -26,7 +26,7 @@ public interface AsistenciaRepository extends CrudRepository<Asistencia, Integer
 	public abstract Collection<Object[]> getAsistenciasByDniEstudianteMesCurso(String dniEstudiante, Integer mes, String cursoId);
 	
 	@Query(value = "select distinct month(a.asistencia) " +
-			"from asistencias a "+
-			"where a.dni_estudiante like ? and year(a.asistencia) = year(now())",nativeQuery = true)
+			"from asistencias a "+ //todavía no empieza el año escolar por eso pongo 2020, para traer lo del año pasado
+			"where a.dni_estudiante like ? and year(a.asistencia) = 2020"/*year(now())"*/,nativeQuery = true)
 	public abstract Collection<Object> getMesesByDniEstudiante(String dniEstudiante);
 }

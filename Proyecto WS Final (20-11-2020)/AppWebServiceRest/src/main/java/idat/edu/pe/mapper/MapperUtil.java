@@ -62,7 +62,7 @@ public class MapperUtil {
 		mapper.setCelular(estudiante.getCelular());
 		mapper.setCorreo(estudiante.getCorreo());
 		mapper.setDireccion(estudiante.getDireccion());
-		mapper.setPass(estudiante.getPass());
+		//mapper.setPass(estudiante.getPass());
 		mapper.setEstado(estudiante.getEstado());
 		mapper.setCondicion(estudiante.getCondicion());
 		mapper.setDistrito(
@@ -202,7 +202,7 @@ public class MapperUtil {
 		mapper.setApellido(apoderado.getApellido());
 		mapper.setCelular(apoderado.getCelular());
 		mapper.setCorreo(apoderado.getCorreo());
-		mapper.setPass(apoderado.getPass());
+		//mapper.setPass(apoderado.getPass());
 		mapper.setEstado(apoderado.getEstado());
 		mapper.setDireccion(apoderado.getDireccion());
 		mapper.setDistrito(
@@ -290,7 +290,7 @@ public class MapperUtil {
 			mapper.setCorreo(trabajador.getCorreo());
 			mapper.setDireccion(trabajador.getDireccion());
 			mapper.setEstado(trabajador.getEstado());
-			mapper.setPass(trabajador.getPass());
+			//mapper.setPass(trabajador.getPass());
 			mapper.setDistrito(
 					new DistritoMapper(trabajador.getDistrito().getDistritoId(), trabajador.getDistrito().getNombre()));
 			itemsTrabajadorMapper.add(mapper);

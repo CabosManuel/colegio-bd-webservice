@@ -32,7 +32,7 @@ public class CursoRestController {
 		Collection<Object[]> objetosCurso = s.findByDniEstudiante(dniEstudiante);
 		
 		if(objetosCurso.isEmpty()) {
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity<>("No hay cursos",HttpStatus.NO_CONTENT);
 		}
 		
 		return new ResponseEntity<>(MapperUtil.convertCollObjects_CursoMapper(objetosCurso), HttpStatus.OK);
