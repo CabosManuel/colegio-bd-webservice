@@ -1,6 +1,8 @@
 package idat.edu.pe.controller;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 import idat.edu.pe.mapper.ApoderadoMapper;
 import idat.edu.pe.mapper.MapperUtil;
 import idat.edu.pe.model.Apoderado;
+import idat.edu.pe.model.Distrito;
 import idat.edu.pe.service.ApoderadoService;
+import idat.edu.pe.service.DistritoService;
 import idat.edu.pe.service.NotificacionService;
 
 @CrossOrigin("*")
@@ -31,6 +35,9 @@ public class ApoderadoRestController {
 	
 	@Autowired
 	private NotificacionService serviceNotificacion;
+	
+	@Autowired
+	private DistritoService serviceDistrito;
 	
 	@GetMapping("/listar")
 	public ResponseEntity<?> listar(){
@@ -83,6 +90,45 @@ public class ApoderadoRestController {
 		}
 		
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+	}
+	
+	//@PutMapping("/editar_perfil/{dniApoderado}")
+	@PostMapping("/editar_perfil/{dniApoderado}")
+	public ResponseEntity<?> editarPerfil(@PathVariable String dniApoderado, @RequestBody Map<String, Object> newApoderado){
+		
+		Apoderado apoderadoOb = service.findByDniApoderado(dniApoderado);
+		Map<String, Object> rpta = new HashMap<>();
+		
+		if(apoderadoOb!=null) {
+			apoderadoOb.setNombre(newApoderado.get("nombres").toString());
+			apoderadoOb.setApellido(newApoderado.get("apellidos").toString());
+			apoderadoOb.setCelular(newApoderado.get("celular").toString());
+			apoderadoOb.setCorreo(newApoderado.get("correo").toString());
+			apoderadoOb.setDireccion(newApoderado.get("direccion").toString());
+
+			System.out.println("distrito: "+newApoderado.get("distritoId"));
+			
+			apoderadoOb.setDistrito(serviceDistrito.findById((Integer) newApoderado.get("distritoId")));
+			
+			String dni = newApoderado.get("dniApoderado").toString();
+			
+			if(!dni.equals(dniApoderado) && service.findByDniApoderado(dni)!=null){				
+				rpta.put("rpta", false);
+				rpta.put("msj", "Ese DNI ya existe.");
+				return new ResponseEntity<>(rpta,HttpStatus.OK);
+			}
+			
+			rpta.put("rpta", true);
+			rpta.put("msj", "El apoderado con el dni " + dni + " se actualizó correctamente");
+			rpta.put("apoderado", MapperUtil.convert(apoderadoOb));			
+			
+			service.update(apoderadoOb);
+			return new ResponseEntity<>(rpta, HttpStatus.OK);
+		}
+		
+		rpta.put("rpta", false);
+		rpta.put("msj", "DNI no existe.");
+		return new ResponseEntity<>(rpta,HttpStatus.NOT_FOUND);
 	}
 	
 	@PutMapping("/desactivar/{dniApoderado}")
