@@ -150,7 +150,7 @@ public class ApoderadoRestController {
 	}
 
 	@GetMapping("/nombre_estudiantes/{dniApoderado}")
-	public ResponseEntity<?> getEstudiantesPorDniApoderado(@PathVariable String dniApoderado){
+	public ResponseEntity<?> getNombreEstudiantesPorDniApoderado(@PathVariable String dniApoderado){
 		Apoderado apoderadoDb = service.findByDniApoderado(dniApoderado);
 		
 		if(apoderadoDb!=null) {
@@ -161,6 +161,13 @@ public class ApoderadoRestController {
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 	}
 	
+	/** 
+	 * http://localhost:8085/idat/rest/apoderados/bandeja_entrada?dniEstudiante=61933011&tipo1=comunicado&tipo2=x&tipo3=x
+	 * 
+	 * En los parametros tipo1, tipo2 y tipo3 van: persmiso, comunicado o citación (pueden ir en cualquier orden y
+	 * también se pueden repetir), cadata "tipo" tiene que estar lleno, por defecto desde al app lo estoy llenando 
+	 * con una "x". 
+	 */
 	@GetMapping("/bandeja_entrada")
 	public ResponseEntity<?> getNotificacionesPorDniEstudianteTipo(@RequestParam String dniEstudiante, @RequestParam String tipo1, 
 			@RequestParam String tipo2, @RequestParam String tipo3){
