@@ -1,5 +1,7 @@
 package idat.edu.pe.controller;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,8 +45,8 @@ public class HorarioDetalleRestController {
 	@GetMapping("/buscar/{seccionId}/{trabajadorId}")
 	public ResponseEntity<?> buscarPorId(@PathVariable Integer seccionId, @PathVariable Integer trabajadorId){
 		
-		HorarioDetalle horarioDetalleOb = hdservice.getfindBySeccion(seccionId, trabajadorId);
-		HorarioDetalleMapper horarioDetalleMapper = MapperUtil.convert(horarioDetalleOb);
+		Collection<HorarioDetalle> horarioDetalleOb = hdservice.getfindBySeccion(seccionId, trabajadorId);
+		Collection<HorarioDetalleMapper> horarioDetalleMapper = MapperUtil.convertHorariosD(horarioDetalleOb);
 		
 		if(horarioDetalleOb!=null) {
 			return new ResponseEntity<>(horarioDetalleMapper, HttpStatus.OK);

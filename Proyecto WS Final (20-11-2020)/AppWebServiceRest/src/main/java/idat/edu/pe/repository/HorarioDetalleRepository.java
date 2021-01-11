@@ -1,5 +1,7 @@
 package idat.edu.pe.repository;
 
+import java.util.Collection;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
@@ -12,5 +14,5 @@ public interface HorarioDetalleRepository extends CrudRepository<HorarioDetalle,
 			"inner join secciones s on hc.seccion_id = s.seccion_id\r\n" + 
 			"inner join trabajadores t on hd.trabajador_id = t.trabajador_id\r\n" + 
 			"where s.seccion_id = ? and t.trabajador_id = ?", nativeQuery = true)
-	public abstract HorarioDetalle getfindBySeccion(Integer seccionId, Integer trabajadorId);
+	public abstract Collection<HorarioDetalle> getfindBySeccion(Integer seccionId, Integer trabajadorId);
 }

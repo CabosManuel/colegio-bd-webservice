@@ -1,7 +1,11 @@
 package idat.edu.pe.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -10,7 +14,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
+
+import org.springframework.format.datetime.DateFormatter;
+
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
 @Entity
 @Table(name = "asistencias")
@@ -46,6 +55,13 @@ public class Asistencia implements Serializable {
 		this.asistenciaId = asistenciaId;
 		this.asistencia = asistencia;
 		this.estado = estado;
+	}
+	
+	@PrePersist
+	public void pre() {
+		LocalDate hoy = LocalDate.now();
+		LocalTime ahora = LocalTime.now();
+		asistencia= LocalDateTime.of(hoy, ahora);
 	}
 
 	public Integer getAsistenciaId() {
