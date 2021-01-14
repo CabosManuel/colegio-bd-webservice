@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import idat.edu.pe.mapper.EstudianteMapper;
 import idat.edu.pe.mapper.MapperUtil;
+import idat.edu.pe.model.Apoderado;
+import idat.edu.pe.model.Distrito;
 import idat.edu.pe.model.Estudiante;
 import idat.edu.pe.service.ApoderadoService;
 import idat.edu.pe.service.DistritoService;
@@ -59,22 +61,22 @@ public class EstudianteRestController {
 		if(estudianteOb!=null) {
 			return new ResponseEntity<>(estudianteMapper, HttpStatus.OK);
 		}
-		return new ResponseEntity<>("Estudiante con el dni " + dniEstudiante + " no existente.", HttpStatus.NOT_FOUND);
+		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 		
 	}
 	
-	/*@GetMapping("/buscarMatricula/{dniEstudiante}")
-	public ResponseEntity<?> buscarParaMatricula(@PathVariable String dniEstudiante){
+	@GetMapping("/buscarCorreo/{correo}")
+	public ResponseEntity<?> buscarPorCorreo(@PathVariable String correo){
 		
-		Estudiante estudianteOb = estudianteService.findByDniEstudiante(dniEstudiante);
-		EstudianteMapper estudianteMapper = MapperUtil.EstudiantePersonalizada(estudianteOb);
+		Estudiante estudianteOb = estudianteService.findByCorreo(correo);
+		EstudianteMapper estudianteMapper = MapperUtil.convert(estudianteOb);
 		
 		if(estudianteOb!=null) {
 			return new ResponseEntity<>(estudianteMapper, HttpStatus.OK);
 		}
-		return new ResponseEntity<>("Estudiante con el dni " + dniEstudiante + " no existente.", HttpStatus.NOT_FOUND);
+		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 		
-	}*/
+	}
 	
 	@PostMapping("/agregar")
 	public ResponseEntity<?> agregar(@RequestBody Estudiante estudiante){
@@ -90,15 +92,17 @@ public class EstudianteRestController {
 	public ResponseEntity<?> editar(@PathVariable String dniEstudiante, @RequestBody Estudiante newEstudiante){
 		
 		Estudiante estudianteOb = estudianteService.findByDniEstudiante(dniEstudiante);
+		Distrito distrito =DService.findById(newEstudiante.getDistrito().getDistritoId());
+		
 		if(estudianteOb!=null) {
 			estudianteOb.setNombre(newEstudiante.getNombre());
 			estudianteOb.setApellido(newEstudiante.getApellido());
 			estudianteOb.setCelular(newEstudiante.getCelular());
 			estudianteOb.setCorreo(newEstudiante.getCorreo());
 			estudianteOb.setDireccion(newEstudiante.getDireccion());
-			estudianteOb.setDistrito(newEstudiante.getDistrito());
+			estudianteOb.setDistrito(distrito);
 			estudianteOb.setDniEstudiante(newEstudiante.getDniEstudiante());
-			estudianteOb.setApoderado(newEstudiante.getApoderado());
+			estudianteOb.setApoderado(new Apoderado(newEstudiante.getApoderado().getDniApoderado()));
 			estudianteOb.setFnacimiento(newEstudiante.getFnacimiento());
 			estudianteOb.setPass(newEstudiante.getPass());
 			
@@ -114,7 +118,11 @@ public class EstudianteRestController {
 		
 		Estudiante estudianteOb = estudianteService.findByDniEstudiante(dniEstudiante);
 		if(estudianteOb!=null) {
-			estudianteOb.setEstado(newEstudiante.getEstado());
+			if(estudianteOb.getEstado() == false) {
+				estudianteOb.setEstado(true);
+			}else {
+				estudianteOb.setEstado(false);
+			}
 			
 			estudianteService.update(estudianteOb);
 			return new ResponseEntity<>("La estudiante con el dni " + dniEstudiante + " se desactivó correctamente.", HttpStatus.OK);

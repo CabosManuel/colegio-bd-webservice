@@ -18,4 +18,6 @@ public interface EstudianteService {
 	public Estudiante findByDniEstudianteAndPass(String dniEstudiante, String pass);
 	
 	Collection<Map<String, ?>> findByDniApoderado(String dniApoderado);
+	
+	public Estudiante findByCorreo(String correo);
 }

@@ -11,4 +11,6 @@ public interface TrabajadorService {
 	public Collection<Trabajador> findAll();
 	
 	public Collection<Trabajador> getfindByCurso(Integer cursoId);
+	
+	public Trabajador getfindByCorreoPass(String correo, String pass);
 }

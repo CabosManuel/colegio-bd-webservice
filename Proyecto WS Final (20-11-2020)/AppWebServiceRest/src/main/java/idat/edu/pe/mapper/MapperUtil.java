@@ -62,7 +62,7 @@ public class MapperUtil {
 		mapper.setCelular(estudiante.getCelular());
 		mapper.setCorreo(estudiante.getCorreo());
 		mapper.setDireccion(estudiante.getDireccion());
-		//mapper.setPass(estudiante.getPass());
+		mapper.setPass(estudiante.getPass());
 		mapper.setEstado(estudiante.getEstado());
 		mapper.setCondicion(estudiante.getCondicion());
 		mapper.setDistrito(
@@ -273,6 +273,23 @@ public class MapperUtil {
 		return cursoMapper;
 	}
 
+	public static TrabajadorMapper convert(Trabajador trabajador) {
+
+		TrabajadorMapper mapper = new TrabajadorMapper();
+		mapper.setDni(trabajador.getDni());
+		mapper.setNombres(trabajador.getNombres());
+		mapper.setApellidos(trabajador.getApellidos());
+		mapper.setCorreo(trabajador.getCorreo());
+		mapper.setDireccion(trabajador.getDireccion());
+		mapper.setPass(trabajador.getPass());
+		mapper.setEstado(trabajador.getEstado());
+		mapper.setDistrito(
+				new DistritoMapper(trabajador.getDistrito().getDistritoId(), trabajador.getDistrito().getNombre()));
+		return mapper;
+
+	}
+
+	
 	public static Collection<TrabajadorMapper> convertTrabajadores(Collection<Trabajador> itemsTrabajador) {
 
 		Collection<TrabajadorMapper> itemsTrabajadorMapper = new ArrayList<>();
@@ -290,7 +307,7 @@ public class MapperUtil {
 			mapper.setCorreo(trabajador.getCorreo());
 			mapper.setDireccion(trabajador.getDireccion());
 			mapper.setEstado(trabajador.getEstado());
-			//mapper.setPass(trabajador.getPass());
+			mapper.setPass(trabajador.getPass());
 			mapper.setDistrito(
 					new DistritoMapper(trabajador.getDistrito().getDistritoId(), trabajador.getDistrito().getNombre()));
 			itemsTrabajadorMapper.add(mapper);
@@ -515,5 +532,22 @@ public class MapperUtil {
 		return itemsNivelMapper;
 	}
 
+	public static Collection<HorarioDetalleMapper> convertHorariosD(Collection<HorarioDetalle> itemshorariod) {
+
+		Collection<HorarioDetalleMapper> itemsHorarioDMapper = new ArrayList<>();
+		for(HorarioDetalle horariod : itemshorariod) {
+			HorarioDetalleMapper mapper = new HorarioDetalleMapper();
+			mapper.setHorarioDetalleId(horariod.getHorarioDetalleId());
+			mapper.setDia(horariod.getDia());
+			mapper.setCurso(new CursoMapper(horariod.getCurso().getCursoId(), horariod.getCurso().getNombre()));
+			mapper.setTrabajador(new TrabajadorMapper(horariod.getTrabajador().getTrabajadorId()));
+			mapper.setHoraInicio(horariod.getHoraInicio());
+			mapper.setHoraFin(horariod.getHoraFin());
+			mapper.setHorarioCabecera(new HorarioCabeceraMapper(horariod.getHorarioCabecera().getHorarioCabeceraId()));
+			itemsHorarioDMapper.add(mapper);
+		}
+		return itemsHorarioDMapper;
+
+	}
 
 }

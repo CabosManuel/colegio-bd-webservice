@@ -52,6 +52,17 @@ public class TrabajadorRestController {
 		return new ResponseEntity<>("Trabajador con ID: "+trabajadorId+" no existe.",HttpStatus.NOT_FOUND);
 	}
 	
+	@GetMapping("/validar/{correo}/{pass}")
+	public ResponseEntity<?> validar(@PathVariable String correo, @PathVariable String pass){
+		Trabajador trabajador = serviceT.getfindByCorreoPass(correo, pass);
+		TrabajadorMapper trabajadorMapper = MapperUtil.convert(trabajador);
+		
+		if(trabajador != null) {
+			return new ResponseEntity<>(trabajadorMapper,HttpStatus.OK);
+		}		
+		return new ResponseEntity<>("Trabajador con esos parámetros no existe.", HttpStatus.NOT_FOUND);
+	}
+	
 	@GetMapping("/buscarPorCurso/{cursoId}")
 	public ResponseEntity<?> buscarPorCurso(@PathVariable Integer cursoId){
 		Collection<Trabajador> trabajador = serviceT.getfindByCurso(cursoId);

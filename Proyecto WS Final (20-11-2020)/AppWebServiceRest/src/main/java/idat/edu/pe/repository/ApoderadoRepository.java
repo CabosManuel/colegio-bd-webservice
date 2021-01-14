@@ -9,6 +9,7 @@ import idat.edu.pe.model.Apoderado;
 
 public interface ApoderadoRepository extends CrudRepository<Apoderado, String>{
 
+	@Query(value="select * from apoderados where dni_apoderado = ?", nativeQuery = true)
 	public abstract Apoderado findByDniApoderado(String dniApoderado);
 	
 	public abstract Apoderado findByDniApoderadoAndPass(String dniApoderado, String pass);

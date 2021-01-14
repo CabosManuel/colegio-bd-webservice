@@ -47,7 +47,7 @@ public class Estudiante implements Serializable{
 	private String condicion;
 
 	@ManyToOne
-	@JoinColumn(name ="distrito_id", nullable = false, updatable = false,
+	@JoinColumn(name ="distrito_id", nullable = false, updatable = true,
 	foreignKey = @ForeignKey(foreignKeyDefinition = 
 	"foreign key(distrito_id) references distritos(distrito_id)"))
 	private Distrito distrito;

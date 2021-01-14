@@ -30,44 +30,10 @@ public class EstudianteServiceImpl implements EstudianteService{
 	@Autowired
 	private EstudianteRepository repository;
 	
-	/*@Autowired
-	private DistritoServiceImpl ServiceD;
-	
-	@Autowired
-	private ApoderadoServiceImpl ServiceA;*/
-	
 	@Transactional
 	@Override
 	public void insert(Estudiante estudiante) {
-		
-		/*try {
-			Distrito distrito = new Distrito();
-			Apoderado apoderado = new Apoderado(); 
-			Collection<Distrito> lista = ServiceD.findAll();
-			for(Distrito d : lista) {
-				if(d.getDistritoId() == estudiante.getDistrito().getDistritoId()) {
-					try {
-					//distrito = em.merge(estudiante.getDistrito());
-					//apoderado = em.merge(estudiante.getApoderado());
-					estudiante.setDistrito(ServiceD.findById(estudiante.getDistrito().getDistritoId()));
-					estudiante.setApoderado(ServiceA.findById(estudiante.getApoderado().getApoderadoId()));*/
-					repository.save(estudiante);/*
-					//em.persist(estudiante);
-					}catch(Exception e) {
-						e.printStackTrace();
-					}
-				}
-			}
-				
-		}catch (Exception e) {
-			 try{
-	                System.out.println("Exception:  *****" + e.getMessage());
-	            }catch(Exception re){
-	                System.out.println("Exception: ^^^^^^" + re.getMessage());
-	            }
-		}
-		//repository.save(estudiante);*/
-		
+		repository.save(estudiante);
 	}
 
 	@Transactional
@@ -96,6 +62,7 @@ public class EstudianteServiceImpl implements EstudianteService{
 		return repository.findById(dni_Estudiante).orElse(null);
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public Estudiante findByDniEstudianteAndPass(String dniEstudiante, String pass) {
 		return repository.findByDniEstudianteAndPass(dniEstudiante, pass);
@@ -105,6 +72,11 @@ public class EstudianteServiceImpl implements EstudianteService{
 	@Override
 	public Collection<Map<String, ?>> findByDniApoderado(String dniApoderado) {
 		return repository.findByDniApoderado(dniApoderado);
+	}
+
+	@Override
+	public Estudiante findByCorreo(String correo) {
+		return repository.findByCorreo(correo);
 	}
 
 }
