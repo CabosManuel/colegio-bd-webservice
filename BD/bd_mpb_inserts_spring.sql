@@ -528,6 +528,11 @@ INSERT INTO secciones (nombre, grado_id) VALUES ('C', 14);
 -- inicial ()
 -- primaria ()
 -- secundaria ()
+insert into matriculas (fecha, nivel, grado, dni_estudiante, seccion_id) values ('2017-03-12 14:43:36', 3, 10, 61933012, 28); -- 2017 - 1ro A 
+insert into matriculas (fecha, nivel, grado, dni_estudiante, seccion_id) values ('2018-03-12 14:43:36', 3, 11, 61933012, 29); -- 2018 - 2do A 
+insert into matriculas (fecha, nivel, grado, dni_estudiante, seccion_id) values ('2019-03-27 00:21:02', 3, 12, 61933012, 30); -- 2019 - 3ro A
+insert into matriculas (fecha, nivel, grado, dni_estudiante, seccion_id) values ('2020-02-12 08:46:26', 3, 13, 61933012, 31); -- 2020 - 4to A 
+
 insert into matriculas (fecha, nivel, grado, dni_estudiante, seccion_id) values ('2016-03-12 14:43:36', 3, 10, 61933011, 28); -- 2016 - 1ro A 
 insert into matriculas (fecha, nivel, grado, dni_estudiante, seccion_id) values ('2017-03-12 14:43:36', 3, 11, 61933011, 29); -- 2017 - 2do A 
 insert into matriculas (fecha, nivel, grado, dni_estudiante, seccion_id) values ('2018-03-27 00:21:02', 3, 12, 61933011, 30); -- 2018 - 3ro A
@@ -856,31 +861,31 @@ INSERT INTO horario_cabecera (estado, seccion_id, trabajador_id) VALUES (1, 32, 
 INSERT INTO horario_cabecera (estado, seccion_id, trabajador_id) VALUES (1, 31, 2);
 
 -- horario_detalle (12)			[solo estoy insertando al docente con id: 3, deberían ser más] 
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('LUNES','7:00:00','9:15:00',16,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('LUNES','10:00:00','11:30:00',18,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MARTES','7:00:00','9:15:00',17,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MARTES','10:00:00','12:15:00',26,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MIÉRCOLES','7:00:00','8:30:00',22,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MIÉRCOLES','8:30:00','9:15:00',24,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MIÉRCOLES','10:00:00','11:30:00',20,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('JUEVES','7:00:00','8:30:00',19,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('JUEVES','8:30:00','9:15:00',23,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('JUEVES','10:00:00','11:30:00',25,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('VIERNES','7:00:00','9:15:00',15,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('VIERNES','10:00:00','11:30:00',21,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('LUNES','07:00','09:15',16,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('LUNES','10:00','11:30',18,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MARTES','07:00','09:15',17,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MARTES','10:00','12:15',26,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MIÉRCOLES','07:00','08:30',22,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MIÉRCOLES','08:30','09:15',24,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MIÉRCOLES','10:00','11:30',20,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('JUEVES','07:00','08:30',19,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('JUEVES','08:30','09:15',23,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('JUEVES','10:00','11:30',25,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('VIERNES','07:00','09:15',15,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('VIERNES','10:00','11:30',21,1,3);
 
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('LUNES','7:00:00','9:15:00',15,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('LUNES','10:00:00','11:30:00',17,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MARTES','7:00:00','9:15:00',19,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MARTES','10:00:00','12:15:00',21,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MIÉRCOLES','7:00:00','8:30:00',23,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MIÉRCOLES','8:30:00','9:15:00',18,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MIÉRCOLES','10:00:00','11:30:00',20,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('JUEVES','7:00:00','8:30:00',24,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('JUEVES','8:30:00','9:15:00',16,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('JUEVES','10:00:00','11:30:00',25,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('VIERNES','7:00:00','9:15:00',26,1,3);
-INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('VIERNES','10:00:00','11:30:00',22,1,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('LUNES','07:00','09:15',15,2,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('LUNES','10:00','11:30',17,2,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MARTES','07:00','09:15',19,2,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MARTES','10:00','12:15',21,2,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MIÉRCOLES','07:00','08:30',23,2,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MIÉRCOLES','08:30','09:15',18,2,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('MIÉRCOLES','10:00','11:30',20,2,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('JUEVES','07:00','08:30',24,2,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('JUEVES','08:30','09:15',16,2,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('JUEVES','10:00','11:30',25,2,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('VIERNES','07:00','09:15',26,2,3);
+INSERT INTO horario_detalle (dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) VALUES ('VIERNES','10:00','11:30',22,2,3);
 
 
 
