@@ -1,6 +1,7 @@
 package idat.edu.pe.controller;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import idat.edu.pe.mapper.ApoderadoLoginMapper;
 import idat.edu.pe.mapper.ApoderadoMapper;
 import idat.edu.pe.mapper.EstudianteMapper;
 import idat.edu.pe.mapper.MapperUtil;
@@ -60,10 +62,10 @@ public class ApoderadoRestController {
 	@GetMapping("/buscar/{dniApoderado}")
 	public ResponseEntity<?> buscar(@PathVariable String dniApoderado){
 		
-		Apoderado apoderadoOb = service.findByDniApoderado(dniApoderado);
-		ApoderadoMapper apoderadoMapper = MapperUtil.convert(apoderadoOb);
+		Apoderado apoderadoDb = service.findByDniApoderado(dniApoderado);
+		ApoderadoMapper apoderadoMapper = MapperUtil.convert(apoderadoDb);
 		
-		if(apoderadoOb!=null) {
+		if(apoderadoDb!=null) {
 			return new ResponseEntity<>(apoderadoMapper, HttpStatus.OK);
 		}
 		return new ResponseEntity<>("Apoderado con el dni " + dniApoderado + " no existente.", HttpStatus.NOT_FOUND);
@@ -81,68 +83,60 @@ public class ApoderadoRestController {
 	@PutMapping("/editar/{dniApoderado}")
 	public ResponseEntity<?> editar(@PathVariable String dniApoderado, @RequestBody Apoderado newApoderado){
 		
-		Apoderado apoderadoOb = service.findByDniApoderado(dniApoderado);
-		if(apoderadoOb!=null) {
-			apoderadoOb.setNombre(newApoderado.getNombre());
-			apoderadoOb.setApellido(newApoderado.getApellido());
-			apoderadoOb.setCelular(newApoderado.getCelular());
-			apoderadoOb.setCorreo(newApoderado.getCorreo());
-			apoderadoOb.setDistrito(newApoderado.getDistrito());
-			apoderadoOb.setPass(newApoderado.getPass());
-			apoderadoOb.setDniApoderado(newApoderado.getDniApoderado());
-			service.update(apoderadoOb);
+		Apoderado apoderadoDb = service.findByDniApoderado(dniApoderado);
+		if(apoderadoDb!=null) {
+			apoderadoDb.setNombre(newApoderado.getNombre());
+			apoderadoDb.setApellido(newApoderado.getApellido());
+			apoderadoDb.setCelular(newApoderado.getCelular());
+			apoderadoDb.setCorreo(newApoderado.getCorreo());
+			apoderadoDb.setDistrito(newApoderado.getDistrito());
+			apoderadoDb.setPass(newApoderado.getPass());
+			apoderadoDb.setDniApoderado(newApoderado.getDniApoderado());
+			service.update(apoderadoDb);
 			return new ResponseEntity<>("El apoderado con el dni " + dniApoderado + " se actualizó correctamente",HttpStatus.OK);
 		}
 		
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 	}
 	
-	//@PutMapping("/editar_perfil/{dniApoderado}")
-	@PostMapping("/editar_perfil/{dniApoderado}")
-	public ResponseEntity<?> editarPerfil(@PathVariable String dniApoderado, @RequestBody Map<String, Object> newApoderado){
+	@PutMapping("/editar_perfil/{dniApoderado}")
+	public ResponseEntity<?> editarPerfil(@PathVariable String dniApoderado, @RequestBody Map<String, Object> nuevoApoderadoMap){
 		
-		Apoderado apoderadoOb = service.findByDniApoderado(dniApoderado);
+		Apoderado apoderadoDb = service.findByDniApoderado(dniApoderado);
 		Map<String, Object> rpta = new HashMap<>();
+		rpta.put("rpta", false);
+		rpta.put("msj", "DNI no existe.");
 		
-		if(apoderadoOb!=null) {
-			apoderadoOb.setNombre(newApoderado.get("nombres").toString());
-			apoderadoOb.setApellido(newApoderado.get("apellidos").toString());
-			apoderadoOb.setCelular(newApoderado.get("celular").toString());
-			apoderadoOb.setCorreo(newApoderado.get("correo").toString());
-			apoderadoOb.setDireccion(newApoderado.get("direccion").toString());
-
-			System.out.println("distrito: "+newApoderado.get("distritoId"));
+		if(apoderadoDb!=null) {
+			// Este apoderado se enviará como respuesta
+			ApoderadoLoginMapper apoderadoRespuesta = MapperUtil.convertApoderadoToApoderadoLogin(nuevoApoderadoMap);
+			apoderadoRespuesta.setEstudiantes(serviceEstudiante.findByDniApoderado(dniApoderado));
 			
-			apoderadoOb.setDistrito(serviceDistrito.findById((Integer) newApoderado.get("distritoId")));
-			
-			String dni = newApoderado.get("dniApoderado").toString();
-			
-			if(!dni.equals(dniApoderado) && service.findByDniApoderado(dni)!=null){				
-				rpta.put("rpta", false);
-				rpta.put("msj", "Ese DNI ya existe.");
-				return new ResponseEntity<>(rpta,HttpStatus.OK);
-			}
+			// Este actualiza en la BD
+			apoderadoDb.setNombre(nuevoApoderadoMap.get("nombre").toString());
+			apoderadoDb.setApellido(nuevoApoderadoMap.get("apellido").toString());
+			apoderadoDb.setCelular(nuevoApoderadoMap.get("celular").toString());
+			apoderadoDb.setCorreo(nuevoApoderadoMap.get("correo").toString());
+			apoderadoDb.setDireccion(nuevoApoderadoMap.get("direccion").toString());			
+			apoderadoDb.setDistrito(serviceDistrito.findById((Integer) nuevoApoderadoMap.get("distrito_id")));
+			service.update(apoderadoDb);
 			
 			rpta.put("rpta", true);
-			rpta.put("msj", "El apoderado con el dni " + dni + " se actualizó correctamente");
-			rpta.put("apoderado", MapperUtil.convert(apoderadoOb));			
-			
-			service.update(apoderadoOb);
+			rpta.put("msj", "El apoderado con el dni " + dniApoderado + " se actualizó correctamente");
+			rpta.put("apoderado", apoderadoRespuesta);
 			return new ResponseEntity<>(rpta, HttpStatus.OK);
 		}
 		
-		rpta.put("rpta", false);
-		rpta.put("msj", "DNI no existe.");
 		return new ResponseEntity<>(rpta,HttpStatus.NOT_FOUND);
 	}
 	
 	@PutMapping("/desactivar/{dniApoderado}")
 	public ResponseEntity<?> desactivar(@PathVariable String dniApoderado, @RequestBody Apoderado newApoderado){
 		
-		Apoderado apoderadoOb = service.findByDniApoderado(dniApoderado);
-		if(apoderadoOb!=null) {
-			apoderadoOb.setEstado(newApoderado.getEstado());
-			service.update(apoderadoOb);
+		Apoderado apoderadoDb = service.findByDniApoderado(dniApoderado);
+		if(apoderadoDb!=null) {
+			apoderadoDb.setEstado(newApoderado.getEstado());
+			service.update(apoderadoDb);
 			return new ResponseEntity<>("El apoderado con el dni " + dniApoderado + " se desactivó correctamente", HttpStatus.OK);
 		}
 		
