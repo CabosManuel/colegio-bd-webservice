@@ -27,7 +27,7 @@ public class LoginController {
 	@Autowired
 	EstudianteService estudianteService;
 
-	@PostMapping("/login_test")
+	@PostMapping("/login")
 	public ResponseEntity<?> LoginTest(@RequestBody Map<String, String> usuario) {
 		String dni = usuario.get("dni");
 		String pass = usuario.get("pass");	
