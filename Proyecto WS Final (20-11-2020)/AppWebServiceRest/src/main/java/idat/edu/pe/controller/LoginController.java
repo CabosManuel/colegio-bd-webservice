@@ -38,7 +38,7 @@ public class LoginController {
 		
 		Map<String, ?> apoderadoDb = apoderadoService.loginApoderado(dni, pass);
 		
-		if(apoderadoDb != null) {
+		if(apoderadoDb != null && !apoderadoDb.isEmpty()) {
 			ApoderadoLoginMapper apoderado = MapperUtil.convertApoderadoToApoderadoLogin(apoderadoDb);
 			apoderado.setEstudiantes(estudianteService.findByDniApoderado(apoderado.getDniApoderado()));
 			
@@ -50,7 +50,7 @@ public class LoginController {
 			return new ResponseEntity<>(respuesta, HttpStatus.OK);
 		} else {
 			Map<String, ?> estudianteDb = estudianteService.loginEstudiante(dni, pass);
-			if (estudianteDb != null) {
+			if (estudianteDb != null && !estudianteDb.isEmpty()) {
 				EstudianteLoginMapper estudiante = MapperUtil.convertEstudianteToEstudianteLogin(estudianteDb);
 			
 				respuesta.put("rpta", true);
@@ -62,6 +62,6 @@ public class LoginController {
 			}
 		}
 		
-		return new ResponseEntity<>(respuesta, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>(respuesta, HttpStatus.OK);
 	}
 }
