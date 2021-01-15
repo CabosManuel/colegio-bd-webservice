@@ -86,4 +86,8 @@ public class DistritoRestController {
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 	}
 
+	@GetMapping("/listar_distritos")
+	public ResponseEntity<?> listarDistritos(){
+		return new ResponseEntity<>(distritoService.all(), HttpStatus.OK);
+	}
 }
