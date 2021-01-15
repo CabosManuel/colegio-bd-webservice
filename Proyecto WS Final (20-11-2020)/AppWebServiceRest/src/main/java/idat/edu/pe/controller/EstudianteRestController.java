@@ -114,7 +114,7 @@ public class EstudianteRestController {
 	}
 	
 	@PutMapping("/desactivar/{dniEstudiante}")
-	public ResponseEntity<?> desactivar(@PathVariable String dniEstudiante, @RequestBody Estudiante newEstudiante){
+	public ResponseEntity<?> desactivar(@PathVariable String dniEstudiante){
 		
 		Estudiante estudianteOb = estudianteService.findByDniEstudiante(dniEstudiante);
 		if(estudianteOb!=null) {
@@ -131,17 +131,4 @@ public class EstudianteRestController {
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 	}
 	
-	/*@DeleteMapping("/eliminar/{dniEstudiante}")
-	public ResponseEntity<?> eliminar(@PathVariable Integer estudianteId){
-		
-		//Estudiante estudianteOb = estudianteService.findById(estudianteId);
-		if(estudianteId != null) {
-			
-			estudianteService.dele(estudianteId);
-			return new ResponseEntity<Void>(HttpStatus.OK);
-		}
-		
-		return new ResponseEntity<>("Estudiante no encontrado", HttpStatus.NOT_FOUND);
-	}
-	*/
 }
