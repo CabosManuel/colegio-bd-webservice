@@ -15,6 +15,19 @@ select * from secciones;
 select * from trabajadores;
 
 -- --------------------------------
+-- CONSULTAR HORARIO
+-- --------------------------------
+select hd.dia, c.nombre, hd.hora_inicio, hd.hora_fin
+from horario_detalle hd
+inner join cursos c on c.curso_id = hd.curso_id
+inner join horario_cabecera hc on hc.horario_cabecera_id = hd.horario_cabecera_id
+inner join secciones s on s.seccion_id = hc.seccion_id
+inner join matriculas m on m.seccion_id = s.seccion_id
+inner join estudiantes e on e.dni_estudiante = m.dni_estudiante
+where e.dni_estudiante like '61933011' and year(m.fecha) = 2020
+;
+
+-- --------------------------------
 -- ACCEDER INFO ESTUDIANTES
 -- --------------------------------
 SELECT e.dni_estudiante, e.nombre, e.apellido
@@ -32,8 +45,13 @@ order by j.fecha_envio desc;
 -- --------------------------------
 -- LOGIN
 -- --------------------------------
+DESC apoderados
+
 select * from apoderados a
-where a.dni_apoderado like '06662516' and a.pass like '12345678';
+where a.dni_apoderado LIKE '06662516' and a.pass like '12345678'
+;
+
+
 select * from estudiantes e
 where e.dni_estudiante like '61933011' and e.pass like '12345678';
 -- --------------------------------
@@ -121,24 +139,21 @@ FROM mallas m
 WHERE m.grado_id = 14;
 
 
--- listar horario? (no actualizado)
-/*
-SELECT 
- e.nombres,
- a.estado,
- hd.fecha,
- c.nombre
-FROM asistencia a
-INNER JOIN estudiante e ON e.dni = a.dni_estudiante
-INNER JOIN horario_detalle hd ON a.id_horario_detalle = hd.id_horario_detalle
-INNER JOIN curso c ON hd.id_curso = c.id_curso;
-*/
-
 -- REINICIO DE TABLAS
+-- ASITENCIAS
+delete from asistencias where asistencia_id < 1000;
+ALTER TABLE asistencias AUTO_INCREMENT = 1;
+
 -- HORARIO DETALLE
-delete from horario_detalle where horario_detalle_id < 100;
+delete from horario_detalle where horario_detalle_id < 1000;
 ALTER TABLE horario_detalle AUTO_INCREMENT = 1;
 
+-- HORARIO CABECERA
+delete from horario_cabecera where horario_cabecera_id < 1000;
+ALTER TABLE horario_cabecera AUTO_INCREMENT = 1;
+
+
+
 -- JUSTIFICACIONES
-delete from justificaciones where justificacion_id < 100;
+delete from justificaciones where justificacion_id < 1000;
 ALTER TABLE justificaciones AUTO_INCREMENT = 1;
