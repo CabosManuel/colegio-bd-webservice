@@ -6,18 +6,20 @@ import java.util.Map;
 import idat.edu.pe.model.Estudiante;
 
 public interface EstudianteService {
-	
-	public abstract void insert(Estudiante estudiante);
-	public abstract void update(Estudiante estudiante);
-	//public abstract void delete(String dni_Estudiante);
-	public abstract Estudiante findById(String dni_Estudiante);
-	public abstract Collection<Estudiante> findAll();
-	
-	public Estudiante findByDniEstudiante(String dniEstudiante);
-	
-	public Estudiante findByDniEstudianteAndPass(String dniEstudiante, String pass);
-	
+
+	void insert(Estudiante estudiante);
+
+	void update(Estudiante estudiante);
+
+	Estudiante findById(String dni_Estudiante);
+
+	Collection<Estudiante> findAll();
+
+	Estudiante findByDniEstudiante(String dniEstudiante);
+
+	Estudiante findByCorreo(String correo);	
+
 	Collection<Map<String, ?>> findByDniApoderado(String dniApoderado);
-	
-	public Estudiante findByCorreo(String correo);
+
+	Map<String, ?> loginEstudiante(String dniEstudiante, String pass);
 }

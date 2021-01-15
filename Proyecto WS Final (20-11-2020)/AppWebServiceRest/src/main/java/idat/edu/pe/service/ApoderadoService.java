@@ -1,20 +1,21 @@
 package idat.edu.pe.service;
 
 import java.util.Collection;
+import java.util.Map;
 
 import idat.edu.pe.model.Apoderado;
 
 public interface ApoderadoService {
+
+	void insert(Apoderado apoderado);
+
+	void update(Apoderado apoderado);
 	
-	public abstract void insert(Apoderado apoderado);
-	public abstract void update(Apoderado apoderado);
-	//public abstract void delete(Integer apoderadoId);
-	//public abstract Apoderado findById(Integer apoderadoId);
-	public abstract Collection<Apoderado> findAll();
+	Collection<Apoderado> findAll();
+
+	Apoderado findByDniApoderado(String dniApoderado);
+
+	Collection<Object[]> getEstudiantesByDniApoderado(String dniApoderado);
 	
-	public Apoderado findByDniApoderado(String dniApoderado);
-	
-	public Apoderado findByDniApoderadoAndPass(String dniApoderado, String pass);
-	
-	public Collection<Object[]> getEstudiantesByDniApoderado(String dniApoderado);
+	Map<String, ?> loginApoderado(String dniApoderado, String pass);
 }

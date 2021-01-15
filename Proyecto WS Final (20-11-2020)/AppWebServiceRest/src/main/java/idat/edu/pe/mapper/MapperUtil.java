@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -72,14 +73,18 @@ public class MapperUtil {
 
 	}
 	
-	// Estudiante a EstudianteRespuestaMapper (sin "rpta" y "mensaje")
-	public static EstudianteRespuestaMapper convertEstudianteToRespuesta(Estudiante estudiante) {
-		EstudianteMapper estudianteMapper = convert(estudiante);
-		
-		EstudianteRespuestaMapper estudianteRespuestaMapper = new EstudianteRespuestaMapper();
-		estudianteRespuestaMapper.setEstudiante(estudianteMapper);
-		
-		return estudianteRespuestaMapper;
+	// Map Estudiante a EstudianteLoginMapper
+	public static EstudianteLoginMapper convertEstudianteToEstudianteLogin(Map<String, ?> e) {
+		return new EstudianteLoginMapper(
+				e.get("dni_estudiante").toString(),
+				e.get("nombre").toString(),
+				e.get("apellido").toString(),
+				e.get("fnacimiento").toString(),
+				e.get("celular").toString(),
+				e.get("correo").toString(),
+				e.get("direccion").toString(),
+				Integer.parseInt(e.get("distrito_id").toString()),
+				e.get("dni_apoderado").toString());
 	}
 
 	// Mapper Collection<Object[]> a Collection<EstudianteMapper>
@@ -211,14 +216,16 @@ public class MapperUtil {
 
 	}
 	
-	// Apoderado a ApoderadoRespuestaMapper (sin "rpta" y "mensaje") 
-	public static ApoderadoRespuestaMapper convertApoderadoToRespuesta(Apoderado apoderado) {
-		ApoderadoMapper apoderadoMapper = convert(apoderado);
-		
-		ApoderadoRespuestaMapper apoderadoRespuestaMapper = new ApoderadoRespuestaMapper();
-		apoderadoRespuestaMapper.setApoderado(apoderadoMapper);
-		
-		return apoderadoRespuestaMapper;
+	// Map Apoderado a ApoderadoLoginMapper
+	public static ApoderadoLoginMapper convertApoderadoToApoderadoLogin(Map<String, ?> a) {	
+		return new ApoderadoLoginMapper(
+				a.get("dni_apoderado").toString(),
+				a.get("nombre").toString(),
+				a.get("apellido").toString(),
+				a.get("correo").toString(),
+				a.get("celular").toString(),
+				a.get("direccion").toString(),
+				Integer.parseInt(a.get("distrito_id").toString()));
 	}
 
 	// MATRICULA
