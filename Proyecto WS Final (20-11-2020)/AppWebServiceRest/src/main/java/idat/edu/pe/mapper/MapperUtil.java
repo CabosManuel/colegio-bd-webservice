@@ -86,6 +86,25 @@ public class MapperUtil {
 				Integer.parseInt(e.get("distrito_id").toString()),
 				e.get("dni_apoderado").toString());
 	}
+	
+	public static EstudianteMapper1 convertEstudianteToEstudianteBuscar(Map<String, ?> e) {
+		//ApoderadoMapper Map<String, ?> a ;
+		return new EstudianteMapper1(
+				e.get("dni_estudiante").toString(),
+				e.get("nombre").toString(),
+				e.get("apellido").toString(),
+				e.get("fnacimiento").toString(),
+				e.get("celular").toString(),
+				e.get("correo").toString(),
+				e.get("direccion").toString(),
+				e.get("pass").toString(),
+				Boolean.parseBoolean(e.get("estado").toString()),
+				e.get("nomdistrito").toString(),
+				Integer.parseInt(e.get("distritoId").toString()),
+				e.get("dniApoderado").toString());
+			
+				//e.get("condicion").toString());
+	}
 
 	// Mapper Collection<Object[]> a Collection<EstudianteMapper>
 	public static Collection<EstudianteMapper> convertCollObjects_EstudianteMapper(Collection<Object[]> objetos) {

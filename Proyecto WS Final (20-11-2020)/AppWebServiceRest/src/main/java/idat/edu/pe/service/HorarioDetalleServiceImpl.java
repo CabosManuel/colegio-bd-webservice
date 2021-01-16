@@ -35,4 +35,10 @@ public class HorarioDetalleServiceImpl implements HorarioDetalleService{
 		return r.findHorarioByDni(dniEstudiante);
 	}
 
+	@Transactional(readOnly = true)
+	@Override
+	public HorarioDetalle findById(Integer horarioDetalleId) {
+		return r.findById(horarioDetalleId).orElse(null);
+	}
+
 }

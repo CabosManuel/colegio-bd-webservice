@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import idat.edu.pe.model.Asistencia;
 import idat.edu.pe.repository.AsistenciaRepository;
 
 @Service
@@ -28,6 +29,12 @@ public class AsistenciaServiceImpl implements AsistenciaService{
 	@Override
 	public Collection<Object> getMesesByDniEstudiante(String dniEstudiante) {
 		return r.getMesesByDniEstudiante(dniEstudiante);
+	}
+
+	@Transactional
+	@Override
+	public Asistencia insert(Asistencia asistencia) {
+		return r.save(asistencia);
 	}
 
 }
