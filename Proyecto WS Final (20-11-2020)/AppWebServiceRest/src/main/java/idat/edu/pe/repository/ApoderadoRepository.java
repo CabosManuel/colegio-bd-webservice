@@ -20,4 +20,10 @@ public interface ApoderadoRepository extends CrudRepository<Apoderado, String> {
 	@Query(value = "select * from apoderados a "
 			+ "where a.dni_apoderado like ?1 and a.pass like ?2", nativeQuery = true)
 	Map<String, ?> loginApoderado(String dniApoderado, String pass);
+
+	@Query(value = "SELECT CONCAT(a.nombre, \" \", a.apellido) AS apoderado " 
+			+ "FROM apoderados a "
+			+ "INNER JOIN estudiantes e ON e.dni_apoderado LIKE a.dni_apoderado "
+			+ "WHERE e.dni_estudiante LIKE ?", nativeQuery = true)
+	String findNomApeApoderadoByDniEstudiante(String dniEstudiante);
 }

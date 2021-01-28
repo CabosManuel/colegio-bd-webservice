@@ -51,4 +51,10 @@ public class ApoderadoServiceImpl implements ApoderadoService{
 	public Map<String, ?> loginApoderado(String dniApoderado, String pass){
 		return r.loginApoderado(dniApoderado, pass);
 	}
+	
+	@Transactional(readOnly = true)
+	@Override
+	public String findNomApeApoderadoByDniEstudiante(String dniEstudiante) {
+		return r.findNomApeApoderadoByDniEstudiante(dniEstudiante);
+	}
 }

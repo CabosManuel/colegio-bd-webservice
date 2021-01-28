@@ -18,4 +18,6 @@ public interface ApoderadoService {
 	Collection<Object[]> getEstudiantesByDniApoderado(String dniApoderado);
 	
 	Map<String, ?> loginApoderado(String dniApoderado, String pass);
+	
+	String findNomApeApoderadoByDniEstudiante(String dniEstudiante);
 }
