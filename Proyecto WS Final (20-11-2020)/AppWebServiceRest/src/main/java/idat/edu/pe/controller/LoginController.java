@@ -52,7 +52,8 @@ public class LoginController {
 			Map<String, ?> estudianteDb = estudianteService.loginEstudiante(dni, pass);
 			if (estudianteDb != null && !estudianteDb.isEmpty()) {
 				EstudianteLoginMapper estudiante = MapperUtil.convertEstudianteToEstudianteLogin(estudianteDb);
-			
+				estudiante.setApoderado(apoderadoService.findNomApeApoderadoByDniEstudiante(estudiante.getDniEstudiante()));
+				
 				respuesta.put("rpta", true);
 				respuesta.put("mensaje", "¡Bienvenida " + estudiante.getNombre() + "!");
 				respuesta.put("estudiante", estudiante);
