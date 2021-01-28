@@ -3,7 +3,7 @@ package idat.edu.pe.mapper;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
-
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -75,18 +75,18 @@ public class MapperUtil {
 	
 	// Map Estudiante a EstudianteLoginMapper
 	public static EstudianteLoginMapper convertEstudianteToEstudianteLogin(Map<String, ?> e) {
+		String fNacCorreccion = LocalDate.parse(e.get("fnacimiento").toString()).plusDays(1).toString();
 		return new EstudianteLoginMapper(
 				e.get("dni_estudiante").toString(),
 				e.get("nombre").toString(),
 				e.get("apellido").toString(),
-				e.get("fnacimiento").toString(),
+				fNacCorreccion,
 				e.get("celular").toString(),
 				e.get("correo").toString(),
 				e.get("direccion").toString(),
-				Integer.parseInt(e.get("distrito_id").toString()),
-				e.get("dni_apoderado").toString());
+				Integer.parseInt(e.get("distrito_id").toString()));
 	}
-	
+
 	public static EstudianteMapper1 convertEstudianteToEstudianteBuscar(Map<String, ?> e) {
 		//ApoderadoMapper Map<String, ?> a ;
 		return new EstudianteMapper1(
@@ -106,6 +106,35 @@ public class MapperUtil {
 				//e.get("condicion").toString());
 	}
 
+	// Map Estudiante a EstudianteLoginMapper + apoderado
+		public static EstudianteLoginMapper convertEstudianteToEstudianteLoginApoderado(Map<String, ?> e) {
+			EstudianteLoginMapper estudiante = new EstudianteLoginMapper(
+					e.get("dni_estudiante").toString(),
+					e.get("nombre").toString(),
+					e.get("apellido").toString(),
+					e.get("fnacimiento").toString(),
+					e.get("celular").toString(),
+					e.get("correo").toString(),
+					e.get("direccion").toString(),
+					Integer.parseInt(e.get("distrito_id").toString()));
+			estudiante.setApoderado(e.get("apoderado").toString());
+			return estudiante;
+		}
+
+	public static Estudiante convertMapToEstudiante(Map<String, Object> e) {
+		return new Estudiante(
+				e.get("dni_estudiante").toString(),
+				e.get("nombre").toString(),
+				e.get("apellido").toString(),
+				(Date) e.get("fnacimiento"),
+				e.get("celular").toString(),
+				e.get("correo").toString(),
+				e.get("direccion").toString(),
+				e.get("pass").toString(),
+				(Boolean) e.get("estado"),
+				e.get("condicion").toString());
+	}
+		
 	// Mapper Collection<Object[]> a Collection<EstudianteMapper>
 	public static Collection<EstudianteMapper> convertCollObjects_EstudianteMapper(Collection<Object[]> objetos) {
 		Collection<EstudianteMapper> estudiantesMapper = new ArrayList<>();

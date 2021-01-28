@@ -9,13 +9,13 @@ public class EstudianteLoginMapper {
 	private String correo;
 	private String direccion;
 	private Integer distritoId;
-	private String dniApoderado;
+	private String apoderado;
 
 	public EstudianteLoginMapper() {
 	}
 
 	public EstudianteLoginMapper(String dniEstudiante, String nombre, String apellido, String fNacimiento,
-			String celular, String correo, String direccion, Integer distritoId, String dniApoderado) {
+			String celular, String correo, String direccion, Integer distritoId) {
 		this.dniEstudiante = dniEstudiante;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -24,7 +24,6 @@ public class EstudianteLoginMapper {
 		this.correo = correo;
 		this.direccion = direccion;
 		this.distritoId = distritoId;
-		this.dniApoderado = dniApoderado;
 	}
 
 	public String getDniEstudiante() {
@@ -91,11 +90,11 @@ public class EstudianteLoginMapper {
 		this.distritoId = distritoId;
 	}
 
-	public String getDniApoderado() {
-		return dniApoderado;
+	public String getApoderado() {
+		return apoderado;
 	}
 
-	public void setDniApoderado(String dniApoderado) {
-		this.dniApoderado = dniApoderado;
+	public void setApoderado(String apoderado) {
+		this.apoderado = apoderado;
 	}
 }
