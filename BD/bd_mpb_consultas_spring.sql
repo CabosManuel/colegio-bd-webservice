@@ -10,9 +10,21 @@ select * from horario_cabecera;
 select * from horario_detalle;
 select * from mallas;
 SELECT * FROM matriculas;
+SELECT * FROM notas;
 select * from notificaciones;
 select * from secciones;
 select * from trabajadores;
+
+-- --------------------------------
+-- PERFIL ESTUDIANTE
+-- --------------------------------
+SELECT CONCAT(a.nombre, " ", a.apellido) AS apoderado
+FROM apoderados a
+INNER JOIN estudiantes e ON e.dni_apoderado LIKE a.dni_apoderado
+WHERE e.dni_estudiante LIKE '61933011'
+;
+
+select * from estudiantes where dni_estudiante LIKE '61933011'
 
 -- --------------------------------
 -- CONSULTAR HORARIO
@@ -43,16 +55,24 @@ where j.dni_estudiante like '61933011'
 order by j.fecha_envio desc;
 
 -- --------------------------------
+-- PERFIL APODERADO
+-- --------------------------------
+UPDATE apoderados a
+SET a.dni_apoderado ='06662518'
+
+SELECT COUNT(e.dni_estudiante)
+FROM estudiantes e
+WHERE e.dni_apoderado LIKE '06662516'
+;
+
+-- --------------------------------
 -- LOGIN
 -- --------------------------------
-DESC apoderados
-
 select * from apoderados a
 where a.dni_apoderado LIKE '06662516' and a.pass like '12345678'
 ;
 
-
-select * from estudiantes e
+SELECT * FROM estudiantes
 where e.dni_estudiante like '61933011' and e.pass like '12345678';
 -- --------------------------------
 -- BANDEJA DE ENTRADA
