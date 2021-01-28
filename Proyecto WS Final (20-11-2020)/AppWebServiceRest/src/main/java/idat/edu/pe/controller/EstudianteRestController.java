@@ -134,6 +134,29 @@ public class EstudianteRestController {
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 	}
 	
+	@PutMapping("/editar_perfil/{dniEstudiante}")
+	public ResponseEntity<?> editarPerfil(@PathVariable String dniEstudiante, @RequestBody Map<String, Object> nuevoEstudianteMap) {
+		
+		Estudiante estudianteDb = MapperUtil.convertMapToEstudiante(
+				estudianteService.findInMapByDniEstudiante(dniEstudiante));
+
+		// Este actualiza en la BD
+		estudianteDb.setNombre(nuevoEstudianteMap.get("nombre").toString());
+		estudianteDb.setApellido(nuevoEstudianteMap.get("apellido").toString());
+		estudianteDb.setFnacimiento(Date.valueOf(nuevoEstudianteMap.get("fnacimiento").toString()));
+		estudianteDb.setCelular(nuevoEstudianteMap.get("celular").toString());
+		estudianteDb.setCorreo(nuevoEstudianteMap.get("correo").toString());
+		estudianteDb.setDireccion(nuevoEstudianteMap.get("direccion").toString());			
+		estudianteDb.setDistrito(distritoService.findById((Integer) nuevoEstudianteMap.get("distrito_id")));
+		estudianteService.update(estudianteDb);
+
+		// Este estudiante se enviará como respuesta
+		EstudianteLoginMapper estudianteRespuesta = 
+				MapperUtil.convertEstudianteToEstudianteLoginApoderado(nuevoEstudianteMap);
+		
+		return new ResponseEntity<>(estudianteRespuesta, HttpStatus.OK);
+	}
+	
 	@GetMapping("/buscar_estudiante/{dniEstudiante}")
 	public ResponseEntity<?> buscarEstudiante(@PathVariable String dniEstudiante){
 		Map<String, Object> estudianteDb = estudianteService.findInMapByDniEstudiante(dniEstudiante);
