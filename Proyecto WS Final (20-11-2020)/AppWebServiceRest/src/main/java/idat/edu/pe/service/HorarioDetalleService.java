@@ -9,6 +9,6 @@ public interface HorarioDetalleService{
 	
 	public abstract void insert(HorarioDetalle horarioDetalle);
 	public Collection<HorarioDetalle> getfindBySeccion(Integer seccionId, Integer trabajadorId);
-	
+	public abstract HorarioDetalle findById(Integer horarioDetalleId);
 	Collection<Map<String, ?>> findHorarioByDni(String dniEstudiante);
 }

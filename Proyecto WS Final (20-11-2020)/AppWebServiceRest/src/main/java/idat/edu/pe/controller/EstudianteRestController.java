@@ -1,6 +1,7 @@
 package idat.edu.pe.controller;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import idat.edu.pe.mapper.DistritoMapper;
 import idat.edu.pe.mapper.EstudianteMapper;
+import idat.edu.pe.mapper.EstudianteMapper1;
 import idat.edu.pe.mapper.MapperUtil;
 import idat.edu.pe.model.Apoderado;
 import idat.edu.pe.model.Distrito;
@@ -55,10 +58,10 @@ public class EstudianteRestController {
 	@GetMapping("/buscar/{dniEstudiante}")
 	public ResponseEntity<?> buscar(@PathVariable String dniEstudiante){
 		
-		Estudiante estudianteOb = estudianteService.findByDniEstudiante(dniEstudiante);
-		EstudianteMapper estudianteMapper = MapperUtil.convert(estudianteOb);
+		Map<String, ?> estudianteDb = estudianteService.buscarEstudiante(dniEstudiante);
+		EstudianteMapper1 estudianteMapper = MapperUtil.convertEstudianteToEstudianteBuscar(estudianteDb);
 		
-		if(estudianteOb!=null) {
+		if(estudianteDb!=null && !estudianteDb.isEmpty()) {
 			return new ResponseEntity<>(estudianteMapper, HttpStatus.OK);
 		}
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);

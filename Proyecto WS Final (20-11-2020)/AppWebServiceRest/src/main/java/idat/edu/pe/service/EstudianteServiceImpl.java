@@ -68,4 +68,11 @@ public class EstudianteServiceImpl implements EstudianteService {
 	public Map<String, ?> loginEstudiante(String dniEstudiante, String pass) {
 		return repository.loginEstudiante(dniEstudiante, pass);
 	}
+
+	
+	@Transactional(readOnly = true)
+	@Override
+	public Map<String, ?> buscarEstudiante(String dniEstudiante) {
+		return repository.buscarEstudiante(dniEstudiante);
+	}
 }
