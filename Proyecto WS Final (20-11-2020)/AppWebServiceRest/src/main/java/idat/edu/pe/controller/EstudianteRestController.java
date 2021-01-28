@@ -1,5 +1,6 @@
 package idat.edu.pe.controller;
 
+import java.sql.Date;
 import java.util.Collection;
 import java.util.Map;
 
@@ -133,4 +134,15 @@ public class EstudianteRestController {
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 	}
 	
+	@GetMapping("/buscar_estudiante/{dniEstudiante}")
+	public ResponseEntity<?> buscarEstudiante(@PathVariable String dniEstudiante){
+		Map<String, Object> estudianteDb = estudianteService.findInMapByDniEstudiante(dniEstudiante);
+		
+		if (estudianteDb != null && !estudianteDb.isEmpty()) {
+			EstudianteLoginMapper estudiante = MapperUtil.convertEstudianteToEstudianteLogin(estudianteDb);
+			estudiante.setApoderado(apoderadoService.findNomApeApoderadoByDniEstudiante(estudiante.getDniEstudiante()));
+			return new ResponseEntity<>(estudiante, HttpStatus.OK);
+		}
+		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+	}
 }

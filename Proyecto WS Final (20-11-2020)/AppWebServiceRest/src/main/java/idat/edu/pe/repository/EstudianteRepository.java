@@ -40,6 +40,9 @@ public interface EstudianteRepository extends CrudRepository<Estudiante, String>
 			+ "where e.dni_estudiante like ?1 and e.pass like ?2", nativeQuery = true)
 	Map<String, ?> loginEstudiante(String dniEstudiante, String pass);
 
+	@Query(value = "select * from estudiantes where dni_estudiante = ?", nativeQuery = true)
+	Map<String, Object> findInMapByDniEstudiante(String dniEstudiante);
+
 	/*
 	 * @Query(name =
 	 * "update estudiantes set estado = false where dni_estudiante =?", nativeQuery

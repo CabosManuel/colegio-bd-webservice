@@ -24,4 +24,6 @@ public interface EstudianteService {
 	Map<String, ?> loginEstudiante(String dniEstudiante, String pass);
 	
 	Map<String, ?> buscarEstudiante(String dniEstudiante);
+
+	Map<String, Object> findInMapByDniEstudiante(String dniEstudiante);
 }
