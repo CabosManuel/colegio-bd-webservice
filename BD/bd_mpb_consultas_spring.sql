@@ -16,6 +16,21 @@ select * from secciones;
 select * from trabajadores;
 
 -- --------------------------------
+-- LISTAR DOCENTES
+-- --------------------------------
+select t.nombres, t.apellidos, t.celular, t.correo, t.sexo, c.nombre
+from trabajadores t
+inner join trabajador_curso tc on tc.trabajador_id = t.trabajador_id
+inner join cursos c on c.curso_id = tc.curso_id
+inner join mallas mll on mll.curso_id = c.curso_id
+inner join grados g on g.grado_id = mll.grado_id
+inner join matriculas mtr on mtr.grado = g.grado_id
+inner join estudiantes e on e.dni_estudiante = mtr.dni_estudiante
+where t.cargo = 'docente' and
+	e.dni_estudiante = '61933011' and
+	year(mtr.fecha) = 2020 /*year(now())*/;
+
+-- --------------------------------
 -- PERFIL ESTUDIANTE
 -- --------------------------------
 SELECT CONCAT(a.nombre, " ", a.apellido) AS apoderado
