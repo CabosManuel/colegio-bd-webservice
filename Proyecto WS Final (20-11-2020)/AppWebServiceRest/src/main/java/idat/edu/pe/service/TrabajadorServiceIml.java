@@ -1,6 +1,7 @@
 package idat.edu.pe.service;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,5 +56,11 @@ public class TrabajadorServiceIml implements TrabajadorService{
 	@Override
 	public Trabajador getfindByCorreoPass(String correo, String pass) {
 		return r.getfindByCorreoPass(correo, pass);
+	}
+	
+	@Transactional(readOnly = true)
+	@Override
+	public Collection<Map<String, ?>> getfindByDniEstudiante(String dniEstudiante){
+		return r.getfindByDniEstudiante(dniEstudiante);
 	}
 }

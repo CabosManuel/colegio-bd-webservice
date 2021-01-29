@@ -35,6 +35,8 @@ public class Trabajador implements Serializable {
 	@Column
 	private Date fechaNacimiento;
 	@Column
+	private String sexo;
+	@Column
 	private String celular;
 	@Column
 	private String direccion;
@@ -72,7 +74,23 @@ public class Trabajador implements Serializable {
 	public Trabajador() {
 	}
 
-	
+	public Trabajador(Integer trabajadorId, String cargo, String nombres, String apellidos, String dni,
+			Date fechaNacimiento, String sexo, String celular, String direccion, String correo, String pass,
+			Boolean estado) {
+		this.trabajadorId = trabajadorId;
+		this.cargo = cargo;
+		this.nombres = nombres;
+		this.apellidos = apellidos;
+		this.dni = dni;
+		this.fechaNacimiento = fechaNacimiento;
+		this.sexo = sexo;
+		this.celular = celular;
+		this.direccion = direccion;
+		this.correo = correo;
+		this.pass = pass;
+		this.estado = estado;
+	}
+
 	public Trabajador(Integer trabajadorId, String cargo, String nombres, String apellidos, String dni,
 			Date fechaNacimiento, String celular, String direccion, String correo, String pass, Boolean estado) {
 		this.trabajadorId = trabajadorId;
@@ -135,6 +153,14 @@ public class Trabajador implements Serializable {
 
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
+	}
+	
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
 	}
 
 	public String getCelular() {

@@ -1,6 +1,7 @@
 package idat.edu.pe.controller;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import idat.edu.pe.mapper.MapperUtil;
@@ -114,5 +116,16 @@ public class TrabajadorRestController {
 		}
 		
 		return new ResponseEntity<>("Trabajador con ID: "+trabajadorId+" no existe.",HttpStatus.NOT_FOUND);
+	}
+	
+	@GetMapping("/listar_docentes")
+	public ResponseEntity<?> buscarPorDniEstudiante(@RequestParam String dniEstudiante){
+		
+		Collection<Map<String,?>> docentes = serviceT.getfindByDniEstudiante(dniEstudiante);
+		if(docentes.isEmpty() || docentes == null) {
+			return new ResponseEntity<>("No existe dni estudiante.", HttpStatus.NOT_FOUND);
+		}
+		
+		return new ResponseEntity<>(docentes, HttpStatus.OK);
 	}
 }
