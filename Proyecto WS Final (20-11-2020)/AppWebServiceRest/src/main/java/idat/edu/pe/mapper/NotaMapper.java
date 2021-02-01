@@ -25,6 +25,18 @@ public class NotaMapper {
 		this.fecha = fecha;
 	}
 	
+	
+	public NotaMapper(Integer nota1, Integer nota2, Integer nota3, EstudianteMapper dni_estudiante, CursoMapper cursom,
+			String fecha) {
+		super();
+		this.nota1 = nota1;
+		this.nota2 = nota2;
+		this.nota3 = nota3;
+		this.dni_estudiante = dni_estudiante;
+		this.cursom = cursom;
+		this.fecha = fecha;
+	}
+
 	public String getCurso() {
 		return curso;
 	}

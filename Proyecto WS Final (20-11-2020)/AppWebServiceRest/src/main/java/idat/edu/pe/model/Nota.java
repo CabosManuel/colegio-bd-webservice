@@ -1,6 +1,8 @@
 package idat.edu.pe.model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.persistence.*;
 
@@ -24,11 +26,11 @@ public class Nota implements Serializable {
 	private String fecha;
 
 	@ManyToOne
-	@JoinColumn(name = "curso_id", nullable = false, updatable = false, foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(curso_id) references cursos(curso_id)"))
+	@JoinColumn(name = "curso_id", nullable = false, updatable = true, foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(curso_id) references cursos(curso_id)"))
 	private Curso curso;
 
 	@ManyToOne
-	@JoinColumn(name = "dni_estudiante", nullable = false, updatable = false, foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(dni_estudiante) references estudiantes(dni_estudiante)"))
+	@JoinColumn(name = "dni_estudiante", nullable = false, updatable = true, foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(dni_estudiante) references estudiantes(dni_estudiante)"))
 	private Estudiante dniEstudiante;
 
 	public Nota() {
@@ -42,6 +44,14 @@ public class Nota implements Serializable {
 		this.nota3 = nota3;
 		this.fecha = fecha;
 	}
+	
+	@PrePersist
+	public void pre() {
+		Date string = new Date();
+		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        fecha = formato.format(string).toString();
+	}
+
 
 	public Integer getNotaId() {
 		return notaId;

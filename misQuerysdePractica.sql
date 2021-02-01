@@ -6,7 +6,8 @@ insert into distritos(nombre) VALUES ('LA MOLINA');
 
 insert into apoderados(dni_apoderado, nombre, apellido, correo, distrito_id, celular, pass, estado) values('76768987','Michelli','Eyzaguirre','michelli@hotmail.com',1,'987887789','M1234',1);
 
-insert into estudiantes(dni_estudiante,nombre, apellido, correo, celular, direccion, pass, fnacimiento, dni_apoderado, distrito_id, estado) values('76758987','Miooelli','Eyzaguirre','mimmmi@hotmail.com','900887789','dfsdfd56', 'ddd', '2020-03-04', '76768987',1, 1);
+insert into estudiantes(dni_estudiante,nombre, apellido, correo, celular, direccion, pass, fnacimiento, dni_apoderado, distrito_id, estado) values('76758987','Miooelli','Eyzaguirre','mimmmi@hotmail.com','900887789','dfsdfd56', '123456', '2020-03-04', '76768987',1, 1);
+insert into estudiantes(dni_estudiante,nombre, apellido, correo, celular, direccion, pass, fnacimiento, dni_apoderado, distrito_id, estado) values('76758986','Maria','Jimenez','mariajimenez@hotmail.com','987898887','Av. Manzanares 123', '123456', '2010-03-04', '76768987',1, 1);
 
 insert into trabajadores(nombres, apellidos, cargo, correo, celular, direccion, dni, fecha_nacimiento, pass, distrito_id, estado) 
 values('Maria Miranda','Ortaliza Merino', 'Recepcionista','mariaortaliza@hotmail.com','900087789','Av. Ramirez 123', '78989090', '1990-03-04', '123456',1, 1);
@@ -39,6 +40,16 @@ insert into notas (fecha, nota1, nota2, nota3, curso_id, dni_estudiante) values(
 insert into notas (fecha, nota1, nota2, nota3, curso_id, dni_estudiante) values('2019-03-15', 11, 07, 06, 6, '76758987');
 insert into notas (fecha, nota1, nota2, nota3, curso_id, dni_estudiante) values('2019-03-15', 11, 13, 06, 7, '76758987');
 insert into notas (fecha, nota1, nota2, nota3, curso_id, dni_estudiante) values('2019-03-15', 11, 09, 16, 8, '76758987');
+
+
+insert into notas (fecha, nota1, nota2, nota3, curso_id, dni_estudiante) values('2019-03-15', 14, 15, 16, 1, '76758986');
+insert into notas (fecha, nota1, nota2, nota3, curso_id, dni_estudiante) values('2019-03-15', 17, 17, 16, 2, '76758986');
+insert into notas (fecha, nota1, nota2, nota3, curso_id, dni_estudiante) values('2019-03-15', 14, 17, 16, 3, '76758986');
+insert into notas (fecha, nota1, nota2, nota3, curso_id, dni_estudiante) values('2019-03-15', 18, 17, 16, 4, '76758986');
+insert into notas (fecha, nota1, nota2, nota3, curso_id, dni_estudiante) values('2019-03-15', 11, 19, 16, 5, '76758986');
+insert into notas (fecha, nota1, nota2, nota3, curso_id, dni_estudiante) values('2019-03-15', 15, 17, 16, 6, '76758986');
+insert into notas (fecha, nota1, nota2, nota3, curso_id, dni_estudiante) values('2019-03-15', 17, 13, 16, 7, '76758987');
+insert into notas (fecha, nota1, nota2, nota3, curso_id, dni_estudiante) values('2019-03-15', 20, 19, 16, 8, '76758987');
 
 INSERT INTO niveles (nombre) VALUES ('inicial');
 INSERT INTO niveles (nombre) VALUES ('primaria');
@@ -130,7 +141,8 @@ insert into mallas (curso_id, grado_id) values (6,4);
 insert into mallas (curso_id, grado_id) values (7,4);
 insert into mallas (curso_id, grado_id) values (8,4);
 
-insert into matriculas (fecha, nivel, grado, dni_estudiante, seccion_id) values ('2019-02-12 15:32:03', 2, 4, 76758987, 10);
+insert into matriculas (fecha, nivel, grado, dni_estudiante, seccion_id) values ('2019-02-12', 2, 4, 76758987, 10);
+insert into matriculas (fecha, nivel, grado, dni_estudiante, seccion_id) values ('2019-02-12', 2, 4, 76758986, 10);
 
 select n.nombre as Nivel, g.nombre as Grado, s.nombre as Seccion from matriculas m
 inner join secciones s on m.seccion_id = s.seccion_id
@@ -154,7 +166,7 @@ select * from mallas;
 select * from secciones;
 select * from grados;
 select * from niveles;
-select * from trabajadores;
+select * from matriculas;
 
 SELECT *
 FROM matriculas
@@ -171,12 +183,9 @@ where n.nivel_id =1;
 
 use bd_webservicerest;
 
-select * from horario_cabecera;
-select * from horario_detalle;
-
 insert into horario_cabecera (estado, seccion_id, trabajador_id) values (1,10,3);
-insert into horario_detalle (dia, hora_fin, hora_inicio, curso_id, horario_cabecera_id) values ('Lunes', '09:00', '07:00', 1, 1);
-insert into horario_detalle (dia, hora_fin, hora_inicio, curso_id, horario_cabecera_id) values ('Martes', '09:00', '07:00', 2, 1);
+insert into horario_detalle (dia, hora_fin, hora_inicio, curso_id, trabajador_id, horario_cabecera_id) values ('Lunes', '09:00', '07:00', 1, 2, 1);
+insert into horario_detalle (dia, hora_fin, hora_inicio, curso_id, trabajador_id, horario_cabecera_id) values ('Martes', '09:00', '07:00', 2, 4, 1);
 
 select * from cursos;
 select * from trabajadores;
@@ -217,7 +226,7 @@ select * from horario_cabecera hc
 			inner join horario_detalle hd on hc.horario_cabecera_id = hd.horario_cabecera_id
 			inner join secciones s on hc.seccion_id = s.seccion_id
 			inner join trabajadores t on hd.trabajador_id = t.trabajador_id
-			where s.seccion_id = 10 and t.trabajador_id = 4
+			where s.seccion_id = 10 and t.trabajador_id = 4;
             
 
 select m.matricula_id, e.dni_estudiante, m.fecha, s.seccion_id, if(e.condicion = 'Promovido' and g.grado_id > 9, n.nivel_id + 1, n.nivel_id) as Nivel,
@@ -232,4 +241,56 @@ select m.matricula_id, e.dni_estudiante, m.fecha, s.seccion_id, if(e.condicion =
                         
 UPDATE estudiantes e
 SET e.condicion ='Promovido' 
-where e.dni_estudiante = '76758987';
+where e.dni_estudiante = '76758986';
+
+select * from CURSOS;
+select * from estudiantes;
+
+select e.dni_estudiante, e.nombre, e.apellido from estudiantes e
+			inner join matriculas m on e.dni_estudiante = m.dni_estudiante
+			inner join secciones s on m.seccion_id = s.seccion_id
+			where s.seccion_id = 10
+
+-- buscar cursos por trabajador
+select c.nombre as Curso, n.nombre as Nivel, g.nombre as Grado, s.nombre as Seccion
+			from horario_cabecera hc
+			inner join horario_detalle hd on hc.horario_cabecera_id = hd.horario_cabecera_id
+            inner join cursos c on hd.curso_id = c.curso_id
+			inner join secciones s on hc.seccion_id = s.seccion_id
+            inner join grados g on s.grado_id = g.grado_id
+            inner join niveles n on g.nivel_id = n.nivel_id
+			inner join trabajadores t on hd.trabajador_id = t.trabajador_id
+			where t.trabajador_id = 4
+
+-- Buscar estudiantes por curso
+select e.dni_estudiante, e.nombre, e.apellido from estudiantes e
+			inner join matriculas m on e.dni_estudiante = m.dni_estudiante
+            inner join horario_cabecera hc on m.seccion_id = hc.seccion_id
+            inner join horario_detalle hd on hc.horario_cabecera_id = hd.horario_cabecera_id
+            inner join cursos c on hd.curso_id = c.curso_id
+			where c.curso_id like 1
+
+select * from apoderados;
+
+-- Buscar nota por curso
+select e.dni_estudiante, e.nombre, e.apellido, n.nota1, n.nota2, n.nota3 from notas n
+			inner join estudiantes e on e.dni_estudiante = n.dni_estudiante
+            inner join cursos c on n.curso_id = c.curso_id
+			where c.curso_id like 1
+
+-- Buscar nota por Id
+select n.nota_id, c.curso_id, e.dni_estudiante, n.fecha, n.nota1, n.nota2, n.nota3 from notas n
+inner join cursos c on n.curso_id = c.curso_id 
+inner join estudiantes e on n.dni_estudiante = e.dni_estudiante
+where n.nota_id like 21;
+
+select * from notas;
+update notas set nota2 = null, nota3 = null where nota_id = 21
+delete from notas where nota_id = 19;
+delete from notas where nota_id = 20;
+delete from notas where nota_id = 13;
+delete from notas where nota_id = 14;
+delete from notas where nota_id = 15;
+delete from notas where nota_id = 16;
+delete from notas where nota_id = 17;
+

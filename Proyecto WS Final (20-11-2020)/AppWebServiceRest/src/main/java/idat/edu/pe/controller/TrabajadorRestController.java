@@ -76,6 +76,16 @@ public class TrabajadorRestController {
 		return new ResponseEntity<>("Curso con ID: "+ cursoId +" no existe.",HttpStatus.NOT_FOUND);
 	}
 	
+	@GetMapping("/buscarCursos/{trabajadorId}")
+	public ResponseEntity<?> buscarCursos(@PathVariable Integer trabajadorId){
+		Collection<Map<String, ?>> trabajador = serviceT.seleccionarCursos(trabajadorId);
+		
+		if(trabajador != null && !trabajador.isEmpty()) {
+			return new ResponseEntity<>(trabajador,HttpStatus.OK);
+		}		
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+	
 	@PostMapping("/agregar")
 	public ResponseEntity<?> agregar(@RequestBody Trabajador trabajador){
 		trabajador.setDistrito(serviceD.findById(trabajador.getDistrito().getDistritoId()));

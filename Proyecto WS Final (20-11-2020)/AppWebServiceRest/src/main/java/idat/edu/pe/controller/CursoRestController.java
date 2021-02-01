@@ -1,6 +1,7 @@
 package idat.edu.pe.controller;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -48,6 +49,18 @@ public class CursoRestController {
 			return new ResponseEntity<>(cursoMapper, HttpStatus.OK);
 		}
 		return new ResponseEntity<>("No existen cursos para el nivel " + nivelId + " y grado " + gradoId+ "." , HttpStatus.NOT_FOUND);
+		
+	}
+	
+	@GetMapping("/buscarCurso/{cursoId}")
+	public ResponseEntity<?> buscar(@PathVariable Integer cursoId){
+		
+		Map<String, ?> curso = s.findByCursoId(cursoId);
+		
+		if(curso!=null) {
+			return new ResponseEntity<>(curso, HttpStatus.OK);
+		}
+		return new ResponseEntity<>("No existen cursos para el id " + cursoId, HttpStatus.NOT_FOUND);
 		
 	}
 }

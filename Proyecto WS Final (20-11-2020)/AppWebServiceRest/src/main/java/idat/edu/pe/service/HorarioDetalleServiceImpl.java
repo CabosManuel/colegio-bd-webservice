@@ -25,8 +25,8 @@ public class HorarioDetalleServiceImpl implements HorarioDetalleService{
 
 	@Transactional(readOnly = true)
 	@Override
-	public Collection<HorarioDetalle> getfindBySeccion(Integer seccionId, Integer trabajadorId) {
-		return (Collection<HorarioDetalle>)r.getfindBySeccion(seccionId, trabajadorId);
+	public Collection<Map<String, ?>> getfindBySeccion(Integer seccionId, Integer trabajadorId) {
+		return r.getfindBySeccion(seccionId, trabajadorId);
 	}
 	
 	@Transactional(readOnly = true)
@@ -39,6 +39,18 @@ public class HorarioDetalleServiceImpl implements HorarioDetalleService{
 	@Override
 	public HorarioDetalle findById(Integer horarioDetalleId) {
 		return r.findById(horarioDetalleId).orElse(null);
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Collection<Map<String, ?>> buscarHorarioPorSeccion(Integer seccionId) {
+		return r.buscarHorarioPorSeccion(seccionId);
+	}
+	
+	@Transactional
+	@Override
+	public void update(HorarioDetalle horarioDetalle) {
+		r.save(horarioDetalle);
 	}
 
 }

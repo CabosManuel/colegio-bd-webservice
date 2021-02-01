@@ -9,13 +9,19 @@ public class HorarioDetalleMapper {
 	private String horaInicio;
 	private String horaFin;
 	private CursoMapper curso;
+	private Integer cursoId;
+	private String nombreCurso;
 	private TrabajadorMapper trabajador;
+	private Integer trabajadorId;
 	private HorarioCabeceraMapper horarioCabecera;
+	
 	public HorarioDetalleMapper() {
 	}
+	
 	public HorarioDetalleMapper(Integer horarioDetalleId) {
 		this.horarioDetalleId = horarioDetalleId;
 	}
+	
 	public HorarioDetalleMapper(Integer horarioDetalleId, String dia, String horaInicio, String horaFin,
 			CursoMapper curso, TrabajadorMapper trabajador, HorarioCabeceraMapper horarioCabecera) {
 		this.horarioDetalleId = horarioDetalleId;
@@ -26,6 +32,18 @@ public class HorarioDetalleMapper {
 		this.trabajador = trabajador;
 		this.horarioCabecera = horarioCabecera;
 	}
+	
+	public HorarioDetalleMapper(Integer horarioDetalleId, String dia, String horaInicio, String horaFin,
+			Integer cursoId, String nombreCurso, Integer trabajadorId) {
+		this.horarioDetalleId = horarioDetalleId;
+		this.dia = dia;
+		this.horaInicio = horaInicio;
+		this.horaFin = horaFin;
+		this.cursoId = cursoId;
+		this.nombreCurso = nombreCurso;
+		this.trabajadorId = trabajadorId;
+	}
+
 	public Integer getHorarioDetalleId() {
 		return horarioDetalleId;
 	}
@@ -68,5 +86,30 @@ public class HorarioDetalleMapper {
 	public void setTrabajador(TrabajadorMapper trabajador) {
 		this.trabajador = trabajador;
 	}
+
+	public Integer getCursoId() {
+		return cursoId;
+	}
+
+	public void setCursoId(Integer cursoId) {
+		this.cursoId = cursoId;
+	}
+
+	public String getNombreCurso() {
+		return nombreCurso;
+	}
+
+	public void setNombreCurso(String nombreCurso) {
+		this.nombreCurso = nombreCurso;
+	}
+
+	public Integer getTrabajadorId() {
+		return trabajadorId;
+	}
+
+	public void setTrabajadorId(Integer trabajadorId) {
+		this.trabajadorId = trabajadorId;
+	}
+	
 	
 }

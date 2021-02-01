@@ -2,12 +2,16 @@ package idat.edu.pe.controller;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,12 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import idat.edu.pe.mapper.AsistenciaMapper;
 import idat.edu.pe.mapper.MapperUtil;
+import idat.edu.pe.model.Apoderado;
 import idat.edu.pe.model.Asistencia;
+import idat.edu.pe.model.Distrito;
 import idat.edu.pe.model.Estudiante;
 import idat.edu.pe.service.AsistenciaService;
 import idat.edu.pe.service.EstudianteService;
 import idat.edu.pe.service.HorarioDetalleService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/rest/asistencia")
 public class AsistenciaRestController {
@@ -80,4 +87,31 @@ public class AsistenciaRestController {
 	
 	}
 	
+	@GetMapping("/buscar/{horarioDetalleId}")
+	public ResponseEntity<?> buscarAsistenciaPorHorario(@PathVariable Integer horarioDetalleId){
+		Collection<Map<String, ?>> asistenciasOb = s.buscarPorHorario(horarioDetalleId);
+		
+		if(asistenciasOb != null && !asistenciasOb.isEmpty()) {
+			return new ResponseEntity<>(asistenciasOb,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
+	
+	@PutMapping("/editar/{asistenciaId}")
+	public ResponseEntity<?> editar(@PathVariable Integer asistenciaId, @RequestBody Asistencia newAsistencia){
+		
+		Asistencia asistenciaOb = s.findById(asistenciaId);
+		Estudiante estudiante =es.findByDniEstudiante(newAsistencia.getDniEstudiante().getDniEstudiante());
+		
+		if(asistenciaOb!=null) {
+			asistenciaOb.setAsistencia(newAsistencia.getAsistencia());
+			asistenciaOb.setDniEstudiante(estudiante);
+			asistenciaOb.setEstado(newAsistencia.getEstado());
+
+			s.update(asistenciaOb);
+			return new ResponseEntity<>("Se actualizó correctamente.",HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+	}
 }

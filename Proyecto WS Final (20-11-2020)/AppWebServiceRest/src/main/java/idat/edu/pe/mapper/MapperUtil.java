@@ -99,11 +99,28 @@ public class MapperUtil {
 				e.get("direccion").toString(),
 				e.get("pass").toString(),
 				Boolean.parseBoolean(e.get("estado").toString()),
+				e.get("condicion").toString(),
 				e.get("nomdistrito").toString(),
 				Integer.parseInt(e.get("distritoId").toString()),
-				e.get("dniApoderado").toString());
-			
-				//e.get("condicion").toString());
+				e.get("dniApoderado").toString()
+				);
+	}
+	
+	//Horario Map
+	public static Collection<HorarioDetalleMapper> convertDetalleHorario(Collection<Map<String, ?>> items) {
+		
+		Collection<HorarioDetalleMapper> collection = new ArrayList<>();
+		for(Map<String, ?> map: items) {
+		collection.add(new HorarioDetalleMapper(Integer.parseInt(map.get("horario_detalle_id").toString()),
+				map.get("dia").toString(),
+				map.get("hora_inicio").toString(),
+				map.get("hora_fin").toString(),
+				Integer.parseInt(map.get("curso_id").toString()),
+				map.get("nombre_curso").toString(),
+				Integer.parseInt(map.get("trabajador_id").toString())));
+		}
+		
+		return collection;
 	}
 
 	// Map Estudiante a EstudianteLoginMapper + apoderado
@@ -218,6 +235,19 @@ public class MapperUtil {
 		return notaMapper;
 	}
 
+	
+	public static NotaMapper convert(Nota nota) {
+
+		NotaMapper mapper = new NotaMapper();
+		mapper.setCursom(new CursoMapper(nota.getCurso().getCursoId(), nota.getCurso().getNombre()));
+		mapper.setDni_estudiante(new EstudianteMapper(nota.getDniEstudiante().getDniEstudiante()));
+		mapper.setNota1(nota.getNota1());
+		mapper.setNota2(nota.getNota2());
+		mapper.setNota3(nota.getNota3());
+		mapper.setFecha(nota.getFecha());
+		return mapper;
+
+	}
 	/**
 	 * MAPPERS APODERADO
 	 */
@@ -255,7 +285,7 @@ public class MapperUtil {
 		mapper.setApellido(apoderado.getApellido());
 		mapper.setCelular(apoderado.getCelular());
 		mapper.setCorreo(apoderado.getCorreo());
-		//mapper.setPass(apoderado.getPass());
+		mapper.setPass(apoderado.getPass());
 		mapper.setEstado(apoderado.getEstado());
 		mapper.setDireccion(apoderado.getDireccion());
 		mapper.setDistrito(

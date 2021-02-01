@@ -80,4 +80,17 @@ public class EstudianteServiceImpl implements EstudianteService {
 	public Map<String, Object> findInMapByDniEstudiante(String dniEstudiante) {
 		return repository.findInMapByDniEstudiante(dniEstudiante);
 	}
+
+	@Transactional(readOnly = true)
+	@Override	
+	public Collection<Map<String, ?>> findByEstudiantes(Integer seccionId) {
+		return repository.findByEstudiantes(seccionId);
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Collection<Map<String, ?>> buscarEstudiantesPorCurso(Integer cursoId) {
+		return repository.buscarEstudiantesPorCurso(cursoId);
+
+	}
 }

@@ -57,4 +57,11 @@ public class ApoderadoServiceImpl implements ApoderadoService{
 	public String findNomApeApoderadoByDniEstudiante(String dniEstudiante) {
 		return r.findNomApeApoderadoByDniEstudiante(dniEstudiante);
 	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Map<String, ?> buscarPorCorreo(String correo) {
+		return r.buscarPorCorreo(correo);
+
+	}
 }

@@ -63,4 +63,11 @@ public class TrabajadorServiceIml implements TrabajadorService{
 	public Collection<Map<String, ?>> getfindByDniEstudiante(String dniEstudiante){
 		return r.getfindByDniEstudiante(dniEstudiante);
 	}
+	
+	@Transactional(readOnly = true)
+	@Override
+	public Collection<Map<String, ?>> seleccionarCursos(Integer trabajadorId) {
+		return r.seleccionarCursos(trabajadorId);
+
+	}
 }

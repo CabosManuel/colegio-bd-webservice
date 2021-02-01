@@ -62,6 +62,25 @@ public class EstudianteMapper1
 		this.dniApoderado = apoderado;
 	}
 
+	public EstudianteMapper1(String dniEstudiante, String nombre, String apellido, String fnacimiento, String celular,
+			String correo, String direccion, String pass, Boolean estado, String condicion, String nombreDistrito,
+			Integer distritoId, String dniApoderado) {
+		
+		this.dniEstudiante = dniEstudiante;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.fnacimiento = fnacimiento;
+		this.celular = celular;
+		this.correo = correo;
+		this.direccion = direccion;
+		this.pass = pass;
+		this.estado = estado;
+		this.condicion = condicion;
+		this.nombreDistrito = nombreDistrito;
+		this.distritoId = distritoId;
+		this.dniApoderado = dniApoderado;
+	}
+
 	public String getDniEstudiante() {
 		return dniEstudiante;
 	}

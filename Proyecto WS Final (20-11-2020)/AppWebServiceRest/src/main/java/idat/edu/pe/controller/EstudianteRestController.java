@@ -27,6 +27,7 @@ import idat.edu.pe.model.Estudiante;
 import idat.edu.pe.service.ApoderadoService;
 import idat.edu.pe.service.DistritoService;
 import idat.edu.pe.service.EstudianteService;
+import idat.edu.pe.service.SeccionService;
 
 @CrossOrigin("*")
 @RestController
@@ -41,6 +42,9 @@ public class EstudianteRestController {
 	
 	@Autowired 
 	private ApoderadoService apoderadoService;
+	
+	@Autowired
+	private SeccionService SService;
 	
 	@GetMapping("/listar")
 	public ResponseEntity<?> listar(){
@@ -74,8 +78,32 @@ public class EstudianteRestController {
 		Estudiante estudianteOb = estudianteService.findByCorreo(correo);
 		EstudianteMapper estudianteMapper = MapperUtil.convert(estudianteOb);
 		
-		if(estudianteOb!=null) {
+		if(estudianteOb!=null && estudianteOb.equals(null)) {
 			return new ResponseEntity<>(estudianteMapper, HttpStatus.OK);
+		}
+		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		
+	}
+	
+	@GetMapping("/buscarEstudiantes/{seccionId}")
+	public ResponseEntity<?> buscarEstudiantesPorSeccion(@PathVariable Integer seccionId){
+		
+		Collection<Map<String, ?>> estudianteDb = estudianteService.findByEstudiantes(seccionId);
+		
+		if(estudianteDb!=null) {
+			return new ResponseEntity<>(estudianteDb, HttpStatus.OK);
+		}
+		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		
+	}
+	
+	@GetMapping("/buscarEstudiantesPorCurso/{cursoId}")
+	public ResponseEntity<?> buscarEstudiantesPorCurso(@PathVariable Integer cursoId){
+		
+		Collection<Map<String, ?>> estudianteDb = estudianteService.buscarEstudiantesPorCurso(cursoId);
+		
+		if(estudianteDb!=null) {
+			return new ResponseEntity<>(estudianteDb, HttpStatus.OK);
 		}
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 		

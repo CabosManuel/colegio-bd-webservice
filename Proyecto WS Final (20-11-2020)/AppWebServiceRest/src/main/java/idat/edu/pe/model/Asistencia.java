@@ -37,13 +37,13 @@ public class Asistencia implements Serializable {
 	private Boolean estado;
 
 	@ManyToOne
-	@JoinColumn(name = "dni_estudiante", nullable = false, 
+	@JoinColumn(name = "dni_estudiante", nullable = false, updatable = true, 
 	foreignKey = @ForeignKey(foreignKeyDefinition = 
 	"foreign key(dni_estudiante) references estudiantes(dni_estudiante)"))
 	private Estudiante dniEstudiante;
 
 	@ManyToOne
-	@JoinColumn(name = "horario_detalle_id", nullable = false, 
+	@JoinColumn(name = "horario_detalle_id", nullable = false, updatable = true, 
 	foreignKey = @ForeignKey(foreignKeyDefinition = 
 	"foreign key(horario_detalle_id) references horario_detalle(horario_detalle_id)"))
 	private HorarioDetalle horarioDetalleId;
@@ -57,6 +57,18 @@ public class Asistencia implements Serializable {
 		this.estado = estado;
 	}
 	
+	
+	
+	public Asistencia(Integer asistenciaId, LocalDateTime asistencia, Boolean estado, Estudiante dniEstudiante,
+			HorarioDetalle horarioDetalleId) {
+	
+		this.asistenciaId = asistenciaId;
+		this.asistencia = asistencia;
+		this.estado = estado;
+		this.dniEstudiante = dniEstudiante;
+		this.horarioDetalleId = horarioDetalleId;
+	}
+
 	@PrePersist
 	public void pre() {
 		LocalDate hoy = LocalDate.now();

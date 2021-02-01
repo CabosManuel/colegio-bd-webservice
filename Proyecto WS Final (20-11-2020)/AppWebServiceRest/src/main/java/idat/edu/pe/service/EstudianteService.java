@@ -26,4 +26,8 @@ public interface EstudianteService {
 	Map<String, ?> buscarEstudiante(String dniEstudiante);
 
 	Map<String, Object> findInMapByDniEstudiante(String dniEstudiante);
+	
+	Collection<Map<String, ?>> findByEstudiantes(Integer seccionId);
+	
+	Collection<Map<String, ?>> buscarEstudiantesPorCurso(Integer cursoId);
 }

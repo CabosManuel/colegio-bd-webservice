@@ -1,6 +1,7 @@
 package idat.edu.pe.service;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,5 +31,11 @@ public class CursoServiceImpl implements CursoService{
 	@Override
 	public Curso findById(Integer cursoId) {
 		return r.findById(cursoId).orElse(null);
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Map<String, ?> findByCursoId(Integer cursoId) {
+		return r.findByCursoId(cursoId);
 	}
 }

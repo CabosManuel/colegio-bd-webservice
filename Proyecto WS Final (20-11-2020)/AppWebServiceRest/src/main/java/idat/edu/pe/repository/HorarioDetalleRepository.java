@@ -10,12 +10,14 @@ import idat.edu.pe.model.HorarioDetalle;
 
 public interface HorarioDetalleRepository extends CrudRepository<HorarioDetalle, Integer> {
 
-	@Query(value = "select * from horario_detalle hd\r\n" + 
+	@Query(value = "select hd.horario_detalle_id, hd.dia, hd.hora_inicio, hd.hora_fin,\r\n" +
+			"c.curso_id, c.nombre as nombre_curso, t.trabajador_id from horario_detalle hd\r\n" + 
 			"inner join horario_cabecera hc on hc.horario_cabecera_id = hd.horario_cabecera_id\r\n" + 
 			"inner join secciones s on hc.seccion_id = s.seccion_id\r\n" + 
+			"inner join cursos c on hd.curso_id = c.curso_id\r\n" +
 			"inner join trabajadores t on hd.trabajador_id = t.trabajador_id\r\n" + 
 			"where s.seccion_id = ? and t.trabajador_id = ?", nativeQuery = true)
-	public abstract Collection<HorarioDetalle> getfindBySeccion(Integer seccionId, Integer trabajadorId);
+	Collection<Map<String, ?>> getfindBySeccion(Integer seccionId, Integer trabajadorId);
 
 	@Query(value = "select hd.dia, c.nombre, hd.hora_inicio, hd.hora_fin " + 
 			"from horario_detalle hd " + 
@@ -26,4 +28,14 @@ public interface HorarioDetalleRepository extends CrudRepository<HorarioDetalle,
 			"inner join estudiantes e on e.dni_estudiante = m.dni_estudiante " + 
 			"where e.dni_estudiante like ? and year(m.fecha) = 2020", nativeQuery = true)
 	Collection<Map<String, ?>> findHorarioByDni(String dniEstudiante);
+	
+	@Query(value = "select hd.horario_detalle_id, hd.dia, hd.hora_inicio, hd.hora_fin, \r\n"
+			+ "c.curso_id, hc.horario_cabecera_id, t.trabajador_id from horario_detalle hd\r\n"
+			+ "inner join horario_cabecera hc on hc.horario_cabecera_id = hd.horario_cabecera_id\r\n"
+			+ "inner join secciones s on hc.seccion_id = s.seccion_id\r\n"
+			+ "inner join cursos c on hd.curso_id = c.curso_id\r\n"
+			+ "inner join trabajadores t on hd.trabajador_id = t.trabajador_id\r\n"
+			+ "where s.seccion_id like ?1", nativeQuery = true)
+	Collection<Map<String, ?>> buscarHorarioPorSeccion(Integer seccionId);
+	
 }

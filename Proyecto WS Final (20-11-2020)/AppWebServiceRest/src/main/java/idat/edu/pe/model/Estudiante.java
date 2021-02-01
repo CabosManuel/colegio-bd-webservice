@@ -56,7 +56,7 @@ public class Estudiante implements Serializable{
 	private Set<Curso> itemsCurso = new HashSet<>();*/
 	
 	@ManyToOne//(fetch = FetchType.EAGER, targetEntity = Apoderado.class)
-	@JoinColumn(name = "dni_apoderado", nullable = false, updatable = false,
+	@JoinColumn(name = "dni_apoderado", nullable = false, updatable = true,
 	foreignKey = @ForeignKey(foreignKeyDefinition = 
 	"foreign key(dni_apoderado) references apoderados(dni_apoderado)"))
 	private Apoderado apoderado;

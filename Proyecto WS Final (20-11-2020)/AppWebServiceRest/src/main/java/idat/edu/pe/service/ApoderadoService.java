@@ -20,4 +20,7 @@ public interface ApoderadoService {
 	Map<String, ?> loginApoderado(String dniApoderado, String pass);
 	
 	String findNomApeApoderadoByDniEstudiante(String dniEstudiante);
+
+	Map<String, ?> buscarPorCorreo(String correo);
+
 }

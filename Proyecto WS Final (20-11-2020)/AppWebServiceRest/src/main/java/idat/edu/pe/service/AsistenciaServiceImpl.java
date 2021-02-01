@@ -1,6 +1,7 @@
 package idat.edu.pe.service;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,8 +34,26 @@ public class AsistenciaServiceImpl implements AsistenciaService{
 
 	@Transactional
 	@Override
-	public Asistencia insert(Asistencia asistencia) {
-		return r.save(asistencia);
+	public void insert(Asistencia asistencia) {
+		r.save(asistencia);
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Collection<Map<String, ?>> buscarPorHorario(Integer horarioDetalleId) {
+		return r.buscarPorHorario(horarioDetalleId);
+	}
+
+	@Transactional
+	@Override
+	public void update(Asistencia asistencia) {
+		r.save(asistencia);
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Asistencia findById(Integer asistenciaId) {
+		return r.findById(asistenciaId).orElse(null);
 	}
 
 }

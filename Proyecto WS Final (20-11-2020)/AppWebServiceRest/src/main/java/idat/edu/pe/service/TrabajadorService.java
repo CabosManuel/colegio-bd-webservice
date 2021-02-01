@@ -17,4 +17,7 @@ public interface TrabajadorService {
 	public Trabajador getfindByCorreoPass(String correo, String pass);
 	
 	Collection<Map<String, ?>> getfindByDniEstudiante(String dniEstudiante);
+
+	Collection<Map<String, ?>> seleccionarCursos(Integer trabajadorId);
+
 }

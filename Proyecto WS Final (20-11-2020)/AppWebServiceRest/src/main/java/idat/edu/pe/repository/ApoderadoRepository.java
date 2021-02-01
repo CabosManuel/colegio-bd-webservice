@@ -26,4 +26,9 @@ public interface ApoderadoRepository extends CrudRepository<Apoderado, String> {
 			+ "INNER JOIN estudiantes e ON e.dni_apoderado LIKE a.dni_apoderado "
 			+ "WHERE e.dni_estudiante LIKE ?", nativeQuery = true)
 	String findNomApeApoderadoByDniEstudiante(String dniEstudiante);
+
+	@Query(value = "select a.dni_apoderado, a.nombre, a.apellido from apoderados a "
+			+ "where a.correo like ?", nativeQuery = true)
+	Map<String, ?> buscarPorCorreo(String correo);
+
 }

@@ -1,6 +1,7 @@
 package idat.edu.pe.repository;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -29,4 +30,11 @@ public interface AsistenciaRepository extends CrudRepository<Asistencia, Integer
 			"from asistencias a "+ //todavía no empieza el año escolar por eso pongo 2020, para traer lo del año pasado
 			"where a.dni_estudiante like ? and year(a.asistencia) = 2020"/*year(now())"*/,nativeQuery = true)
 	public abstract Collection<Object> getMesesByDniEstudiante(String dniEstudiante);
+	
+	@Query(value = "select hd.horario_detalle_id, a.asistencia_id, a.asistencia, a.estado, e.dni_estudiante, e.nombre, e.apellido \r\n"
+			+ "			from asistencias a\r\n"
+			+ "         inner join horario_detalle hd on a.horario_detalle_id = hd.horario_detalle_id\r\n"
+			+ "			inner join estudiantes e on a.dni_estudiante = e.dni_estudiante\r\n"
+			+ "			where hd.horario_detalle_id like ?", nativeQuery = true)
+	Collection<Map<String, ?>> buscarPorHorario(Integer horarioDetalleId);
 }

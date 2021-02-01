@@ -72,6 +72,18 @@ public class ApoderadoRestController {
 		
 	}
 	
+	@GetMapping("/buscarPorCorreo/{correo}")
+	public ResponseEntity<?> buscarPorCorreo(@PathVariable String correo){
+		
+		Map<String, ?> apoderadoDb = service.buscarPorCorreo(correo);
+		
+		if(apoderadoDb!=null) {
+			return new ResponseEntity<>(apoderadoDb, HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+	}
+	
 	@PostMapping("/agregar")
 	public ResponseEntity<?> agregar(@RequestBody Apoderado apoderado){
 		
