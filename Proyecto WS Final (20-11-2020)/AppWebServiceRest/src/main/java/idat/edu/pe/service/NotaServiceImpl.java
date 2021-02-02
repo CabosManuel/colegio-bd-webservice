@@ -41,8 +41,8 @@ public class NotaServiceImpl implements NotaService{
 
 	@Transactional(readOnly = true)
 	@Override
-	public Collection<Map<String, ?>> buscarNotasPorCurso(Integer cursoId) {
-		return r.buscarNotasPorCurso(cursoId);
+	public Collection<Map<String, ?>> buscarNotasPorCurso(Integer cursoId, Integer seccionId){
+		return r.buscarNotasPorCurso(cursoId,seccionId);
 	}
 
 	@Transactional

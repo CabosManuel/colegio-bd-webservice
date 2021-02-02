@@ -22,5 +22,6 @@ public interface ApoderadoService {
 	String findNomApeApoderadoByDniEstudiante(String dniEstudiante);
 
 	Map<String, ?> buscarPorCorreo(String correo);
-
+	
+	Map<String, ?> buscarPorDniApoderado(String dniApoderado);
 }

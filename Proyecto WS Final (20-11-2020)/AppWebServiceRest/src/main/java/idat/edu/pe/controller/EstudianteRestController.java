@@ -78,7 +78,7 @@ public class EstudianteRestController {
 		Estudiante estudianteOb = estudianteService.findByCorreo(correo);
 		EstudianteMapper estudianteMapper = MapperUtil.convert(estudianteOb);
 		
-		if(estudianteOb!=null && estudianteOb.equals(null)) {
+		if(estudianteOb!=null) {
 			return new ResponseEntity<>(estudianteMapper, HttpStatus.OK);
 		}
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);

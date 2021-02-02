@@ -85,10 +85,10 @@ public class NotaRestController {
 				HttpStatus.NO_CONTENT);
 	}
 	
-	@GetMapping("/buscarNotas/{cursoId}")
-	public ResponseEntity<?> buscarNotasPorCurso(@PathVariable Integer cursoId) {
+	@GetMapping("/buscarNotas/{cursoId}/{seccionId}")
+	public ResponseEntity<?> buscarNotasPorCurso(@PathVariable Integer cursoId, @PathVariable Integer seccionId) {
 
-		Collection<Map<String, ?>> NotasOb = s.buscarNotasPorCurso(cursoId);
+		Collection<Map<String, ?>> NotasOb = s.buscarNotasPorCurso(cursoId, seccionId);
 		if(NotasOb!=null && !NotasOb.isEmpty()) {
 			return new ResponseEntity<>(NotasOb, HttpStatus.OK);
 		}

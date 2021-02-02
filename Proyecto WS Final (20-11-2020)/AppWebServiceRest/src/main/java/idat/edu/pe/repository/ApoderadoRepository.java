@@ -31,4 +31,7 @@ public interface ApoderadoRepository extends CrudRepository<Apoderado, String> {
 			+ "where a.correo like ?", nativeQuery = true)
 	Map<String, ?> buscarPorCorreo(String correo);
 
+	@Query(value = "select nombre, apellido, dni_apoderado "
+			+ "from apoderados where dni_apoderado = ?", nativeQuery = true)
+	Map<String, ?> buscarPorDniApoderado(String dniApoderado);
 }

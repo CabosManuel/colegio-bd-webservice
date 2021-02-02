@@ -24,6 +24,9 @@ public class Curso implements Serializable{
 	@Column 
 	private Integer creditos;
 	
+	@Column
+	private Integer horaCurso;
+	
 	@OneToMany(mappedBy = "curso")
 	private Collection<Malla> mallas = new ArrayList<>(); 
 
@@ -118,7 +121,13 @@ public class Curso implements Serializable{
 	public void setItemsTrabajador(Set<Trabajador> itemsTrabajador) {
 		this.itemsTrabajador = itemsTrabajador;
 	}
-	
-	
+
+	public Integer getHoraCurso() {
+		return horaCurso;
+	}
+
+	public void setHoraCurso(Integer horaCurso) {
+		this.horaCurso = horaCurso;
+	}
 	
 }

@@ -21,11 +21,13 @@ public interface NotaRepository extends CrudRepository<Nota, Integer>{
 			"where e.dni_estudiante = ?",nativeQuery = true)
 	public abstract Collection<Nota> findByDniEstudiante(String dniEstudiante);
 	
-	@Query(value="select n.nota_id, e.dni_estudiante, e.nombre, e.apellido, n.nota1, n.nota2, n.nota3 from notas n\r\n"
+	@Query(value="select e.dni_estudiante, e.nombre, e.apellido, n.fecha, n.nota1, n.nota2, n.nota3 from notas n\r\n"
 			+ "			inner join estudiantes e on e.dni_estudiante = n.dni_estudiante\r\n"
-			+ "            inner join cursos c on n.curso_id = c.curso_id\r\n"
-			+ "			where c.curso_id like ?", nativeQuery=true)
-	Collection<Map<String, ?>> buscarNotasPorCurso(Integer cursoId);
+			+ "            inner join horario_detalle hd on n.curso_id = hd.curso_id\r\n"
+			+ "            inner join horario_cabecera hc on hd.horario_cabecera_id = hc.horario_cabecera_id\r\n"
+			+ "            inner join secciones s on hc.seccion_id = s.seccion_id \r\n"
+			+ "			where n.curso_id like ?1 and s.seccion_id like ?2", nativeQuery=true)
+	Collection<Map<String, ?>> buscarNotasPorCurso(Integer cursoId, Integer seccionId);
 	
 	@Query(value = "select n.nota_id, c.curso_id, e.dni_estudiante, n.fecha, n.nota1, n.nota2, n.nota3 from notas n\r\n"
 			+ "inner join cursos c on n.curso_id = c.curso_id \r\n"

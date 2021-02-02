@@ -14,7 +14,7 @@ public interface MatriculaRepository extends CrudRepository<Matricula, Integer>{
 			+ "						inner join grados g on s.grado_id = g.grado_id\r\n"
 			+ "						inner join niveles n on g.nivel_id = n.nivel_id\r\n"
 			+ "						inner join estudiantes e on m.dni_estudiante = e.dni_estudiante\r\n"
-			+ "						where e.dni_estudiante = 76758987\r\n"
+			+ "						where e.dni_estudiante = ?\r\n"
 			+ "                        ORDER by m.matricula_id DESC LIMIT 1", nativeQuery=true)
 	public abstract Matricula findByEstudiante(String dniEstudiante);
 }

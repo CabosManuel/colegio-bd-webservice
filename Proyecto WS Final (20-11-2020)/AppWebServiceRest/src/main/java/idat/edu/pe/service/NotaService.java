@@ -14,7 +14,7 @@ public interface NotaService {
 	public Collection<Nota> findByDniEstudiante(String dniEstudiante);
 	public abstract void insert(Nota nota);
 	public abstract void update(Nota nota);
-	Collection<Map<String, ?>> buscarNotasPorCurso(Integer cursoId);
+	Collection<Map<String, ?>> buscarNotasPorCurso(Integer cursoId, Integer seccionId);
 	Map<String, ?> buscarPorId(Integer notaId);
 	public abstract Nota findById(Integer notaId);
 }

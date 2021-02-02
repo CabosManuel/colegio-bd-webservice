@@ -64,4 +64,10 @@ public class ApoderadoServiceImpl implements ApoderadoService{
 		return r.buscarPorCorreo(correo);
 
 	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Map<String, ?> buscarPorDniApoderado(String dniApoderado) {
+		return r.buscarPorDniApoderado(dniApoderado);
+	}
 }
