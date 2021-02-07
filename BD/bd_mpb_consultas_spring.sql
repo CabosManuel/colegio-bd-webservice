@@ -15,6 +15,15 @@ select * from notificaciones;
 select * from secciones;
 select * from trabajadores;
 
+
+-- --------------------------------
+-- CONFIRMAR/RECHAZAR CITACIONES
+-- --------------------------------
+-- citaciones [estados: P = pendiente (FF9315), V = vencido (FF9315), C = confirmado (14BE58), R = rechazado (F1212B)]
+-- permisos [estados: P = pendiente, V = vencido, A = aprobado, D = desaprobado]
+update notificaciones set estado = 'V'
+where notificacion_id = 1
+
 -- --------------------------------
 -- LISTAR DOCENTES
 -- --------------------------------

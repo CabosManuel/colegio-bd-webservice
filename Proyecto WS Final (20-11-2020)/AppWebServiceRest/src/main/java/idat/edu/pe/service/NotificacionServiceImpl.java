@@ -1,8 +1,10 @@
 package idat.edu.pe.service;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,5 +23,15 @@ public class NotificacionServiceImpl implements NotificacionService{
 		return r.getNotificacionesByDniEstudianteTipo(dniEstudiante, tipo1, tipo2, tipo3);
 	}
 	
+	@Transactional
+	@Override
+	public void confirmarCitacion(Character estado, Integer notificacionId) {
+		r.confirmarCitacion(estado, notificacionId);
+	}
 	
+	@Transactional(readOnly = true)
+	@Override
+	public Map<String, Object> buscarPorId(Integer notificacionId){
+		return r.buscarPorId(notificacionId);
+	}
 }
