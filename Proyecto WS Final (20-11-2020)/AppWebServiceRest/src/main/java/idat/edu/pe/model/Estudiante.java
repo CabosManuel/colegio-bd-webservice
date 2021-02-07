@@ -56,7 +56,7 @@ public class Estudiante implements Serializable{
 	private Set<Curso> itemsCurso = new HashSet<>();*/
 	
 	@ManyToOne//(fetch = FetchType.EAGER, targetEntity = Apoderado.class)
-	@JoinColumn(name = "dni_apoderado", nullable = false, updatable = true,
+	@JoinColumn(name = "dni_apoderado", nullable = false, updatable = false,
 	foreignKey = @ForeignKey(foreignKeyDefinition = 
 	"foreign key(dni_apoderado) references apoderados(dni_apoderado)"))
 	private Apoderado apoderado;
@@ -214,6 +214,14 @@ public class Estudiante implements Serializable{
 
 	public void setNotas(Collection<Nota> notas) {
 		this.notas = notas;
+	}
+
+	@Override
+	public String toString() {
+		return "Estudiante [dniEstudiante=" + dniEstudiante + ", nombre=" + nombre + ", apellido=" + apellido
+				+ ", fnacimiento=" + fnacimiento + ", celular=" + celular + ", correo=" + correo + ", direccion="
+				+ direccion + ", pass=" + pass + ", estado=" + estado + ", condicion=" + condicion + ", distrito="
+				+ distrito + "]";
 	}
 	
 	

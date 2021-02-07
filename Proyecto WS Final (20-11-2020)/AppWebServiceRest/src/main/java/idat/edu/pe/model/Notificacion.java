@@ -23,7 +23,7 @@ public class Notificacion implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer notificaionId;
+	private Integer notificacionId;
 
 	@Column
 	private String tipo;
@@ -45,9 +45,9 @@ public class Notificacion implements Serializable {
 	public Notificacion() {
 	}
 
-	public Notificacion(Integer notificaionId, String tipo, Date fechaEnvio, Date fechaLimite, String titulo,
+	public Notificacion(Integer notificacionId, String tipo, Date fechaEnvio, Date fechaLimite, String titulo,
 			String descripcion, Character estado) {
-		this.notificaionId = notificaionId;
+		this.notificacionId = notificacionId;
 		this.tipo = tipo;
 		this.fechaEnvio = fechaEnvio;
 		this.fechaLimite = fechaLimite;
@@ -56,12 +56,12 @@ public class Notificacion implements Serializable {
 		this.estado = estado;
 	}
 
-	public Integer getNotificaionId() {
-		return notificaionId;
+	public Integer getNotificacionId() {
+		return notificacionId;
 	}
 
-	public void setNotificaionId(Integer notificaionId) {
-		this.notificaionId = notificaionId;
+	public void setNotificacionId(Integer notificacionId) {
+		this.notificacionId = notificacionId;
 	}
 
 	public String getTipo() {
