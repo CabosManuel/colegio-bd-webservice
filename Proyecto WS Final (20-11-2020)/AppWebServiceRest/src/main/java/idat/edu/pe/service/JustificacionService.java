@@ -26,4 +26,6 @@ public interface JustificacionService {
 	public abstract Collection<Justificacion> findAllByFfecha(Date fecha);
 	
 	Collection<Object[]> getJustificacionesByDniEstudiante(String dniEstudiante);
+	
+	void registrarJustificacion(String dniEstudiante, Date fechaEnvio, Date fechaJustificacion, String titulo, String descripcion);
 }
