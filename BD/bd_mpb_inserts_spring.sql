@@ -583,6 +583,34 @@ INSERT INTO cursos (nombre, creditos) VALUES ('EDUCACIÓN PARA EL TRABAJO','26')
     INSERT into cursos (nombre, creditos) VALUES ('QUÍMICA','');
     */
 
+-- trabajador_curso
+insert into trabajador_curso (trabajador_id, curso_id) values (3, 1);
+insert into trabajador_curso (trabajador_id, curso_id) values (4, 2);
+insert into trabajador_curso (trabajador_id, curso_id) values (5, 3);
+insert into trabajador_curso (trabajador_id, curso_id) values (6, 4);
+insert into trabajador_curso (trabajador_id, curso_id) values (7, 5);
+insert into trabajador_curso (trabajador_id, curso_id) values (8, 6);
+insert into trabajador_curso (trabajador_id, curso_id) values (9, 7);
+insert into trabajador_curso (trabajador_id, curso_id) values (10, 8);
+insert into trabajador_curso (trabajador_id, curso_id) values (11, 9);
+insert into trabajador_curso (trabajador_id, curso_id) values (12, 10);
+insert into trabajador_curso (trabajador_id, curso_id) values (13, 11);
+insert into trabajador_curso (trabajador_id, curso_id) values (14, 12);
+insert into trabajador_curso (trabajador_id, curso_id) values (15, 13);
+insert into trabajador_curso (trabajador_id, curso_id) values (16, 14);
+insert into trabajador_curso (trabajador_id, curso_id) values (17, 15);
+insert into trabajador_curso (trabajador_id, curso_id) values (18, 16);
+insert into trabajador_curso (trabajador_id, curso_id) values (19, 17);
+insert into trabajador_curso (trabajador_id, curso_id) values (20, 18);
+insert into trabajador_curso (trabajador_id, curso_id) values (21, 19);
+insert into trabajador_curso (trabajador_id, curso_id) values (22, 20);
+insert into trabajador_curso (trabajador_id, curso_id) values (23, 21);
+insert into trabajador_curso (trabajador_id, curso_id) values (24, 22);
+insert into trabajador_curso (trabajador_id, curso_id) values (25, 23);
+insert into trabajador_curso (trabajador_id, curso_id) values (26, 24);
+insert into trabajador_curso (trabajador_id, curso_id) values (27, 25);
+insert into trabajador_curso (trabajador_id, curso_id) values (28, 26);
+
 -- malla (14)
 -- inicial
 -- 3
