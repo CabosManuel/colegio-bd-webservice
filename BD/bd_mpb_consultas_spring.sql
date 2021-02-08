@@ -27,7 +27,7 @@ where notificacion_id = 1
 -- --------------------------------
 -- LISTAR DOCENTES
 -- --------------------------------
-select t.nombres, t.apellidos, t.celular, t.correo, t.sexo, c.nombre
+select t.trabajador_id, t.nombres, t.apellidos, t.celular, t.correo, t.sexo, c.curso_id, c.nombre as curso
 from trabajadores t
 inner join trabajador_curso tc on tc.trabajador_id = t.trabajador_id
 inner join cursos c on c.curso_id = tc.curso_id
@@ -37,7 +37,7 @@ inner join matriculas mtr on mtr.grado = g.grado_id
 inner join estudiantes e on e.dni_estudiante = mtr.dni_estudiante
 where t.cargo = 'docente' and
 	e.dni_estudiante = '61933011' and
-	year(mtr.fecha) = 2020 /*year(now())*/;
+	year(mtr.fecha) = 2019 /*year(now())*/;
 
 -- --------------------------------
 -- PERFIL ESTUDIANTE
@@ -106,7 +106,7 @@ from estudiantes e
 where e.dni_apoderado like '06662516' and e.nombre like 'Nicole'
 ;
 -- titulo, tipo, fecha_envio, fecha_limite, estado, dni_estudiante, descripcion
-select n.notificaion_id, n.titulo, n.tipo, n.fecha_envio, n.fecha_limite, n.estado, n.dni_estudiante, n.descripcion
+select n.notificacion_id, n.titulo, n.tipo, n.fecha_envio, n.fecha_limite, n.estado, n.dni_estudiante, n.descripcion
 from notificaciones n
 where n.dni_estudiante like '61933011' and -- 61933011 comunicado citacion permiso
 	(n.tipo like 'citacion' or n.tipo like 'permiso' or n.tipo like 'comunicado')
@@ -184,6 +184,11 @@ WHERE m.grado_id = 14;
 
 
 -- REINICIO DE TABLAS
+
+-- NOTIFICACIONES
+delete from notificaciones where notificacion_id < 1000;
+ALTER TABLE notificaciones AUTO_INCREMENT = 1;
+
 -- ASITENCIAS
 delete from asistencias where asistencia_id < 1000;
 ALTER TABLE asistencias AUTO_INCREMENT = 1;
@@ -196,7 +201,13 @@ ALTER TABLE horario_detalle AUTO_INCREMENT = 1;
 delete from horario_cabecera where horario_cabecera_id < 1000;
 ALTER TABLE horario_cabecera AUTO_INCREMENT = 1;
 
+-- trabajador_curso
+delete from trabajador_curso where trabajador_id < 1000;
+alter table trabajador_curso AUTO_INCREMENT = 1;
 
+-- trabajador
+delete from trabajadores where trabajador_id < 1000;
+alter table trabajadores AUTO_INCREMENT = 1; 
 
 -- JUSTIFICACIONES
 delete from justificaciones where justificacion_id < 1000;
