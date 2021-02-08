@@ -78,4 +78,8 @@ public class JustificacionServiceImpl  implements JustificacionService{
 		return repository.getJustificacionesByDniEstudiante(dniEstudiante);
 	}
 
+	public void registrarJustificacion(String dniEstudiante, Date fechaEnvio, Date fechaJustificacion,
+					   String titulo, String descripcion){
+		return repository.registrarJustificacion(dniEstudiante, fechaEnvio, fechaJustificacion, titulo, descripcion);
+	}
 }
