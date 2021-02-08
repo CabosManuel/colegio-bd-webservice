@@ -24,4 +24,9 @@ public interface JustificacionRepository extends CrudRepository<Justificacion, I
 			"where j.dni_estudiante like ? " +
 			"order by j.fecha_envio desc", nativeQuery = true)
 	Collection<Object[]> getJustificacionesByDniEstudiante(String dniEstudiante);
+	
+	@Query(value = "insert into justificaciones" +
+	       "(titulo, fecha_envio, fecha_justificacion, dni_estudiante, descripcion) values " + 
+	       "(?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
+	void registrarJustificacion(String dniEstudiante, Date fechaEnvio, Date fechaJustificacion, String titulo, String descripcion);
 }
