@@ -24,6 +24,12 @@ public class Nota implements Serializable {
 	private Integer nota3;
 	@Column
 	private String fecha;
+	
+	@ManyToOne
+	@JoinColumn(name = "seccion_id", nullable = false,
+	foreignKey = @ForeignKey(foreignKeyDefinition = 
+	"foreign key(seccion_id) references secciones(seccion_id)"))
+	private Seccion seccion;
 
 	@ManyToOne
 	@JoinColumn(name = "curso_id", nullable = false, updatable = true, foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(curso_id) references cursos(curso_id)"))
@@ -109,4 +115,11 @@ public class Nota implements Serializable {
 		this.dniEstudiante = dni_Estudiante;
 	}
 
+	public Seccion getSeccion() {
+		return seccion;
+	}
+
+	public void setSeccion(Seccion seccion) {
+		this.seccion = seccion;
+	}
 }

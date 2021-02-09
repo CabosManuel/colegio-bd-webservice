@@ -1,6 +1,7 @@
 package idat.edu.pe.service;
 
 import java.util.Collection;
+import java.util.Map;
 
 import idat.edu.pe.model.Seccion;
 
@@ -12,8 +13,8 @@ public interface SeccionService {
 	public abstract Seccion findById(Integer seccionId);
 	public abstract Collection<Seccion> findAll();
 	
-	public Collection<Seccion> findByGrado(Integer gradoId);
+	Collection<Map<String, ?>> findByGrado(Integer gradoId);
 	
-	public Collection<Seccion> getfindByNivel(Integer nivelId);
+	Collection<Map<String, ?>> getfindByNivel(Integer nivelId);
 	
 }

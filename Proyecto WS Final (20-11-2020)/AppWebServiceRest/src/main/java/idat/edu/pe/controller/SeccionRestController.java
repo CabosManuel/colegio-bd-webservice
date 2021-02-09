@@ -1,6 +1,7 @@
 package idat.edu.pe.controller;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -53,24 +54,22 @@ public class SeccionRestController {
 	@GetMapping("/buscar/{gradoId}")
 	public ResponseEntity<?> buscar(@PathVariable Integer gradoId){
 		
-		Collection<Seccion> seccionOb = service.findByGrado(gradoId);
-		Collection<SeccionMapper> seccionMapper = MapperUtil.convertSeccion(seccionOb);
+		Collection<Map<String, ?>> seccionOb = service.findByGrado(gradoId);
 		
-		if(seccionOb!=null) {
-			return new ResponseEntity<>(seccionMapper, HttpStatus.OK);
+		if(seccionOb!=null && !seccionOb.isEmpty()) {
+			return new ResponseEntity<>(seccionOb, HttpStatus.OK);
 		}
-		return new ResponseEntity<>("Estudiante con el dni " + gradoId + " no existente.", HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>("Sección con el gradoId " + gradoId + " no existente.", HttpStatus.NOT_FOUND);
 		
 	}
 	
 	@GetMapping("/buscarNivel/{nivelId}")
 	public ResponseEntity<?> buscarPorNivel(@PathVariable Integer nivelId){
 		
-		Collection<Seccion> seccionOb = service.getfindByNivel(nivelId);
-		Collection<SeccionMapper> seccionMapper = MapperUtil.convertSecciones(seccionOb);
+		Collection<Map<String, ?>> seccionOb = service.getfindByNivel(nivelId);
 		
-		if(seccionOb!=null) {
-			return new ResponseEntity<>(seccionMapper, HttpStatus.OK);
+		if(seccionOb!=null && !seccionOb.isEmpty()) {
+			return new ResponseEntity<>(seccionOb, HttpStatus.OK);
 		}
 		return new ResponseEntity<>("Nivel con el número " + nivelId + " no existente.", HttpStatus.NOT_FOUND);
 		

@@ -1,6 +1,7 @@
 package idat.edu.pe.service;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,14 +51,14 @@ public class SeccionServiceImpl implements SeccionService {
 
 	@Transactional(readOnly = true)
 	@Override
-	public Collection<Seccion> findByGrado(Integer gradoId) {
-		return (Collection<Seccion>)r.findByGrado(gradoId);
+	public Collection<Map<String, ?>> findByGrado(Integer gradoId) {
+		return (Collection<Map<String, ?>>)r.findByGrado(gradoId);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
-	public Collection<Seccion> getfindByNivel(Integer nivelId) {
-		return (Collection<Seccion>)r.getfindByNivel(nivelId);
+	public Collection<Map<String, ?>> getfindByNivel(Integer nivelId) {
+		return (Collection<Map<String, ?>>)r.getfindByNivel(nivelId);
 	}
 
 }

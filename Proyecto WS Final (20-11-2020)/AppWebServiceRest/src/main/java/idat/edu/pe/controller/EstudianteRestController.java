@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import idat.edu.pe.mapper.EstudianteLoginMapper;
 import idat.edu.pe.mapper.EstudianteMapper;
-import idat.edu.pe.mapper.EstudianteMapper1;
 import idat.edu.pe.mapper.MapperUtil;
 import idat.edu.pe.model.Apoderado;
 import idat.edu.pe.model.Distrito;
@@ -27,7 +26,6 @@ import idat.edu.pe.model.Estudiante;
 import idat.edu.pe.service.ApoderadoService;
 import idat.edu.pe.service.DistritoService;
 import idat.edu.pe.service.EstudianteService;
-import idat.edu.pe.service.SeccionService;
 
 @CrossOrigin("*")
 @RestController
@@ -43,30 +41,26 @@ public class EstudianteRestController {
 	@Autowired 
 	private ApoderadoService apoderadoService;
 	
-	@Autowired
-	private SeccionService SService;
-	
 	@GetMapping("/listar")
 	public ResponseEntity<?> listar(){
 		
-		Collection<Estudiante> itemsEstudiante = estudianteService.findAll();
-		Collection<EstudianteMapper> itemsEstudianteMapper = MapperUtil.convert(itemsEstudiante);
+		Collection<Map<String, ?>> itemsEstudiante = estudianteService.buscarEstudiantes();
 		
-		if(itemsEstudiante.isEmpty()) {
-			return new ResponseEntity<>(itemsEstudiante, HttpStatus.NO_CONTENT);
+		if(!itemsEstudiante.isEmpty() && itemsEstudiante != null) {
+			return new ResponseEntity<>(itemsEstudiante, HttpStatus.OK);
 		}
 		
-		return new ResponseEntity<>(itemsEstudianteMapper, HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 	
 	@GetMapping("/buscar/{dniEstudiante}")
 	public ResponseEntity<?> buscar(@PathVariable String dniEstudiante){
 		
 		Map<String, ?> estudianteDb = estudianteService.buscarEstudiante(dniEstudiante);
-		EstudianteMapper1 estudianteMapper = MapperUtil.convertEstudianteToEstudianteBuscar(estudianteDb);
+		//EstudianteMapper1 estudianteMapper = MapperUtil.convertEstudianteToEstudianteBuscar(estudianteDb);
 		
 		if(estudianteDb!=null && !estudianteDb.isEmpty()) {
-			return new ResponseEntity<>(estudianteMapper, HttpStatus.OK);
+			return new ResponseEntity<>(estudianteDb, HttpStatus.OK);
 		}
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 		

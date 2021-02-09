@@ -15,12 +15,20 @@ public interface EstudianteRepository extends CrudRepository<Estudiante, String>
 	
 	@Query(value = "select e.dni_estudiante, e.apellido, e.nombre, e.fnacimiento,"
 			+ " e.correo, e.celular, e.pass, e.estado, e.direccion, d.distrito_id,"
-			+ " d.distrito_id as distritoId, d.nombre as nomdistrito, "
+			+ " d.nombre as nomdistrito, "
 			+ " a.dni_apoderado as dniApoderado, e.condicion from estudiantes e "
 			+ " inner join apoderados a on e.dni_apoderado = a.dni_apoderado"
 			+ " inner join distritos d on e.distrito_id = d.distrito_id "
 			+ " where e.dni_estudiante = ?", nativeQuery = true)
 	Map<String, ?> buscarEstudiante(String dniEstudiante);
+	
+	@Query(value = "select e.dni_estudiante, e.apellido, e.nombre, e.fnacimiento,"
+			+ " e.correo, e.celular, e.pass, e.estado, e.direccion, d.distrito_id,"
+			+ " d.nombre as nomdistrito, "
+			+ " a.dni_apoderado, e.condicion from estudiantes e "
+			+ " inner join apoderados a on e.dni_apoderado = a.dni_apoderado"
+			+ " inner join distritos d on e.distrito_id = d.distrito_id", nativeQuery = true)
+	Collection<Map<String, ?>> buscarEstudiantes();
 
 	@Query(value = "select * from estudiantes where correo = ?", nativeQuery = true)
 	Estudiante findByCorreo(String correo);

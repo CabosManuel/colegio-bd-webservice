@@ -35,6 +35,9 @@ public class Seccion implements Serializable{
 	@OneToMany(mappedBy = "seccion")
 	private Collection<HorarioCabecera> HorariosCabecera = new ArrayList<>();
 	
+	@OneToMany(mappedBy = "seccion")
+	private Collection<Nota> itemsNota = new ArrayList<>();
+	
 	public Seccion() {
 	}
 
@@ -86,5 +89,20 @@ public class Seccion implements Serializable{
 	public void setItemsMatricula(Collection<Matricula> itemsMatricula) {
 		this.itemsMatricula = itemsMatricula;
 	}
-	
+
+	public Collection<HorarioCabecera> getHorariosCabecera() {
+		return HorariosCabecera;
+	}
+
+	public void setHorariosCabecera(Collection<HorarioCabecera> horariosCabecera) {
+		HorariosCabecera = horariosCabecera;
+	}
+
+	public Collection<Nota> getItemsNota() {
+		return itemsNota;
+	}
+
+	public void setItemsNota(Collection<Nota> itemsNota) {
+		this.itemsNota = itemsNota;
+	}
 }

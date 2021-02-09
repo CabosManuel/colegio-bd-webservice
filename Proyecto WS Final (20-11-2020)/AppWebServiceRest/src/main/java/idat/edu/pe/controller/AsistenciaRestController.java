@@ -1,9 +1,14 @@
 package idat.edu.pe.controller;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Map;
 
+import org.apache.tomcat.jni.Time;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -100,15 +105,17 @@ public class AsistenciaRestController {
 	@PutMapping("/editar/{asistenciaId}")
 	public ResponseEntity<?> editar(@PathVariable Integer asistenciaId, @RequestBody Asistencia newAsistencia){
 		
-		Asistencia asistenciaOb = s.findById(asistenciaId);
-		Estudiante estudiante =es.findByDniEstudiante(newAsistencia.getDniEstudiante().getDniEstudiante());
+		Map<String,?> asistenciaOb = s.buscarPorId(asistenciaId);
+		Asistencia asistenciaC = MapperUtil.convert(asistenciaOb);
+		
+		LocalDate hoy = LocalDate.now();
+		LocalTime ahora = LocalTime.now();
 		
 		if(asistenciaOb!=null) {
-			asistenciaOb.setAsistencia(newAsistencia.getAsistencia());
-			asistenciaOb.setDniEstudiante(estudiante);
-			asistenciaOb.setEstado(newAsistencia.getEstado());
+			asistenciaC.setAsistencia(LocalDateTime.of(hoy, ahora));
+			asistenciaC.setEstado(newAsistencia.getEstado());
 
-			s.update(asistenciaOb);
+			s.update(asistenciaC);
 			return new ResponseEntity<>("Se actualizó correctamente.",HttpStatus.OK);
 		}
 		
