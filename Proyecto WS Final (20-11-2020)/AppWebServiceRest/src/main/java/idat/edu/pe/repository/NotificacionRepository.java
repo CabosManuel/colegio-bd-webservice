@@ -23,7 +23,7 @@ public interface NotificacionRepository extends CrudRepository<Notificacion, Int
 	@Modifying
 	@Query(value = "update notificaciones set estado = :estado " +
 						"where notificacion_id = :notificacionId", nativeQuery = true)
-	void confirmarCitacion(@Param("estado")Character estado, @Param("notificacionId") Integer notificacionId);
+	void cambiarEstado(@Param("estado")Character estado, @Param("notificacionId") Integer notificacionId);
 	
 	@Query(value = "select * from notificaciones where notificacion_id = ?", nativeQuery = true)
 	Map<String, Object> buscarPorId(Integer notificacionId);

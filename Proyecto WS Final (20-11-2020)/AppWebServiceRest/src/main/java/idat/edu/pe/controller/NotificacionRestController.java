@@ -1,5 +1,8 @@
 package idat.edu.pe.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,14 +22,16 @@ public class NotificacionRestController {
 	@Autowired
 	private NotificacionService notifService;
 	
-	@PutMapping("/citacion/{notificacionId}/{estado}")
-	public ResponseEntity<?> confirmarCitacion(@PathVariable Character estado,@PathVariable Integer notificacionId){
+	@PutMapping("/cambiar_estado/{notificacionId}/{estado}")
+	public ResponseEntity<?> cambiarEstado(@PathVariable Character estado,@PathVariable Integer notificacionId){
 		try {
-			notifService.confirmarCitacion(estado, notificacionId);
-			return new ResponseEntity<>(estado, HttpStatus.OK);
+			notifService.cambiarEstado(estado, notificacionId);
+			Map<String, Character> r = new HashMap<>();
+			r.put("estado", estado);
+			return new ResponseEntity<>(r, HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return new ResponseEntity<>(estado, HttpStatus.CONFLICT);
+			return new ResponseEntity<>(HttpStatus.CONFLICT);
 		}
 	}
 }

@@ -25,8 +25,8 @@ public class NotificacionServiceImpl implements NotificacionService{
 	
 	@Transactional
 	@Override
-	public void confirmarCitacion(Character estado, Integer notificacionId) {
-		r.confirmarCitacion(estado, notificacionId);
+	public void cambiarEstado(Character estado, Integer notificacionId) {
+		r.cambiarEstado(estado, notificacionId);
 	}
 	
 	@Transactional(readOnly = true)
