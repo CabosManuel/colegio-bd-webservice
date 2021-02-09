@@ -2,6 +2,7 @@ package idat.edu.pe.service;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -78,8 +79,16 @@ public class JustificacionServiceImpl  implements JustificacionService{
 		return repository.getJustificacionesByDniEstudiante(dniEstudiante);
 	}
 
-	public void registrarJustificacion(String dniEstudiante, Date fechaEnvio, Date fechaJustificacion,
+	@Override
+	@Transactional
+	public void registrarJustificacion(String dniEstudiante, String fechaEnvio, String fechaJustificacion,
 					   String titulo, String descripcion){
 		repository.registrarJustificacion(dniEstudiante, fechaEnvio, fechaJustificacion, titulo, descripcion);
+	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public Map<String, Integer> getUltimoId(){
+		return repository.getUltimoId();
 	}
 }

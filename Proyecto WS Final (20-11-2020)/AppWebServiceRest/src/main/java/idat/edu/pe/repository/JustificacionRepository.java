@@ -2,7 +2,9 @@ package idat.edu.pe.repository;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.Map;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
@@ -25,8 +27,14 @@ public interface JustificacionRepository extends CrudRepository<Justificacion, I
 			"order by j.fecha_envio desc", nativeQuery = true)
 	Collection<Object[]> getJustificacionesByDniEstudiante(String dniEstudiante);
 	
+	@Modifying
 	@Query(value = "insert into justificaciones" +
-	       "(titulo, fecha_envio, fecha_justificacion, dni_estudiante, descripcion) values " + 
+	       "(dni_estudiante, fecha_envio, fecha_justificacion, titulo, descripcion) values " + 
 	       "(?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
-	void registrarJustificacion(String dniEstudiante, Date fechaEnvio, Date fechaJustificacion, String titulo, String descripcion);
+	void registrarJustificacion(String dniEstudiante, String fechaEnvio, String fechaJustificacion, String titulo, String descripcion);
+	
+	@Query(value = "select justificacion_id from justificaciones " + 
+			"order by justificacion_id desc " + 
+			"limit 1", nativeQuery = true)
+	Map<String, Integer> getUltimoId();
 }

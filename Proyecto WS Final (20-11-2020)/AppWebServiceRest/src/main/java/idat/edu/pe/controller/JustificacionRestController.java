@@ -1,6 +1,8 @@
 package idat.edu.pe.controller;
 
 import java.util.Collection;
+import java.util.Date;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -108,6 +110,20 @@ public class JustificacionRestController {
 		}
 			
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+	}
+	
+	@PostMapping("/registrar")
+	public ResponseEntity<?> nuevaJustificacion(@RequestBody Map<String, Object> nuevaJustificacion){
+		justificacionService.registrarJustificacion(
+				nuevaJustificacion.get("dni_estudiante").toString(), 
+				nuevaJustificacion.get("fecha_envio").toString(), 
+				nuevaJustificacion.get("fecha_justificacion").toString(), 
+				nuevaJustificacion.get("titulo").toString(), 
+				nuevaJustificacion.get("descripcion").toString());
+		
+		Map<String, Integer> respuesta = justificacionService.getUltimoId();
+		
+		return new ResponseEntity<> (respuesta, HttpStatus.CREATED);
 	}
 }
 

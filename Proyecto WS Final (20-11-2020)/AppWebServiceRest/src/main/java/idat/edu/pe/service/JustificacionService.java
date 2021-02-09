@@ -2,6 +2,7 @@ package idat.edu.pe.service;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.Map;
 
 import idat.edu.pe.model.Justificacion;
 
@@ -27,5 +28,7 @@ public interface JustificacionService {
 	
 	Collection<Object[]> getJustificacionesByDniEstudiante(String dniEstudiante);
 	
-	void registrarJustificacion(String dniEstudiante, Date fechaEnvio, Date fechaJustificacion, String titulo, String descripcion);
+	void registrarJustificacion(String dniEstudiante, String fechaEnvio, String fechaJustificacion, String titulo, String descripcion);
+	
+	Map<String, Integer> getUltimoId();
 }

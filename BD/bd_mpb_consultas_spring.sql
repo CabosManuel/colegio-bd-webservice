@@ -15,6 +15,16 @@ select * from notificaciones;
 select * from secciones;
 select * from trabajadores;
 
+-- --------------------------------
+-- REGISTRAR JUSTIFICACIONES
+-- --------------------------------
+/*insert into justificaciones
+(dni_estudiante, fecha_envio, fecha_justificacion, titulo, descripcion) values 
+(?1, ?2, ?3, ?4, ?5)*/
+
+select justificacion_id from justificaciones
+order by justificacion_id desc
+limit 1;
 
 -- --------------------------------
 -- CONFIRMAR/RECHAZAR CITACIONES
