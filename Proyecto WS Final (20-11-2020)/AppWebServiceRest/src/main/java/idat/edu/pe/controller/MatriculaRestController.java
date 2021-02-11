@@ -79,6 +79,7 @@ public class MatriculaRestController {
 				matriculaMapper.setNombrenivel(nivel.getNombre());
 			}
 		}
+		
 		for(Grado grado: grados) {
 			Grado g = new Grado();
 			if(grado.getGradoId() == matriculaMapper.getGrado()) {

@@ -17,7 +17,7 @@ public interface EstudianteService {
 
 	Estudiante findByDniEstudiante(String dniEstudiante);
 
-	Estudiante findByCorreo(String correo);	
+	Map<String, ?> buscarCorreo(String correo);	
 
 	Collection<Map<String, ?>> findByDniApoderado(String dniApoderado);
 
@@ -32,4 +32,10 @@ public interface EstudianteService {
 	Collection<Map<String, ?>> findByEstudiantes(Integer seccionId);
 	
 	Collection<Map<String, ?>> buscarEstudiantesPorCurso(Integer cursoId);
+	
+	void modificarEstudiante(String nombre, String apellido, String celular,  String fnacimiento, String correo, Integer distritoId
+			, String direccion, String dniEstudiante);
+	
+	void registrarEstudiante(String dniEstudiante, String nombre, String apellido, String celular, String correo, String fnacimiento, 
+			String dniApoderado, Integer distritoId, String direccion, String pass, String condicion, Boolean estado);
 }

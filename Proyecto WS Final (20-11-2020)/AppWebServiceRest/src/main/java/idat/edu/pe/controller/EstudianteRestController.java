@@ -1,7 +1,8 @@
 package idat.edu.pe.controller;
 
-import java.sql.Date;
+
 import java.util.Collection;
+import java.util.Date;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,11 +70,10 @@ public class EstudianteRestController {
 	@GetMapping("/buscarCorreo/{correo}")
 	public ResponseEntity<?> buscarPorCorreo(@PathVariable String correo){
 		
-		Estudiante estudianteOb = estudianteService.findByCorreo(correo);
-		EstudianteMapper estudianteMapper = MapperUtil.convert(estudianteOb);
+		Map<String, ?> estudianteOb = estudianteService.buscarCorreo(correo);
 		
-		if(estudianteOb!=null) {
-			return new ResponseEntity<>(estudianteMapper, HttpStatus.OK);
+		if(estudianteOb!=null && !estudianteOb.isEmpty()) {
+			return new ResponseEntity<>(estudianteOb, HttpStatus.OK);
 		}
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 		
@@ -104,38 +104,41 @@ public class EstudianteRestController {
 	}
 	
 	@PostMapping("/agregar")
-	public ResponseEntity<?> agregar(@RequestBody Estudiante estudiante){
-		
-	    estudiante.setDistrito(distritoService.findById(estudiante.getDistrito().getDistritoId()));
-	    estudiante.setApoderado(apoderadoService.findByDniApoderado(estudiante.getApoderado().getDniApoderado()));
-		estudianteService.insert(estudiante);
-		return new ResponseEntity<Void>(HttpStatus.CREATED);
-	
+	public ResponseEntity<?> nuevaEstudiante(@RequestBody Map<String, Object> nuevaE) {
+
+		estudianteService.registrarEstudiante(
+				nuevaE.get("dni_estudiante").toString(),
+				nuevaE.get("nombre").toString(),
+				nuevaE.get("apellido").toString(),
+				nuevaE.get("celular").toString(),
+				nuevaE.get("correo").toString(),
+				nuevaE.get("fnacimiento").toString(),
+				nuevaE.get("dni_apoderado").toString(),
+				(Integer.parseInt(nuevaE.get("distrito_id").toString())),
+				nuevaE.get("direccion").toString(),
+				nuevaE.get("pass").toString(),
+				nuevaE.get("condicion").toString(),
+				(Boolean.parseBoolean(nuevaE.get("estado").toString())));
+
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
+
 	
 	@PutMapping("/editar/{dniEstudiante}")
-	public ResponseEntity<?> editar(@PathVariable String dniEstudiante, @RequestBody Estudiante newEstudiante){
-		
-		Estudiante estudianteOb = estudianteService.findByDniEstudiante(dniEstudiante);
-		Distrito distrito =distritoService.findById(newEstudiante.getDistrito().getDistritoId());
-		
-		if(estudianteOb!=null) {
-			estudianteOb.setNombre(newEstudiante.getNombre());
-			estudianteOb.setApellido(newEstudiante.getApellido());
-			estudianteOb.setCelular(newEstudiante.getCelular());
-			estudianteOb.setCorreo(newEstudiante.getCorreo());
-			estudianteOb.setDireccion(newEstudiante.getDireccion());
-			estudianteOb.setDistrito(distrito);
-			estudianteOb.setDniEstudiante(newEstudiante.getDniEstudiante());
-			estudianteOb.setApoderado(new Apoderado(newEstudiante.getApoderado().getDniApoderado()));
-			estudianteOb.setFnacimiento(newEstudiante.getFnacimiento());
-			estudianteOb.setPass(newEstudiante.getPass());
-			
-			estudianteService.update(estudianteOb);
-			return new ResponseEntity<>("La estudiante con el dni " + dniEstudiante + " se actualizó correctamente.",HttpStatus.OK);
-		}
-		
-		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+	public ResponseEntity<?> modificarEstudiante(@PathVariable String dniEstudiante,@RequestBody Map<String, Object> nuevaE) {
+	
+		estudianteService.modificarEstudiante(
+				nuevaE.get("nombre").toString(),
+				nuevaE.get("apellido").toString(),
+				nuevaE.get("celular").toString(),
+				nuevaE.get("fnacimiento").toString(),
+				nuevaE.get("correo").toString(),
+				Integer.parseInt(nuevaE.get("distrito_id").toString()),
+				nuevaE.get("direccion").toString(),
+				dniEstudiante
+				);
+				
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	@PutMapping("/desactivar/{dniEstudiante}")
@@ -165,7 +168,7 @@ public class EstudianteRestController {
 		// Este actualiza en la BD
 		estudianteDb.setNombre(nuevoEstudianteMap.get("nombre").toString());
 		estudianteDb.setApellido(nuevoEstudianteMap.get("apellido").toString());
-		estudianteDb.setFnacimiento(Date.valueOf(nuevoEstudianteMap.get("fnacimiento").toString()));
+		estudianteDb.setFnacimiento(java.sql.Date.valueOf(nuevoEstudianteMap.get("fnacimiento").toString()));
 		estudianteDb.setCelular(nuevoEstudianteMap.get("celular").toString());
 		estudianteDb.setCorreo(nuevoEstudianteMap.get("correo").toString());
 		estudianteDb.setDireccion(nuevoEstudianteMap.get("direccion").toString());			

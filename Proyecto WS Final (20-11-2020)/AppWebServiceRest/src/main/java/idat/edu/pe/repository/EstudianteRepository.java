@@ -3,10 +3,12 @@ package idat.edu.pe.repository;
 import java.util.Collection;
 import java.util.Map;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import idat.edu.pe.model.Estudiante;
+import idat.edu.pe.model.Matricula;
 
 public interface EstudianteRepository extends CrudRepository<Estudiante, String> {
 
@@ -30,8 +32,8 @@ public interface EstudianteRepository extends CrudRepository<Estudiante, String>
 			+ " inner join distritos d on e.distrito_id = d.distrito_id", nativeQuery = true)
 	Collection<Map<String, ?>> buscarEstudiantes();
 
-	@Query(value = "select * from estudiantes where correo = ?", nativeQuery = true)
-	Estudiante findByCorreo(String correo);
+	@Query(value = "select correo from estudiantes where correo = ?1", nativeQuery = true)
+	Map<String, ?> buscarCorreo(String correo);	
 
 	@Query(value = "SELECT e.dni_estudiante, e.nombre, e.apellido " 
 			+ "from estudiantes e "
@@ -65,4 +67,19 @@ public interface EstudianteRepository extends CrudRepository<Estudiante, String>
 			+ "			where c.curso_id like ?", nativeQuery=true)
 	Collection<Map<String, ?>> buscarEstudiantesPorCurso(Integer cursoId);
 
+	@Modifying
+	@Query(value = "update estudiantes set nombre = ?1, apellido = ?2, celular = ?3, " +
+				   "fnacimiento = ?4, correo = ?5, distrito_id = ?6, direccion = ?7 where dni_estudiante = ?8", 
+				   nativeQuery = true)
+	void modificarEstudiante(String nombre, String apellido, String celular,  String fnacimiento, String correo, Integer distritoId
+			, String direccion, String dniEstudiante);
+	
+	@Modifying
+	@Query(value = "insert into estudiantes" +
+	       "(dni_estudiante, nombre, apellido, celular, correo, fnacimiento, dni_apoderado, distrito_id, direccion, pass, condicion, estado) values " + 
+	       "(?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12)", nativeQuery = true)
+	void registrarEstudiante(String dniEstudiante, String nombre, String apellido, String celular, String correo, String fnacimiento, 
+			String dniApoderado, Integer distritoId, String direccion, String pass, String condicion, Boolean estado);
+
+	
 }

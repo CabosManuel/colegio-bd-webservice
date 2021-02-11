@@ -112,7 +112,7 @@ public class NotaRestController {
 	}
 
 	@PostMapping("/agregar")
-	public ResponseEntity<?> nuevaJustificacion(@RequestBody Map<String, Object> nuevaNota) {
+	public ResponseEntity<?> nuevaNota(@RequestBody Map<String, Object> nuevaNota) {
 
 		s.registrarNota((Integer.parseInt(nuevaNota.get("seccion_id").toString())),
 				(Integer.parseInt(nuevaNota.get("curso_id").toString())), nuevaNota.get("dni_estudiante").toString(),

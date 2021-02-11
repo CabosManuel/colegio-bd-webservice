@@ -1,6 +1,7 @@
 package idat.edu.pe.service;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,7 +51,7 @@ public class MatriculaServiceImpl implements MatriculaService{
 
 	@Transactional(readOnly = true)
 	@Override
-	public Matricula findByEstudiante(String dniEstudiante) {
+	public Map<String, ?> findByEstudiante(String dniEstudiante) {
 		return r.findByEstudiante(dniEstudiante);
 	}
 	

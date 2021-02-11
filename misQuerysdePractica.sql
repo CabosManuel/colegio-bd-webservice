@@ -217,19 +217,26 @@ inner join secciones s on hc.seccion_id = s.seccion_id
 inner join trabajadores t on hd.trabajador_id = t.trabajador_id
 where s.seccion_id = 10 and t.trabajador_id = 4;
 
+select hd.horario_detalle_id, hd.dia, hd.hora_inicio, hd.hora_fin, 
+c.curso_id, hc.horario_cabecera_id, t.trabajador_id from horario_detalle hd
+inner join horario_cabecera hc on hc.horario_cabecera_id = hd.horario_cabecera_id
+inner join secciones s on hc.seccion_id = s.seccion_id
+inner join cursos c on hd.curso_id = c.curso_id
+inner join trabajadores t on hd.trabajador_id = t.trabajador_id
+where s.seccion_id = 10;
+
 select * from estudiantes e
 inner join matriculas m on e.dni_estudiante = m.dni_estudiante
 inner join secciones s on m.seccion_id = s.seccion_id
-where s.seccion_id = 10
+where s.seccion_id = 10;
 
 select * from horario_cabecera hc
 			inner join horario_detalle hd on hc.horario_cabecera_id = hd.horario_cabecera_id
 			inner join secciones s on hc.seccion_id = s.seccion_id
 			inner join trabajadores t on hd.trabajador_id = t.trabajador_id
 			where s.seccion_id = 10 and t.trabajador_id = 4;
-            
 
-select m.matricula_id, e.dni_estudiante, m.fecha, s.seccion_id, if(e.condicion = 'Promovido' and g.grado_id > 9, n.nivel_id + 1, n.nivel_id) as Nivel,
+select m.matricula_id, e.dni_estudiante, m.fecha, s.seccion_id, if(e.condicion = 'Promovido' and (n.nivel_id = 1 and g.grado_id = 3), n.nivel_id + 1, n.nivel_id) as Nivel,
 						if(e.condicion = 'Promovido', g.grado_id + 1, g.grado_id) as Grado, s.seccion_id as Seccion
 						from matriculas m
 						inner join secciones s on m.seccion_id = s.seccion_id
@@ -249,7 +256,7 @@ select * from estudiantes;
 select e.dni_estudiante, e.nombre, e.apellido from estudiantes e
 			inner join matriculas m on e.dni_estudiante = m.dni_estudiante
 			inner join secciones s on m.seccion_id = s.seccion_id
-			where s.seccion_id = 10
+			where s.seccion_id = 10;
 
 -- buscar cursos por trabajador
 select c.nombre as Curso, n.nombre as Nivel, g.nombre as Grado, s.nombre as Seccion
@@ -260,7 +267,7 @@ select c.nombre as Curso, n.nombre as Nivel, g.nombre as Grado, s.nombre as Secc
             inner join grados g on s.grado_id = g.grado_id
             inner join niveles n on g.nivel_id = n.nivel_id
 			inner join trabajadores t on hd.trabajador_id = t.trabajador_id
-			where t.trabajador_id = 4
+			where t.trabajador_id = 2;
 
 -- Buscar estudiantes por curso
 select e.dni_estudiante, e.nombre, e.apellido from estudiantes e
@@ -268,7 +275,7 @@ select e.dni_estudiante, e.nombre, e.apellido from estudiantes e
             inner join horario_cabecera hc on m.seccion_id = hc.seccion_id
             inner join horario_detalle hd on hc.horario_cabecera_id = hd.horario_cabecera_id
             inner join cursos c on hd.curso_id = c.curso_id
-			where c.curso_id like 1
+			where c.curso_id like 1;
 
 select * from apoderados;
 
@@ -276,17 +283,18 @@ select * from apoderados;
 select e.dni_estudiante, e.nombre, e.apellido, n.nota1, n.nota2, n.nota3 from notas n
 			inner join estudiantes e on e.dni_estudiante = n.dni_estudiante
             inner join cursos c on n.curso_id = c.curso_id
-			where c.curso_id like 1
+			where c.curso_id like 1;
 
 -- Buscar nota por Id
 select n.nota_id, c.curso_id, e.dni_estudiante, n.fecha, n.nota1, n.nota2, n.nota3 from notas n
 inner join cursos c on n.curso_id = c.curso_id 
 inner join estudiantes e on n.dni_estudiante = e.dni_estudiante
-where n.nota_id like 21;
+where n.nota_id like 22;
 
 select * from notas;
-update notas set nota2 = null, nota3 = null where nota_id = 21
-delete from notas where nota_id = 19;
+update notas set nota2 = null, nota3 = null where nota_id = 22;
+
+delete from asistencias where horario_detalle_id = 2;
 delete from notas where nota_id = 20;
 delete from notas where nota_id = 13;
 delete from notas where nota_id = 14;
@@ -294,3 +302,15 @@ delete from notas where nota_id = 15;
 delete from notas where nota_id = 16;
 delete from notas where nota_id = 17;
 
+select * from horario_cabecera;
+select * from horario_detalle;
+select * from secciones;
+select * from asistencias;
+
+insert into horario_detalle(dia, hora_inicio, hora_fin, curso_id, horario_cabecera_id, trabajador_id) values('Miercoles', '08:00','09:00',1,1,4);
+
+select hd.horario_detalle_id, a.asistencia_id, a.asistencia, a.estado, e.dni_estudiante, e.nombre, e.apellido 
+			from asistencias a
+            inner join horario_detalle hd on a.horario_detalle_id = hd.horario_detalle_id
+			inner join estudiantes e on a.dni_estudiante = e.dni_estudiante
+			where hd.horario_detalle_id like 2;

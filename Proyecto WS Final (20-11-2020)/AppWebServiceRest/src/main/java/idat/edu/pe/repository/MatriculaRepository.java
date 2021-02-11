@@ -1,5 +1,7 @@
 package idat.edu.pe.repository;
 
+import java.util.Map;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
@@ -16,5 +18,5 @@ public interface MatriculaRepository extends CrudRepository<Matricula, Integer>{
 			+ "						inner join estudiantes e on m.dni_estudiante = e.dni_estudiante\r\n"
 			+ "						where e.dni_estudiante = ?\r\n"
 			+ "                        ORDER by m.matricula_id DESC LIMIT 1", nativeQuery=true)
-	public abstract Matricula findByEstudiante(String dniEstudiante);
+	Map<String, ?> findByEstudiante(String dniEstudiante);
 }
