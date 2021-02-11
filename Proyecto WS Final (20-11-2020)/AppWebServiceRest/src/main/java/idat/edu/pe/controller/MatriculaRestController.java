@@ -1,6 +1,7 @@
 package idat.edu.pe.controller;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -68,8 +69,8 @@ public class MatriculaRestController {
 	@GetMapping("/buscarEstudiante/{dniEstudiante}")
 	public ResponseEntity<?> BuscarEstudiante(@PathVariable String dniEstudiante){
 		
-		Matricula matriculaOb = service.findByEstudiante(dniEstudiante);
-		MatriculaMapper matriculaMapper = MapperUtil.convert(matriculaOb);
+		Map<String,?> matriculaOb = service.findByEstudiante(dniEstudiante);
+		/*MatriculaMapper matriculaMapper = MapperUtil.convert(matriculaOb);
 		Collection<Nivel> niveles = nservice.findAll();
 		Collection<Grado> grados = gservice.findByNivel(matriculaMapper.getNivel());
 		
@@ -86,10 +87,10 @@ public class MatriculaRestController {
 				matriculaMapper.setGrado(grado.getGradoId());
 				matriculaMapper.setNombregrado(grado.getNombre());
 			}
-		}
+		}*/
 		
-		if(matriculaOb != null) {
-			return new ResponseEntity<>(matriculaMapper, HttpStatus.OK);
+		if(matriculaOb != null && !matriculaOb.isEmpty()) {
+			return new ResponseEntity<>(matriculaOb, HttpStatus.OK);
 		}
 		
 		return new ResponseEntity<>("La estudiante con el dni " + dniEstudiante + " no se encuentra matriculada.", HttpStatus.NO_CONTENT);
