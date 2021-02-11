@@ -97,9 +97,9 @@ public class ApoderadoRestController {
 	}
 	
 	@PostMapping("/agregar")
-	public ResponseEntity<?> agregar(@RequestBody Apoderado apoderado){
+	public ResponseEntity<?> agregar(@RequestBody /*Apoderado*/Map<String,Object> apoderado){
 		
-		service.insert(apoderado);
+		service.nuevoApoderado(apoderado);
 		return new ResponseEntity<>("Se creó correctamente",HttpStatus.CREATED);
 	
 	}

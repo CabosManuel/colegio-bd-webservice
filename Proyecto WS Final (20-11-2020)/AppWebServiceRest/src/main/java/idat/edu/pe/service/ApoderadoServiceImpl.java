@@ -70,4 +70,21 @@ public class ApoderadoServiceImpl implements ApoderadoService{
 	public Map<String, ?> buscarPorDniApoderado(String dniApoderado) {
 		return r.buscarPorDniApoderado(dniApoderado);
 	}
+	
+	@Transactional
+	@Override
+	public void nuevoApoderado(Map<String, Object> a) {
+		System.out.println(a.get("distrito_id"));
+		
+		r.nuevoApoderado(
+				a.get("dniApoderado").toString(),
+				a.get("nombre").toString(),
+				a.get("apellido").toString(),
+				a.get("celular").toString(),
+				a.get("correo").toString(),
+				a.get("pass").toString(),
+				a.get("direccion").toString(),
+				Boolean.parseBoolean(a.get("estado").toString()),
+				Integer.parseInt(a.get("distrito_id").toString()));
+	}
 }

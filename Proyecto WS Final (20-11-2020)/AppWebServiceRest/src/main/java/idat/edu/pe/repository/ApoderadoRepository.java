@@ -3,6 +3,7 @@ package idat.edu.pe.repository;
 import java.util.Collection;
 import java.util.Map;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
@@ -34,4 +35,10 @@ public interface ApoderadoRepository extends CrudRepository<Apoderado, String> {
 	@Query(value = "select nombre, apellido, dni_apoderado "
 			+ "from apoderados where dni_apoderado = ?", nativeQuery = true)
 	Map<String, ?> buscarPorDniApoderado(String dniApoderado);
+
+	@Modifying
+	@Query(value = "insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, direccion, estado, distrito_id) "
+			+ "values (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9);", nativeQuery = true)
+	void nuevoApoderado(String dni_apoderado, String nombre, String apellido, String celular, String correo, String pass,
+			String direccion, boolean estado, int distrito_id);
 }

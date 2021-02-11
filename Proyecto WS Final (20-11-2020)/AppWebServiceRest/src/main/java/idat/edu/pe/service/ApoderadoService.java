@@ -24,4 +24,6 @@ public interface ApoderadoService {
 	Map<String, ?> buscarPorCorreo(String correo);
 	
 	Map<String, ?> buscarPorDniApoderado(String dniApoderado);
+
+	void nuevoApoderado(Map<String, Object> apoderado);
 }
