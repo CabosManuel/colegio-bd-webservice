@@ -44,4 +44,8 @@ public interface TrabajadorRepository extends CrudRepository<Trabajador, Integer
 			+ "			inner join trabajadores t on hd.trabajador_id = t.trabajador_id\r\n"
 			+ "			where t.trabajador_id = ?", nativeQuery=true)
 	Collection<Map<String, ?>> seleccionarCursos(Integer trabajadorId);
+	
+	@Query(value = "select t.trabajador_id, t.nombres, t.apellidos, t.cargo, t.dni, t.fecha_nacimiento "
+			+ "from trabajadores t where t.correo = ? and t.pass = ?", nativeQuery = true)
+	Map<String, ?> obtenerPorCorreoPass(String correo, String pass);
 }

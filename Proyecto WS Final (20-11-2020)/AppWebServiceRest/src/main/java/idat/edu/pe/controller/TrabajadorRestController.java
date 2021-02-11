@@ -56,11 +56,10 @@ public class TrabajadorRestController {
 	
 	@GetMapping("/validar/{correo}/{pass}")
 	public ResponseEntity<?> validar(@PathVariable String correo, @PathVariable String pass){
-		Trabajador trabajador = serviceT.getfindByCorreoPass(correo, pass);
-		TrabajadorMapper trabajadorMapper = MapperUtil.convert(trabajador);
+		Map<String, ?> trabajador = serviceT.obtenerPorCorreoPass(correo, pass);
 		
-		if(trabajador != null) {
-			return new ResponseEntity<>(trabajadorMapper,HttpStatus.OK);
+		if(trabajador != null && !trabajador.isEmpty()) {
+			return new ResponseEntity<>(trabajador,HttpStatus.OK);
 		}		
 		return new ResponseEntity<>("Trabajador con esos parámetros no existe.", HttpStatus.NOT_FOUND);
 	}

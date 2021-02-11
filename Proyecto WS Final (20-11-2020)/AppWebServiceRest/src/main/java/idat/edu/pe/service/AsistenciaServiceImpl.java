@@ -56,4 +56,10 @@ public class AsistenciaServiceImpl implements AsistenciaService{
 		return r.findById(asistenciaId).orElse(null);
 	}
 
+	@Transactional(readOnly = true)
+	@Override
+	public Map<String, ?> buscarPorId(Integer asistenciaId) {
+		return r.buscarPorId(asistenciaId);
+	}
+
 }

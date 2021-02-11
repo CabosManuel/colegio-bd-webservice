@@ -70,4 +70,10 @@ public class TrabajadorServiceIml implements TrabajadorService{
 		return r.seleccionarCursos(trabajadorId);
 
 	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Map<String, ?> obtenerPorCorreoPass(String correo, String pass) {
+		return r.obtenerPorCorreoPass(correo, pass);
+	}
 }

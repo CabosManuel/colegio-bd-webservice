@@ -19,5 +19,7 @@ public interface TrabajadorService {
 	Collection<Map<String, ?>> getfindByDniEstudiante(String dniEstudiante);
 
 	Collection<Map<String, ?>> seleccionarCursos(Integer trabajadorId);
+	
+	Map<String, ?> obtenerPorCorreoPass(String correo, String pass);
 
 }

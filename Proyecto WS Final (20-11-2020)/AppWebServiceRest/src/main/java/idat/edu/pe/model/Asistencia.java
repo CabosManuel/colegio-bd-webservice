@@ -37,13 +37,13 @@ public class Asistencia implements Serializable {
 	private Boolean estado;
 
 	@ManyToOne
-	@JoinColumn(name = "dni_estudiante", nullable = false, updatable = true, 
+	@JoinColumn(name = "dni_estudiante", nullable = false, updatable = false, 
 	foreignKey = @ForeignKey(foreignKeyDefinition = 
 	"foreign key(dni_estudiante) references estudiantes(dni_estudiante)"))
 	private Estudiante dniEstudiante;
 
 	@ManyToOne
-	@JoinColumn(name = "horario_detalle_id", nullable = false, updatable = true, 
+	@JoinColumn(name = "horario_detalle_id", nullable = false, updatable = false, 
 	foreignKey = @ForeignKey(foreignKeyDefinition = 
 	"foreign key(horario_detalle_id) references horario_detalle(horario_detalle_id)"))
 	private HorarioDetalle horarioDetalleId;

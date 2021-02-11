@@ -1,15 +1,15 @@
 package idat.edu.pe.mapper;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import idat.edu.pe.model.Apoderado;
+import idat.edu.pe.model.Asistencia;
 import idat.edu.pe.model.Curso;
 import idat.edu.pe.model.Distrito;
 import idat.edu.pe.model.Estudiante;
@@ -21,13 +21,9 @@ import idat.edu.pe.model.Nivel;
 import idat.edu.pe.model.Nota;
 import idat.edu.pe.model.Seccion;
 import idat.edu.pe.model.Trabajador;
-import idat.edu.pe.service.GradoService;
 
 public class MapperUtil {
-
-	@Autowired
-	private GradoService gservice;
-
+	
 	public static Collection<EstudianteMapper> convert(Collection<Estudiante> itemsEstudiante) {
 
 		Collection<EstudianteMapper> itemsEstudianteMapper = new ArrayList<>();
@@ -73,6 +69,13 @@ public class MapperUtil {
 
 	}
 	
+	public static Asistencia convert(Map<String, ?> mapasistencia) {
+		Asistencia asistencia = new Asistencia();
+		asistencia.setAsistenciaId(Integer.parseInt(mapasistencia.get("asistencia_id").toString()));
+		asistencia.setEstado(Boolean.parseBoolean(mapasistencia.get("estado").toString()));
+		return asistencia;
+	} 
+	
 	// Map Estudiante a EstudianteLoginMapper
 	public static EstudianteLoginMapper convertEstudianteToEstudianteLogin(Map<String, ?> e) {
 		String fNacCorreccion = LocalDate.parse(e.get("fnacimiento").toString()).plusDays(1).toString();
@@ -87,25 +90,6 @@ public class MapperUtil {
 				Integer.parseInt(e.get("distrito_id").toString()));
 	}
 
-	public static EstudianteMapper1 convertEstudianteToEstudianteBuscar(Map<String, ?> e) {
-		//ApoderadoMapper Map<String, ?> a ;
-		return new EstudianteMapper1(
-				e.get("dni_estudiante").toString(),
-				e.get("nombre").toString(),
-				e.get("apellido").toString(),
-				e.get("fnacimiento").toString(),
-				e.get("celular").toString(),
-				e.get("correo").toString(),
-				e.get("direccion").toString(),
-				e.get("pass").toString(),
-				Boolean.parseBoolean(e.get("estado").toString()),
-				e.get("condicion").toString(),
-				e.get("nomdistrito").toString(),
-				Integer.parseInt(e.get("distritoId").toString()),
-				e.get("dniApoderado").toString()
-				);
-	}
-	
 	//Horario Map
 	public static Collection<HorarioDetalleMapper> convertDetalleHorario(Collection<Map<String, ?>> items) {
 		

@@ -13,4 +13,5 @@ public interface AsistenciaService {
 	public abstract void update(Asistencia asistencia);
 	public abstract Asistencia findById(Integer asistenciaId);
 	Collection<Map<String, ?>> buscarPorHorario(Integer horarioDetalleId);
+	Map<String, ?> buscarPorId(Integer asistenciaId);
 }

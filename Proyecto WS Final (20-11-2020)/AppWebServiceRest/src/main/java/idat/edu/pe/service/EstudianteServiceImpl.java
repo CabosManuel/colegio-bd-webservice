@@ -93,4 +93,10 @@ public class EstudianteServiceImpl implements EstudianteService {
 		return repository.buscarEstudiantesPorCurso(cursoId);
 
 	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Collection<Map<String, ?>> buscarEstudiantes() {
+		return repository.buscarEstudiantes();
+	}
 }

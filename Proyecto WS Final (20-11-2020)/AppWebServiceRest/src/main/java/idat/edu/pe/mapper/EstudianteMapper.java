@@ -15,18 +15,16 @@ public class EstudianteMapper
 	private Boolean estado;
 	private String condicion;
 	private DistritoMapper distrito;
+	private Integer distritoId;
 	private ApoderadoMapper apoderado;
+	private String dniApoderado;
 	
 	public EstudianteMapper() {
 	}
 	
-	
-
 	public EstudianteMapper(String dniEstudiante) {
 		this.dniEstudiante = dniEstudiante;
 	}
-
-
 
 	public EstudianteMapper(String dniEstudiante, String nombre, String apellido, Date fnacimiento, String celular,
 			String correo, String direccion, String pass, Boolean estado, String condicion, DistritoMapper distrito,
@@ -60,6 +58,25 @@ public class EstudianteMapper
 	}
 	
 	
+
+	public EstudianteMapper(String dniEstudiante, String nombre, String apellido, Date fnacimiento, String celular,
+			String correo, String direccion, Boolean estado, String condicion, Integer distritoId,
+			String dniApoderado) {
+		this.dniEstudiante = dniEstudiante;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.fnacimiento = fnacimiento;
+		this.celular = celular;
+		this.correo = correo;
+		this.direccion = direccion;
+		//this.pass = pass;
+		this.estado = estado;
+		this.condicion = condicion;
+		this.distritoId = distritoId;
+		this.dniApoderado = dniApoderado;
+	}
+
+
 
 	public EstudianteMapper(String dniEstudiante, String nombre, String apellido, Date fnacimiento, String celular,
 			String correo, String direccion, Boolean estado, String condicion, DistritoMapper distrito) {
@@ -169,6 +186,30 @@ public class EstudianteMapper
 
 	public void setApoderado(ApoderadoMapper apoderado) {
 		this.apoderado = apoderado;
+	}
+
+
+
+	public Integer getDistritoId() {
+		return distritoId;
+	}
+
+
+
+	public void setDistritoId(Integer distritoId) {
+		this.distritoId = distritoId;
+	}
+
+
+
+	public String getDniApoderado() {
+		return dniApoderado;
+	}
+
+
+
+	public void setDniApoderado(String dniApoderado) {
+		this.dniApoderado = dniApoderado;
 	}
 
 	

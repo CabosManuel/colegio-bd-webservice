@@ -41,4 +41,10 @@ public class CursoServiceImpl implements CursoService{
 	public Map<String, ?> findByCursoId(Integer cursoId) {
 		return r.findByCursoId(cursoId);
 	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Curso findByIdCurso(Integer cursoId) {
+		return r.findByIdCurso(cursoId);
+	}
 }

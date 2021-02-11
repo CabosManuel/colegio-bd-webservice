@@ -30,5 +30,8 @@ public interface CursoRepository extends CrudRepository<Curso, Integer>{
 			"where c.curso_id like ?",nativeQuery = true)
 	Map<String, ?> findByCursoId(Integer cursoId);
 	
+	@Query(value = "select * from cursos where curso_id = ?", nativeQuery = true)
+	Curso findByIdCurso(Integer cursoId);
+	
 	
 }

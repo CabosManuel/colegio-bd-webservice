@@ -17,16 +17,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import idat.edu.pe.mapper.EstudianteMapper;
 import idat.edu.pe.mapper.MapperUtil;
 import idat.edu.pe.mapper.NotaMapper;
 import idat.edu.pe.model.Curso;
 import idat.edu.pe.model.Estudiante;
 import idat.edu.pe.model.Nota;
-import idat.edu.pe.model.Trabajador;
 import idat.edu.pe.service.CursoService;
 import idat.edu.pe.service.EstudianteService;
 import idat.edu.pe.service.NotaService;
+import idat.edu.pe.service.SeccionService;
 
 @CrossOrigin("*")
 @RestController
@@ -41,9 +40,9 @@ public class NotaRestController {
 	
 	@Autowired
 	private CursoService c;
-
+	
 	@Autowired
-	private EstudianteService es;
+	private SeccionService ss;
 
 	@GetMapping("/consultar_notas")
 	public ResponseEntity<?> listarNotasDniEstudianteAnio(@RequestParam String dniEstudiante,
@@ -72,7 +71,7 @@ public class NotaRestController {
 	@GetMapping("/buscarDniEstudiante/{dni_Estudiante}")
 	public ResponseEntity<?> buscarPorDniEstudiante(@PathVariable String dni_Estudiante) {
 
-		if (es.findByDniEstudiante(dni_Estudiante) != null) {
+		if (e.findByDniEstudiante(dni_Estudiante) != null) {
 			Collection<Nota> notaOb = s.findByDniEstudiante(dni_Estudiante);
 			Collection<NotaMapper> notaMapper = MapperUtil.convertNotas(notaOb);
 
@@ -101,7 +100,8 @@ public class NotaRestController {
 	public ResponseEntity<?> agregar(@RequestBody Nota nota) {
 
 		 nota.setDniEstudiante(e.findByDniEstudiante(nota.getDniEstudiante().getDniEstudiante()));
-		 nota.setCurso(c.findById(nota.getCurso().getCursoId()));
+		 nota.setCurso(c.findByIdCurso(nota.getCurso().getCursoId()));
+		 nota.setSeccion(ss.findById(nota.getSeccion().getSeccionId()));
 		 s.insert(nota);
 		 return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
@@ -112,7 +112,7 @@ public class NotaRestController {
 		Nota NotaDb = s.findById(notaId);
 	//	NotaMapper NotaMapper = MapperUtil.convert(NotaDb);
 		Curso curso = c.findById(newNota.getCurso().getCursoId());
-		Estudiante estudiante = es.findByDniEstudiante(newNota.getDniEstudiante().getDniEstudiante());
+		Estudiante estudiante = e.findByDniEstudiante(newNota.getDniEstudiante().getDniEstudiante());
 		
 		if(NotaDb!=null) {
 			NotaDb.setCurso(curso);
