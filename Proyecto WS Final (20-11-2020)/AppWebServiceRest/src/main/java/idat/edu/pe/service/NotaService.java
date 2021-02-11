@@ -3,10 +3,9 @@ package idat.edu.pe.service;
 import java.util.Collection;
 import java.util.Map;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import idat.edu.pe.model.Nota;
-
 
 public interface NotaService {
 	public Collection<Object[]> findByDniEstudianteAnio(String dniEstudiante, String anio);
@@ -17,4 +16,8 @@ public interface NotaService {
 	Collection<Map<String, ?>> buscarNotasPorCurso(Integer cursoId, Integer seccionId);
 	Map<String, ?> buscarPorId(Integer notaId);
 	public abstract Nota findById(Integer notaId);
+	Collection<Map<String, ?>> DniEstudiante(String dniEstudiante);
+	void registrarNota(Integer seccionId, Integer cursoId, String dniEstudiante, Integer nota1, String fecha);
+	void modificarNota(String fecha, Integer nota1, Integer nota2, Integer nota3, Integer notaId);
+	
 }

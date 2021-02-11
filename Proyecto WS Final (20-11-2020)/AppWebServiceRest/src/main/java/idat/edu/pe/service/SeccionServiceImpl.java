@@ -61,4 +61,10 @@ public class SeccionServiceImpl implements SeccionService {
 		return (Collection<Map<String, ?>>)r.getfindByNivel(nivelId);
 	}
 
+	@Transactional(readOnly = true)
+	@Override
+	public Map<String, ?> buscarSeccion(Integer seccionId) {
+		return r.buscarSeccion(seccionId);
+	}
+
 }

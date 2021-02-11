@@ -1,6 +1,7 @@
 package idat.edu.pe.repository;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -19,5 +20,8 @@ public interface GradoRepository extends CrudRepository<Grado, Integer>{
 			"inner join niveles n on g.nivel_id = n.nivel_id\r\n" + 
 			"where n.nivel_id = ?", nativeQuery=true)
 	public abstract Collection<Grado> getfindByNivel(Integer nivelId);
+	
+	@Query(value="select nombre from grados where grado_id = ?1", nativeQuery=true)
+	Map<String, ?> buscarGrado(Integer gradoId);
 
 }

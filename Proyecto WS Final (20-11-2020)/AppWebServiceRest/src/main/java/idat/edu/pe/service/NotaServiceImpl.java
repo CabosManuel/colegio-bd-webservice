@@ -62,6 +62,26 @@ public class NotaServiceImpl implements NotaService{
 	public Nota findById(Integer notaId) {
 		return r.findById(notaId).orElse(null);
 	}
-	
+
+	@Transactional(readOnly = true)
+	@Override
+	public Collection<Map<String, ?>> DniEstudiante(String dniEstudiante) {
+		return (Collection<Map<String, ?>>)r.DniEstudiante(dniEstudiante);	
+	}
+
+	@Transactional
+	@Override
+	public void registrarNota(Integer seccionId, Integer cursoId, String dniEstudiante, Integer nota1, 
+			 String fecha) {
+		r.registrarNota(seccionId, cursoId, dniEstudiante, nota1, fecha);
+		
+	}
+
+	@Transactional
+	@Override
+	public void modificarNota(String fecha, Integer nota1, Integer nota2, Integer nota3, Integer notaId) {
+		r.modificarNota(fecha, nota1, nota2, nota3, notaId);
+	}
+
 	
 }

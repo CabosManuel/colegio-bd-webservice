@@ -76,4 +76,10 @@ public class TrabajadorServiceIml implements TrabajadorService{
 	public Map<String, ?> obtenerPorCorreoPass(String correo, String pass) {
 		return r.obtenerPorCorreoPass(correo, pass);
 	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Trabajador findByUsername(String username) {
+		return r.findByUsername(username);
+	}
 }

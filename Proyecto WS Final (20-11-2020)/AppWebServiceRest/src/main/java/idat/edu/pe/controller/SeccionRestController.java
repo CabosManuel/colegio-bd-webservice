@@ -51,6 +51,19 @@ public class SeccionRestController {
 		return new ResponseEntity<>("Estudiante con el dni " + seccionId + " no existente.", HttpStatus.NOT_FOUND);
 		
 	}
+	
+	@GetMapping("/obtenerSeccion/{seccionId}")
+	public ResponseEntity<?> buscarSeccion(@PathVariable Integer seccionId){
+		
+		Map<String, ?> seccionOb = service.buscarSeccion(seccionId);
+		
+		if(seccionOb!=null && !seccionOb.isEmpty()) {
+			return new ResponseEntity<>(seccionOb, HttpStatus.OK);
+		}
+		return new ResponseEntity<>("Estudiante con el dni " + seccionId + " no existente.", HttpStatus.NOT_FOUND);
+		
+	}
+	
 	@GetMapping("/buscar/{gradoId}")
 	public ResponseEntity<?> buscar(@PathVariable Integer gradoId){
 		

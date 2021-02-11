@@ -1,7 +1,10 @@
 package idat.edu.pe.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,13 +37,13 @@ public class NotaRestController {
 
 	@Autowired
 	private NotaService s;
-	
+
 	@Autowired
 	private EstudianteService e;
-	
+
 	@Autowired
 	private CursoService c;
-	
+
 	@Autowired
 	private SeccionService ss;
 
@@ -83,47 +86,84 @@ public class NotaRestController {
 		return new ResponseEntity<>("No existe una nota registrada para el dni " + dni_Estudiante + " .",
 				HttpStatus.NO_CONTENT);
 	}
-	
+
+	@GetMapping("/buscarPorEstudiante/{dni_Estudiante}")
+	public ResponseEntity<?> buscarPorEstudiante(@PathVariable String dni_Estudiante) {
+
+		Collection<Map<String, ?>> NotasOb = s.DniEstudiante(dni_Estudiante);
+
+		if (NotasOb != null && !NotasOb.isEmpty()) {
+			return new ResponseEntity<>(NotasOb, HttpStatus.OK);
+		}
+
+		return new ResponseEntity<>("No existe una nota registrada para el dni " + dni_Estudiante + " .",
+				HttpStatus.NO_CONTENT);
+	}
+
 	@GetMapping("/buscarNotas/{cursoId}/{seccionId}")
 	public ResponseEntity<?> buscarNotasPorCurso(@PathVariable Integer cursoId, @PathVariable Integer seccionId) {
 
 		Collection<Map<String, ?>> NotasOb = s.buscarNotasPorCurso(cursoId, seccionId);
-		if(NotasOb!=null && !NotasOb.isEmpty()) {
+		if (NotasOb != null && !NotasOb.isEmpty()) {
 			return new ResponseEntity<>(NotasOb, HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		
-	}
 
+	}
 
 	@PostMapping("/agregar")
-	public ResponseEntity<?> agregar(@RequestBody Nota nota) {
+	public ResponseEntity<?> nuevaJustificacion(@RequestBody Map<String, Object> nuevaNota) {
 
-		 nota.setDniEstudiante(e.findByDniEstudiante(nota.getDniEstudiante().getDniEstudiante()));
-		 nota.setCurso(c.findByIdCurso(nota.getCurso().getCursoId()));
-		 nota.setSeccion(ss.findById(nota.getSeccion().getSeccionId()));
-		 s.insert(nota);
-		 return new ResponseEntity<Void>(HttpStatus.CREATED);
+		s.registrarNota((Integer.parseInt(nuevaNota.get("seccion_id").toString())),
+				(Integer.parseInt(nuevaNota.get("curso_id").toString())), nuevaNota.get("dni_estudiante").toString(),
+				(Integer.parseInt(nuevaNota.get("nota1").toString())), nuevaNota.get("fecha").toString());
+
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
-	
+
+	/*
+	 * @PutMapping("/editar/{notaId}") public ResponseEntity<?> editar(@PathVariable
+	 * Integer notaId, @RequestBody Nota newNota) {
+	 * 
+	 * Nota NotaDb = s.findById(notaId); // NotaMapper NotaMapper =
+	 * MapperUtil.convert(NotaDb); Curso curso =
+	 * c.findById(newNota.getCurso().getCursoId()); Estudiante estudiante =
+	 * e.findByDniEstudiante(newNota.getDniEstudiante().getDniEstudiante());
+	 * 
+	 * if (NotaDb != null) { NotaDb.setCurso(curso);
+	 * NotaDb.setDniEstudiante(estudiante); NotaDb.setNota1(newNota.getNota1());
+	 * NotaDb.setNota2(newNota.getNota2()); NotaDb.setNota3(newNota.getNota3());
+	 * s.update(NotaDb); return new ResponseEntity<>("La nota con el id " + notaId +
+	 * " se actualizó correctamente.", HttpStatus.OK); }
+	 * 
+	 * return new ResponseEntity<>("Nota con ID: " + notaId + " no existe.",
+	 * HttpStatus.NOT_FOUND); }
+	 */
+
 	@PutMapping("/editar/{notaId}")
-	public ResponseEntity<?> editar(@PathVariable Integer notaId, @RequestBody Nota newNota){
-		
-		Nota NotaDb = s.findById(notaId);
-	//	NotaMapper NotaMapper = MapperUtil.convert(NotaDb);
-		Curso curso = c.findById(newNota.getCurso().getCursoId());
-		Estudiante estudiante = e.findByDniEstudiante(newNota.getDniEstudiante().getDniEstudiante());
-		
-		if(NotaDb!=null) {
-			NotaDb.setCurso(curso);
-			NotaDb.setDniEstudiante(estudiante);
-			NotaDb.setNota1(newNota.getNota1());
-			NotaDb.setNota2(newNota.getNota2());
-			NotaDb.setNota3(newNota.getNota3());
-			s.update(NotaDb);
-			return new ResponseEntity<>("La nota con el id " + notaId + " se actualizó correctamente.",HttpStatus.OK);
-		}
-		
-		return new ResponseEntity<>("Nota con ID: "+notaId+" no existe.",HttpStatus.NOT_FOUND);
+	public ResponseEntity<?> modificarNota(@PathVariable Integer notaId,@RequestBody Map<String, Object> nuevaNota) {
+	
+				Integer not1, not2, not3 = null;
+				String fecha = nuevaNota.get("fecha").toString();
+				if(nuevaNota.get("nota1").toString() != "") {
+					not1 = Integer.parseInt(nuevaNota.get("nota1").toString()); 
+				}else {
+					not1 = null;
+				}
+				
+				if(nuevaNota.get("nota2").toString() != "") {
+					not2 = Integer.parseInt(nuevaNota.get("nota2").toString()); 
+				}else {
+					not2 = null;
+				}
+				
+				if(nuevaNota.get("nota3") != null) {
+					if(!nuevaNota.get("nota3").toString().isEmpty()) {
+					not3 = Integer.parseInt(nuevaNota.get("nota3").toString()); 
+					}
+				}
+				
+				s.modificarNota(fecha, not1, not2, not3, notaId);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }

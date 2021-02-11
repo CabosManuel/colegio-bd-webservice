@@ -1,6 +1,7 @@
 package idat.edu.pe.controller;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,13 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import idat.edu.pe.mapper.GradoMapper;
 import idat.edu.pe.mapper.MapperUtil;
-import idat.edu.pe.mapper.SeccionMapper;
 import idat.edu.pe.model.Grado;
-import idat.edu.pe.model.Nivel;
-import idat.edu.pe.model.Seccion;
-import idat.edu.pe.model.Trabajador;
 import idat.edu.pe.service.GradoService;
-import idat.edu.pe.service.SeccionService;
 
 @CrossOrigin("*")
 @RestController
@@ -30,9 +26,6 @@ public class GradoRestController {
 	
 	@Autowired
 	private GradoService service;
-	
-	@Autowired
-	private SeccionService sservice;
 
 	@GetMapping("/listar")
 	public ResponseEntity<?> listar(){
@@ -53,6 +46,18 @@ public class GradoRestController {
 		
 		if(gradoOb!=null) {
 			return new ResponseEntity<>(gradoMapper, HttpStatus.OK);
+		}
+		return new ResponseEntity<>("Estudiante con el dni " + gradoId + " no existente.", HttpStatus.NOT_FOUND);
+		
+	}
+	
+	@GetMapping("/buscarGrado/{gradoId}")
+	public ResponseEntity<?> buscarGrado(@PathVariable Integer gradoId){
+		
+		Map<String, ?> grado = service.buscarGrado(gradoId);
+		
+		if(grado!=null && !grado.isEmpty()) {
+			return new ResponseEntity<>(grado, HttpStatus.OK);
 		}
 		return new ResponseEntity<>("Estudiante con el dni " + gradoId + " no existente.", HttpStatus.NOT_FOUND);
 		

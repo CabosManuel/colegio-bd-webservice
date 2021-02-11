@@ -1,6 +1,7 @@
 package idat.edu.pe.service;
 
 import java.util.Collection;
+import java.util.Map;
 
 import idat.edu.pe.model.Grado;
 
@@ -14,5 +15,6 @@ public interface GradoService {
 	public Collection<Grado> findByNivel(Integer nivelId);
 	
 	public Collection<Grado> getfindByNivel(Integer nivelId);
+	Map<String, ?> buscarGrado(Integer gradoId);
 	
 }

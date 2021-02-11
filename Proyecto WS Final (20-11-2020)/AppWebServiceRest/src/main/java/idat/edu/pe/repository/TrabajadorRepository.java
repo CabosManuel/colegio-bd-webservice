@@ -48,4 +48,7 @@ public interface TrabajadorRepository extends CrudRepository<Trabajador, Integer
 	@Query(value = "select t.trabajador_id, t.nombres, t.apellidos, t.cargo, t.dni, t.fecha_nacimiento "
 			+ "from trabajadores t where t.correo = ? and t.pass = ?", nativeQuery = true)
 	Map<String, ?> obtenerPorCorreoPass(String correo, String pass);
+	
+	@Query(value="select * from trabajadores where correo=?",nativeQuery=true)
+	public abstract Trabajador findByUsername(String username);
 }

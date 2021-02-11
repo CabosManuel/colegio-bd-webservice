@@ -26,7 +26,7 @@ public class Nota implements Serializable {
 	private String fecha;
 	
 	@ManyToOne
-	@JoinColumn(name = "seccion_id", nullable = false,
+	@JoinColumn(name = "seccion_id", nullable = false, updatable = false,
 	foreignKey = @ForeignKey(foreignKeyDefinition = 
 	"foreign key(seccion_id) references secciones(seccion_id)"))
 	private Seccion seccion;

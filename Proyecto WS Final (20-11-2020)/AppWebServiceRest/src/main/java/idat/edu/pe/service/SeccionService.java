@@ -16,5 +16,5 @@ public interface SeccionService {
 	Collection<Map<String, ?>> findByGrado(Integer gradoId);
 	
 	Collection<Map<String, ?>> getfindByNivel(Integer nivelId);
-	
+	Map<String, ?> buscarSeccion(Integer seccionId);
 }

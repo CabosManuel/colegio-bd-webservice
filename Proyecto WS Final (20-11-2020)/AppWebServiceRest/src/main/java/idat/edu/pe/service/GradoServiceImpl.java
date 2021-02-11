@@ -1,6 +1,7 @@
 package idat.edu.pe.service;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,6 +58,12 @@ public class GradoServiceImpl implements GradoService {
 	@Override
 	public Collection<Grado> getfindByNivel(Integer nivelId) {
 		return r.getfindByNivel(nivelId);
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Map<String, ?> buscarGrado(Integer gradoId) {
+		return r.buscarGrado(gradoId);
 	}
 
 	
