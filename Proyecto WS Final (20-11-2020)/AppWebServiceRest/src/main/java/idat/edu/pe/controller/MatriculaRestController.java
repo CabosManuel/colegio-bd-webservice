@@ -70,24 +70,6 @@ public class MatriculaRestController {
 	public ResponseEntity<?> BuscarEstudiante(@PathVariable String dniEstudiante){
 		
 		Map<String,?> matriculaOb = service.findByEstudiante(dniEstudiante);
-		/*MatriculaMapper matriculaMapper = MapperUtil.convert(matriculaOb);
-		Collection<Nivel> niveles = nservice.findAll();
-		Collection<Grado> grados = gservice.findByNivel(matriculaMapper.getNivel());
-		
-		for(Nivel nivel: niveles) {
-			if(nivel.getNivelId() == matriculaMapper.getNivel()) {
-				matriculaMapper.setNivel(nivel.getNivelId());
-				matriculaMapper.setNombrenivel(nivel.getNombre());
-			}
-		}
-		
-		for(Grado grado: grados) {
-			Grado g = new Grado();
-			if(grado.getGradoId() == matriculaMapper.getGrado()) {
-				matriculaMapper.setGrado(grado.getGradoId());
-				matriculaMapper.setNombregrado(grado.getNombre());
-			}
-		}*/
 		
 		if(matriculaOb != null && !matriculaOb.isEmpty()) {
 			return new ResponseEntity<>(matriculaOb, HttpStatus.OK);

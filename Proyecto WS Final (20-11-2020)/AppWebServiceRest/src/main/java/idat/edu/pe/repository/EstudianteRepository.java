@@ -81,5 +81,8 @@ public interface EstudianteRepository extends CrudRepository<Estudiante, String>
 	void registrarEstudiante(String dniEstudiante, String nombre, String apellido, String celular, String correo, String fnacimiento, 
 			String dniApoderado, Integer distritoId, String direccion, String pass, String condicion, Boolean estado);
 
-	
+	@Modifying
+	@Query(value = "update estudiantes set estado = ?1 where dni_estudiante = ?2", 
+				   nativeQuery = true)
+	void cambiarEstudiante(Boolean estado, String dniEstudiante);
 }
