@@ -15,7 +15,7 @@ public interface SeccionRepository extends CrudRepository<Seccion, Integer>{
 			  "where g.grado_id = ?", nativeQuery = true)
 	Collection<Map<String, ?>> findByGrado(Integer gradoId);
 	
-	@Query(value="select s.seccion_id, g.grado_id, s.nombre from secciones s " + 
+	@Query(value="select s.seccion_id, g.grado_id, g.nombre as nombreGra, n.nivel_id, n.nombre as nombreNiv, s.nombre as nombreSec from secciones s " + 
 			"inner join grados g on s.grado_id = g.grado_id \r\n" + 
 			"inner join niveles n on g.nivel_id = n.nivel_id \r\n" + 
 			"where n.nivel_id = ?", nativeQuery=true)

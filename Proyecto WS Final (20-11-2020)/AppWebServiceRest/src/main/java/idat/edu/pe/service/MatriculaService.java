@@ -14,5 +14,6 @@ public interface MatriculaService {
 	public abstract Collection<Matricula> findAll();
 	
 	Map<String, ?> findByEstudiante(String dniEstudiante);
+	void registrarMatricula(String grado, String nivel, String seccionId, String dniEstudiante);
 	
 }

@@ -26,4 +26,10 @@ public interface ApoderadoService {
 	Map<String, ?> buscarPorDniApoderado(String dniApoderado);
 
 	void nuevoApoderado(Map<String, Object> apoderado);
+	
+	Collection<Map<String, ?>> buscarApoderados();
+	
+	Map<String, ?> buscarApoderado(String dniApoderado);
+	
+	void cambiarApoderado(Boolean estado, String dniApoderado);
 }

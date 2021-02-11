@@ -49,24 +49,24 @@ public class ApoderadoRestController {
 	@GetMapping("/listar")
 	public ResponseEntity<?> listar(){
 		
-		Collection<Apoderado> itemApoderado = service.findAll();
-		Collection<ApoderadoMapper> itemsApoderadoMapper = MapperUtil.convertApoderados(itemApoderado);
+		Collection<Map<String, ?>> itemsApoderado= service.buscarApoderados();
 		
-		if(itemApoderado.isEmpty()) {
-			return new ResponseEntity<>("No hay apoderados registrados", HttpStatus.NO_CONTENT);
+		if(!itemsApoderado.isEmpty() && itemsApoderado != null) {
+			return new ResponseEntity<>(itemsApoderado, HttpStatus.OK);
 		}
 		
-		return new ResponseEntity<>(itemsApoderadoMapper, HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 	
 	@GetMapping("/buscar/{dniApoderado}")
 	public ResponseEntity<?> buscar(@PathVariable String dniApoderado){
 		
-		Apoderado apoderadoDb = service.findByDniApoderado(dniApoderado);
-		ApoderadoMapper apoderadoMapper = MapperUtil.convert(apoderadoDb);
+		Map<String, ?> apoderadoDb = service.buscarApoderado(dniApoderado);
+		//Apoderado apoderadoDb = service.findByDniApoderado(dniApoderado);
+		//ApoderadoMapper apoderadoMapper = MapperUtil.convert(apoderadoDb);
 		
-		if(apoderadoDb!=null) {
-			return new ResponseEntity<>(apoderadoMapper, HttpStatus.OK);
+		if(apoderadoDb!=null && !apoderadoDb.isEmpty()) {
+			return new ResponseEntity<>(apoderadoDb, HttpStatus.OK);
 		}
 		return new ResponseEntity<>("Apoderado con el dni " + dniApoderado + " no existente.", HttpStatus.NOT_FOUND);
 		
@@ -155,20 +155,11 @@ public class ApoderadoRestController {
 	}
 	
 	@PutMapping("/desactivar/{dniApoderado}")
-	public ResponseEntity<?> desactivar(@PathVariable String dniApoderado){		
-		Apoderado apoderadoDb = service.findByDniApoderado(dniApoderado);
-		if(apoderadoDb!=null) {
-			if(apoderadoDb.getEstado() == false) {
-				apoderadoDb.setEstado(true);
-			}else {
-				apoderadoDb.setEstado(false);
-			}
-			
-			service.update(apoderadoDb);
-			return new ResponseEntity<>("El apoderado con el dni " + dniApoderado + " se desactivó correctamente.", HttpStatus.OK);
-		}
+	public ResponseEntity<?> DesactivarEstudiante(@PathVariable String dniApoderado, @RequestBody Map<String, Object> nuevaA) {
 		
-		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		service.cambiarApoderado(Boolean.parseBoolean(nuevaA.get("estado").toString()), dniApoderado);
+				
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@GetMapping("/nombre_estudiantes/{dniApoderado}")

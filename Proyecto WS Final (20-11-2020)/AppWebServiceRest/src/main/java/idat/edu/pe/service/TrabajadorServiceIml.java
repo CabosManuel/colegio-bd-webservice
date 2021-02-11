@@ -82,4 +82,30 @@ public class TrabajadorServiceIml implements TrabajadorService{
 	public Trabajador findByUsername(String username) {
 		return r.findByUsername(username);
 	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Map<String, ?> buscarTrabajador(String dniApoderado) {
+		return r.buscarTrabajador(dniApoderado);
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Collection<Map<String, ?>> buscarTrabajadores() {
+		return r.buscarTrabajadores();
+	}
+	
+	@Transactional
+	@Override
+	public void cambiarTrabajador(Boolean estado, String dni) {
+	r.cambiarTrabajador(estado, dni);
+	}
+
+	@Override
+	public void registrarTrabajador(String dni, String nombre, String apellido, String celular, String correo,
+			String fnacimiento, Integer distrito_id, String direccion, String pass, Boolean estado, String cargo,
+			String sexo) {
+		r.registrarTrabajador(dni, nombre, apellido, celular, correo, fnacimiento, distrito_id, direccion, pass, estado, cargo, sexo);
+		
+	}
 }

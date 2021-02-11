@@ -57,13 +57,15 @@ public class MatriculaRestController {
 	}
 	
 	@PostMapping("/agregar")
-	public ResponseEntity<?> agregar(@RequestBody Matricula matricula){
-		
-		matricula.setEstudiante(eservice.findById(matricula.getEstudiante().getDniEstudiante()));
-	    matricula.setSeccion(sservice.findById(matricula.getSeccion().getSeccionId()));
-		service.insert(matricula);
-		return new ResponseEntity<Void>(HttpStatus.CREATED);
-	
+	public ResponseEntity<?> nuevaM(@RequestBody Map<String, Object> nuevaM) {
+
+		service.registrarMatricula(
+				nuevaM.get("grado").toString(),
+				nuevaM.get("nivel").toString(),
+				nuevaM.get("seccion_id").toString(),
+				nuevaM.get("dni_estudiante").toString());
+
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/buscarEstudiante/{dniEstudiante}")

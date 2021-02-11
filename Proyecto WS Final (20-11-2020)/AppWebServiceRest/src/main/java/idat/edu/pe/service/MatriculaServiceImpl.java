@@ -54,6 +54,13 @@ public class MatriculaServiceImpl implements MatriculaService{
 	public Map<String, ?> findByEstudiante(String dniEstudiante) {
 		return r.findByEstudiante(dniEstudiante);
 	}
+
+	@Transactional
+	@Override
+	public void registrarMatricula(String grado, String nivel, String seccionId, String dniEstudiante) {
+		r.registrarMatricula(grado, nivel, seccionId, dniEstudiante);
+		
+	}
 	
 	
 }
