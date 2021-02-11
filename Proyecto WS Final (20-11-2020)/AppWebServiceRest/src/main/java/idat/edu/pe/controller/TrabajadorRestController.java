@@ -67,11 +67,11 @@ public class TrabajadorRestController {
 	
 	@GetMapping("/buscarPorCurso/{cursoId}")
 	public ResponseEntity<?> buscarPorCurso(@PathVariable Integer cursoId){
-		Collection<Trabajador> trabajador = serviceT.getfindByCurso(cursoId);
-		Collection<TrabajadorMapper> trabajadorMapper = MapperUtil.convertTrabajadoresPorCurso(trabajador);
+		Collection</*Trabajador*/Map<String,Object>> trabajador = serviceT.getfindByCurso(cursoId);
+		//Collection<TrabajadorMapper> trabajadorMapper = MapperUtil.convertTrabajadoresPorCurso(trabajador);
 		
 		if(trabajador != null) {
-			return new ResponseEntity<>(trabajadorMapper,HttpStatus.OK);
+			return new ResponseEntity<>(MapperUtil.convertCollMapToCollTrabajadorMapper(trabajador)/*trabajadorMapper*/,HttpStatus.OK);
 		}		
 		return new ResponseEntity<>("Curso con ID: "+ cursoId +" no existe.",HttpStatus.NOT_FOUND);
 	}

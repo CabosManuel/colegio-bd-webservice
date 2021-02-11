@@ -15,6 +15,32 @@ select * from notificaciones;
 select * from secciones;
 select * from trabajadores;
 
+-- ++++++++++++++++++++++++++++++++++++++++++ WEB ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+-- --------------------------------
+-- REGISTRAR HORARIO
+-- --------------------------------
+-- BUSCAR CURSO POR ID NIVEL Y ID GRADO
+select * from cursos
+
+select c.curso_id, c.nombre, c.creditos from cursos c 
+inner join mallas m on c.curso_id = m.curso_id 
+inner join grados g on g.grado_id = m.grado_id 
+inner join niveles n on g.nivel_id = n.nivel_id 
+where n.nivel_id = 3 and g.grado_id = 14
+
+-- BUSCAR HORARIO POR SECCIÓN
+select hd.horario_detalle_id, hd.dia, hd.hora_inicio, hd.hora_fin,
+c.curso_id, hc.horario_cabecera_id, t.trabajador_id, s.seccion_id from horario_detalle hd
+inner join horario_cabecera hc on hc.horario_cabecera_id = hd.horario_cabecera_id
+inner join secciones s on hc.seccion_id = s.seccion_id
+inner join cursos c on hd.curso_id = c.curso_id
+inner join trabajadores t on hd.trabajador_id = t.trabajador_id
+where s.seccion_id like 
+
+
+-- ++++++++++++++++++++++++++++++++++++++++++ MOVIL +++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 -- --------------------------------
 -- REGISTRAR JUSTIFICACIONES
 -- --------------------------------
@@ -33,6 +59,8 @@ limit 1;
 -- permisos [estados: P = pendiente, V = vencido, A = aprobado, D = desaprobado]
 update notificaciones set estado = 'V'
 where notificacion_id = 1
+
+select * from notificaciones
 
 -- --------------------------------
 -- LISTAR DOCENTES

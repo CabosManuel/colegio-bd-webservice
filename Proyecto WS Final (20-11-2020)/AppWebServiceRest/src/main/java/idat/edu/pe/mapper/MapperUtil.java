@@ -635,4 +635,30 @@ public class MapperUtil {
 
 	}
 
+	// Convertir Collection<Map> a Collection<Curso Mapper>
+	public static Collection<CursoMapper> convertMapToCollCursoMapper(Collection<Map<String, Object>> cursosDb) {
+		Collection<CursoMapper> cMappers = new ArrayList<>();
+		for (Map<String, Object> map : cursosDb) {
+			CursoMapper cMapper = new CursoMapper(
+					(int) map.get("curso_id"),
+					map.get("nombre").toString()); 
+			cMappers.add(cMapper);
+		}
+		
+		return cMappers;
+	}
+
+	// 
+	public static Collection<TrabajadorMapper> convertCollMapToCollTrabajadorMapper(Collection<Map<String, Object>> trabajador) {
+		Collection<TrabajadorMapper> tMappers = new ArrayList<>();
+		for (Map<String, Object> map : trabajador) {
+			TrabajadorMapper tMapper = new TrabajadorMapper(
+					(int) map.get("trabajador_id"),
+					map.get("nombres").toString(),
+					map.get("apellidos").toString()); 
+			tMappers.add(tMapper);
+		}
+		return tMappers;
+	}
+
 }

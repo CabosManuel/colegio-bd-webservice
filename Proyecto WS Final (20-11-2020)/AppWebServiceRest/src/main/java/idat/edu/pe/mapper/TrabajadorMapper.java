@@ -31,6 +31,11 @@ public class TrabajadorMapper {
 		this.trabajadorId = trabajadorId;
 	}
 	
+	public TrabajadorMapper(Integer trabajadorId, String nombres, String apellidos) {
+		this.trabajadorId = trabajadorId;
+		this.nombres = nombres;
+		this.apellidos = apellidos;
+	}
 	public TrabajadorMapper(Integer trabajadorId, String cargo, String nombres, String apellidos, String dni,
 			Date fechaNacimiento, String celular, String direccion, String correo, String pass, Boolean estado,
 			DistritoMapper distrito) {

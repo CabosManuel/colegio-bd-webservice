@@ -1,8 +1,11 @@
 package idat.edu.pe.controller;
 
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
+import org.apache.catalina.mapper.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,15 +44,16 @@ public class CursoRestController {
 	
 	@GetMapping("/buscar/{nivelId}/{gradoId}")
 	public ResponseEntity<?> buscar(@PathVariable Integer nivelId, @PathVariable Integer gradoId){
+		Collection<Map<String, Object>> cursosDb = s.buscarPorNivelGrado(nivelId, gradoId);		
+		return new ResponseEntity<>(MapperUtil.convertMapToCollCursoMapper(cursosDb), HttpStatus.OK);
 		
-		Collection<Curso> cursoOb = s.getfindByNivelGrado(nivelId, gradoId);
+		/*Collection<Curso> cursoOb = s.getfindByNivelGrado(nivelId, gradoId);
 		Collection<CursoMapper> cursoMapper = MapperUtil.convertCursosPorNivelGrado(cursoOb);
 		
 		if(cursoOb!=null) {
 			return new ResponseEntity<>(cursoMapper, HttpStatus.OK);
 		}
-		return new ResponseEntity<>("No existen cursos para el nivel " + nivelId + " y grado " + gradoId+ "." , HttpStatus.NOT_FOUND);
-		
+		return new ResponseEntity<>("No existen cursos para el nivel " + nivelId + " y grado " + gradoId+ "." , HttpStatus.NOT_FOUND);*/
 	}
 	
 	@GetMapping("/buscarCurso/{cursoId}")

@@ -8,6 +8,7 @@ import idat.edu.pe.model.Curso;
 public interface CursoService {
 	public abstract Curso findById(Integer cursoId);
 	public Collection<Object[]> findByDniEstudiante(String dniEstudiante);
-	public Collection<Curso> getfindByNivelGrado(Integer nivelId, Integer gradoId);
+	//public Collection<Curso> getfindByNivelGrado(Integer nivelId, Integer gradoId);
+	Collection<Map<String, Object>> buscarPorNivelGrado(Integer nivelId, Integer gradoId);
 	Map<String, ?> findByCursoId(Integer cursoId);
 }

@@ -23,7 +23,8 @@ public interface CursoRepository extends CrudRepository<Curso, Integer>{
 			"inner join grados g on g.grado_id = m.grado_id\r\n" + 
 			"inner join niveles n on g.nivel_id = n.nivel_id\r\n" + 
 			"where n.nivel_id = ? and g.grado_id = ?",nativeQuery = true)
-	public abstract Collection<Curso> getfindByNivelGrado(Integer nivelId, Integer gradoId);
+	Collection<Map<String, Object>> buscarPorNivelGrado(Integer nivelId, Integer gradoId);
+	//public abstract Collection<Curso> getfindByNivelGrado(Integer nivelId, Integer gradoId);
 	
 	@Query(value = "select c.nombre from cursos c\r\n" + 
 			"where c.curso_id like ?",nativeQuery = true)

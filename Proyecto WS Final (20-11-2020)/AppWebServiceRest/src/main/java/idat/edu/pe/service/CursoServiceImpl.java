@@ -23,9 +23,12 @@ public class CursoServiceImpl implements CursoService{
 
 	@Transactional(readOnly = true)
 	@Override
-	public Collection<Curso> getfindByNivelGrado(Integer nivelId, Integer gradoId) {
-		return r.getfindByNivelGrado(nivelId, gradoId);
+	public Collection<Map<String, Object>> buscarPorNivelGrado(Integer nivelId, Integer gradoId){
+		return r.buscarPorNivelGrado(nivelId, gradoId);
 	}
+	/*public Collection<Curso> getfindByNivelGrado(Integer nivelId, Integer gradoId) {
+		return r.getfindByNivelGrado(nivelId, gradoId);
+	}*/
 
 	@Transactional(readOnly = true)
 	@Override

@@ -48,8 +48,8 @@ public class TrabajadorServiceIml implements TrabajadorService{
 
 	@Transactional(readOnly = true)
 	@Override
-	public Collection<Trabajador> getfindByCurso(Integer cursoId) {
-		return (Collection<Trabajador>)r.getfindByCurso(cursoId);
+	public Collection</*Trabajador*/Map<String,Object>> getfindByCurso(Integer cursoId) {
+		return (Collection</*Trabajador*/Map<String,Object>>)r.getfindByCurso(cursoId);
 	}
 
 	@Transactional(readOnly = true)

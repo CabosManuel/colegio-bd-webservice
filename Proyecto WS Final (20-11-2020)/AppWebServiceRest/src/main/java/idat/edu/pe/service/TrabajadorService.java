@@ -12,7 +12,7 @@ public interface TrabajadorService {
 	public Trabajador findById(Integer trabajadorId);
 	public Collection<Trabajador> findAll();
 	
-	public Collection<Trabajador> getfindByCurso(Integer cursoId);
+	public Collection<Map<String,Object>/*Trabajador*/> getfindByCurso(Integer cursoId);
 	
 	public Trabajador getfindByCorreoPass(String correo, String pass);
 	

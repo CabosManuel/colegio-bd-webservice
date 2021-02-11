@@ -15,7 +15,7 @@ public interface TrabajadorRepository extends CrudRepository<Trabajador, Integer
 			"inner join trabajador_curso tc on t.trabajador_id = tc.trabajador_id\r\n" + 
 			"inner join cursos c on tc.curso_id = c.curso_id\r\n" + 
 			"where c.curso_id = ? ", nativeQuery = true)
-	public abstract Collection<Trabajador> getfindByCurso(Integer cursoId);
+	public abstract Collection<Map<String,Object>/*Trabajador*/> getfindByCurso(Integer cursoId);
 	
 	@Query(value = "select * from trabajadores where correo = ? and pass = ?", nativeQuery = true)
 	public abstract Trabajador getfindByCorreoPass(String correo, String pass);
