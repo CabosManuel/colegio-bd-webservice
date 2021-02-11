@@ -37,21 +37,17 @@ public class DistritoRestController {
 	
 	@GetMapping("/listar")
 	public ResponseEntity<?> listar(){
+		//List<Distrito> itemsDistrito = distritoService.findAll();
+		//List<DistritoMapper> itemsDistritoMapper = MapperUtil.convertD(itemsDistrito);
 		
+		Collection<DistritoMapper> itemsDistritoMapper = MapperUtil.convertCollMapToCollDistritoMapper(distritoService.all());
+		return new ResponseEntity<>(itemsDistritoMapper, HttpStatus.OK);
 		
-		//Map<String, List<DistritoMapper>> response = new HashMap<String, List<DistritoMapper>>();
-		List<Distrito> itemsDistrito = distritoService.findAll();
-		List<DistritoMapper> itemsDistritoMapper = MapperUtil.convertD(itemsDistrito);
-		
-		if(itemsDistrito.isEmpty()) {
+		/*if(itemsDistrito.isEmpty()) {
 			return new ResponseEntity<>(itemsDistritoMapper, HttpStatus.NO_CONTENT);
 		}
 		
-		return new ResponseEntity<>(itemsDistritoMapper, HttpStatus.OK);
-		/*List<Distrito> distritos = distritoService.findAll();
-		List<DistritoMapper> mapper = MapperUtil.convertD(distritos);
-		response.put("distritos", mapper);
-		return response;*/
+		return new ResponseEntity<>(itemsDistritoMapper, HttpStatus.OK);*/
 	}
 	
 	@GetMapping("/buscar/{distritoId}")

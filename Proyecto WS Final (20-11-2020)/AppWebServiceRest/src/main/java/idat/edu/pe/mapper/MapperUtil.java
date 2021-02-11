@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -632,7 +633,7 @@ public class MapperUtil {
 		return cMappers;
 	}
 
-	// 
+	// Convertir Collection<Map> a Collection<Trabajador Mapper>
 	public static Collection<TrabajadorMapper> convertCollMapToCollTrabajadorMapper(Collection<Map<String, Object>> trabajador) {
 		Collection<TrabajadorMapper> tMappers = new ArrayList<>();
 		for (Map<String, Object> map : trabajador) {
@@ -643,6 +644,20 @@ public class MapperUtil {
 			tMappers.add(tMapper);
 		}
 		return tMappers;
+	}
+
+	// Convertir Collection<Map> a Collection<Distrito Mapper>
+	public static Collection<DistritoMapper> convertCollMapToCollDistritoMapper(Collection<Map<String, ?>> distritos) {
+		Collection<DistritoMapper> dMappers = new ArrayList<>();
+		for (Map<String, ?> map : distritos) {
+			DistritoMapper dMappper = new DistritoMapper(
+					(Integer) map.get("distrito_id"),
+					map.get("nombre").toString());			
+			dMappers.add(dMappper);
+		}
+		
+		
+		return dMappers;
 	}
 
 }
