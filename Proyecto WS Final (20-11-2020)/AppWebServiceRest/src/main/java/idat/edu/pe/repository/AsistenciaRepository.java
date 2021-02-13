@@ -25,12 +25,14 @@ public interface AsistenciaRepository extends CrudRepository<Asistencia, Integer
 			"from asistencias a " + 
 			"inner join horario_detalle hd " + 
 			"on hd.horario_detalle_id = a.horario_detalle_id " + 
-			"where a.dni_estudiante like ?1 and month(a.asistencia) = ?2 and hd.curso_id = ?3",nativeQuery = true)
+			"where a.dni_estudiante like ?1 and month(a.asistencia) = ?2 and hd.curso_id = ?3 " +
+			"order by convert(a.asistencia,date)",nativeQuery = true)
 	public abstract Collection<Object[]> getAsistenciasByDniEstudianteMesCurso(String dniEstudiante, Integer mes, String cursoId);
 	
 	@Query(value = "select distinct month(a.asistencia) " +
 			"from asistencias a "+ //todavía no empieza el año escolar por eso pongo 2020, para traer lo del año pasado
-			"where a.dni_estudiante like ? and year(a.asistencia) = 2020"/*year(now())"*/,nativeQuery = true)
+			"where a.dni_estudiante like ? and year(a.asistencia) = 2020 "/*year(now())"*/ +
+			"order by month(a.asistencia)",nativeQuery = true)
 	public abstract Collection<Object> getMesesByDniEstudiante(String dniEstudiante);
 	
 	@Query(value = "select hd.horario_detalle_id, a.asistencia_id, a.asistencia, a.estado, e.dni_estudiante, e.nombre, e.apellido \r\n"
