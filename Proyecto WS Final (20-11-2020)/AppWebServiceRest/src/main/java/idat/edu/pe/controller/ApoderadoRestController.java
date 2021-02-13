@@ -173,14 +173,8 @@ public class ApoderadoRestController {
 
 	@GetMapping("/nombre_estudiantes/{dniApoderado}")
 	public ResponseEntity<?> getNombreEstudiantesPorDniApoderado(@PathVariable String dniApoderado){
-		Apoderado apoderadoDb = service.findByDniApoderado(dniApoderado);
-		
-		if(apoderadoDb!=null) {
-			Collection<Object[]> estudiantes = service.getEstudiantesByDniApoderado(dniApoderado);
-			return new ResponseEntity<>(MapperUtil.convertCollObjects_EstudianteMapper(estudiantes), HttpStatus.OK);
-		}
-		
-		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		Collection<Object[]> estudiantes = serviceApoderado.getEstudiantesByDniApoderado(dniApoderado);
+		return new ResponseEntity<>(MapperUtil.convertCollObjects_EstudianteMapper(estudiantes), HttpStatus.OK);
 	}
 	
 	/** 
