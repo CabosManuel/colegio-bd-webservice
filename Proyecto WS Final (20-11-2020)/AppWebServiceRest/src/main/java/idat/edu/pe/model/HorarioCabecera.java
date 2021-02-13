@@ -4,8 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +16,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "horario_cabecera")
@@ -29,16 +34,17 @@ public class HorarioCabecera implements Serializable {
 	private Boolean estado;
 
 	@ManyToOne
-	@JoinColumn(name = "seccion_id", nullable = false, updatable = false,
+	@JoinColumn(name = "seccion_id", nullable = false, updatable = true,
 	foreignKey = @ForeignKey(foreignKeyDefinition = 
 	"foreign key(seccion_id) references secciones(seccion_id)"))
 	private Seccion seccion;
 	
-	@OneToMany(mappedBy = "horarioCabecera")
+	@OneToMany(mappedBy = "horarioCabecera", cascade = CascadeType.ALL ,fetch =FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private Collection<HorarioDetalle> horarioDetalle = new ArrayList<>();
 	
 	@ManyToOne
-	@JoinColumn(name = "trabajador_id", nullable = false, updatable=false,
+	@JoinColumn(name = "trabajador_id", nullable = false, updatable=true,
 	foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(trabajador_id) references trabajadores(trabajador_id)"))
 	private Trabajador trabajador;
 

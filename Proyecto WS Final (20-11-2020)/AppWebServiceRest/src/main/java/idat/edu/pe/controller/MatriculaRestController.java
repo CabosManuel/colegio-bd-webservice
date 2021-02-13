@@ -1,6 +1,7 @@
 package idat.edu.pe.controller;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,37 +58,23 @@ public class MatriculaRestController {
 	}
 	
 	@PostMapping("/agregar")
-	public ResponseEntity<?> agregar(@RequestBody Matricula matricula){
+	public ResponseEntity<?> nuevaM(@RequestBody Map<String, Object> nuevaM) {
+
+		Date fecha = new Date();
 		
-		matricula.setEstudiante(eservice.findById(matricula.getEstudiante().getDniEstudiante()));
-	    matricula.setSeccion(sservice.findById(matricula.getSeccion().getSeccionId()));
-		service.insert(matricula);
-		return new ResponseEntity<Void>(HttpStatus.CREATED);
-	
+		service.registrarMatricula(fecha,
+				nuevaM.get("grado").toString(),
+				nuevaM.get("nivel").toString(),
+				nuevaM.get("seccion_id").toString(),
+				nuevaM.get("dni_estudiante").toString());
+
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/buscarEstudiante/{dniEstudiante}")
 	public ResponseEntity<?> BuscarEstudiante(@PathVariable String dniEstudiante){
 		
 		Map<String,?> matriculaOb = service.findByEstudiante(dniEstudiante);
-		/*MatriculaMapper matriculaMapper = MapperUtil.convert(matriculaOb);
-		Collection<Nivel> niveles = nservice.findAll();
-		Collection<Grado> grados = gservice.findByNivel(matriculaMapper.getNivel());
-		
-		for(Nivel nivel: niveles) {
-			if(nivel.getNivelId() == matriculaMapper.getNivel()) {
-				matriculaMapper.setNivel(nivel.getNivelId());
-				matriculaMapper.setNombrenivel(nivel.getNombre());
-			}
-		}
-		
-		for(Grado grado: grados) {
-			Grado g = new Grado();
-			if(grado.getGradoId() == matriculaMapper.getGrado()) {
-				matriculaMapper.setGrado(grado.getGradoId());
-				matriculaMapper.setNombregrado(grado.getNombre());
-			}
-		}*/
 		
 		if(matriculaOb != null && !matriculaOb.isEmpty()) {
 			return new ResponseEntity<>(matriculaOb, HttpStatus.OK);

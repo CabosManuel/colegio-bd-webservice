@@ -1,6 +1,7 @@
 package idat.edu.pe.service;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.Map;
 
 import idat.edu.pe.model.Matricula;
@@ -14,5 +15,6 @@ public interface MatriculaService {
 	public abstract Collection<Matricula> findAll();
 	
 	Map<String, ?> findByEstudiante(String dniEstudiante);
+	void registrarMatricula(Date fecha, String grado, String nivel, String seccionId, String dniEstudiante);
 	
 }

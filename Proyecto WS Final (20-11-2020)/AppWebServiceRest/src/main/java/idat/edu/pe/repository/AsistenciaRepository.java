@@ -1,8 +1,10 @@
 package idat.edu.pe.repository;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Map;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
@@ -45,4 +47,14 @@ public interface AsistenciaRepository extends CrudRepository<Asistencia, Integer
 			+ "			where a.asistencia_id = ?", nativeQuery = true)
 	Map<String, ?> buscarPorId(Integer asistenciaId);
 	
+	@Modifying
+	@Query(value = "insert into asistencias " +
+	       "(asistencia, estado, dni_estudiante, horario_detalle_id) values " + 
+	       "(?1, ?2, ?3, ?4)", nativeQuery = true)
+	void registrarAsistencia(LocalDateTime asistencia, Boolean estado, String dni_estudiante, String horario_detalle_id);
+	
+	@Modifying
+	@Query(value = "update asistencias set asistencia = ?1, estado = ?2 " + 
+	       " where asistencia_id = ?3", nativeQuery = true)
+	void modificarAsistencia(LocalDateTime asistencia, Boolean estado, Integer asistenciaId);
 }

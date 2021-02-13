@@ -49,24 +49,24 @@ public class ApoderadoRestController {
 	@GetMapping("/listar")
 	public ResponseEntity<?> listar(){
 		
-		Collection<Apoderado> itemApoderado = service.findAll();
-		Collection<ApoderadoMapper> itemsApoderadoMapper = MapperUtil.convertApoderados(itemApoderado);
+		Collection<Map<String, ?>> itemsApoderado= service.buscarApoderados();
 		
-		if(itemApoderado.isEmpty()) {
-			return new ResponseEntity<>("No hay apoderados registrados", HttpStatus.NO_CONTENT);
+		if(!itemsApoderado.isEmpty() && itemsApoderado != null) {
+			return new ResponseEntity<>(itemsApoderado, HttpStatus.OK);
 		}
 		
-		return new ResponseEntity<>(itemsApoderadoMapper, HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 	
 	@GetMapping("/buscar/{dniApoderado}")
 	public ResponseEntity<?> buscar(@PathVariable String dniApoderado){
 		
-		Apoderado apoderadoDb = service.findByDniApoderado(dniApoderado);
-		ApoderadoMapper apoderadoMapper = MapperUtil.convert(apoderadoDb);
+		Map<String, ?> apoderadoDb = service.buscarApoderado(dniApoderado);
+		//Apoderado apoderadoDb = service.findByDniApoderado(dniApoderado);
+		//ApoderadoMapper apoderadoMapper = MapperUtil.convert(apoderadoDb);
 		
-		if(apoderadoDb!=null) {
-			return new ResponseEntity<>(apoderadoMapper, HttpStatus.OK);
+		if(apoderadoDb!=null && !apoderadoDb.isEmpty()) {
+			return new ResponseEntity<>(apoderadoDb, HttpStatus.OK);
 		}
 		return new ResponseEntity<>("Apoderado con el dni " + dniApoderado + " no existente.", HttpStatus.NOT_FOUND);
 		
@@ -105,23 +105,21 @@ public class ApoderadoRestController {
 	}
 	
 	@PutMapping("/editar/{dniApoderado}")
-	public ResponseEntity<?> editar(@PathVariable String dniApoderado, @RequestBody Apoderado newApoderado){
-		
-		Apoderado apoderadoDb = service.findByDniApoderado(dniApoderado);
-		if(apoderadoDb!=null) {
-			apoderadoDb.setNombre(newApoderado.getNombre());
-			apoderadoDb.setApellido(newApoderado.getApellido());
-			apoderadoDb.setCelular(newApoderado.getCelular());
-			apoderadoDb.setCorreo(newApoderado.getCorreo());
-			apoderadoDb.setDistrito(newApoderado.getDistrito());
-			apoderadoDb.setPass(newApoderado.getPass());
-			apoderadoDb.setDniApoderado(newApoderado.getDniApoderado());
-			service.update(apoderadoDb);
-			return new ResponseEntity<>("El apoderado con el dni " + dniApoderado + " se actualizó correctamente",HttpStatus.OK);
-		}
-		
-		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+	public ResponseEntity<?> modificarEstudiante(@PathVariable String dniApoderado,@RequestBody Map<String, Object> nuevoA) {
+	
+		service.modificarApoderado(
+				nuevoA.get("nombre").toString(),
+				nuevoA.get("apellido").toString(),
+				nuevoA.get("celular").toString(),
+				nuevoA.get("correo").toString(),
+				Integer.parseInt(nuevoA.get("distrito_id").toString()),
+				nuevoA.get("direccion").toString(),
+				dniApoderado
+				);
+				
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
+	
 	
 	@PutMapping("/editar_perfil/{dniApoderado}")
 	public ResponseEntity<?> editarPerfil(@PathVariable String dniApoderado, @RequestBody Map<String, Object> nuevoApoderadoMap){
@@ -155,20 +153,11 @@ public class ApoderadoRestController {
 	}
 	
 	@PutMapping("/desactivar/{dniApoderado}")
-	public ResponseEntity<?> desactivar(@PathVariable String dniApoderado){		
-		Apoderado apoderadoDb = service.findByDniApoderado(dniApoderado);
-		if(apoderadoDb!=null) {
-			if(apoderadoDb.getEstado() == false) {
-				apoderadoDb.setEstado(true);
-			}else {
-				apoderadoDb.setEstado(false);
-			}
-			
-			service.update(apoderadoDb);
-			return new ResponseEntity<>("El apoderado con el dni " + dniApoderado + " se desactivó correctamente.", HttpStatus.OK);
-		}
+	public ResponseEntity<?> DesactivarEstudiante(@PathVariable String dniApoderado, @RequestBody Map<String, Object> nuevaA) {
 		
-		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		service.cambiarApoderado(Boolean.parseBoolean(nuevaA.get("estado").toString()), dniApoderado);
+				
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@GetMapping("/nombre_estudiantes/{dniApoderado}")

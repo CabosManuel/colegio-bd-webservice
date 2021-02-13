@@ -87,4 +87,31 @@ public class ApoderadoServiceImpl implements ApoderadoService{
 				Boolean.parseBoolean(a.get("estado").toString()),
 				Integer.parseInt(a.get("distrito_id").toString()));
 	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Collection<Map<String, ?>> buscarApoderados() {
+		return r.buscarApoderados();
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Map<String, ?> buscarApoderado(String dniApoderado) {
+		return r.buscarApoderado(dniApoderado);
+	}
+	
+	@Transactional
+	@Override
+	public void cambiarApoderado(Boolean estado, String dniApoderado) {
+		r.cambiarApoderado(estado, dniApoderado);
+	}
+
+	@Transactional
+	@Override
+	public void modificarApoderado(String nombre, String apellido, String celular, String correo, Integer distritoId,
+			String direccion, String dniApoderado) {
+		r.modificarApoderado(nombre, apellido, celular, correo, distritoId, direccion, dniApoderado);
+		
+	}
+	
 }

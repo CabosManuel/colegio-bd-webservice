@@ -3,6 +3,7 @@ package idat.edu.pe.repository;
 import java.util.Collection;
 import java.util.Map;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
@@ -51,4 +52,35 @@ public interface TrabajadorRepository extends CrudRepository<Trabajador, Integer
 	
 	@Query(value="select * from trabajadores where correo=?",nativeQuery=true)
 	public abstract Trabajador findByUsername(String username);
+	
+	@Query(value = "select t.trabajador_id, t.nombres, t.apellidos, t.cargo, t.dni, t.fecha_nacimiento, "
+			+ "t.celular, t.correo, t.pass, t.direccion, t.estado, d.distrito_id, d.nombre as nomdistrito, t.sexo from trabajadores t\r\n" + 
+			"inner join distritos d on t.distrito_id = d.distrito_id ", nativeQuery = true)
+	Collection<Map<String, ?>> buscarTrabajadores();
+	
+	@Query(value = "select t.trabajador_id, t.nombres, t.apellidos, t.cargo, t.dni, t.fecha_nacimiento, "
+			+ "t.celular, t.correo, t.pass, t.estado, t.direccion, d.distrito_id, t.sexo from trabajadores t\r\n" + 
+			"  inner join distritos d on t.distrito_id = d.distrito_id "
+			+" where t.dni = ?", nativeQuery = true)
+	Map<String, ?> buscarTrabajador(String dniApoderado);
+	
+	@Modifying
+	@Query(value = "update trabajadores set estado = ?1 where dni = ?2", 
+				   nativeQuery = true)
+	void cambiarTrabajador(Boolean estado, String dni);
+	
+	/*@Modifying
+	@Query(value = "update estudiantes set nombres = ?1, apellidos = ?2, celular = ?3, correo = ?3" +
+				   "fnacimiento = ?4, correo = ?5, distrito_id = ?6, direccion = ?7 where dni_estudiante = ?8", 
+				   nativeQuery = true)
+	void modificarTrabajador(String nombre, String apellido, String celular, String correo, String fnacimiento, 
+			Integer distrito_id, String direccion, String cargo, String dni);
+			*/
+	
+	@Modifying
+	@Query(value = "insert into trabajadores" +
+	       "(dni, nombres, apellidos, celular, correo, fecha_nacimiento, distrito_id, direccion, pass, estado, cargo, sexo) values " + 
+	       "(?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12)", nativeQuery = true)
+	void registrarTrabajador(String dni, String nombre, String apellido, String celular, String correo, String fnacimiento, 
+			Integer distrito_id, String direccion, String pass, Boolean estado, String cargo, String sexo);
 }

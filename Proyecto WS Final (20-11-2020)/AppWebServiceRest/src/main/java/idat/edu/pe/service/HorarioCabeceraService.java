@@ -1,6 +1,7 @@
 package idat.edu.pe.service;
 
 import java.util.Collection;
+import java.util.Map;
 
 import idat.edu.pe.model.HorarioCabecera;
 
@@ -12,6 +13,6 @@ public interface HorarioCabeceraService {
 	public abstract HorarioCabecera findById(Integer horarioCabeceraId);
 	public abstract Collection<HorarioCabecera> findAll();
 	
-	public HorarioCabecera getfindOneRegister();
+	Map<String, ?> getfindOneRegister();
 
 }

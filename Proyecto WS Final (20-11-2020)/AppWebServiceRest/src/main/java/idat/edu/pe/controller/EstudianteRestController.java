@@ -3,6 +3,7 @@ package idat.edu.pe.controller;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -142,21 +143,11 @@ public class EstudianteRestController {
 	}
 	
 	@PutMapping("/desactivar/{dniEstudiante}")
-	public ResponseEntity<?> desactivar(@PathVariable String dniEstudiante){
+	public ResponseEntity<?> DesactivarEstudiante(@PathVariable String dniEstudiante, @RequestBody Map<String, Object> nuevaE) {
 		
-		Estudiante estudianteOb = estudianteService.findByDniEstudiante(dniEstudiante);
-		if(estudianteOb!=null) {
-			if(estudianteOb.getEstado() == false) {
-				estudianteOb.setEstado(true);
-			}else {
-				estudianteOb.setEstado(false);
-			}
-			
-			estudianteService.update(estudianteOb);
-			return new ResponseEntity<>("La estudiante con el dni " + dniEstudiante + " se desactivó correctamente.", HttpStatus.OK);
-		}
-		
-		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		estudianteService.cambiarEstudiante(Boolean.parseBoolean(nuevaE.get("estado").toString()), dniEstudiante);
+				
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	@PutMapping("/editar_perfil/{dniEstudiante}")

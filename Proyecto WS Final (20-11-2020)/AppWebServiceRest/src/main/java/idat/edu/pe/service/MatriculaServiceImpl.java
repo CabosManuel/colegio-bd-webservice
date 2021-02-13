@@ -1,6 +1,7 @@
 package idat.edu.pe.service;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,13 @@ public class MatriculaServiceImpl implements MatriculaService{
 	@Override
 	public Map<String, ?> findByEstudiante(String dniEstudiante) {
 		return r.findByEstudiante(dniEstudiante);
+	}
+
+	@Transactional
+	@Override
+	public void registrarMatricula(Date fecha, String grado, String nivel, String seccionId, String dniEstudiante) {
+		r.registrarMatricula(fecha ,grado, nivel, seccionId, dniEstudiante);
+		
 	}
 	
 	

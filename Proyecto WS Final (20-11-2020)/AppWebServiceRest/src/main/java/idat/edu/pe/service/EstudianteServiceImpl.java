@@ -118,4 +118,10 @@ public class EstudianteServiceImpl implements EstudianteService {
 	public Map<String, ?> buscarCorreo(String correo) {
 		return repository.buscarCorreo(correo);
 	}
+
+	@Transactional
+	@Override
+	public void cambiarEstudiante(Boolean estado, String dniEstudiante) {
+		repository.cambiarEstudiante(estado, dniEstudiante);
+	}
 }

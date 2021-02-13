@@ -41,4 +41,27 @@ public interface ApoderadoRepository extends CrudRepository<Apoderado, String> {
 			+ "values (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9);", nativeQuery = true)
 	void nuevoApoderado(String dni_apoderado, String nombre, String apellido, String celular, String correo, String pass,
 			String direccion, boolean estado, int distrito_id);
+	
+	@Modifying
+	@Query(value = "update apoderados set nombre = ?1, apellido = ?2, celular = ?3, correo = ?4, distrito_id = ?5, direccion = ?6 where dni_apoderado = ?7", 
+				   nativeQuery = true)
+	void modificarApoderado(String nombre, String apellido, String celular,  String correo, Integer distritoId
+			, String direccion, String dniApoderado);
+	
+	@Query(value = "select a.dni_apoderado, a.apellido, a.nombre, "
+			+ " a.correo, a.celular, a.pass, a.estado, a.direccion, d.distrito_id,"
+			+ " d.nombre as nomdistrito from apoderados a "
+			+ " inner join distritos d on a.distrito_id = d.distrito_id", nativeQuery = true)
+	Collection<Map<String, ?>> buscarApoderados();
+	
+	@Query(value = "select dni_apoderado, apellido, nombre, "
+			+ " correo, celular, pass, estado, direccion, distrito_id"
+			+ " from apoderados where dni_apoderado = ?", nativeQuery = true)
+	Map<String, ?> buscarApoderado(String dniApoderado);
+	
+	@Modifying
+	@Query(value = "update apoderados set estado = ?1 where dni_apoderado = ?2", 
+				   nativeQuery = true)
+	void cambiarApoderado(Boolean estado, String dniApoderado);
+	
 }

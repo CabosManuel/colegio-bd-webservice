@@ -38,4 +38,6 @@ public interface EstudianteService {
 	
 	void registrarEstudiante(String dniEstudiante, String nombre, String apellido, String celular, String correo, String fnacimiento, 
 			String dniApoderado, Integer distritoId, String direccion, String pass, String condicion, Boolean estado);
+	
+	void cambiarEstudiante(Boolean estado, String dniEstudiante);
 }

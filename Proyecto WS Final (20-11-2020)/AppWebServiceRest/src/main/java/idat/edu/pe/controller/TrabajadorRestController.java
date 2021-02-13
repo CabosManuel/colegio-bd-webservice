@@ -35,23 +35,23 @@ public class TrabajadorRestController {
 
 	@GetMapping("/listar")
 	public ResponseEntity<?> listar(){
-		Collection<Trabajador> trabajadores = serviceT.findAll();
-		Collection<TrabajadorMapper> trabajadoresmapper = MapperUtil.convertTrabajadores(trabajadores);
+		Collection<Map<String, ?>> trabajadores = serviceT.buscarTrabajadores();
+		//Collection<TrabajadorMapper> trabajadoresmapper = MapperUtil.convertTrabajadores(trabajadores);
 		
-		if(trabajadores.isEmpty()) {
-			return new ResponseEntity<>("No hay trabajadores registrados.",HttpStatus.NO_CONTENT);
+		if(!trabajadores.isEmpty() && trabajadores != null) {
+			return new ResponseEntity<>(trabajadores, HttpStatus.OK);
 		}
-		return new ResponseEntity<>(trabajadoresmapper, HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 	
-	@GetMapping("/buscar/{trabajadorId}")
-	public ResponseEntity<?> buscar(@PathVariable Integer trabajadorId){
-		Trabajador trabajador = serviceT.findById(trabajadorId);
+	@GetMapping("/buscar/{dni}")
+	public ResponseEntity<?> buscar(@PathVariable String dni){
+		Map<String, ?> trabajador = serviceT.buscarTrabajador(dni);
 		
-		if(trabajador != null) {
+		if(trabajador != null && !trabajador.isEmpty()) {
 			return new ResponseEntity<>(trabajador,HttpStatus.OK);
 		}		
-		return new ResponseEntity<>("Trabajador con ID: "+trabajadorId+" no existe.",HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>("Trabajador con dni: "+dni+" no existe.",HttpStatus.NOT_FOUND);
 	}
 	
 	@GetMapping("/validar/{correo}/{pass}")
@@ -86,10 +86,23 @@ public class TrabajadorRestController {
 	}
 	
 	@PostMapping("/agregar")
-	public ResponseEntity<?> agregar(@RequestBody Trabajador trabajador){
-		trabajador.setDistrito(serviceD.findById(trabajador.getDistrito().getDistritoId()));
-	    serviceT.insert(trabajador);
-		return new ResponseEntity<Void>(HttpStatus.CREATED);
+	public ResponseEntity<?> nuevoTrabajador(@RequestBody Map<String, Object> nuevaE) {
+
+		serviceT.registrarTrabajador(
+				nuevaE.get("dni").toString(),
+				nuevaE.get("nombres").toString(),
+				nuevaE.get("apellidos").toString(),
+				nuevaE.get("celular").toString(),
+				nuevaE.get("correo").toString(),
+				nuevaE.get("fecha_nacimiento").toString(),
+				(Integer.parseInt(nuevaE.get("distrito_id").toString())),
+				nuevaE.get("direccion").toString(),
+				nuevaE.get("pass").toString(),
+				(Boolean.parseBoolean(nuevaE.get("estado").toString())),
+				nuevaE.get("cargo").toString(),
+				nuevaE.get("sexo").toString());
+
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/editar/{trabajadorId}")
@@ -115,17 +128,14 @@ public class TrabajadorRestController {
 		return new ResponseEntity<>("Trabajador con ID: "+trabajadorId+" no existe.",HttpStatus.NOT_FOUND);
 	}
 	
-	@DeleteMapping("/eliminar/{trabajadorId}")
-	public ResponseEntity<?> eliminar(@PathVariable Integer trabajadorId){
+	@PutMapping("/desactivar/{dni}")
+	public ResponseEntity<?> DesactivarEstudiante(@PathVariable String dni, @RequestBody Map<String, Object> nuevoT) {
 		
-		Trabajador trabajadorDb = serviceT.findById(trabajadorId);
-		if(trabajadorDb != null) {
-			serviceT.delete(trabajadorId);
-			return new ResponseEntity<>("Trabajador eliminado.",HttpStatus.OK);
-		}
-		
-		return new ResponseEntity<>("Trabajador con ID: "+trabajadorId+" no existe.",HttpStatus.NOT_FOUND);
+		serviceT.cambiarTrabajador(Boolean.parseBoolean(nuevoT.get("estado").toString()), dni);
+				
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
+	
 	
 	@GetMapping("/listar_docentes")
 	public ResponseEntity<?> buscarPorDniEstudiante(@RequestParam String dniEstudiante){
