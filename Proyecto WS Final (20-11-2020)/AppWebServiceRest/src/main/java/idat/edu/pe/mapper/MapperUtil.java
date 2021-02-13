@@ -79,12 +79,11 @@ public class MapperUtil {
 	
 	// Map Estudiante a EstudianteLoginMapper
 	public static EstudianteLoginMapper convertEstudianteToEstudianteLogin(Map<String, ?> e) {
-		String fNacCorreccion = LocalDate.parse(e.get("fnacimiento").toString()).plusDays(1).toString();
 		return new EstudianteLoginMapper(
 				e.get("dni_estudiante").toString(),
 				e.get("nombre").toString(),
 				e.get("apellido").toString(),
-				fNacCorreccion,
+				e.get("fnacimiento").toString(),
 				e.get("celular").toString(),
 				e.get("correo").toString(),
 				e.get("direccion").toString(),

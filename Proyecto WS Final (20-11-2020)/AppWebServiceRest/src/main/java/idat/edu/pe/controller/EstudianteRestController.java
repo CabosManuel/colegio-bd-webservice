@@ -139,7 +139,10 @@ public class EstudianteRestController {
 				dniEstudiante
 				);
 				
-		return new ResponseEntity<>(HttpStatus.OK);
+		EstudianteLoginMapper estudianteRespuesta = 
+				MapperUtil.convertEstudianteToEstudianteLoginApoderado(nuevaE);
+		
+		return new ResponseEntity<>(estudianteRespuesta, HttpStatus.OK);
 	}
 	
 	@PutMapping("/desactivar/{dniEstudiante}")
@@ -150,7 +153,7 @@ public class EstudianteRestController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
-	@PutMapping("/editar_perfil/{dniEstudiante}")
+	/*@PutMapping("/editar_perfil/{dniEstudiante}")
 	public ResponseEntity<?> editarPerfil(@PathVariable String dniEstudiante, @RequestBody Map<String, Object> nuevoEstudianteMap) {
 		
 		Estudiante estudianteDb = MapperUtil.convertMapToEstudiante(
@@ -171,7 +174,7 @@ public class EstudianteRestController {
 				MapperUtil.convertEstudianteToEstudianteLoginApoderado(nuevoEstudianteMap);
 		
 		return new ResponseEntity<>(estudianteRespuesta, HttpStatus.OK);
-	}
+	}*/
 	
 	@GetMapping("/buscar_estudiante/{dniEstudiante}")
 	public ResponseEntity<?> buscarEstudiante(@PathVariable String dniEstudiante){
