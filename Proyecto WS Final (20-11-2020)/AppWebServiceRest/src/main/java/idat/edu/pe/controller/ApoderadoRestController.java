@@ -194,10 +194,10 @@ public class ApoderadoRestController {
 	public ResponseEntity<?> getNotificacionesPorDniEstudianteTipo(@RequestParam String dniEstudiante, @RequestParam String tipo1, 
 			@RequestParam String tipo2, @RequestParam String tipo3){
 		 System.out.println("datos a consultar: "+dniEstudiante+" "+tipo1+" "+tipo2+" "+tipo3);
-		Collection<Object[]> notificaciones = serviceNotificacion.getNotificacionesByDniEstudianteTipo(dniEstudiante, tipo1, tipo2, tipo3);
+		Collection<Map<String, Object>> notificaciones = serviceNotificacion.getNotificacionesByDniEstudianteTipo(dniEstudiante, tipo1, tipo2, tipo3);
 		
 		if(notificaciones!=null) {
-			return new ResponseEntity<>(MapperUtil.convertCollObjects_NotificacionMapper(notificaciones), HttpStatus.OK);
+			return new ResponseEntity<>(MapperUtil.convertCollMapToCollNotificacionMapper(notificaciones), HttpStatus.OK);
 		}
 	 	return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 	}

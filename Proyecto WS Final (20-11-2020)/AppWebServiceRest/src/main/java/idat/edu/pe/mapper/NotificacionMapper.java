@@ -14,6 +14,16 @@ public class NotificacionMapper {
 	public NotificacionMapper() {
 	}
 
+	public NotificacionMapper(Integer idNofiticacion, String tipo, String fechaEnvio, String titulo,
+			String descripcion, String dniEstudiante) {
+		this.idNofiticacion = idNofiticacion;
+		this.tipo = tipo;
+		this.fechaEnvio = fechaEnvio;
+		this.titulo = titulo;
+		this.descripcion = descripcion;
+		this.dniEstudiante = dniEstudiante;
+	}
+	
 	public NotificacionMapper(Integer idNofiticacion, String tipo, String fechaEnvio, String fechaLimite, String titulo,
 			String descripcion, Character estado, String dniEstudiante) {
 		this.idNofiticacion = idNofiticacion;

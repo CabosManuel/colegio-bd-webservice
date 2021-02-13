@@ -18,7 +18,7 @@ public class NotificacionServiceImpl implements NotificacionService{
 	
 	@Transactional(readOnly = true)
 	@Override
-	public Collection<Object[]> getNotificacionesByDniEstudianteTipo(String dniEstudiante, String tipo1,
+	public Collection<Map<String, Object>> getNotificacionesByDniEstudianteTipo(String dniEstudiante, String tipo1,
 			String tipo2, String tipo3) {
 		return r.getNotificacionesByDniEstudianteTipo(dniEstudiante, tipo1, tipo2, tipo3);
 	}

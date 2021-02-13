@@ -660,4 +660,23 @@ public class MapperUtil {
 		return dMappers;
 	}
 
+	public static Collection<NotificacionMapper> convertCollMapToCollNotificacionMapper(Collection<Map<String, Object>> notificaciones) {
+		Collection<NotificacionMapper> tMappers = new ArrayList<>();
+		for (Map<String, ?> map : notificaciones) {
+			NotificacionMapper tMapper = new NotificacionMapper(
+					(Integer) map.get("notificacion_id"),
+					map.get("tipo").toString(),
+					map.get("fecha_envio").toString(),
+					map.get("titulo").toString(),
+					map.get("descripcion").toString(),
+					map.get("dni_estudiante").toString());
+			if(!tMapper.getTipo().equals("comunicado")) {
+				tMapper.setFechaLimite(map.get("fecha_limite").toString());
+				tMapper.setEstado((Character) map.get("estado"));
+			}
+			tMappers.add(tMapper);
+		}
+		return tMappers;
+	}
+
 }
