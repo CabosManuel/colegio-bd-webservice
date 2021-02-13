@@ -53,4 +53,20 @@ public class HorarioDetalleServiceImpl implements HorarioDetalleService{
 		r.save(horarioDetalle);
 	}
 
+	@Transactional
+	@Override
+	public void registrarHorarioDetalle(String dia, String horaFin, String horaInicio, String cursoId,
+			String trabajadorId, String horario_cabecera_id) {
+		r.registrarHorarioDetalle(dia, horaFin, horaInicio, cursoId, trabajadorId, horario_cabecera_id);
+		
+	}
+
+	@Transactional
+	@Override
+	public void modificarHorarioDetalle(String dia, String horaFin, String horaInicio, String cursoId,
+			String trabajadorId, Integer horario_detalle_id) {
+		r.modificarHorarioDetalle(dia, horaFin, horaInicio, cursoId, trabajadorId, horario_detalle_id);
+		
+	}
+
 }

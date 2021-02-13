@@ -83,14 +83,32 @@ public class AsistenciaRestController {
 	}
 	
 	@PostMapping("/agregar")
-	public ResponseEntity<?> agregar(@RequestBody Asistencia asistencia){
+	public ResponseEntity<?> nuevaAsistencia(@RequestBody Map<String, Object> nuevaA) {
+
+		LocalDate hoy = LocalDate.now();
+		LocalTime ahora = LocalTime.now();
 		
-	    asistencia.setHorarioDetalleId(hds.findById(asistencia.getHorarioDetalleId().getHorarioDetalleId()));
-	    asistencia.setDniEstudiante(es.findByDniEstudiante(asistencia.getDniEstudiante().getDniEstudiante()));
-		s.insert(asistencia);
-		return new ResponseEntity<Void>(HttpStatus.CREATED);
-	
+				Boolean estado = (Boolean.parseBoolean(nuevaA.get("estado").toString()));
+				String dni = nuevaA.get("dni_estudiante").toString();
+				String HorarioDetalle = nuevaA.get("horario_detalle_id").toString();
+		
+		s.registrarAsistencia(LocalDateTime.of(hoy, ahora), estado, dni, HorarioDetalle);
+
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
+	
+	@PutMapping("/editar/{asistenciaId}")
+	public ResponseEntity<?> modificarAsistencia(@PathVariable Integer asistenciaId, @RequestBody Map<String, Object> nuevaA) {
+	
+		LocalDate hoy = LocalDate.now();
+		LocalTime ahora = LocalTime.now();
+		
+		Boolean estado = Boolean.parseBoolean(nuevaA.get("estado").toString());
+		
+		s.modificarAsistencia(LocalDateTime.of(hoy, ahora), estado, asistenciaId);
+				
+		return new ResponseEntity<>(HttpStatus.OK);
+	}	
 	
 	@GetMapping("/buscar/{horarioDetalleId}")
 	public ResponseEntity<?> buscarAsistenciaPorHorario(@PathVariable Integer horarioDetalleId){
@@ -102,23 +120,5 @@ public class AsistenciaRestController {
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 	
-	@PutMapping("/editar/{asistenciaId}")
-	public ResponseEntity<?> editar(@PathVariable Integer asistenciaId, @RequestBody Asistencia newAsistencia){
-		
-		Map<String,?> asistenciaOb = s.buscarPorId(asistenciaId);
-		Asistencia asistenciaC = MapperUtil.convert(asistenciaOb);
-		
-		LocalDate hoy = LocalDate.now();
-		LocalTime ahora = LocalTime.now();
-		
-		if(asistenciaOb!=null) {
-			asistenciaC.setAsistencia(LocalDateTime.of(hoy, ahora));
-			asistenciaC.setEstado(newAsistencia.getEstado());
-
-			s.update(asistenciaC);
-			return new ResponseEntity<>("Se actualizó correctamente.",HttpStatus.OK);
-		}
-		
-		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
-	}
+	
 }

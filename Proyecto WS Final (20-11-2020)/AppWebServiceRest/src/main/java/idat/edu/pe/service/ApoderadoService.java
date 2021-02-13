@@ -32,4 +32,7 @@ public interface ApoderadoService {
 	Map<String, ?> buscarApoderado(String dniApoderado);
 	
 	void cambiarApoderado(Boolean estado, String dniApoderado);
+	
+	void modificarApoderado(String nombre, String apellido, String celular,  String correo, Integer distritoId
+			, String direccion, String dniApoderado);
 }

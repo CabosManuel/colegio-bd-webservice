@@ -1,5 +1,7 @@
 package idat.edu.pe.repository;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Map;
 
 import org.springframework.data.jpa.repository.Modifying;
@@ -24,7 +26,7 @@ public interface MatriculaRepository extends CrudRepository<Matricula, Integer>{
 	
 	@Modifying
 	@Query(value = "insert into matriculas" +
-	       "(grado, nivel, seccion_id, dni_estudiante) values " + 
-	       "(?1, ?2, ?3, ?4)", nativeQuery = true)
-	void registrarMatricula(String grado, String nivel, String seccionId, String dniEstudiante);
+	       "(fecha, grado, nivel, seccion_id, dni_estudiante) values " + 
+	       "(?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
+	void registrarMatricula(Date fecha, String grado, String nivel, String seccionId, String dniEstudiante);
 }

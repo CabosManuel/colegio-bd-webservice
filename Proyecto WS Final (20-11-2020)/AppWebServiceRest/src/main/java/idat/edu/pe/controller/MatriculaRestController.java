@@ -1,6 +1,7 @@
 package idat.edu.pe.controller;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +60,9 @@ public class MatriculaRestController {
 	@PostMapping("/agregar")
 	public ResponseEntity<?> nuevaM(@RequestBody Map<String, Object> nuevaM) {
 
-		service.registrarMatricula(
+		Date fecha = new Date();
+		
+		service.registrarMatricula(fecha,
 				nuevaM.get("grado").toString(),
 				nuevaM.get("nivel").toString(),
 				nuevaM.get("seccion_id").toString(),

@@ -1,5 +1,6 @@
 package idat.edu.pe.service;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Map;
 
@@ -60,6 +61,19 @@ public class AsistenciaServiceImpl implements AsistenciaService{
 	@Override
 	public Map<String, ?> buscarPorId(Integer asistenciaId) {
 		return r.buscarPorId(asistenciaId);
+	}
+
+	@Transactional
+	@Override
+	public void registrarAsistencia(LocalDateTime asistencia, Boolean estado, String dni_estudiante,
+			String horario_detalle_id) {
+		r.registrarAsistencia(asistencia, estado, dni_estudiante, horario_detalle_id);
+	}
+
+	@Transactional
+	@Override
+	public void modificarAsistencia(LocalDateTime asistencia, Boolean estado, Integer asistenciaId) {
+		r.modificarAsistencia(asistencia, estado, asistenciaId);
 	}
 
 }

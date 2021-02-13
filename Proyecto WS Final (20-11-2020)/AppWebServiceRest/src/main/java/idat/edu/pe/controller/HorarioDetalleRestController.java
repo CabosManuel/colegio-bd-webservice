@@ -46,14 +46,25 @@ public class HorarioDetalleRestController {
 	@Autowired
 	private TrabajadorService tservice;
 	
+
 	@PostMapping("/agregar")
-	public ResponseEntity<?> agregar(@RequestBody HorarioDetalle horarioDetalle){
+	public ResponseEntity<?> nuevaM(@RequestBody Map<String, Object> nuevaM) {
+
+		Map<String, ?> idHorario = hcservice.getfindOneRegister();
+		System.out.println(idHorario);
+		System.out.println(idHorario.get("horario_cabecera_id").toString());
 		
-		horarioDetalle.setHorarioCabecera(hcservice.getfindOneRegister());
-		hdservice.insert(horarioDetalle);
-		return new ResponseEntity<Void>(HttpStatus.CREATED);
-	
+		hdservice.registrarHorarioDetalle(
+				nuevaM.get("dia").toString(),
+				nuevaM.get("hora_fin").toString(),
+				nuevaM.get("hora_inicio").toString(),
+				nuevaM.get("curso_id").toString(),
+				nuevaM.get("trabajador_id").toString(),
+				idHorario.get("horario_cabecera_id").toString());
+
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
+	
 
 	@GetMapping("/buscar/{seccionId}/{trabajadorId}")
 	public ResponseEntity<?> buscarPorId(@PathVariable Integer seccionId, @PathVariable Integer trabajadorId){
@@ -91,25 +102,19 @@ public class HorarioDetalleRestController {
 		return new ResponseEntity<>(horario, HttpStatus.OK);
 	}
 	
-	@PutMapping("/editar/{horarioDetalleId}")
-	public ResponseEntity<?> editar(@PathVariable Integer horarioDetalleId, @RequestBody HorarioDetalle newHorarioDetalle){
-		
-		HorarioDetalle horarioDetalleOb = hdservice.findById(horarioDetalleId);
-		Curso curso = cservice.findById(newHorarioDetalle.getCurso().getCursoId());
-		Trabajador trabajador = tservice.findById(newHorarioDetalle.getTrabajador().getTrabajadorId());
-		
-		if(horarioDetalleOb !=null) {
-			horarioDetalleOb.setDia(newHorarioDetalle.getDia());
-			horarioDetalleOb.setHoraInicio(newHorarioDetalle.getHoraInicio());
-			horarioDetalleOb.setHoraFin(newHorarioDetalle.getHoraFin());
-			horarioDetalleOb.setCurso(curso);
-			horarioDetalleOb.setTrabajador(trabajador);
-			
-			hdservice.update(horarioDetalleOb);
-			return new ResponseEntity<>("Horario con el ID " + horarioDetalleId + " se actualizó correctamente.",HttpStatus.OK);
-		}
-		
-		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+	@PutMapping("/editar/{horario_detalle_id}")
+	public ResponseEntity<?> modificarHorarioDetalle(@PathVariable Integer horario_detalle_id,@RequestBody Map<String, Object> nuevaE) {
+	
+		hdservice.modificarHorarioDetalle(
+				nuevaE.get("dia").toString(),
+				nuevaE.get("hora_fin").toString(),
+				nuevaE.get("hora_inicio").toString(),
+				nuevaE.get("curso_id").toString(),
+				nuevaE.get("trabajador_id").toString(),
+				horario_detalle_id
+				);
+				
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	

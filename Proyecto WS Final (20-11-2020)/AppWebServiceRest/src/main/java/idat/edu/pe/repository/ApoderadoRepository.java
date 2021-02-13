@@ -42,6 +42,12 @@ public interface ApoderadoRepository extends CrudRepository<Apoderado, String> {
 	void nuevoApoderado(String dni_apoderado, String nombre, String apellido, String celular, String correo, String pass,
 			String direccion, boolean estado, int distrito_id);
 	
+	@Modifying
+	@Query(value = "update apoderados set nombre = ?1, apellido = ?2, celular = ?3, correo = ?4, distrito_id = ?5, direccion = ?6 where dni_apoderado = ?7", 
+				   nativeQuery = true)
+	void modificarApoderado(String nombre, String apellido, String celular,  String correo, Integer distritoId
+			, String direccion, String dniApoderado);
+	
 	@Query(value = "select a.dni_apoderado, a.apellido, a.nombre, "
 			+ " a.correo, a.celular, a.pass, a.estado, a.direccion, d.distrito_id,"
 			+ " d.nombre as nomdistrito from apoderados a "

@@ -1,5 +1,6 @@
 package idat.edu.pe.service;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Map;
 
@@ -14,4 +15,6 @@ public interface AsistenciaService {
 	public abstract Asistencia findById(Integer asistenciaId);
 	Collection<Map<String, ?>> buscarPorHorario(Integer horarioDetalleId);
 	Map<String, ?> buscarPorId(Integer asistenciaId);
+	void registrarAsistencia(LocalDateTime asistencia, Boolean estado, String dni_estudiante, String horario_detalle_id);
+	void modificarAsistencia(LocalDateTime asistencia, Boolean estado, Integer asistenciaId);
 }

@@ -105,5 +105,13 @@ public class ApoderadoServiceImpl implements ApoderadoService{
 	public void cambiarApoderado(Boolean estado, String dniApoderado) {
 		r.cambiarApoderado(estado, dniApoderado);
 	}
+
+	@Transactional
+	@Override
+	public void modificarApoderado(String nombre, String apellido, String celular, String correo, Integer distritoId,
+			String direccion, String dniApoderado) {
+		r.modificarApoderado(nombre, apellido, celular, correo, distritoId, direccion, dniApoderado);
+		
+	}
 	
 }
