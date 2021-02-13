@@ -20,17 +20,16 @@ select * from trabajadores;
 	where condicion = 'no promovido'
 
 -----------------------------------------
-update horario_detalle set dia = 'Jueves'
-where dia = 'JUEVES'
-
-update horario_detalle set dia = 'Martes'
-where dia = 'MARTES'
-update horario_detalle set dia = 'Miércoles'
-where dia = 'MIERCOLES'
-update horario_detalle set dia = 'Jueves'
-where dia = 'JUEVES'
-update horario_detalle set dia = 'Viernes'
-where dia = 'VIERNES'
+update horario_detalle set dia = 'LUNES'
+where dia = 'Lunes';
+update horario_detalle set dia = 'MARTES'
+where dia = 'Martes';
+update horario_detalle set dia = 'MIÉRCOLES'
+where dia = 'Miércoles';
+update horario_detalle set dia = 'JUEVES'
+where dia = 'Jueves';
+update horario_detalle set dia = 'VIERNES'
+where dia = 'Viernes';
 
 -- --------------------------------
 -- REGISTRAR HORARIO
@@ -149,8 +148,8 @@ select * from apoderados a
 where a.dni_apoderado LIKE '06662516' and a.pass like '12345678'
 ;
 
-SELECT * FROM estudiantes
-where e.dni_estudiante like '61933011' and e.pass like '12345678';
+SELECT * FROM estudiantes e
+where e.dni_estudiante like '61933011' and e.pass like '61933011M';
 -- --------------------------------
 -- BANDEJA DE ENTRADA
 -- --------------------------------
