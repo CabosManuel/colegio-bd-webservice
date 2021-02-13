@@ -16,6 +16,21 @@ select * from secciones;
 select * from trabajadores;
 
 -- ++++++++++++++++++++++++++++++++++++++++++ WEB ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	update estudiantes set condicion = 'No Promovido'
+	where condicion = 'no promovido'
+
+-----------------------------------------
+update horario_detalle set dia = 'Jueves'
+where dia = 'JUEVES'
+
+update horario_detalle set dia = 'Martes'
+where dia = 'MARTES'
+update horario_detalle set dia = 'Miércoles'
+where dia = 'MIERCOLES'
+update horario_detalle set dia = 'Jueves'
+where dia = 'JUEVES'
+update horario_detalle set dia = 'Viernes'
+where dia = 'VIERNES'
 
 -- --------------------------------
 -- REGISTRAR HORARIO
@@ -161,12 +176,16 @@ select a.estado, convert(a.asistencia,date) ,hd.curso_id
 from asistencias a
 inner join horario_detalle hd
 on hd.horario_detalle_id = a.horario_detalle_id
-where a.dni_estudiante like '61933011' and hd.curso_id = 21 and month(a.asistencia) = 12;
+where a.dni_estudiante like '61933011' and hd.curso_id = 21 and month(a.asistencia) = 10
+order by convert(a.asistencia,date)
+;
 
 -- lista meses que tenga asistencias
 select distinct month(a.asistencia)
 from asistencias a
-where a.dni_estudiante like '61933011' and year(a.asistencia) = year(now());
+where a.dni_estudiante like '61933011' and year(a.asistencia) =2020 /*year(now())*/
+order by month(a.asistencia)
+;
 
 -- listar cursos de la malla más reciente de una estudiante
 select cu.curso_id, cu.nombre from cursos cu
@@ -201,17 +220,18 @@ inner join secciones s on s.grado_id = g.grado_id;
 -- listar estudiantes dni, nombre, grado y seccion 
 SELECT 
 	mat.dni_estudiante, 
-	est.nombres, 
+	est.nombre, 
 	concat(gra.nombre,sec.nombre) AS 'grado y seccion',
-    sec.id_seccion, gra.id_grado
-FROM matricula mat
-	INNER JOIN estudiante est
-	ON est.dni = mat.dni_estudiante
-	INNER JOIN seccion sec
-	ON sec.id_seccion = mat.id_seccion
-	INNER JOIN grado gra
-	ON gra.id_grado = mat.grado
-ORDER BY gra.id_grado;
+    sec.seccion_id, gra.grado_id
+FROM matriculas mat
+	INNER JOIN estudiantes est
+	ON est.dni_estudiante = mat.dni_estudiante
+	INNER JOIN secciones sec
+	ON sec.seccion_id = mat.seccion_id
+	INNER JOIN grados gra
+	ON gra.grado_id = mat.grado
+	where est.dni_estudiante = 61933011
+ORDER BY gra.grado_id;
 
 -- listar cursos por grado
 SELECT c.curso_id,c.nombre
