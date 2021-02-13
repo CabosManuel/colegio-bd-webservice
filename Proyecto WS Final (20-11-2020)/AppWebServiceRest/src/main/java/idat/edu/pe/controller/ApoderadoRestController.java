@@ -116,6 +116,7 @@ public class ApoderadoRestController {
 				);
 		
 		ApoderadoLoginMapper apoderadoRespuesta = MapperUtil.convertApoderadoToApoderadoLogin(nuevoA);
+		apoderadoRespuesta.setEstudiantes(serviceEstudiante.findByDniApoderado(dniApoderado));
 				
 		return new ResponseEntity<>(apoderadoRespuesta, HttpStatus.OK);
 	}
