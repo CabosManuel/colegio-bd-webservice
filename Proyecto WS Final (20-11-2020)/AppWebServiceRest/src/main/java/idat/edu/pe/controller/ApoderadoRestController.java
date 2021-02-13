@@ -48,7 +48,6 @@ public class ApoderadoRestController {
 	
 	@GetMapping("/listar")
 	public ResponseEntity<?> listar(){
-		
 		Collection<Map<String, ?>> itemsApoderado= service.buscarApoderados();
 		
 		if(!itemsApoderado.isEmpty() && itemsApoderado != null) {
@@ -60,7 +59,6 @@ public class ApoderadoRestController {
 	
 	@GetMapping("/buscar/{dniApoderado}")
 	public ResponseEntity<?> buscar(@PathVariable String dniApoderado){
-		
 		Map<String, ?> apoderadoDb = service.buscarApoderado(dniApoderado);
 		//Apoderado apoderadoDb = service.findByDniApoderado(dniApoderado);
 		//ApoderadoMapper apoderadoMapper = MapperUtil.convert(apoderadoDb);
@@ -68,6 +66,7 @@ public class ApoderadoRestController {
 		if(apoderadoDb!=null && !apoderadoDb.isEmpty()) {
 			return new ResponseEntity<>(apoderadoDb, HttpStatus.OK);
 		}
+		
 		return new ResponseEntity<>("Apoderado con el dni " + dniApoderado + " no existente.", HttpStatus.NOT_FOUND);
 		
 	}
@@ -105,8 +104,7 @@ public class ApoderadoRestController {
 	}
 	
 	@PutMapping("/editar/{dniApoderado}")
-	public ResponseEntity<?> modificarEstudiante(@PathVariable String dniApoderado,@RequestBody Map<String, Object> nuevoA) {
-	
+	public ResponseEntity<?> modificarEstudiante(@PathVariable String dniApoderado, @RequestBody Map<String, Object> nuevoA) {
 		service.modificarApoderado(
 				nuevoA.get("nombre").toString(),
 				nuevoA.get("apellido").toString(),
@@ -116,43 +114,46 @@ public class ApoderadoRestController {
 				nuevoA.get("direccion").toString(),
 				dniApoderado
 				);
+		
+		ApoderadoLoginMapper apoderadoRespuesta = MapperUtil.convertApoderadoToApoderadoLogin(nuevoA);
 				
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<>(apoderadoRespuesta, HttpStatus.OK);
 	}
 	
 	
 	@PutMapping("/editar_perfil/{dniApoderado}")
 	public ResponseEntity<?> editarPerfil(@PathVariable String dniApoderado, @RequestBody Map<String, Object> nuevoApoderadoMap){
 		
-		Apoderado apoderadoDb = service.findByDniApoderado(dniApoderado);
+		//Apoderado apoderadoDb = service.findByDniApoderado(dniApoderado);
 		Map<String, Object> rpta = new HashMap<>();
 		rpta.put("rpta", false);
 		rpta.put("msj", "DNI no existe.");
 		
-		if(apoderadoDb!=null) {
+		//if(apoderadoDb!=null) {
 			// Este apoderado se enviará como respuesta
 			ApoderadoLoginMapper apoderadoRespuesta = MapperUtil.convertApoderadoToApoderadoLogin(nuevoApoderadoMap);
 			apoderadoRespuesta.setEstudiantes(serviceEstudiante.findByDniApoderado(dniApoderado));
 			
 			// Este actualiza en la BD
-			apoderadoDb.setNombre(nuevoApoderadoMap.get("nombre").toString());
+			/*apoderadoDb.setNombre(nuevoApoderadoMap.get("nombre").toString());
 			apoderadoDb.setApellido(nuevoApoderadoMap.get("apellido").toString());
 			apoderadoDb.setCelular(nuevoApoderadoMap.get("celular").toString());
 			apoderadoDb.setCorreo(nuevoApoderadoMap.get("correo").toString());
 			apoderadoDb.setDireccion(nuevoApoderadoMap.get("direccion").toString());			
-			apoderadoDb.setDistrito(serviceDistrito.findById((Integer) nuevoApoderadoMap.get("distrito_id")));
-			service.update(apoderadoDb);
+			apoderadoDb.setDistrito(serviceDistrito.findById((Integer) nuevoApoderadoMap.get("distrito_id")));*/
+			//service.update(apoderadoDb);
 			
 			rpta.put("rpta", true);
 			rpta.put("msj", "El apoderado con el dni " + dniApoderado + " se actualizó correctamente");
 			rpta.put("apoderado", apoderadoRespuesta);
 			return new ResponseEntity<>(rpta, HttpStatus.OK);
-		}
+		//}
 		
-		return new ResponseEntity<>(rpta,HttpStatus.NOT_FOUND);
+		//return new ResponseEntity<>(rpta,HttpStatus.NOT_FOUND);
 	}
 	
 	@PutMapping("/desactivar/{dniApoderado}")
+
 	public ResponseEntity<?> DesactivarEstudiante(@PathVariable String dniApoderado, @RequestBody Map<String, Object> nuevaA) {
 		
 		service.cambiarApoderado(Boolean.parseBoolean(nuevaA.get("estado").toString()), dniApoderado);
@@ -162,7 +163,7 @@ public class ApoderadoRestController {
 
 	@GetMapping("/nombre_estudiantes/{dniApoderado}")
 	public ResponseEntity<?> getNombreEstudiantesPorDniApoderado(@PathVariable String dniApoderado){
-		Collection<Object[]> estudiantes = serviceApoderado.getEstudiantesByDniApoderado(dniApoderado);
+		Collection<Object[]> estudiantes = service.getEstudiantesByDniApoderado(dniApoderado);
 		return new ResponseEntity<>(MapperUtil.convertCollObjects_EstudianteMapper(estudiantes), HttpStatus.OK);
 	}
 	
