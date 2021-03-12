@@ -21,7 +21,7 @@ import com.colegio.service.GradoService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/rest/grados")
+@RequestMapping("/grados")
 public class GradoRestController {
 	
 	@Autowired

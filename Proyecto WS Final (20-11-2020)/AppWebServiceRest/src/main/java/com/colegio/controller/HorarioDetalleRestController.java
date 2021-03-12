@@ -23,7 +23,7 @@ import com.colegio.service.HorarioDetalleService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("rest/horariodetalle")
+@RequestMapping("/horariodetalle")
 public class HorarioDetalleRestController {
 	
 	@Autowired

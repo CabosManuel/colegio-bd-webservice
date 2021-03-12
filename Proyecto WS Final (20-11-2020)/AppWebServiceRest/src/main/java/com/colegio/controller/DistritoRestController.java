@@ -20,7 +20,7 @@ import com.colegio.service.DistritoService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/rest/distritos")
+@RequestMapping("/distritos")
 public class DistritoRestController {
 	
 	@Autowired

@@ -26,7 +26,7 @@ import com.colegio.service.NotificacionService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/rest/apoderados")
+@RequestMapping("/apoderados")
 public class ApoderadoRestController {
 
 	@Autowired
@@ -141,7 +141,7 @@ public class ApoderadoRestController {
 	}
 	
 	/** 
-	 * http://localhost:8085/idat/rest/apoderados/bandeja_entrada?dniEstudiante=61933011&tipo1=comunicado&tipo2=x&tipo3=x
+	 * http://localhost:8085/idat/apoderados/bandeja_entrada?dniEstudiante=61933011&tipo1=comunicado&tipo2=x&tipo3=x
 	 * 
 	 * En los parametros tipo1, tipo2 y tipo3 van: persmiso, comunicado o citación (pueden ir en cualquier orden y
 	 * también se pueden repetir), cadata "tipo" tiene que estar lleno, por defecto desde al app lo estoy llenando 

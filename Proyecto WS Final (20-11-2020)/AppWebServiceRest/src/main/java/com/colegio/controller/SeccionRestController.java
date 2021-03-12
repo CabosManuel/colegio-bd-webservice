@@ -21,7 +21,7 @@ import com.colegio.service.SeccionService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping("/rest/secciones")
+@RequestMapping("/secciones")
 public class SeccionRestController {
 
 	@Autowired

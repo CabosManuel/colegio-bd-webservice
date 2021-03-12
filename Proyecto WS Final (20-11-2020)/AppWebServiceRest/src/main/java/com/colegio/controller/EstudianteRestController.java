@@ -23,7 +23,7 @@ import com.colegio.service.EstudianteService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/rest/estudiante")
+@RequestMapping("/estudiante")
 public class EstudianteRestController {
 
 	@Autowired

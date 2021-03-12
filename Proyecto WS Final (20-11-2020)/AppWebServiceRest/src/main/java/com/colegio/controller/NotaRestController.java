@@ -25,7 +25,7 @@ import com.colegio.service.NotaService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/rest/nota")
+@RequestMapping("/nota")
 public class NotaRestController {
 
 	@Autowired

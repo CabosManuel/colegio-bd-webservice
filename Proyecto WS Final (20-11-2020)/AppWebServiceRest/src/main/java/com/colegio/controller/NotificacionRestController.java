@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.colegio.service.NotificacionService;
 
 @RestController
-@RequestMapping("/rest/notificacion")
+@RequestMapping("/notificacion")
 public class NotificacionRestController {
 	
 	@Autowired

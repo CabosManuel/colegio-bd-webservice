@@ -22,7 +22,7 @@ import com.colegio.service.JustificacionService;
 
 
 @RestController
-@RequestMapping("/rest/justificaciones")
+@RequestMapping("/justificaciones")
 public class JustificacionRestController {
 	
 	@Autowired

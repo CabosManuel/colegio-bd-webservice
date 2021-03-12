@@ -18,7 +18,7 @@ import com.colegio.service.HorarioCabeceraService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("rest/horariocabecera")
+@RequestMapping("/horariocabecera")
 public class HorarioCabeceraRestController {
 	
 	@Autowired

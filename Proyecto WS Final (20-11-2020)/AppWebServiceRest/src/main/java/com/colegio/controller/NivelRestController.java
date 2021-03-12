@@ -20,7 +20,7 @@ import com.colegio.service.NivelService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/rest/niveles")
+@RequestMapping("/niveles")
 public class NivelRestController {
 	
 	@Autowired

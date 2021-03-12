@@ -18,7 +18,7 @@ import com.colegio.service.ApoderadoService;
 import com.colegio.service.EstudianteService;
 
 @RestController
-@RequestMapping("/rest")
+@RequestMapping("")
 public class LoginController {
 
 	@Autowired

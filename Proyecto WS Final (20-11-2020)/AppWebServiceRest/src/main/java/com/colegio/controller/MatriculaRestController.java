@@ -20,7 +20,7 @@ import com.colegio.service.MatriculaService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/rest/matriculas")
+@RequestMapping("/matriculas")
 public class MatriculaRestController {
 	
 	@Autowired

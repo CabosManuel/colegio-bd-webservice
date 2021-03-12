@@ -18,7 +18,7 @@ import com.colegio.service.CursoService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("rest/curso")
+@RequestMapping("/curso")
 public class CursoRestController {
 	
 	@Autowired

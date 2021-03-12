@@ -25,7 +25,7 @@ import com.colegio.service.AsistenciaService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/rest/asistencia")
+@RequestMapping("/asistencia")
 public class AsistenciaRestController {
 	
 	@Autowired

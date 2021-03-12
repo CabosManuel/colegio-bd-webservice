@@ -17,7 +17,7 @@ import com.colegio.service.MallaService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/rest/mallas")
+@RequestMapping("/mallas")
 public class MallaRestController {
 
 	@Autowired

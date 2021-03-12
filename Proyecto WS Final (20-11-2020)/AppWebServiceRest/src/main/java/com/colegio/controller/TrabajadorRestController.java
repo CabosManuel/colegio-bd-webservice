@@ -22,7 +22,7 @@ import com.colegio.service.TrabajadorService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/rest/trabajador")
+@RequestMapping("/trabajador")
 public class TrabajadorRestController {
 
 	@Autowired
