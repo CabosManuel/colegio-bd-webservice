@@ -1,7 +1,6 @@
 package idat.edu.pe.controller;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,13 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import idat.edu.pe.mapper.ApoderadoLoginMapper;
-import idat.edu.pe.mapper.ApoderadoMapper;
 import idat.edu.pe.mapper.EstudianteMapper;
 import idat.edu.pe.mapper.MapperUtil;
-import idat.edu.pe.model.Apoderado;
-import idat.edu.pe.model.Distrito;
 import idat.edu.pe.service.ApoderadoService;
-import idat.edu.pe.service.DistritoService;
 import idat.edu.pe.service.EstudianteService;
 import idat.edu.pe.service.NotificacionService;
 
@@ -39,9 +34,6 @@ public class ApoderadoRestController {
 	
 	@Autowired
 	private NotificacionService serviceNotificacion;
-	
-	@Autowired
-	private DistritoService serviceDistrito;
 	
 	@Autowired
 	private EstudianteService serviceEstudiante;
@@ -60,9 +52,6 @@ public class ApoderadoRestController {
 	@GetMapping("/buscar/{dniApoderado}")
 	public ResponseEntity<?> buscar(@PathVariable String dniApoderado){
 		Map<String, ?> apoderadoDb = service.buscarApoderado(dniApoderado);
-		//Apoderado apoderadoDb = service.findByDniApoderado(dniApoderado);
-		//ApoderadoMapper apoderadoMapper = MapperUtil.convert(apoderadoDb);
-		
 		if(apoderadoDb!=null && !apoderadoDb.isEmpty()) {
 			return new ResponseEntity<>(apoderadoDb, HttpStatus.OK);
 		}
@@ -124,33 +113,16 @@ public class ApoderadoRestController {
 	
 	@PutMapping("/editar_perfil/{dniApoderado}")
 	public ResponseEntity<?> editarPerfil(@PathVariable String dniApoderado, @RequestBody Map<String, Object> nuevoApoderadoMap){
-		
-		//Apoderado apoderadoDb = service.findByDniApoderado(dniApoderado);
 		Map<String, Object> rpta = new HashMap<>();
 		rpta.put("rpta", false);
 		rpta.put("msj", "DNI no existe.");
+		ApoderadoLoginMapper apoderadoRespuesta = MapperUtil.convertApoderadoToApoderadoLogin(nuevoApoderadoMap);
+		apoderadoRespuesta.setEstudiantes(serviceEstudiante.findByDniApoderado(dniApoderado));
 		
-		//if(apoderadoDb!=null) {
-			// Este apoderado se enviará como respuesta
-			ApoderadoLoginMapper apoderadoRespuesta = MapperUtil.convertApoderadoToApoderadoLogin(nuevoApoderadoMap);
-			apoderadoRespuesta.setEstudiantes(serviceEstudiante.findByDniApoderado(dniApoderado));
-			
-			// Este actualiza en la BD
-			/*apoderadoDb.setNombre(nuevoApoderadoMap.get("nombre").toString());
-			apoderadoDb.setApellido(nuevoApoderadoMap.get("apellido").toString());
-			apoderadoDb.setCelular(nuevoApoderadoMap.get("celular").toString());
-			apoderadoDb.setCorreo(nuevoApoderadoMap.get("correo").toString());
-			apoderadoDb.setDireccion(nuevoApoderadoMap.get("direccion").toString());			
-			apoderadoDb.setDistrito(serviceDistrito.findById((Integer) nuevoApoderadoMap.get("distrito_id")));*/
-			//service.update(apoderadoDb);
-			
-			rpta.put("rpta", true);
-			rpta.put("msj", "El apoderado con el dni " + dniApoderado + " se actualizó correctamente");
-			rpta.put("apoderado", apoderadoRespuesta);
-			return new ResponseEntity<>(rpta, HttpStatus.OK);
-		//}
-		
-		//return new ResponseEntity<>(rpta,HttpStatus.NOT_FOUND);
+		rpta.put("rpta", true);
+		rpta.put("msj", "El apoderado con el dni " + dniApoderado + " se actualizó correctamente");
+		rpta.put("apoderado", apoderadoRespuesta);
+		return new ResponseEntity<>(rpta, HttpStatus.OK);
 	}
 	
 	@PutMapping("/desactivar/{dniApoderado}")
@@ -206,12 +178,7 @@ public class ApoderadoRestController {
 	
 	@GetMapping("/estudiantes")
 	public ResponseEntity<?> getEstudiantesPorDniApoderado(@RequestParam String dniApoderado){
-		/*Apoderado apoderadoDb = service.findByDniApoderado(dniApoderado);
-		if(apoderadoDb!=null) {*/
-			Collection<?> estudiantes = serviceEstudiante.findByDniApoderado(dniApoderado);
-			return new ResponseEntity<>(estudiantes, HttpStatus.OK);
-		/*}
-				
-		return new ResponseEntity<>("Apoderado \""+dniApoderado+"\", no encontrado", HttpStatus.NOT_FOUND);*/
+		Collection<?> estudiantes = serviceEstudiante.findByDniApoderado(dniApoderado);
+		return new ResponseEntity<>(estudiantes, HttpStatus.OK);
 	}
 }

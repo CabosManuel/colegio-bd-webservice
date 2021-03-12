@@ -1,7 +1,5 @@
 package idat.edu.pe.mapper;
 
-import javax.persistence.Column;
-
 public class ApoderadoMapper {
 
 	private String dniApoderado;

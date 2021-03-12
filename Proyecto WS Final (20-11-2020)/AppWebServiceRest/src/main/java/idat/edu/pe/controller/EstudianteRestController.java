@@ -2,8 +2,6 @@ package idat.edu.pe.controller;
 
 
 import java.util.Collection;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import idat.edu.pe.mapper.EstudianteLoginMapper;
-import idat.edu.pe.mapper.EstudianteMapper;
 import idat.edu.pe.mapper.MapperUtil;
-import idat.edu.pe.model.Apoderado;
-import idat.edu.pe.model.Distrito;
-import idat.edu.pe.model.Estudiante;
 import idat.edu.pe.service.ApoderadoService;
-import idat.edu.pe.service.DistritoService;
 import idat.edu.pe.service.EstudianteService;
 
 @CrossOrigin("*")
@@ -36,9 +29,6 @@ public class EstudianteRestController {
 
 	@Autowired
 	private EstudianteService estudianteService;
-	
-	@Autowired 
-	private DistritoService distritoService;
 	
 	@Autowired 
 	private ApoderadoService apoderadoService;

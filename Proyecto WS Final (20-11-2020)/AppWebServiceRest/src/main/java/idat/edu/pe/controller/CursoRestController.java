@@ -1,11 +1,8 @@
 package idat.edu.pe.controller;
 
 import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 
-import org.apache.catalina.mapper.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import idat.edu.pe.mapper.ApoderadoMapper;
-import idat.edu.pe.mapper.CursoMapper;
 import idat.edu.pe.mapper.MapperUtil;
-import idat.edu.pe.model.Apoderado;
-import idat.edu.pe.model.Curso;
 import idat.edu.pe.service.CursoService;
 
 @CrossOrigin("*")

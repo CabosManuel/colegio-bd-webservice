@@ -1,10 +1,7 @@
 package idat.edu.pe.controller;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import idat.edu.pe.mapper.MapperUtil;
 import idat.edu.pe.mapper.NotaMapper;
-import idat.edu.pe.model.Curso;
-import idat.edu.pe.model.Estudiante;
 import idat.edu.pe.model.Nota;
-import idat.edu.pe.service.CursoService;
 import idat.edu.pe.service.EstudianteService;
 import idat.edu.pe.service.NotaService;
-import idat.edu.pe.service.SeccionService;
 
 @CrossOrigin("*")
 @RestController
@@ -40,12 +33,6 @@ public class NotaRestController {
 
 	@Autowired
 	private EstudianteService e;
-
-	@Autowired
-	private CursoService c;
-
-	@Autowired
-	private SeccionService ss;
 
 	@GetMapping("/consultar_notas")
 	public ResponseEntity<?> listarNotasDniEstudianteAnio(@RequestParam String dniEstudiante,

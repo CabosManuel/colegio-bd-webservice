@@ -14,10 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import idat.edu.pe.mapper.EstudianteMapper;
 import idat.edu.pe.mapper.MapperUtil;
 import idat.edu.pe.mapper.SeccionMapper;
-import idat.edu.pe.model.Estudiante;
 import idat.edu.pe.model.Seccion;
 import idat.edu.pe.service.SeccionService;
 

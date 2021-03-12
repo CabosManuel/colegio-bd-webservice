@@ -1,7 +1,5 @@
 package idat.edu.pe.mapper;
 
-import java.time.LocalTime;
-
 public class HorarioDetalleMapper {
 
 	private Integer horarioDetalleId;

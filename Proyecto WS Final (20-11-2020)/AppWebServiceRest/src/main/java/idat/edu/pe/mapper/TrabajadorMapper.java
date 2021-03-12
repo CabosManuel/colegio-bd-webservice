@@ -2,15 +2,6 @@ package idat.edu.pe.mapper;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.ForeignKey;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import idat.edu.pe.model.Distrito;
-
 public class TrabajadorMapper {
 
 	private Integer trabajadorId;

@@ -14,10 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import idat.edu.pe.mapper.HorarioCabeceraMapper;
 import idat.edu.pe.mapper.MapperUtil;
 import idat.edu.pe.model.HorarioCabecera;
-import idat.edu.pe.model.HorarioDetalle;
-import idat.edu.pe.service.CursoService;
 import idat.edu.pe.service.HorarioCabeceraService;
-import idat.edu.pe.service.HorarioDetalleService;
 
 @CrossOrigin("*")
 @RestController

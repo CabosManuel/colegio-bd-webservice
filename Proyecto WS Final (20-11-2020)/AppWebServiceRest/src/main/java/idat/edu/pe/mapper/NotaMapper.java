@@ -14,7 +14,7 @@ public class NotaMapper {
 	public NotaMapper() {
 	}
 
-	public NotaMapper(Integer nota_id, String curso, Integer nota1, Integer nota2, Integer nota3/*, String fecha*/, EstudianteMapper dni_estudiante, CursoMapper cursom) {
+	public NotaMapper(Integer nota_id, String curso, Integer nota1, Integer nota2, Integer nota3, EstudianteMapper dni_estudiante, CursoMapper cursom) {
 		this.nota_id = nota_id;
 		this.curso = curso;
 		this.nota1 = nota1;
@@ -22,7 +22,6 @@ public class NotaMapper {
 		this.nota3 = nota3;
 		this.dni_estudiante = dni_estudiante;
 		this.cursom = cursom;
-		this.fecha = fecha;
 	}
 	
 	

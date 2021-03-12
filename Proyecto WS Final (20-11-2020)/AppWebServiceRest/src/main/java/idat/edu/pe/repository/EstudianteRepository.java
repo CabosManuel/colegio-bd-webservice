@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import idat.edu.pe.model.Estudiante;
-import idat.edu.pe.model.Matricula;
 
 public interface EstudianteRepository extends CrudRepository<Estudiante, String> {
 

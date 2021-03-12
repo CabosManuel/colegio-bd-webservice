@@ -1,11 +1,5 @@
 package idat.edu.pe.mapper;
 
-import java.util.Date;
-import java.util.Map;
-
-import idat.edu.pe.model.Apoderado;
-import idat.edu.pe.model.Distrito;
-
 public class EstudianteMapper1 
 {	
 	private String dniEstudiante;

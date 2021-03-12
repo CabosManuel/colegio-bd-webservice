@@ -3,8 +3,6 @@ package idat.edu.pe.service;
 import java.util.Collection;
 import java.util.Map;
 
-import org.springframework.data.jpa.repository.Query;
-
 import idat.edu.pe.model.Trabajador;
 
 public interface TrabajadorService {

@@ -3,8 +3,6 @@ package idat.edu.pe.service;
 import java.util.Collection;
 import java.util.Map;
 
-import org.springframework.data.repository.query.Param;
-
 import idat.edu.pe.model.Nota;
 
 public interface NotaService {

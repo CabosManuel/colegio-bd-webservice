@@ -15,16 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import idat.edu.pe.mapper.MapperUtil;
-import idat.edu.pe.mapper.MatriculaMapper;
-import idat.edu.pe.model.Grado;
 import idat.edu.pe.model.Matricula;
-import idat.edu.pe.model.Nivel;
-import idat.edu.pe.service.EstudianteService;
-import idat.edu.pe.service.GradoService;
 import idat.edu.pe.service.MatriculaService;
-import idat.edu.pe.service.NivelService;
-import idat.edu.pe.service.SeccionService;
 
 @CrossOrigin("*")
 @RestController
@@ -33,18 +25,6 @@ public class MatriculaRestController {
 	
 	@Autowired
 	private MatriculaService service;
-	
-	@Autowired
-	private GradoService gservice;
-	
-	@Autowired
-	private NivelService nservice;
-	
-	@Autowired
-	private SeccionService sservice;
-	
-	@Autowired
-	private EstudianteService eservice;
 	
 	@GetMapping("/listar")
 	public ResponseEntity<?> listar(){

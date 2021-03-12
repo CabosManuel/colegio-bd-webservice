@@ -1,10 +1,6 @@
 package idat.edu.pe.controller;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,10 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import idat.edu.pe.mapper.DistritoMapper;
-import idat.edu.pe.mapper.EstudianteMapper;
 import idat.edu.pe.mapper.MapperUtil;
 import idat.edu.pe.model.Distrito;
-import idat.edu.pe.model.Estudiante;
 import idat.edu.pe.service.DistritoService;
 
 @CrossOrigin("*")

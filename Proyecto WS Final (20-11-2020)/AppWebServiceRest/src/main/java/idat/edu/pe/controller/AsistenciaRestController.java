@@ -5,10 +5,8 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 import java.util.Map;
 
-import org.apache.tomcat.jni.Time;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,15 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import idat.edu.pe.mapper.AsistenciaMapper;
 import idat.edu.pe.mapper.MapperUtil;
-import idat.edu.pe.model.Apoderado;
-import idat.edu.pe.model.Asistencia;
-import idat.edu.pe.model.Distrito;
-import idat.edu.pe.model.Estudiante;
 import idat.edu.pe.service.AsistenciaService;
-import idat.edu.pe.service.EstudianteService;
-import idat.edu.pe.service.HorarioDetalleService;
 
 @CrossOrigin("*")
 @RestController
@@ -39,12 +30,6 @@ public class AsistenciaRestController {
 	
 	@Autowired
 	private AsistenciaService s;
-	
-	@Autowired
-	private HorarioDetalleService hds;
-	
-	@Autowired
-	private EstudianteService es;
 	
 	@GetMapping("/consultar_asistencias_antiguo")
 	public ResponseEntity<?> listarAsistenciasMes(@RequestParam String dniEstudiante, @RequestParam String fecha){

@@ -18,16 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import idat.edu.pe.mapper.HorarioDetalleMapper;
 import idat.edu.pe.mapper.MapperUtil;
-import idat.edu.pe.model.Apoderado;
-import idat.edu.pe.model.Curso;
-import idat.edu.pe.model.Distrito;
-import idat.edu.pe.model.Estudiante;
-import idat.edu.pe.model.HorarioDetalle;
-import idat.edu.pe.model.Trabajador;
-import idat.edu.pe.service.CursoService;
 import idat.edu.pe.service.HorarioCabeceraService;
 import idat.edu.pe.service.HorarioDetalleService;
-import idat.edu.pe.service.TrabajadorService;
 
 @CrossOrigin("*")
 @RestController
@@ -40,13 +32,6 @@ public class HorarioDetalleRestController {
 	@Autowired
 	private HorarioDetalleService hdservice;
 	
-	@Autowired
-	private CursoService cservice;
-	
-	@Autowired
-	private TrabajadorService tservice;
-	
-
 	@PostMapping("/agregar")
 	public ResponseEntity<?> nuevaM(@RequestBody Map<String, Object> nuevaM) {
 

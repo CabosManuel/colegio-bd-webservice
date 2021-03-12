@@ -1,7 +1,5 @@
 package idat.edu.pe.mapper;
 
-import idat.edu.pe.model.Seccion;
-
 public class HorarioCabeceraMapper {
 
 	private Integer horarioCabeceraId;
