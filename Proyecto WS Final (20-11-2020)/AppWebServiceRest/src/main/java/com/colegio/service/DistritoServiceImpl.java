@@ -12,8 +12,8 @@ import com.colegio.model.Distrito;
 import com.colegio.repository.DistritoRepository;
 
 @Service
-public class DistritoServiceImpl implements DistritoService{
-	
+public class DistritoServiceImpl implements DistritoService {
+
 	@Autowired
 	private DistritoRepository repository;
 
@@ -32,7 +32,7 @@ public class DistritoServiceImpl implements DistritoService{
 	@Transactional
 	@Override
 	public void delete(Integer distritoId) {
-		repository.deleteById(distritoId);	
+		repository.deleteById(distritoId);
 	}
 
 	@Transactional(readOnly = true)
@@ -44,12 +44,12 @@ public class DistritoServiceImpl implements DistritoService{
 	@Transactional(readOnly = true)
 	@Override
 	public List<Distrito> findAll() {
-		return (List<Distrito>)repository.findAll();
+		return (List<Distrito>) repository.findAll();
 	}
-	
+
 	@Transactional(readOnly = true)
 	@Override
-	public Collection<Map<String,?>> all(){
+	public Collection<Map<String, ?>> all() {
 		return repository.all();
 	}
 }

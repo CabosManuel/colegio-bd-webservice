@@ -6,10 +6,14 @@ import com.colegio.model.Malla;
 
 public interface MallaService {
 
-	public abstract void insert(Malla malla);
-	public abstract void update(Malla malla);
-	public abstract void delete(Integer mallaId);
-	public abstract Malla findById(Integer mallaId);
-	public abstract Collection<Malla> findAll();
-	
+	void insert(Malla malla);
+
+	void update(Malla malla);
+
+	void delete(Integer mallaId);
+
+	Malla findById(Integer mallaId);
+
+	Collection<Malla> findAll();
+
 }

@@ -11,8 +11,8 @@ import com.colegio.model.HorarioCabecera;
 import com.colegio.repository.HorarioCabeceraRepository;
 
 @Service
-public class HorarioCabeceraServiceImpl implements HorarioCabeceraService{
-	
+public class HorarioCabeceraServiceImpl implements HorarioCabeceraService {
+
 	@Autowired
 	private HorarioCabeceraRepository r;
 
@@ -33,19 +33,17 @@ public class HorarioCabeceraServiceImpl implements HorarioCabeceraService{
 	public HorarioCabecera findById(Integer horarioCabeceraId) {
 		return r.findById(horarioCabeceraId).orElse(null);
 	}
-	
+
 	@Transactional(readOnly = true)
 	@Override
 	public Collection<HorarioCabecera> findAll() {
-		return (Collection<HorarioCabecera>)r.findAll();
+		return (Collection<HorarioCabecera>) r.findAll();
 	}
 
 	@Transactional(readOnly = true)
 	@Override
-	public	Map<String, ?> getfindOneRegister() {
+	public Map<String, ?> getfindOneRegister() {
 		return r.getfindOneRegister();
 	}
-	
-	
 
 }

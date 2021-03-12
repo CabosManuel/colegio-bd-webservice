@@ -11,7 +11,7 @@ import com.colegio.model.Curso;
 import com.colegio.repository.CursoRepository;
 
 @Service
-public class CursoServiceImpl implements CursoService{
+public class CursoServiceImpl implements CursoService {
 
 	@Autowired
 	private CursoRepository r;
@@ -23,12 +23,9 @@ public class CursoServiceImpl implements CursoService{
 
 	@Transactional(readOnly = true)
 	@Override
-	public Collection<Map<String, Object>> buscarPorNivelGrado(Integer nivelId, Integer gradoId){
+	public Collection<Map<String, Object>> buscarPorNivelGrado(Integer nivelId, Integer gradoId) {
 		return r.buscarPorNivelGrado(nivelId, gradoId);
 	}
-	/*public Collection<Curso> getfindByNivelGrado(Integer nivelId, Integer gradoId) {
-		return r.getfindByNivelGrado(nivelId, gradoId);
-	}*/
 
 	@Transactional(readOnly = true)
 	@Override

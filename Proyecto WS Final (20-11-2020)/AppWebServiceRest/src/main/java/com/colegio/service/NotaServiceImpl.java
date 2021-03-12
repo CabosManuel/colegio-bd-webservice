@@ -11,11 +11,11 @@ import com.colegio.model.Nota;
 import com.colegio.repository.NotaRepository;
 
 @Service
-public class NotaServiceImpl implements NotaService{
+public class NotaServiceImpl implements NotaService {
 
 	@Autowired
 	private NotaRepository r;
-	
+
 	@Override
 	@Transactional(readOnly = true)
 	public Collection<Object[]> findByDniEstudianteAnio(String dniEstudiante, String anio) {
@@ -30,7 +30,7 @@ public class NotaServiceImpl implements NotaService{
 	@Transactional(readOnly = true)
 	@Override
 	public Collection<Nota> findByDniEstudiante(String dniEstudiante) {
-		return (Collection<Nota>)r.findByDniEstudiante(dniEstudiante);
+		return (Collection<Nota>) r.findByDniEstudiante(dniEstudiante);
 	}
 
 	@Transactional
@@ -41,8 +41,8 @@ public class NotaServiceImpl implements NotaService{
 
 	@Transactional(readOnly = true)
 	@Override
-	public Collection<Map<String, ?>> buscarNotasPorCurso(Integer cursoId, Integer seccionId){
-		return r.buscarNotasPorCurso(cursoId,seccionId);
+	public Collection<Map<String, ?>> buscarNotasPorCurso(Integer cursoId, Integer seccionId) {
+		return r.buscarNotasPorCurso(cursoId, seccionId);
 	}
 
 	@Transactional
@@ -66,15 +66,14 @@ public class NotaServiceImpl implements NotaService{
 	@Transactional(readOnly = true)
 	@Override
 	public Collection<Map<String, ?>> DniEstudiante(String dniEstudiante) {
-		return (Collection<Map<String, ?>>)r.DniEstudiante(dniEstudiante);	
+		return (Collection<Map<String, ?>>) r.DniEstudiante(dniEstudiante);
 	}
 
 	@Transactional
 	@Override
-	public void registrarNota(Integer seccionId, Integer cursoId, String dniEstudiante, Integer nota1, 
-			 String fecha) {
+	public void registrarNota(Integer seccionId, Integer cursoId, String dniEstudiante, Integer nota1, String fecha) {
 		r.registrarNota(seccionId, cursoId, dniEstudiante, nota1, fecha);
-		
+
 	}
 
 	@Transactional
@@ -83,5 +82,4 @@ public class NotaServiceImpl implements NotaService{
 		r.modificarNota(fecha, nota1, nota2, nota3, notaId);
 	}
 
-	
 }

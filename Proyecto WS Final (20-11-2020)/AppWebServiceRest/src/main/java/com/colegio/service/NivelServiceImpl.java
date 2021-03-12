@@ -14,7 +14,7 @@ public class NivelServiceImpl implements NivelService {
 
 	@Autowired
 	private NivelRepository r;
-	
+
 	@Transactional
 	@Override
 	public void insert(Nivel nivel) {
@@ -42,7 +42,7 @@ public class NivelServiceImpl implements NivelService {
 	@Transactional(readOnly = true)
 	@Override
 	public Collection<Nivel> findAll() {
-		return (Collection<Nivel>)r.findAll();
+		return (Collection<Nivel>) r.findAll();
 	}
 
 }

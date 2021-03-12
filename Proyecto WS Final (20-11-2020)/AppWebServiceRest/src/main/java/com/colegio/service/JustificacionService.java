@@ -6,29 +6,28 @@ import java.util.Map;
 
 import com.colegio.model.Justificacion;
 
-
 public interface JustificacionService {
 
-	
-	public abstract void insert(Justificacion justificacion);
-	
-	public abstract void update(Justificacion justificacion);
-	
-	public abstract void delete(Integer justificacionId);
+	void insert(Justificacion justificacion);
 
-	public abstract Justificacion findById(Integer justificacionId);
-	
-	public abstract Collection<Justificacion>findAll();
-	
-	public abstract Collection<Justificacion> findAllByFtitulo(String titulo);
-	
-	public abstract Collection<Justificacion> findAllByFdescripcion(String descripcion);
-	
-	public abstract Collection<Justificacion> findAllByFfecha(Date fecha);
-	
+	void update(Justificacion justificacion);
+
+	void delete(Integer justificacionId);
+
+	Justificacion findById(Integer justificacionId);
+
+	Collection<Justificacion> findAll();
+
+	Collection<Justificacion> findAllByFtitulo(String titulo);
+
+	Collection<Justificacion> findAllByFdescripcion(String descripcion);
+
+	Collection<Justificacion> findAllByFfecha(Date fecha);
+
 	Collection<Object[]> getJustificacionesByDniEstudiante(String dniEstudiante);
-	
-	void registrarJustificacion(String dniEstudiante, String fechaEnvio, String fechaJustificacion, String titulo, String descripcion);
-	
+
+	void registrarJustificacion(String dniEstudiante, String fechaEnvio, String fechaJustificacion, String titulo,
+			String descripcion);
+
 	Map<String, Integer> getUltimoId();
 }

@@ -11,11 +11,11 @@ import com.colegio.model.Apoderado;
 import com.colegio.repository.ApoderadoRepository;
 
 @Service
-public class ApoderadoServiceImpl implements ApoderadoService{
+public class ApoderadoServiceImpl implements ApoderadoService {
 
 	@Autowired
 	private ApoderadoRepository r;
-	
+
 	@Transactional
 	@Override
 	public void insert(Apoderado apoderado) {
@@ -25,13 +25,13 @@ public class ApoderadoServiceImpl implements ApoderadoService{
 	@Transactional
 	@Override
 	public void update(Apoderado apoderado) {
-		r.save(apoderado);		
+		r.save(apoderado);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
 	public Collection<Apoderado> findAll() {
-		return (Collection<Apoderado>)r.findAll();
+		return (Collection<Apoderado>) r.findAll();
 	}
 
 	@Transactional(readOnly = true)
@@ -42,16 +42,16 @@ public class ApoderadoServiceImpl implements ApoderadoService{
 
 	@Transactional(readOnly = true)
 	@Override
-	public Collection<Object[]> getEstudiantesByDniApoderado(String dniApoderado) {
-		return r.getEstudiantesByDniApoderado(dniApoderado);
+	public Collection<Object[]> getNombreEstudiantesByDniApoderado(String dniApoderado) {
+		return r.getNombreEstudiantesByDniApoderado(dniApoderado);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
-	public Map<String, ?> loginApoderado(String dniApoderado, String pass){
+	public Map<String, ?> loginApoderado(String dniApoderado, String pass) {
 		return r.loginApoderado(dniApoderado, pass);
 	}
-	
+
 	@Transactional(readOnly = true)
 	@Override
 	public String findNomApeApoderadoByDniEstudiante(String dniEstudiante) {
@@ -70,21 +70,15 @@ public class ApoderadoServiceImpl implements ApoderadoService{
 	public Map<String, ?> buscarPorDniApoderado(String dniApoderado) {
 		return r.buscarPorDniApoderado(dniApoderado);
 	}
-	
+
 	@Transactional
 	@Override
 	public void nuevoApoderado(Map<String, Object> a) {
 		System.out.println(a.get("distrito_id"));
-		
-		r.nuevoApoderado(
-				a.get("dniApoderado").toString(),
-				a.get("nombre").toString(),
-				a.get("apellido").toString(),
-				a.get("celular").toString(),
-				a.get("correo").toString(),
-				a.get("pass").toString(),
-				a.get("direccion").toString(),
-				Boolean.parseBoolean(a.get("estado").toString()),
+
+		r.nuevoApoderado(a.get("dniApoderado").toString(), a.get("nombre").toString(), a.get("apellido").toString(),
+				a.get("celular").toString(), a.get("correo").toString(), a.get("pass").toString(),
+				a.get("direccion").toString(), Boolean.parseBoolean(a.get("estado").toString()),
 				Integer.parseInt(a.get("distrito_id").toString()));
 	}
 
@@ -99,7 +93,7 @@ public class ApoderadoServiceImpl implements ApoderadoService{
 	public Map<String, ?> buscarApoderado(String dniApoderado) {
 		return r.buscarApoderado(dniApoderado);
 	}
-	
+
 	@Transactional
 	@Override
 	public void cambiarApoderado(Boolean estado, String dniApoderado) {
@@ -111,7 +105,7 @@ public class ApoderadoServiceImpl implements ApoderadoService{
 	public void modificarApoderado(String nombre, String apellido, String celular, String correo, Integer distritoId,
 			String direccion, String dniApoderado) {
 		r.modificarApoderado(nombre, apellido, celular, correo, distritoId, direccion, dniApoderado);
-		
+
 	}
-	
+
 }

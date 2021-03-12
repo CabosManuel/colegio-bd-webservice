@@ -10,7 +10,7 @@ import com.colegio.model.Malla;
 import com.colegio.repository.MallaRepository;
 
 @Service
-public class MallaServiceImpl implements MallaService{
+public class MallaServiceImpl implements MallaService {
 
 	@Autowired
 	private MallaRepository r;
@@ -25,7 +25,7 @@ public class MallaServiceImpl implements MallaService{
 	@Override
 	public void update(Malla malla) {
 		r.save(malla);
-		
+
 	}
 
 	@Transactional
@@ -43,8 +43,7 @@ public class MallaServiceImpl implements MallaService{
 	@Transactional(readOnly = true)
 	@Override
 	public Collection<Malla> findAll() {
-		return (Collection<Malla>)r.findAll();
+		return (Collection<Malla>) r.findAll();
 	}
-	
-	
+
 }

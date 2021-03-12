@@ -11,15 +11,15 @@ import com.colegio.model.Trabajador;
 import com.colegio.repository.TrabajadorRepository;
 
 @Service
-public class TrabajadorServiceIml implements TrabajadorService{
-	
+public class TrabajadorServiceIml implements TrabajadorService {
+
 	@Autowired
 	private TrabajadorRepository r;
 
 	@Transactional
 	@Override
 	public void insert(Trabajador trabajador) {
-		r.save(trabajador);		
+		r.save(trabajador);
 	}
 
 	@Transactional
@@ -48,8 +48,8 @@ public class TrabajadorServiceIml implements TrabajadorService{
 
 	@Transactional(readOnly = true)
 	@Override
-	public Collection</*Trabajador*/Map<String,Object>> getfindByCurso(Integer cursoId) {
-		return (Collection</*Trabajador*/Map<String,Object>>)r.getfindByCurso(cursoId);
+	public Collection<Map<String, Object>> getfindByCurso(Integer cursoId) {
+		return (Collection<Map<String, Object>>) r.getfindByCurso(cursoId);
 	}
 
 	@Transactional(readOnly = true)
@@ -57,13 +57,13 @@ public class TrabajadorServiceIml implements TrabajadorService{
 	public Trabajador getfindByCorreoPass(String correo, String pass) {
 		return r.getfindByCorreoPass(correo, pass);
 	}
-	
+
 	@Transactional(readOnly = true)
 	@Override
-	public Collection<Map<String, ?>> getfindByDniEstudiante(String dniEstudiante){
+	public Collection<Map<String, ?>> getfindByDniEstudiante(String dniEstudiante) {
 		return r.getfindByDniEstudiante(dniEstudiante);
 	}
-	
+
 	@Transactional(readOnly = true)
 	@Override
 	public Collection<Map<String, ?>> seleccionarCursos(Integer trabajadorId) {
@@ -94,18 +94,19 @@ public class TrabajadorServiceIml implements TrabajadorService{
 	public Collection<Map<String, ?>> buscarTrabajadores() {
 		return r.buscarTrabajadores();
 	}
-	
+
 	@Transactional
 	@Override
 	public void cambiarTrabajador(Boolean estado, String dni) {
-	r.cambiarTrabajador(estado, dni);
+		r.cambiarTrabajador(estado, dni);
 	}
 
 	@Override
 	public void registrarTrabajador(String dni, String nombre, String apellido, String celular, String correo,
 			String fnacimiento, Integer distrito_id, String direccion, String pass, Boolean estado, String cargo,
 			String sexo) {
-		r.registrarTrabajador(dni, nombre, apellido, celular, correo, fnacimiento, distrito_id, direccion, pass, estado, cargo, sexo);
-		
+		r.registrarTrabajador(dni, nombre, apellido, celular, correo, fnacimiento, distrito_id, direccion, pass, estado,
+				cargo, sexo);
+
 	}
 }

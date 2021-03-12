@@ -12,7 +12,7 @@ import com.colegio.model.Matricula;
 import com.colegio.repository.MatriculaRepository;
 
 @Service
-public class MatriculaServiceImpl implements MatriculaService{
+public class MatriculaServiceImpl implements MatriculaService {
 
 	@Autowired
 	private MatriculaRepository r;
@@ -21,21 +21,21 @@ public class MatriculaServiceImpl implements MatriculaService{
 	@Override
 	public void insert(Matricula matricula) {
 		r.save(matricula);
-		
+
 	}
 
 	@Transactional
 	@Override
 	public void update(Matricula matricula) {
 		r.save(matricula);
-		
+
 	}
 
 	@Transactional
 	@Override
 	public void delete(Integer matriculaId) {
 		r.deleteById(matriculaId);
-		
+
 	}
 
 	@Transactional(readOnly = true)
@@ -47,7 +47,7 @@ public class MatriculaServiceImpl implements MatriculaService{
 	@Transactional(readOnly = true)
 	@Override
 	public Collection<Matricula> findAll() {
-		return (Collection<Matricula>)r.findAll();
+		return (Collection<Matricula>) r.findAll();
 	}
 
 	@Transactional(readOnly = true)
@@ -59,9 +59,8 @@ public class MatriculaServiceImpl implements MatriculaService{
 	@Transactional
 	@Override
 	public void registrarMatricula(Date fecha, String grado, String nivel, String seccionId, String dniEstudiante) {
-		r.registrarMatricula(fecha ,grado, nivel, seccionId, dniEstudiante);
-		
+		r.registrarMatricula(fecha, grado, nivel, seccionId, dniEstudiante);
+
 	}
-	
-	
+
 }

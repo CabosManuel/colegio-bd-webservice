@@ -12,11 +12,11 @@ import com.colegio.model.Asistencia;
 import com.colegio.repository.AsistenciaRepository;
 
 @Service
-public class AsistenciaServiceImpl implements AsistenciaService{
+public class AsistenciaServiceImpl implements AsistenciaService {
 
 	@Autowired
 	private AsistenciaRepository r;
-	
+
 	@Override
 	@Transactional(readOnly = true)
 	public Collection<Object[]> getAsistenciasByDniEstudianteFecha(String dniEstudiante, String fecha) {
@@ -24,7 +24,8 @@ public class AsistenciaServiceImpl implements AsistenciaService{
 	}
 
 	@Override
-	public Collection<Object[]> getAsistenciasByDniEstudianteMesCurso(String dniEstudiante, Integer mes, String cursoId) {
+	public Collection<Object[]> getAsistenciasByDniEstudianteMesCurso(String dniEstudiante, Integer mes,
+			String cursoId) {
 		return r.getAsistenciasByDniEstudianteMesCurso(dniEstudiante, mes, cursoId);
 	}
 

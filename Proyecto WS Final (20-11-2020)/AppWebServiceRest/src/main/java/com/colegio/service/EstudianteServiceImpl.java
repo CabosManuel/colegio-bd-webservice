@@ -52,19 +52,18 @@ public class EstudianteServiceImpl implements EstudianteService {
 		return repository.findById(dni_Estudiante).orElse(null);
 	}
 
-	
 	@Transactional(readOnly = true)
 	@Override
 	public Collection<Map<String, ?>> findByDniApoderado(String dniApoderado) {
 		return repository.findByDniApoderado(dniApoderado);
 	}
-	
+
 	@Transactional(readOnly = true)
 	@Override
 	public Map<String, ?> loginEstudiante(String dniEstudiante, String pass) {
 		return repository.loginEstudiante(dniEstudiante, pass);
 	}
-	
+
 	@Transactional(readOnly = true)
 	@Override
 	public Map<String, ?> buscarEstudiante(String dniEstudiante) {
@@ -78,7 +77,7 @@ public class EstudianteServiceImpl implements EstudianteService {
 	}
 
 	@Transactional(readOnly = true)
-	@Override	
+	@Override
 	public Collection<Map<String, ?>> findByEstudiantes(Integer seccionId) {
 		return repository.findByEstudiantes(seccionId);
 	}
@@ -100,17 +99,17 @@ public class EstudianteServiceImpl implements EstudianteService {
 	@Override
 	public void modificarEstudiante(String nombre, String apellido, String celular, String fnacimiento, String correo,
 			Integer distritoId, String direccion, String dniEstudiante) {
-		repository.modificarEstudiante(nombre, apellido, celular, fnacimiento, correo, distritoId, direccion, dniEstudiante);
-		
+		repository.modificarEstudiante(nombre, apellido, celular, fnacimiento, correo, distritoId, direccion,
+				dniEstudiante);
 	}
 
 	@Transactional
 	@Override
 	public void registrarEstudiante(String dniEstudiante, String nombre, String apellido, String celular, String correo,
-			String fnacimiento, String dniApoderado, Integer distritoId, String direccion, String pass, String condicion, Boolean estado) {
-		repository.registrarEstudiante(dniEstudiante, nombre, apellido, celular, correo, fnacimiento, dniApoderado, 
+			String fnacimiento, String dniApoderado, Integer distritoId, String direccion, String pass,
+			String condicion, Boolean estado) {
+		repository.registrarEstudiante(dniEstudiante, nombre, apellido, celular, correo, fnacimiento, dniApoderado,
 				distritoId, direccion, pass, condicion, estado);
-		
 	}
 
 	@Transactional(readOnly = true)

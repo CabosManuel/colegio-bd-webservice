@@ -11,8 +11,8 @@ import com.colegio.model.HorarioDetalle;
 import com.colegio.repository.HorarioDetalleRepository;
 
 @Service
-public class HorarioDetalleServiceImpl implements HorarioDetalleService{
-	
+public class HorarioDetalleServiceImpl implements HorarioDetalleService {
+
 	@Autowired
 	private HorarioDetalleRepository r;
 
@@ -20,7 +20,7 @@ public class HorarioDetalleServiceImpl implements HorarioDetalleService{
 	@Override
 	public void insert(HorarioDetalle horarioDetalle) {
 		r.save(horarioDetalle);
-		
+
 	}
 
 	@Transactional(readOnly = true)
@@ -28,10 +28,10 @@ public class HorarioDetalleServiceImpl implements HorarioDetalleService{
 	public Collection<Map<String, ?>> getfindBySeccion(Integer seccionId, Integer trabajadorId) {
 		return r.getfindBySeccion(seccionId, trabajadorId);
 	}
-	
+
 	@Transactional(readOnly = true)
 	@Override
-	public Collection<Map<String, ?>> findHorarioByDni(String dniEstudiante){
+	public Collection<Map<String, ?>> findHorarioByDni(String dniEstudiante) {
 		return r.findHorarioByDni(dniEstudiante);
 	}
 
@@ -46,7 +46,7 @@ public class HorarioDetalleServiceImpl implements HorarioDetalleService{
 	public Collection<Map<String, ?>> buscarHorarioPorSeccion(Integer seccionId) {
 		return r.buscarHorarioPorSeccion(seccionId);
 	}
-	
+
 	@Transactional
 	@Override
 	public void update(HorarioDetalle horarioDetalle) {
@@ -58,7 +58,7 @@ public class HorarioDetalleServiceImpl implements HorarioDetalleService{
 	public void registrarHorarioDetalle(String dia, String horaFin, String horaInicio, String cursoId,
 			String trabajadorId, String horario_cabecera_id) {
 		r.registrarHorarioDetalle(dia, horaFin, horaInicio, cursoId, trabajadorId, horario_cabecera_id);
-		
+
 	}
 
 	@Transactional
@@ -66,7 +66,7 @@ public class HorarioDetalleServiceImpl implements HorarioDetalleService{
 	public void modificarHorarioDetalle(String dia, String horaFin, String horaInicio, String cursoId,
 			String trabajadorId, Integer horario_detalle_id) {
 		r.modificarHorarioDetalle(dia, horaFin, horaInicio, cursoId, trabajadorId, horario_detalle_id);
-		
+
 	}
 
 }

@@ -6,10 +6,14 @@ import com.colegio.model.Nivel;
 
 public interface NivelService {
 
-	public abstract void insert(Nivel nivel);
-	public abstract void update(Nivel nivel);
-	public abstract void delete(Integer nivelId);
-	public abstract Nivel findById(Integer nivelId);
-	public abstract Collection<Nivel> findAll();
-	
+	void insert(Nivel nivel);
+
+	void update(Nivel nivel);
+
+	void delete(Integer nivelId);
+
+	Nivel findById(Integer nivelId);
+
+	Collection<Nivel> findAll();
+
 }

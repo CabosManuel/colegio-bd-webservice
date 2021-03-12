@@ -15,7 +15,7 @@ public class GradoServiceImpl implements GradoService {
 
 	@Autowired
 	private GradoRepository r;
-	
+
 	@Transactional
 	@Override
 	public void insert(Grado grado) {
@@ -26,14 +26,14 @@ public class GradoServiceImpl implements GradoService {
 	@Override
 	public void update(Grado grado) {
 		r.save(grado);
-		
+
 	}
 
 	@Transactional
 	@Override
 	public void delete(Integer gradoId) {
 		r.deleteById(gradoId);
-		
+
 	}
 
 	@Transactional(readOnly = true)
@@ -45,13 +45,13 @@ public class GradoServiceImpl implements GradoService {
 	@Transactional(readOnly = true)
 	@Override
 	public Collection<Grado> findAll() {
-		return (Collection<Grado>)r.findAll();
+		return (Collection<Grado>) r.findAll();
 	}
 
 	@Transactional(readOnly = true)
 	@Override
 	public Collection<Grado> findByNivel(Integer nivelId) {
-		return (Collection<Grado>)r.findByNivel(nivelId);
+		return (Collection<Grado>) r.findByNivel(nivelId);
 	}
 
 	@Transactional(readOnly = true)
@@ -66,5 +66,4 @@ public class GradoServiceImpl implements GradoService {
 		return r.buscarGrado(gradoId);
 	}
 
-	
 }
