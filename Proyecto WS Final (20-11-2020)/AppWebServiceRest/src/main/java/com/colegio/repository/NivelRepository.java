@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.colegio.model.Nivel;
 
-public interface NivelRepository extends CrudRepository<Nivel, Integer>{
+public interface NivelRepository extends CrudRepository<Nivel, Integer> {
 
 }
