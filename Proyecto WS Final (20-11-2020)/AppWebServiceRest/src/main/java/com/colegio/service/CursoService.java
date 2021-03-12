@@ -1,0 +1,15 @@
+package com.colegio.service;
+
+import java.util.Collection;
+import java.util.Map;
+
+import com.colegio.model.Curso;
+
+public interface CursoService {
+	public abstract Curso findById(Integer cursoId);
+	Curso findByIdCurso(Integer cursoId);
+	public Collection<Object[]> findByDniEstudiante(String dniEstudiante);
+	//public Collection<Curso> getfindByNivelGrado(Integer nivelId, Integer gradoId);
+	Collection<Map<String, Object>> buscarPorNivelGrado(Integer nivelId, Integer gradoId);
+	Map<String, ?> findByCursoId(Integer cursoId);
+}
