@@ -136,7 +136,7 @@ public class ApoderadoRestController {
 
 	@GetMapping("/nombre_estudiantes/{dniApoderado}")
 	public ResponseEntity<?> getNombreEstudiantesPorDniApoderado(@PathVariable String dniApoderado){
-		Collection<Object[]> estudiantes = service.getEstudiantesByDniApoderado(dniApoderado);
+		Collection<Object[]> estudiantes = service.getNombreEstudiantesByDniApoderado(dniApoderado);
 		return new ResponseEntity<>(MapperUtil.convertCollObjects_EstudianteMapper(estudiantes), HttpStatus.OK);
 	}
 	
