@@ -14,7 +14,7 @@ public class ApoderadoMapper {
 
 	public ApoderadoMapper() {
 	}
-	
+
 	public ApoderadoMapper(String dniApoderado) {
 		this.dniApoderado = dniApoderado;
 	}
@@ -103,5 +103,5 @@ public class ApoderadoMapper {
 	public void setDistrito(DistritoMapper distrito) {
 		this.distrito = distrito;
 	}
-	
+
 }

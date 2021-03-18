@@ -5,7 +5,7 @@ import java.util.List;
 import com.colegio.model.Distrito;
 
 public class DistritoData {
-	
+
 	List<Distrito> distritoData;
 
 	public List<Distrito> getDistritoData() {
@@ -15,7 +15,5 @@ public class DistritoData {
 	public void setDistritoData(List<Distrito> distritoData) {
 		this.distritoData = distritoData;
 	}
-	
-	
 
 }

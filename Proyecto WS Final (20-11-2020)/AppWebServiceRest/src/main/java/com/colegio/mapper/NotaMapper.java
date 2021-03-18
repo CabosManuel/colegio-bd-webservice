@@ -14,7 +14,8 @@ public class NotaMapper {
 	public NotaMapper() {
 	}
 
-	public NotaMapper(Integer nota_id, String curso, Integer nota1, Integer nota2, Integer nota3, EstudianteMapper dni_estudiante, CursoMapper cursom) {
+	public NotaMapper(Integer nota_id, String curso, Integer nota1, Integer nota2, Integer nota3,
+			EstudianteMapper dni_estudiante, CursoMapper cursom) {
 		this.nota_id = nota_id;
 		this.curso = curso;
 		this.nota1 = nota1;
@@ -23,8 +24,7 @@ public class NotaMapper {
 		this.dni_estudiante = dni_estudiante;
 		this.cursom = cursom;
 	}
-	
-	
+
 	public NotaMapper(Integer nota1, Integer nota2, Integer nota3, EstudianteMapper dni_estudiante, CursoMapper cursom,
 			String fecha) {
 		super();
@@ -83,7 +83,7 @@ public class NotaMapper {
 	public void setCursom(CursoMapper cursom) {
 		this.cursom = cursom;
 	}
-	
+
 	public String getFecha() {
 		return fecha;
 	}
@@ -99,6 +99,5 @@ public class NotaMapper {
 	public void setNota_id(Integer nota_id) {
 		this.nota_id = nota_id;
 	}
-	
-	
+
 }

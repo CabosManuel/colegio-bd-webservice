@@ -41,10 +41,10 @@ public interface AsistenciaRepository extends CrudRepository<Asistencia, Integer
 	Collection<Map<String, ?>> buscarPorHorario(Integer horarioDetalleId);
 
 	@Query(value = "select hd.horario_detalle_id, a.asistencia_id, a.asistencia, a.estado, e.dni_estudiante, e.nombre, e.apellido \r\n"
-			+ " from asistencias a\r\n"
-			+ " inner join horario_detalle hd on a.horario_detalle_id = hd.horario_detalle_id\r\n"
-			+ " inner join estudiantes e on a.dni_estudiante = e.dni_estudiante\r\n"
-			+ " where a.asistencia_id = ?", nativeQuery = true)
+			+ "from asistencias a\r\n"
+			+ "inner join horario_detalle hd on a.horario_detalle_id = hd.horario_detalle_id\r\n"
+			+ "inner join estudiantes e on a.dni_estudiante = e.dni_estudiante\r\n"
+			+ "where a.asistencia_id = ?", nativeQuery = true)
 	Map<String, ?> buscarPorId(Integer asistenciaId);
 
 	@Modifying
