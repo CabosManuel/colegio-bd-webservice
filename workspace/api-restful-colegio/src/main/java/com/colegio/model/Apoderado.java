@@ -1,51 +1,45 @@
 package com.colegio.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
 
-import javax.persistence.*;
-
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "apoderados")
+@Table(name = "apoderado")
 public class Apoderado implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(columnDefinition = "char(8)")
 	private String dniApoderado;
 
-	@Column
-	private String nombre;
+	@Column(length = 45, nullable = false)
+	private String nombres;
 
-	@Column
-	private String apellido;
+	@Column(length = 45, nullable = false)
+	private String apellidos;
 
-	@Column
+	@Column(length = 50, nullable = false, unique = true)
 	private String correo;
 
-	@Column
+	@Column(nullable = false, unique = true, columnDefinition = "char(9)")
 	private String celular;
 
-	@Column
+	@Column(length = 32, nullable = false)
 	private String pass;
 
-	@Column
+	@Column(length = 45, nullable = false)
+	private String distrito;
+
+	@Column(length = 50, nullable = false)
 	private String direccion;
 
-	@Column
+	@Column(nullable = false)
 	private Boolean estado;
-
-	@ManyToOne
-	@JoinColumn(name = "distrito_id", nullable = false, updatable = false, foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(distrito_id) references distritos(distrito_id)"))
-	private Distrito distrito;
-
-	@OneToMany(mappedBy = "apoderado", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@Fetch(value = FetchMode.SUBSELECT)
-	private Collection<Estudiante> itemsestudiante = new ArrayList<>();
 
 	public Apoderado() {
 	}
@@ -55,13 +49,14 @@ public class Apoderado implements Serializable {
 	}
 
 	public Apoderado(String dniApoderado, String nombre, String apellido, String correo, String celular, String pass,
-			String direccion, Boolean estado) {
+			String distrito, String direccion, Boolean estado) {
 		this.dniApoderado = dniApoderado;
-		this.nombre = nombre;
-		this.apellido = apellido;
+		this.nombres = nombre;
+		this.apellidos = apellido;
 		this.correo = correo;
 		this.celular = celular;
 		this.pass = pass;
+		this.distrito = distrito;
 		this.direccion = direccion;
 		this.estado = estado;
 	}
@@ -75,19 +70,19 @@ public class Apoderado implements Serializable {
 	}
 
 	public String getNombre() {
-		return nombre;
+		return nombres;
 	}
 
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		this.nombres = nombre;
 	}
 
 	public String getApellido() {
-		return apellido;
+		return apellidos;
 	}
 
 	public void setApellido(String apellido) {
-		this.apellido = apellido;
+		this.apellidos = apellido;
 	}
 
 	public String getCorreo() {
@@ -114,14 +109,6 @@ public class Apoderado implements Serializable {
 		this.pass = pass;
 	}
 
-	public Collection<Estudiante> getItemsestudiante() {
-		return itemsestudiante;
-	}
-
-	public void setItemsestudiante(Collection<Estudiante> itemsestudiante) {
-		this.itemsestudiante = itemsestudiante;
-	}
-
 	public Boolean getEstado() {
 		return estado;
 	}
@@ -130,11 +117,11 @@ public class Apoderado implements Serializable {
 		this.estado = estado;
 	}
 
-	public Distrito getDistrito() {
+	public String getDistrito() {
 		return distrito;
 	}
 
-	public void setDistrito(Distrito distrito) {
+	public void setDistrito(String distrito) {
 		this.distrito = distrito;
 	}
 
