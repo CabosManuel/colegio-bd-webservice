@@ -1,7 +1,7 @@
 package com.colegio.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,11 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "notificaciones")
+@Table(name = "notificacion")
 public class Notificacion implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -25,27 +23,35 @@ public class Notificacion implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer notificacionId;
 
-	@Column
+	@Column(length = 10, nullable = false)
 	private String tipo;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date fechaEnvio;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date fechaLimite;
-	@Column
+	
+	//@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = false)
+	private LocalDateTime fechaEnvio;
+	
+	//@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = false)
+	private LocalDateTime fechaLimite;
+	
+	@Column(length = 45, nullable = false)
 	private String titulo;
-	@Column(length = 1000)
+	
+	@Column(length = 1000, nullable = false)
 	private String descripcion;
-	@Column
+	
+	@Column(nullable = false)
 	private Character estado;
 
 	@ManyToOne
-	@JoinColumn(name = "dni_estudiante", nullable = false, foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(dni_estudiante) references estudiantes(dni_estudiante)"))
-	private Estudiante dniEstudiante;
+	@JoinColumn(name = "matricula_id", nullable = false, foreignKey = @ForeignKey(
+			foreignKeyDefinition = "foreign key(matricula_id) references matricula(matricula_id)"))
+	private Matricula matricula;
 
 	public Notificacion() {
 	}
 
-	public Notificacion(Integer notificacionId, String tipo, Date fechaEnvio, Date fechaLimite, String titulo,
+	public Notificacion(Integer notificacionId, String tipo, LocalDateTime fechaEnvio, LocalDateTime fechaLimite, String titulo,
 			String descripcion, Character estado) {
 		this.notificacionId = notificacionId;
 		this.tipo = tipo;
@@ -72,19 +78,19 @@ public class Notificacion implements Serializable {
 		this.tipo = tipo;
 	}
 
-	public Date getFechaEnvio() {
+	public LocalDateTime getFechaEnvio() {
 		return fechaEnvio;
 	}
 
-	public void setFechaEnvio(Date fechaEnvio) {
+	public void setFechaEnvio(LocalDateTime fechaEnvio) {
 		this.fechaEnvio = fechaEnvio;
 	}
 
-	public Date getFechaLimite() {
+	public LocalDateTime getFechaLimite() {
 		return fechaLimite;
 	}
 
-	public void setFechaLimite(Date fechaLimite) {
+	public void setFechaLimite(LocalDateTime fechaLimite) {
 		this.fechaLimite = fechaLimite;
 	}
 
@@ -112,12 +118,12 @@ public class Notificacion implements Serializable {
 		this.estado = estado;
 	}
 
-	public Estudiante getDniEstudiante() {
-		return dniEstudiante;
+	public Matricula getMatricula() {
+		return matricula;
 	}
 
-	public void setDniEstudiante(Estudiante dniEstudiante) {
-		this.dniEstudiante = dniEstudiante;
+	public void setMatricula(Matricula matricula) {
+		this.matricula = matricula;
 	}
-	
+
 }

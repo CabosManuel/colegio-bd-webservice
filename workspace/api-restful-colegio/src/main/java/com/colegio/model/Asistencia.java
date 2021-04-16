@@ -1,9 +1,8 @@
 package com.colegio.model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -12,11 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "asistencias")
+@Table(name = "asistencia")
 public class Asistencia implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -25,49 +23,39 @@ public class Asistencia implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer asistenciaId;
 
-	@Column
-	private LocalDateTime asistencia;
+	//@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = false)
+	private LocalDateTime horaAsistencia;
+
 	@Column
 	private Boolean estado;
 
 	@ManyToOne
-	@JoinColumn(name = "dni_estudiante", nullable = false, updatable = false, 
-	foreignKey = @ForeignKey(foreignKeyDefinition = 
-	"foreign key(dni_estudiante) references estudiantes(dni_estudiante)"))
-	private Estudiante dniEstudiante;
+	@JoinColumn(name = "matricula_id", nullable = false, updatable = false, foreignKey = @ForeignKey(
+			foreignKeyDefinition = "foreign key(matricula_id) references matricula(matricula_id)"))
+	private Matricula matricula;
 
 	@ManyToOne
-	@JoinColumn(name = "horario_detalle_id", nullable = false, updatable = false, 
-	foreignKey = @ForeignKey(foreignKeyDefinition = 
-	"foreign key(horario_detalle_id) references horario_detalle(horario_detalle_id)"))
-	private HorarioDetalle horarioDetalleId;
+	@JoinColumn(name = "horario_detalle_id", nullable = false, updatable = false, foreignKey = @ForeignKey(
+			foreignKeyDefinition = "foreign key(horario_detalle_id) references horario_detalle(horario_detalle_id)"))
+	private HorarioDetalle horarioDetalle;
 
 	public Asistencia() {
 	}
 
-	public Asistencia(Integer asistenciaId, LocalDateTime asistencia, Boolean estado) {
+	public Asistencia(Integer asistenciaId, LocalDateTime horaAsistencia, Boolean estado) {
 		this.asistenciaId = asistenciaId;
-		this.asistencia = asistencia;
+		this.horaAsistencia = horaAsistencia;
 		this.estado = estado;
-	}
-	
-	
-	
-	public Asistencia(Integer asistenciaId, LocalDateTime asistencia, Boolean estado, Estudiante dniEstudiante,
-			HorarioDetalle horarioDetalleId) {
-	
-		this.asistenciaId = asistenciaId;
-		this.asistencia = asistencia;
-		this.estado = estado;
-		this.dniEstudiante = dniEstudiante;
-		this.horarioDetalleId = horarioDetalleId;
 	}
 
-	@PrePersist
-	public void pre() {
-		LocalDate hoy = LocalDate.now();
-		LocalTime ahora = LocalTime.now();
-		asistencia= LocalDateTime.of(hoy, ahora);
+	public Asistencia(Integer asistenciaId, LocalDateTime horaAsistencia, Boolean estado, Matricula matricula,
+			HorarioDetalle horarioDetalle) {
+		this.asistenciaId = asistenciaId;
+		this.horaAsistencia = horaAsistencia;
+		this.estado = estado;
+		this.matricula = matricula;
+		this.horarioDetalle = horarioDetalle;
 	}
 
 	public Integer getAsistenciaId() {
@@ -78,12 +66,12 @@ public class Asistencia implements Serializable {
 		this.asistenciaId = asistenciaId;
 	}
 
-	public LocalDateTime getAsistencia() {
-		return asistencia;
+	public LocalDateTime getHoraAsistencia() {
+		return horaAsistencia;
 	}
 
-	public void setAsistencia(LocalDateTime asistencia) {
-		this.asistencia = asistencia;
+	public void setHoraAsistencia(LocalDateTime horaAsistencia) {
+		this.horaAsistencia = horaAsistencia;
 	}
 
 	public Boolean getEstado() {
@@ -93,21 +81,21 @@ public class Asistencia implements Serializable {
 	public void setEstado(Boolean estado) {
 		this.estado = estado;
 	}
-
-	public Estudiante getDniEstudiante() {
-		return dniEstudiante;
+	
+	public Matricula getMatricula() {
+		return matricula;
 	}
 
-	public void setDniEstudiante(Estudiante dniEstudiante) {
-		this.dniEstudiante = dniEstudiante;
+	public void setMatricula(Matricula matricula) {
+		this.matricula = matricula;
 	}
 
-	public HorarioDetalle getHorarioDetalleId() {
-		return horarioDetalleId;
+	public HorarioDetalle getHorarioDetalle() {
+		return horarioDetalle;
 	}
 
-	public void setHorarioDetalleId(HorarioDetalle horarioDetalleId) {
-		this.horarioDetalleId = horarioDetalleId;
+	public void setHorarioDetalle(HorarioDetalle horarioDetalle) {
+		this.horarioDetalle = horarioDetalle;
 	}
 
 }

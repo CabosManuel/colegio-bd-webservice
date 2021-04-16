@@ -6,40 +6,46 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
-@Table(name="cursos")
-public class Curso implements Serializable{
+@Table(name = "curso")
+public class Curso implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer cursoId;
-	
-	@Column
+
+	@Column(length = 45, nullable = false)
 	private String nombre;
-	
-	@Column 
-	private Integer creditos;
-	
-	@Column
-	private Integer horaCurso;
-	
-	@OneToMany(mappedBy = "curso")
-	private Collection<Malla> mallas = new ArrayList<>(); 
 
 	@OneToMany(mappedBy = "curso")
-	private Collection<Nota> notas = new ArrayList<>();
-	
-	@OneToMany(mappedBy = "curso")
-	private Collection<HorarioDetalle> horarios_detalle = new ArrayList<>();
-	
-	@ManyToMany(mappedBy = "itemsCurso", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-	private Set<Trabajador> itemsTrabajador = new HashSet<>();
+	private Collection<Notas> notas = new ArrayList<>();
 
+	@OneToMany(mappedBy = "curso")
+	private Collection<HorarioDetalle> horariosDetalle = new ArrayList<>();
+
+	@ManyToMany(mappedBy = "cursos", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	private Set<Trabajador> trabajadores = new HashSet<>();
 	
+	@ManyToOne
+	@JoinColumn(name = "grado_id", nullable = false, updatable = false, foreignKey = @ForeignKey(
+			foreignKeyDefinition = "foreign key(grado_id) references grado(grado_id)"))
+	private Grado grado;
+
 	public Curso() {
 	}
 
@@ -64,70 +70,20 @@ public class Curso implements Serializable{
 		this.nombre = nombre;
 	}
 
-	public Integer getCreditos() {
-		return creditos;
-	}
-
-	public void setCreditos(Integer creditos) {
-		this.creditos = creditos;
-	}
-/*
-	public Set<Estudiante> getItemsEstudiante() {
-		return itemsEstudiante;
-	}
-
-	public void setItemsEstudiante(Set<Estudiante> itemsEstudiante) {
-		this.itemsEstudiante = itemsEstudiante;
-	}
-*/
-	/*public Set<Estudiante> getItemsProfesor() {
-		return itemsProfesor;
-	}
-
-	public void setItemsProfesor(Set<Estudiante> itemsProfesor) {
-		this.itemsProfesor = itemsProfesor;
-	}
-	
-	*/
-
-	public Collection<Malla> getMallas() {
-		return mallas;
-	}
-
-	public void setMallas(Collection<Malla> mallas) {
-		this.mallas = mallas;
-	}
-
-	public Collection<Nota> getNotas() {
+	public Collection<Notas> getNotas() {
 		return notas;
 	}
 
-	public void setNotas(Collection<Nota> notas) {
+	public void setNotas(Collection<Notas> notas) {
 		this.notas = notas;
 	}
 
-	public Collection<HorarioDetalle> getHorarios_detalle() {
-		return horarios_detalle;
+	public Collection<HorarioDetalle> getHorariosDetalle() {
+		return horariosDetalle;
 	}
 
-	public void setHorarios_detalle(Collection<HorarioDetalle> horarios_detalle) {
-		this.horarios_detalle = horarios_detalle;
+	public void setHorariosDetalle(Collection<HorarioDetalle> horariosDetalle) {
+		this.horariosDetalle = horariosDetalle;
 	}
 
-	public Set<Trabajador> getItemsTrabajador() {
-		return itemsTrabajador;
-	}
-
-	public void setItemsTrabajador(Set<Trabajador> itemsTrabajador) {
-		this.itemsTrabajador = itemsTrabajador;
-	}
-
-	public Integer getHoraCurso() {
-		return horaCurso;
-	}
-
-	public void setHoraCurso(Integer horaCurso) {
-		this.horaCurso = horaCurso;
-	}
-	
 }

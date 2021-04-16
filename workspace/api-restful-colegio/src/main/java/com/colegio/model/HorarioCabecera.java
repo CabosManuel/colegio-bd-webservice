@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
@@ -30,23 +29,14 @@ public class HorarioCabecera implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer horarioCabeceraId;
 
-	@Column
-	private Boolean estado;
-
 	@ManyToOne
-	@JoinColumn(name = "seccion_id", nullable = false, updatable = true,
-	foreignKey = @ForeignKey(foreignKeyDefinition = 
-	"foreign key(seccion_id) references secciones(seccion_id)"))
+	@JoinColumn(name = "seccion_id", nullable = false, updatable = true, foreignKey = @ForeignKey(
+			foreignKeyDefinition = "foreign key(seccion_id) references seccion(seccion_id)"))
 	private Seccion seccion;
-	
-	@OneToMany(mappedBy = "horarioCabecera", cascade = CascadeType.ALL ,fetch =FetchType.EAGER)
+
+	@OneToMany(mappedBy = "horarioCabecera", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
-	private Collection<HorarioDetalle> horarioDetalle = new ArrayList<>();
-	
-	@ManyToOne
-	@JoinColumn(name = "trabajador_id", nullable = false, updatable=true,
-	foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(trabajador_id) references trabajadores(trabajador_id)"))
-	private Trabajador trabajador;
+	private Collection<HorarioDetalle> horariosDetalle = new ArrayList<>();
 
 	public HorarioCabecera() {
 	}
@@ -59,14 +49,6 @@ public class HorarioCabecera implements Serializable {
 		this.horarioCabeceraId = horarioCabeceraId;
 	}
 
-	public Boolean getEstado() {
-		return estado;
-	}
-
-	public void setEstado(Boolean estado) {
-		this.estado = estado;
-	}
-
 	public Seccion getSeccion() {
 		return seccion;
 	}
@@ -75,20 +57,12 @@ public class HorarioCabecera implements Serializable {
 		this.seccion = seccion;
 	}
 
-	public Collection<HorarioDetalle> getHorarioDetalle() {
-		return horarioDetalle;
+	public Collection<HorarioDetalle> getHorariosDetalle() {
+		return horariosDetalle;
 	}
 
-	public void setHorarioDetalle(Collection<HorarioDetalle> horarioDetalle) {
-		this.horarioDetalle = horarioDetalle;
+	public void setHorariosDetalle(Collection<HorarioDetalle> horariosDetalle) {
+		this.horariosDetalle = horariosDetalle;
 	}
 
-	public Trabajador getTrabajador() {
-		return trabajador;
-	}
-
-	public void setTrabajador(Trabajador trabajador) {
-		this.trabajador = trabajador;
-	}
-	
 }

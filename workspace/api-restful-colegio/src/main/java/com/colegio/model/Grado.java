@@ -4,42 +4,50 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.ForeignKey;
 
 @Entity
-@Table(name="grados")
-public class Grado implements Serializable{
+@Table(name = "grado")
+public class Grado implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer gradoId;
-	
-	@Column
-	private String nombre;
-	
+
+	@Column(nullable = false)
+	private Character nombre;
+
 	@ManyToOne
-	@JoinColumn(name ="nivel_id", nullable = false, updatable =false,
-	foreignKey = @ForeignKey(foreignKeyDefinition = 
-	"foreign key(nivel_id) references niveles(nivel_id)"))
+	@JoinColumn(name = "nivel_id", nullable = false, updatable = false, foreignKey = @ForeignKey(
+			foreignKeyDefinition = "foreign key(nivel_id) references nivel(nivel_id)"))
 	private Nivel nivel;
-	
+
 	@OneToMany(mappedBy = "grado")
-	private Collection<Seccion> itemsseccion = new ArrayList<>();
-	
+	private Collection<Seccion> secciones = new ArrayList<>();
+
 	@OneToMany(mappedBy = "grado")
-	private Collection<Malla> mallas = new ArrayList<>();
+	private Collection<Curso> cursos = new ArrayList<>();
 
 	public Grado() {
 	}
 
-	public Grado(Integer gradoId, String nombre) {
+	public Grado(Integer gradoId, Character nombre) {
 		this.gradoId = gradoId;
 		this.nombre = nombre;
 	}
 
-	public Grado(Integer gradoId, String nombre, Nivel nivel) {
+	public Grado(Integer gradoId, Character nombre, Nivel nivel) {
 		this.gradoId = gradoId;
 		this.nombre = nombre;
 		this.nivel = nivel;
@@ -53,11 +61,11 @@ public class Grado implements Serializable{
 		this.gradoId = gradoId;
 	}
 
-	public String getNombre() {
+	public Character getNombre() {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
+	public void setNombre(Character nombre) {
 		this.nombre = nombre;
 	}
 
@@ -69,22 +77,12 @@ public class Grado implements Serializable{
 		this.nivel = nivel;
 	}
 
-	public Collection<Seccion> getItemsseccion() {
-		return itemsseccion;
+	public Collection<Seccion> getSecciones() {
+		return secciones;
 	}
 
-	public void setItemsseccion(Collection<Seccion> itemsseccion) {
-		this.itemsseccion = itemsseccion;
+	public void setSecciones(Collection<Seccion> secciones) {
+		this.secciones = secciones;
 	}
 
-	public Collection<Malla> getMallas() {
-		return mallas;
-	}
-
-	public void setMallas(Collection<Malla> mallas) {
-		this.mallas = mallas;
-	}
-	
-	
-	
 }

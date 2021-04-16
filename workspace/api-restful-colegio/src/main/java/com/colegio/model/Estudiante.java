@@ -1,105 +1,84 @@
 package com.colegio.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 @Entity
-@Table(name="estudiantes")
-public class Estudiante implements Serializable{
+@Table(name = "estudiante")
+public class Estudiante implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
+	@Column(columnDefinition = "char(8)")
 	private String dniEstudiante;
-	
-	@Column
-	private String nombre;
-	
-	@Column
-	private String apellido;
-	
-	@Temporal(TemporalType.DATE)
-	private Date fnacimiento;
-	
-	@Column
+
+	@Column(length = 45, nullable = false)
+	private String nombres;
+
+	@Column(length = 45, nullable = false)
+	private String apellidos;
+
+	//@Temporal(TemporalType.DATE)
+	@Column(nullable = false)
+	private LocalDate fechaNacimiento;
+
+	@Column(columnDefinition = "char(9)", unique = true, nullable = false)
 	private String celular;
-	
-	@Column
+
+	@Column(length = 50, unique = true, nullable = false)
 	private String correo;
-	
-	@Column
+
+	@Column(length = 32, nullable = false)
+	private String password;
+
+	@Column(length = 45, nullable = false)
+	private String distrito;
+
+	@Column(length = 50, nullable = false)
 	private String direccion;
-	
-	@Column
-	private String pass;
-	
-	@Column
+
+	@Column(nullable = false)
 	private Boolean estado;
-	
-	@Column 
+
+	@Column(length = 12, nullable = false)
 	private String condicion;
 
-	@ManyToOne
-	@JoinColumn(name ="distrito_id", nullable = false, updatable = true,
-	foreignKey = @ForeignKey(foreignKeyDefinition = 
-	"foreign key(distrito_id) references distritos(distrito_id)"))
-	private Distrito distrito;
-	
-	/*@ManyToMany(mappedBy = "itemsEstudiante", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-	private Set<Curso> itemsCurso = new HashSet<>();*/
-	
-	@ManyToOne//(fetch = FetchType.EAGER, targetEntity = Apoderado.class)
-	@JoinColumn(name = "dni_apoderado", nullable = false, updatable = false,
-	foreignKey = @ForeignKey(foreignKeyDefinition = 
-	"foreign key(dni_apoderado) references apoderados(dni_apoderado)"))
-	private Apoderado apoderado;
-	
-	@OneToMany(mappedBy = "estudiante",  cascade = CascadeType.ALL ,fetch =FetchType.EAGER)
+	@OneToMany(mappedBy = "estudiante", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
-	private Collection<Matricula> itemsmatricula =  new ArrayList<>();
-	
-	/*@OneToOne
-	@JoinColumn(name = "direccion_id", nullable = false,
-	foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(direccion_id) references direcciones(direccion_id)"))
-	private Direccion direccion;*/
-	
-	@OneToMany(mappedBy = "dniEstudiante")
-	private Collection<Nota> notas = new ArrayList<>();
-	
-	@OneToMany(mappedBy = "dniEstudiante")
-	private Collection<Asistencia> asistencias = new ArrayList<>();
-	
-	@OneToMany(mappedBy = "dniEstudiante")
-	private Collection<Notificacion> notificaciones = new ArrayList<>();
-	
-	@OneToMany(mappedBy = "dniEstudiante")
-	private Collection<Notificacion> justificaciones = new ArrayList<>();
-	
+	private Collection<Matricula> matriculas = new ArrayList<>();
+
 	public Estudiante() {
-		
 	}
 
 	public Estudiante(String dniEstudiante) {
 		this.dniEstudiante = dniEstudiante;
 	}
 
-	public Estudiante(String dniEstudiante, String nombre, String apellido, Date fnacimiento, String celular,
-			String correo, String direccion, String pass, Boolean estado, String condicion) {
+	public Estudiante(String dniEstudiante, String nombres, String apellidos, LocalDate fechaNacimiento, String celular,
+			String correo, String password, String distrito, String direccion, Boolean estado, String condicion) {
 		this.dniEstudiante = dniEstudiante;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.fnacimiento = fnacimiento;
+		this.nombres = nombres;
+		this.apellidos = apellidos;
+		this.fechaNacimiento = fechaNacimiento;
 		this.celular = celular;
 		this.correo = correo;
+		this.password = password;
+		this.distrito = distrito;
 		this.direccion = direccion;
-		this.pass = pass;
 		this.estado = estado;
 		this.condicion = condicion;
 	}
@@ -112,28 +91,28 @@ public class Estudiante implements Serializable{
 		this.dniEstudiante = dniEstudiante;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getNombres() {
+		return nombres;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setNombres(String nombres) {
+		this.nombres = nombres;
 	}
 
-	public String getApellido() {
-		return apellido;
+	public String getApellidos() {
+		return apellidos;
 	}
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
 	}
 
-	public Date getFnacimiento() {
-		return fnacimiento;
+	public LocalDate getFechaNacimiento() {
+		return fechaNacimiento;
 	}
 
-	public void setFnacimiento(Date fnacimiento) {
-		this.fnacimiento = fnacimiento;
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
 	}
 
 	public String getCelular() {
@@ -152,20 +131,28 @@ public class Estudiante implements Serializable{
 		this.correo = correo;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getDistrito() {
+		return distrito;
+	}
+
+	public void setDistrito(String distrito) {
+		this.distrito = distrito;
+	}
+
 	public String getDireccion() {
 		return direccion;
 	}
 
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
-	}
-
-	public String getPass() {
-		return pass;
-	}
-
-	public void setPass(String pass) {
-		this.pass = pass;
 	}
 
 	public Boolean getEstado() {
@@ -176,30 +163,6 @@ public class Estudiante implements Serializable{
 		this.estado = estado;
 	}
 
-	public Distrito getDistrito() {
-		return distrito;
-	}
-
-	public void setDistrito(Distrito distrito) {
-		this.distrito = distrito;
-	}
-
-	public Apoderado getApoderado() {
-		return apoderado;
-	}
-
-	public void setApoderado(Apoderado apoderado) {
-		this.apoderado = apoderado;
-	}
-
-	public Collection<Matricula> getItemsmatricula() {
-		return itemsmatricula;
-	}
-
-	public void setItemsmatricula(Collection<Matricula> itemsmatricula) {
-		this.itemsmatricula = itemsmatricula;
-	}
-
 	public String getCondicion() {
 		return condicion;
 	}
@@ -208,21 +171,20 @@ public class Estudiante implements Serializable{
 		this.condicion = condicion;
 	}
 
-	public Collection<Nota> getNotas() {
-		return notas;
+	public Collection<Matricula> getMatriculas() {
+		return matriculas;
 	}
 
-	public void setNotas(Collection<Nota> notas) {
-		this.notas = notas;
+	public void setMatriculas(Collection<Matricula> matriculas) {
+		this.matriculas = matriculas;
 	}
 
 	@Override
 	public String toString() {
-		return "Estudiante [dniEstudiante=" + dniEstudiante + ", nombre=" + nombre + ", apellido=" + apellido
-				+ ", fnacimiento=" + fnacimiento + ", celular=" + celular + ", correo=" + correo + ", direccion="
-				+ direccion + ", pass=" + pass + ", estado=" + estado + ", condicion=" + condicion + ", distrito="
+		return "Estudiante [dniEstudiante=" + dniEstudiante + ", nombre=" + nombres + ", apellido=" + apellidos
+				+ ", fnacimiento=" + fechaNacimiento + ", celular=" + celular + ", correo=" + correo + ", direccion="
+				+ direccion + ", pass=" + password + ", estado=" + estado + ", condicion=" + condicion + ", distrito="
 				+ distrito + "]";
 	}
-	
-	
+
 }

@@ -1,20 +1,24 @@
 package com.colegio.model;
 
-
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.*;
-
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.persistence.ForeignKey;
 
 @Table
-@Entity(name = "trabajadores")
+@Entity(name = "trabajador")
 public class Trabajador implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -23,60 +27,53 @@ public class Trabajador implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer trabajadorId;
 
-	@Column(nullable = false)
+	@Column(length = 20, nullable = false)
 	private String cargo;
-	@Column
+
+	@Column(length = 45, nullable = false)
 	private String nombres;
-	@Column
+
+	@Column(length = 45, nullable = false)
 	private String apellidos;
-	@Column
+
+	@Column(columnDefinition = "char(8)", unique = true, nullable = false)
 	private String dni;
-	@Temporal(TemporalType.DATE)
-	@Column
+
+	//@Temporal(TemporalType.DATE)
+	@Column(nullable = false)
 	private Date fechaNacimiento;
-	@Column
+
+	@Column(columnDefinition = "char(1)", nullable = false)
 	private String sexo;
-	@Column
+
+	@Column(columnDefinition = "char(9)", unique = true, nullable = false)
 	private String celular;
-	@Column
+
+	@Column(length = 45, nullable = false)
+	private String distrito;
+
+	@Column(length = 50)
 	private String direccion;
-	
-	@Column(unique = true, nullable = false)
+
+	@Column(length = 50, unique = true, nullable = false)
 	private String correo;
-	@Column
-	private String pass;
-	
-	@Column
+
+	@Column(length = 32, nullable = false)
+	private String password;
+
+	@Column(nullable = false)
 	private Boolean estado;
 
-	@ManyToOne
-	@JoinColumn(name = "distrito_id", nullable = false, updatable=false,
-	foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(distrito_id) references distritos(distrito_id)"))
-	private Distrito distrito;
-	
-	@OneToMany(mappedBy = "trabajador",cascade = CascadeType.ALL ,fetch =FetchType.EAGER)
-    @Fetch(value = FetchMode.SUBSELECT)
-	private  Collection<HorarioCabecera> horarioCabecera = new ArrayList<>();
-	
-	@OneToMany(mappedBy = "trabajador",cascade = CascadeType.ALL ,fetch =FetchType.EAGER)
-    @Fetch(value = FetchMode.SUBSELECT)
-	private  Collection<HorarioDetalle> horarioDetalle = new ArrayList<>();
-	
-	//Relación muchos a muchos
-	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JoinTable(name = "trabajador_Curso", joinColumns = @JoinColumn(
-			name="trabajador_id", nullable=false,
-			foreignKey=@ForeignKey(foreignKeyDefinition = "foreign key(trabajador_id) references trabajadores(trabajador_id)")),
-	        inverseJoinColumns=@JoinColumn(name = "curso_id", nullable = false,
-	        foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(curso_id) references cursos(curso_id)")))
-   	private Set<Curso> itemsCurso = new HashSet<>();
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JoinTable(name = "trabajador_curso", joinColumns = @JoinColumn(name = "trabajador_id", nullable = false, foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(trabajador_id) references trabajador(trabajador_id)")), inverseJoinColumns = @JoinColumn(name = "curso_id", nullable = false, foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(curso_id) references curso(curso_id)")))
+	private Set<Curso> cursos = new HashSet<>();
 
 	public Trabajador() {
 	}
 
 	public Trabajador(Integer trabajadorId, String cargo, String nombres, String apellidos, String dni,
-			Date fechaNacimiento, String sexo, String celular, String direccion, String correo, String pass,
-			Boolean estado) {
+			Date fechaNacimiento, String sexo, String celular, String distrito, String direccion, String correo,
+			String password, Boolean estado) {
 		this.trabajadorId = trabajadorId;
 		this.cargo = cargo;
 		this.nombres = nombres;
@@ -85,27 +82,12 @@ public class Trabajador implements Serializable {
 		this.fechaNacimiento = fechaNacimiento;
 		this.sexo = sexo;
 		this.celular = celular;
+		this.distrito = distrito;
 		this.direccion = direccion;
 		this.correo = correo;
-		this.pass = pass;
+		this.password = password;
 		this.estado = estado;
 	}
-
-	public Trabajador(Integer trabajadorId, String cargo, String nombres, String apellidos, String dni,
-			Date fechaNacimiento, String celular, String direccion, String correo, String pass, Boolean estado) {
-		this.trabajadorId = trabajadorId;
-		this.cargo = cargo;
-		this.nombres = nombres;
-		this.apellidos = apellidos;
-		this.dni = dni;
-		this.fechaNacimiento = fechaNacimiento;
-		this.celular = celular;
-		this.direccion = direccion;
-		this.correo = correo;
-		this.pass = pass;
-		this.estado = estado;
-	}
-
 
 	public Integer getTrabajadorId() {
 		return trabajadorId;
@@ -154,7 +136,7 @@ public class Trabajador implements Serializable {
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-	
+
 	public String getSexo() {
 		return sexo;
 	}
@@ -187,19 +169,19 @@ public class Trabajador implements Serializable {
 		this.correo = correo;
 	}
 
-	public String getPass() {
-		return pass;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public Distrito getDistrito() {
+	public String getDistrito() {
 		return distrito;
 	}
 
-	public void setDistrito(Distrito distrito) {
+	public void setDistrito(String distrito) {
 		this.distrito = distrito;
 	}
 
@@ -211,32 +193,12 @@ public class Trabajador implements Serializable {
 		this.estado = estado;
 	}
 
-	public Set<Curso> getItemsCurso() {
-		return itemsCurso;
+	public Set<Curso> getCursos() {
+		return cursos;
 	}
 
-	public void setItemsCurso(Set<Curso> itemsCurso) {
-		this.itemsCurso = itemsCurso;
+	public void setCursos(Set<Curso> cursos) {
+		this.cursos = cursos;
 	}
 
-
-	public Collection<HorarioCabecera> getHorarioCabecera() {
-		return horarioCabecera;
-	}
-
-
-	public void setHorarioCabecera(Collection<HorarioCabecera> horarioCabecera) {
-		this.horarioCabecera = horarioCabecera;
-	}
-
-
-	public Collection<HorarioDetalle> getHorarioDetalle() {
-		return horarioDetalle;
-	}
-
-
-	public void setHorarioDetalle(Collection<HorarioDetalle> horarioDetalle) {
-		this.horarioDetalle = horarioDetalle;
-	}
-	
 }

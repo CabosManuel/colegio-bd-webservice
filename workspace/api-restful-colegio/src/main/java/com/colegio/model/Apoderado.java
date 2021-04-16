@@ -1,11 +1,20 @@
 package com.colegio.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.Formula;
 
 @Entity
 @Table(name = "apoderado")
@@ -23,14 +32,14 @@ public class Apoderado implements Serializable {
 	@Column(length = 45, nullable = false)
 	private String apellidos;
 
-	@Column(length = 50, nullable = false, unique = true)
+	@Column(length = 50, unique = true, nullable = false)
 	private String correo;
 
-	@Column(nullable = false, unique = true, columnDefinition = "char(9)")
+	@Column(columnDefinition = "char(9)", nullable = false, unique = true)
 	private String celular;
 
 	@Column(length = 32, nullable = false)
-	private String pass;
+	private String password;
 
 	@Column(length = 45, nullable = false)
 	private String distrito;
@@ -40,7 +49,11 @@ public class Apoderado implements Serializable {
 
 	@Column(nullable = false)
 	private Boolean estado;
-
+	
+	@OneToMany(mappedBy = "apoderado", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
+	private Collection<Matricula> matriculas = new ArrayList<>();
+	
 	public Apoderado() {
 	}
 
@@ -55,7 +68,7 @@ public class Apoderado implements Serializable {
 		this.apellidos = apellido;
 		this.correo = correo;
 		this.celular = celular;
-		this.pass = pass;
+		this.password = pass;
 		this.distrito = distrito;
 		this.direccion = direccion;
 		this.estado = estado;
@@ -102,11 +115,11 @@ public class Apoderado implements Serializable {
 	}
 
 	public String getPass() {
-		return pass;
+		return password;
 	}
 
 	public void setPass(String pass) {
-		this.pass = pass;
+		this.password = pass;
 	}
 
 	public Boolean getEstado() {
