@@ -25,8 +25,8 @@ public class Grado implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer gradoId;
 
-	@Column(nullable = false)
-	private Character nombre;
+	@Column(length = 6, nullable = false)
+	private String nombre;
 
 	@ManyToOne
 	@JoinColumn(name = "nivel_id", nullable = false, updatable = false, foreignKey = @ForeignKey(
@@ -42,12 +42,12 @@ public class Grado implements Serializable {
 	public Grado() {
 	}
 
-	public Grado(Integer gradoId, Character nombre) {
+	public Grado(Integer gradoId, String nombre) {
 		this.gradoId = gradoId;
 		this.nombre = nombre;
 	}
 
-	public Grado(Integer gradoId, Character nombre, Nivel nivel) {
+	public Grado(Integer gradoId, String nombre, Nivel nivel) {
 		this.gradoId = gradoId;
 		this.nombre = nombre;
 		this.nivel = nivel;
@@ -61,11 +61,11 @@ public class Grado implements Serializable {
 		this.gradoId = gradoId;
 	}
 
-	public Character getNombre() {
+	public String getNombre() {
 		return nombre;
 	}
 
-	public void setNombre(Character nombre) {
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
