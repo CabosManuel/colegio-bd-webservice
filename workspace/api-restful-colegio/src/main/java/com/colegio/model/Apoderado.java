@@ -14,7 +14,6 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.hibernate.annotations.Formula;
 
 @Entity
 @Table(name = "apoderado")
@@ -24,7 +23,7 @@ public class Apoderado implements Serializable {
 
 	@Id
 	@Column(columnDefinition = "char(8)")
-	private String dniApoderado;
+	private String dni;
 
 	@Column(length = 45, nullable = false)
 	private String nombres;
@@ -57,13 +56,13 @@ public class Apoderado implements Serializable {
 	public Apoderado() {
 	}
 
-	public Apoderado(String dniApoderado) {
-		this.dniApoderado = dniApoderado;
+	public Apoderado(String dni) {
+		this.dni = dni;
 	}
 
-	public Apoderado(String dniApoderado, String nombre, String apellido, String correo, String celular, String pass,
+	public Apoderado(String dni, String nombre, String apellido, String correo, String celular, String pass,
 			String distrito, String direccion, Boolean estado) {
-		this.dniApoderado = dniApoderado;
+		this.dni = dni;
 		this.nombres = nombre;
 		this.apellidos = apellido;
 		this.correo = correo;
@@ -74,27 +73,27 @@ public class Apoderado implements Serializable {
 		this.estado = estado;
 	}
 
-	public String getDniApoderado() {
-		return dniApoderado;
+	public String getDni() {
+		return dni;
 	}
 
-	public void setDniApoderado(String dniApoderado) {
-		this.dniApoderado = dniApoderado;
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 
-	public String getNombre() {
+	public String getNombres() {
 		return nombres;
 	}
 
-	public void setNombre(String nombre) {
+	public void setNombres(String nombre) {
 		this.nombres = nombre;
 	}
 
-	public String getApellido() {
+	public String getApellidos() {
 		return apellidos;
 	}
 
-	public void setApellido(String apellido) {
+	public void setApellidos(String apellido) {
 		this.apellidos = apellido;
 	}
 
