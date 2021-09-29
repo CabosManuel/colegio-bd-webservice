@@ -1,25 +1,17 @@
-INSERT INTO distritos (nombre) VALUES ('SANTA ANITA');
-INSERT INTO distritos (nombre) VALUES ('SANTA MARÍA DEL MAR');
-INSERT INTO distritos (nombre) VALUES ('SANTA ROSA');
-INSERT INTO distritos (nombre) VALUES ('SANTIAGO DE SURCO');
-INSERT INTO distritos (nombre) VALUES ('SURQUILLO');
-INSERT INTO distritos (nombre) VALUES ('VILLA EL SALVADOR');
-INSERT INTO distritos (nombre) VALUES ('VILLA MARÍA DEL TRIUNFO');
-
 -- apoderados (30)
-insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (34887445, 'Dena', 'Cardnell', 900469120, 'dcardnell0@tuttocitta.it', 123, 39, 1);
-insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (81464165, 'Ichabod', 'Cicchinelli', 973637497, 'icicchinelli0@newsvine.com', 123, 3, 1);
-insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (67294996, 'Nikolai', 'Tieman', 929901641, 'ntieman1@apache.org', 123, 40, 1);
-insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (73075298, 'Josephine', 'Van Arsdall', 957331388, 'jvanarsdall2@whitehouse.gov', 123, 13, 1);
-insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (52004961, 'Kelsy', 'Yitzhakov', 985366749, 'kyitzhakov3@spotify.com', 123, 32, 1);
-insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (95904233, 'Maisey', 'Unitt', 909703223, 'munitt4@ameblo.jp', 123, 21, 1);
-insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (24772789, 'Gordy', 'McPaik', 945227135, 'gmcpaik5@ameblo.jp', 123, 42, 1);
-insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (33418489, 'Shir', 'Yakubov', 902870573, 'syakubov6@time.com', 123, 10, 1);
-insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (84382327, 'Allard', 'Skottle', 911146199, 'askottle7@icio.us', 123, 24, 1);
-insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (41176568, 'Connie', 'Melling', 970901155, 'cmelling8@imdb.com', 123, 21, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito, estado) values (34887445, 'Dena', 'Cardnell', 900469120, 'dcardnell0@tuttocitta.it', 123, 39, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito, estado) values (81464165, 'Ichabod', 'Cicchinelli', 973637497, 'icicchinelli0@newsvine.com', 123, 3, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito, estado) values (67294996, 'Nikolai', 'Tieman', 929901641, 'ntieman1@apache.org', 123, 40, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito, estado) values (73075298, 'Josephine', 'Van Arsdall', 957331388, 'jvanarsdall2@whitehouse.gov', 123, 13, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito, estado) values (52004961, 'Kelsy', 'Yitzhakov', 985366749, 'kyitzhakov3@spotify.com', 123, 32, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito, estado) values (95904233, 'Maisey', 'Unitt', 909703223, 'munitt4@ameblo.jp', 123, 21, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito, estado) values (24772789, 'Gordy', 'McPaik', 945227135, 'gmcpaik5@ameblo.jp', 123, 42, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito, estado) values (33418489, 'Shir', 'Yakubov', 902870573, 'syakubov6@time.com', 123, 10, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito, estado) values (84382327, 'Allard', 'Skottle', 911146199, 'askottle7@icio.us', 123, 24, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito, estado) values (41176568, 'Connie', 'Melling', 970901155, 'cmelling8@imdb.com', 123, 21, 1);
 
-insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (25649104, 'Dore', 'Cordet', 935683185, 'dcordet9@slate.com', 123, 15, 1);
-insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (87432154, 'Austin', 'Garshore', 959461020, 'agarshorea@mediafire.com', 123, 21, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito, estado) values (25649104, 'Dore', 'Cordet', 935683185, 'dcordet9@slate.com', 123, 15, 1);
+insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito, estado) values (87432154, 'Austin', 'Garshore', 959461020, 'agarshorea@mediafire.com', 123, 21, 1);
 insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (37358342, 'Blaire', 'Snoxall', 907899589, 'bsnoxallb@feedburner.com', 123, 2, 1);
 insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (19140415, 'Sallie', 'Buckwell', 995126787, 'sbuckwellc@eepurl.com', 123, 37, 1);
 insert into apoderados (dni_apoderado, nombre, apellido, celular, correo, pass, distrito_id, estado) values (95904386, 'Anderson', 'Faley', 909554270, 'afaleyd@hostgator.com', 123, 19, 1);
