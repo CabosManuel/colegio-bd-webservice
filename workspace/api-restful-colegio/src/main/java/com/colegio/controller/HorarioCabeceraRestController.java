@@ -24,19 +24,19 @@ public class HorarioCabeceraRestController {
 	@Autowired
 	private HorarioCabeceraService hcservice;
 	
-	@GetMapping("/buscar/{horarioCabeceraId}")
-	public ResponseEntity<?> buscar(@PathVariable Integer horarioCabeceraId){
-		
-		
-		HorarioCabecera horarioOb = hcservice.findById(horarioCabeceraId);
-		HorarioCabeceraMapper horarioMapper = MapperUtil.convertHorarioCabeceraId(horarioOb);
-		
-		if(horarioOb!=null) {
-			return new ResponseEntity<>(horarioMapper, HttpStatus.OK);
-		}
-		return new ResponseEntity<>("Estudiante con el dni " + horarioCabeceraId + " no existente.", HttpStatus.NOT_FOUND);
-		
-	}
+//	@GetMapping("/buscar/{horarioCabeceraId}")
+//	public ResponseEntity<?> buscar(@PathVariable Integer horarioCabeceraId){
+//		
+//		
+//		HorarioCabecera horarioOb = hcservice.findById(horarioCabeceraId);
+//		HorarioCabeceraMapper horarioMapper = MapperUtil.convertHorarioCabeceraId(horarioOb);
+//		
+//		if(horarioOb!=null) {
+//			return new ResponseEntity<>(horarioMapper, HttpStatus.OK);
+//		}
+//		return new ResponseEntity<>("Estudiante con el dni " + horarioCabeceraId + " no existente.", HttpStatus.NOT_FOUND);
+//		
+//	}
 	
 	@PostMapping("/agregar")
 	public ResponseEntity<?> agregar(@RequestBody HorarioCabecera horarioCabecera){

@@ -114,25 +114,25 @@ public class EstudianteRestController {
 	}
 
 	
-	@PutMapping("/editar/{dniEstudiante}")
-	public ResponseEntity<?> modificarEstudiante(@PathVariable String dniEstudiante,@RequestBody Map<String, Object> nuevaE) {
-	
-		estudianteService.modificarEstudiante(
-				nuevaE.get("nombre").toString(),
-				nuevaE.get("apellido").toString(),
-				nuevaE.get("celular").toString(),
-				nuevaE.get("fnacimiento").toString(),
-				nuevaE.get("correo").toString(),
-				Integer.parseInt(nuevaE.get("distrito_id").toString()),
-				nuevaE.get("direccion").toString(),
-				dniEstudiante
-				);
-				
-		EstudianteLoginMapper estudianteRespuesta = 
-				MapperUtil.convertEstudianteToEstudianteLoginApoderado(nuevaE);
-		
-		return new ResponseEntity<>(estudianteRespuesta, HttpStatus.OK);
-	}
+//	@PutMapping("/editar/{dniEstudiante}")
+//	public ResponseEntity<?> modificarEstudiante(@PathVariable String dniEstudiante,@RequestBody Map<String, Object> nuevaE) {
+//	
+//		estudianteService.modificarEstudiante(
+//				nuevaE.get("nombre").toString(),
+//				nuevaE.get("apellido").toString(),
+//				nuevaE.get("celular").toString(),
+//				nuevaE.get("fnacimiento").toString(),
+//				nuevaE.get("correo").toString(),
+//				Integer.parseInt(nuevaE.get("distrito_id").toString()),
+//				nuevaE.get("direccion").toString(),
+//				dniEstudiante
+//				);
+//				
+//		EstudianteLoginMapper estudianteRespuesta = 
+//				MapperUtil.convertEstudianteToEstudianteLoginApoderado(nuevaE);
+//		
+//		return new ResponseEntity<>(estudianteRespuesta, HttpStatus.OK);
+//	}
 	
 	@PutMapping("/desactivar/{dniEstudiante}")
 	public ResponseEntity<?> DesactivarEstudiante(@PathVariable String dniEstudiante, @RequestBody Map<String, Object> nuevaE) {
@@ -170,9 +170,9 @@ public class EstudianteRestController {
 		Map<String, Object> estudianteDb = estudianteService.findInMapByDniEstudiante(dniEstudiante);
 		
 		if (estudianteDb != null && !estudianteDb.isEmpty()) {
-			EstudianteLoginMapper estudiante = MapperUtil.convertEstudianteToEstudianteLogin(estudianteDb);
-			estudiante.setApoderado(apoderadoService.findNomApeApoderadoByDniEstudiante(estudiante.getDniEstudiante()));
-			return new ResponseEntity<>(estudiante, HttpStatus.OK);
+//			EstudianteLoginMapper estudiante = MapperUtil.convertEstudianteToEstudianteLogin(estudianteDb);
+//			estudiante.setApoderado(apoderadoService.findNomApeApoderadoByDniEstudiante(estudiante.getDniEstudiante()));
+//			return new ResponseEntity<>(estudiante, HttpStatus.OK);
 		}
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 	}

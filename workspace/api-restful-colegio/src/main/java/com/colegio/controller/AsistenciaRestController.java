@@ -31,29 +31,29 @@ public class AsistenciaRestController {
 	@Autowired
 	private AsistenciaService s;
 	
-	@GetMapping("/consultar_asistencias_antiguo")
-	public ResponseEntity<?> listarAsistenciasMes(@RequestParam String dniEstudiante, @RequestParam String fecha){
-		Collection<Object[]> asistencias = s.getAsistenciasByDniEstudianteFecha(dniEstudiante, fecha);
-				
-		if(asistencias.isEmpty()) {
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-		}
-		
-		return new ResponseEntity<>(MapperUtil.convertCollObjects_AsistenciaMapper(asistencias),HttpStatus.OK);
-	}
+//	@GetMapping("/consultar_asistencias_antiguo")
+//	public ResponseEntity<?> listarAsistenciasMes(@RequestParam String dniEstudiante, @RequestParam String fecha){
+//		Collection<Object[]> asistencias = s.getAsistenciasByDniEstudianteFecha(dniEstudiante, fecha);
+//				
+//		if(asistencias.isEmpty()) {
+//			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//		}
+//		
+//		return new ResponseEntity<>(MapperUtil.convertCollObjects_AsistenciaMapper(asistencias),HttpStatus.OK);
+//	}
 	
 	
-	@GetMapping("/consultar_asistencias")
-	public ResponseEntity<?> listarAsistenciasPorDniEstudianteMesCurso(@RequestParam String dniEstudiante, @RequestParam Integer mes, 
-			@RequestParam String cursoId){
-		Collection<Object[]> asistencias = s.getAsistenciasByDniEstudianteMesCurso(dniEstudiante, mes, cursoId);
-		
-		if(asistencias.isEmpty()) {
-			return new ResponseEntity<>("No hay asistencias",HttpStatus.NO_CONTENT);
-		}
-		
-		return new ResponseEntity<>(MapperUtil.convertCollObjects_AsistenciaMapper(asistencias),HttpStatus.OK);
-	}
+//	@GetMapping("/consultar_asistencias")
+//	public ResponseEntity<?> listarAsistenciasPorDniEstudianteMesCurso(@RequestParam String dniEstudiante, @RequestParam Integer mes, 
+//			@RequestParam String cursoId){
+//		Collection<Object[]> asistencias = s.getAsistenciasByDniEstudianteMesCurso(dniEstudiante, mes, cursoId);
+//		
+//		if(asistencias.isEmpty()) {
+//			return new ResponseEntity<>("No hay asistencias",HttpStatus.NO_CONTENT);
+//		}
+//		
+//		return new ResponseEntity<>(MapperUtil.convertCollObjects_AsistenciaMapper(asistencias),HttpStatus.OK);
+//	}
 	
 	@GetMapping("/meses")
 	public ResponseEntity<?> listarMesesPorDniEstudiante(@RequestParam String dniEstudiante){

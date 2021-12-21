@@ -22,7 +22,7 @@ public class Justificacion implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer justificacionId;
+	private Integer id;
 
 	@Column(length = 45, nullable = false)
 	private String titulo;
@@ -34,33 +34,33 @@ public class Justificacion implements Serializable {
 	@Column(nullable = false)
 	private LocalDate fechaJustificacion;
 
-	@Column
+	@Column(nullable = false)
 	//@Temporal(TemporalType.TIMESTAMP)
 	private LocalDateTime fechaEnvio;
 
 	@ManyToOne
-	@JoinColumn(name = "matricula_id", nullable = false, updatable = false, foreignKey = @ForeignKey(
-			foreignKeyDefinition = "foreign key(matricula_id) references matricula(matricula_id)"))
+	@JoinColumn(name = "id_matricula", nullable = false, updatable = false, foreignKey = @ForeignKey(
+			foreignKeyDefinition = "foreign key(id) references matricula(id)"))
 	private Matricula matricula;
 
 	public Justificacion() {
 	}
 
-	public Justificacion(Integer justificacionId, String titulo, String descripcion, LocalDate fechaJustificacion,
+	public Justificacion(Integer id, String titulo, String descripcion, LocalDate fechaJustificacion,
 			LocalDateTime fechaEnvio) {
-		this.justificacionId = justificacionId;
+		this.id = id;
 		this.titulo = titulo;
 		this.descripcion = descripcion;
 		this.fechaJustificacion = fechaJustificacion;
 		this.fechaEnvio = fechaEnvio;
 	}
 
-	public Integer getJustificacionId() {
-		return justificacionId;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setJustificacionId(Integer justificacionId) {
-		this.justificacionId = justificacionId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getTitulo() {
@@ -102,5 +102,5 @@ public class Justificacion implements Serializable {
 	public void setMatricula(Matricula matricula) {
 		this.matricula = matricula;
 	}
-
+	
 }

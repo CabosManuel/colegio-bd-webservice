@@ -21,67 +21,58 @@ public class Asistencia implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer asistenciaId;
+	private Integer id;
 
 	//@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable = false)
-	private LocalDateTime horaAsistencia;
+	private LocalDateTime fecha;
 
-	@Column
-	private Boolean estado;
+	@Column(nullable = false)
+	private Boolean asistencia;
 
 	@ManyToOne
-	@JoinColumn(name = "matricula_id", nullable = false, updatable = false, foreignKey = @ForeignKey(
-			foreignKeyDefinition = "foreign key(matricula_id) references matricula(matricula_id)"))
+	@JoinColumn(name = "id_matricula", nullable = false, updatable = false, foreignKey = @ForeignKey(
+			foreignKeyDefinition = "foreign key(id) references matricula(id)"))
 	private Matricula matricula;
 
 	@ManyToOne
-	@JoinColumn(name = "horario_detalle_id", nullable = false, updatable = false, foreignKey = @ForeignKey(
-			foreignKeyDefinition = "foreign key(horario_detalle_id) references horario_detalle(horario_detalle_id)"))
+	@JoinColumn(name = "id_horario_detalle", nullable = false, updatable = false, foreignKey = @ForeignKey(
+			foreignKeyDefinition = "foreign key(id) references horario_detalle(id)"))
 	private HorarioDetalle horarioDetalle;
 
 	public Asistencia() {
 	}
 
-	public Asistencia(Integer asistenciaId, LocalDateTime horaAsistencia, Boolean estado) {
-		this.asistenciaId = asistenciaId;
-		this.horaAsistencia = horaAsistencia;
-		this.estado = estado;
+	public Asistencia(Integer id, LocalDateTime fecha, Boolean asistencia) {
+		this.id = id;
+		this.fecha = fecha;
+		this.asistencia = asistencia;
 	}
 
-	public Asistencia(Integer asistenciaId, LocalDateTime horaAsistencia, Boolean estado, Matricula matricula,
-			HorarioDetalle horarioDetalle) {
-		this.asistenciaId = asistenciaId;
-		this.horaAsistencia = horaAsistencia;
-		this.estado = estado;
-		this.matricula = matricula;
-		this.horarioDetalle = horarioDetalle;
+	public Integer getId() {
+		return id;
 	}
 
-	public Integer getAsistenciaId() {
-		return asistenciaId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
-	public void setAsistenciaId(Integer asistenciaId) {
-		this.asistenciaId = asistenciaId;
+	public LocalDateTime getFecha() {
+		return fecha;
 	}
 
-	public LocalDateTime getHoraAsistencia() {
-		return horaAsistencia;
+	public void setFecha(LocalDateTime fecha) {
+		this.fecha = fecha;
 	}
 
-	public void setHoraAsistencia(LocalDateTime horaAsistencia) {
-		this.horaAsistencia = horaAsistencia;
+	public Boolean getAsistencia() {
+		return asistencia;
 	}
 
-	public Boolean getEstado() {
-		return estado;
+	public void setAsistencia(Boolean asistencia) {
+		this.asistencia = asistencia;
 	}
 
-	public void setEstado(Boolean estado) {
-		this.estado = estado;
-	}
-	
 	public Matricula getMatricula() {
 		return matricula;
 	}

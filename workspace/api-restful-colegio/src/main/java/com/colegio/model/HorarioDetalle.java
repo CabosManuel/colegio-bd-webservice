@@ -1,7 +1,6 @@
 package com.colegio.model;
 
 import java.io.Serializable;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -24,73 +23,66 @@ public class HorarioDetalle implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer horarioDetalleId;
+	private Integer id;
 
-	@Column(length = 9, nullable = false)
-	private String dia;
+	@Column(columnDefinition = "tinyint", nullable = false)
+	private Integer dia;
 
-	//@Temporal(TemporalType.TIME)
-	@Column(nullable = false)
-	private LocalTime horaInicio;
-
-	//@Temporal(TemporalType.TIME)
-	@Column(nullable = false)
-	private LocalTime horaFin;
+	@Column(columnDefinition = "tinyint", nullable = false)
+	private Integer hora;
 
 	@OneToMany(mappedBy = "horarioDetalle")
 	private Collection<Asistencia> asistencias = new ArrayList<>();
 	
 	@ManyToOne
-	@JoinColumn(name = "curso_id", nullable = false, updatable = true, foreignKey = @ForeignKey(
-			foreignKeyDefinition = "foreign key(curso_id) references curso(curso_id)"))
+	@JoinColumn(name = "id_curso", nullable = false, updatable = true, foreignKey = @ForeignKey(
+			foreignKeyDefinition = "foreign key(id) references curso(id)"))
 	private Curso curso;
 
 	@ManyToOne
-	@JoinColumn(name = "horario_cabecera_id", nullable = false, updatable = true, foreignKey = @ForeignKey(
-			foreignKeyDefinition = "foreign key(horario_cabecera_id) references horario_cabecera(horario_cabecera_id)"))
+	@JoinColumn(name = "id_horario_cabecera", nullable = false, updatable = true, foreignKey = @ForeignKey(
+			foreignKeyDefinition = "foreign key(id) references horario_cabecera(id)"))
 	private HorarioCabecera horarioCabecera;
 
 	public HorarioDetalle() {
 	}
 
-	public HorarioDetalle(Integer horarioDetalleId, String dia, LocalTime horaInicio, LocalTime horaFin, Curso curso) {
-		this.horarioDetalleId = horarioDetalleId;
+	public HorarioDetalle(Integer id, Integer dia, Integer hora) {
+		this.id = id;
 		this.dia = dia;
-		this.horaInicio = horaInicio;
-		this.horaFin = horaFin;
-		this.curso = curso;
+		this.hora = hora;
 	}
 
-	public Integer getHorarioDetalleId() {
-		return horarioDetalleId;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setHorarioDetalleId(Integer horarioDetalleId) {
-		this.horarioDetalleId = horarioDetalleId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
-	public String getDia() {
+	public Integer getDia() {
 		return dia;
 	}
 
-	public void setDia(String dia) {
+	public void setDia(Integer dia) {
 		this.dia = dia;
 	}
 
-	public LocalTime getHoraInicio() {
-		return horaInicio;
+	public Integer getHora() {
+		return hora;
 	}
 
-	public void setHoraInicio(LocalTime horaInicio) {
-		this.horaInicio = horaInicio;
+	public void setHora(Integer hora) {
+		this.hora = hora;
 	}
 
-	public LocalTime getHoraFin() {
-		return horaFin;
+	public Collection<Asistencia> getAsistencias() {
+		return asistencias;
 	}
 
-	public void setHoraFin(LocalTime horaFin) {
-		this.horaFin = horaFin;
+	public void setAsistencias(Collection<Asistencia> asistencias) {
+		this.asistencias = asistencias;
 	}
 
 	public Curso getCurso() {
@@ -107,14 +99,6 @@ public class HorarioDetalle implements Serializable {
 
 	public void setHorarioCabecera(HorarioCabecera horarioCabecera) {
 		this.horarioCabecera = horarioCabecera;
-	}
-
-	public Collection<Asistencia> getAsistencias() {
-		return asistencias;
-	}
-
-	public void setAsistencias(Collection<Asistencia> asistencias) {
-		this.asistencias = asistencias;
 	}
 
 }

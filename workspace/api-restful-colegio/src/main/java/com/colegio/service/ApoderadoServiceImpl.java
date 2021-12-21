@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.colegio.mapper.ApoderadoSimple;
 import com.colegio.model.Apoderado;
 import com.colegio.repository.ApoderadoRepository;
 
@@ -16,96 +17,79 @@ public class ApoderadoServiceImpl implements ApoderadoService {
 	@Autowired
 	private ApoderadoRepository r;
 
-	@Transactional
+	@Transactional(readOnly = true)
 	@Override
-	public void insert(Apoderado apoderado) {
-		r.save(apoderado);
-	}
-
-	@Transactional
-	@Override
-	public void update(Apoderado apoderado) {
-		r.save(apoderado);
+	public Collection<ApoderadoSimple> buscarTodos() {
+		return r.buscarTodos();
 	}
 
 	@Transactional(readOnly = true)
 	@Override
-	public Collection<Apoderado> findAll() {
-		return (Collection<Apoderado>) r.findAll();
-	}
-
-	@Transactional(readOnly = true)
-	@Override
-	public Apoderado findByDniApoderado(String dniApoderado) {
-		return r.findByDniApoderado(dniApoderado);
-	}
-
-	@Transactional(readOnly = true)
-	@Override
-	public Collection<Object[]> getNombreEstudiantesByDniApoderado(String dniApoderado) {
-		return r.getNombreEstudiantesByDniApoderado(dniApoderado);
-	}
-
-	@Transactional(readOnly = true)
-	@Override
-	public Map<String, ?> loginApoderado(String dniApoderado, String pass) {
-		return r.loginApoderado(dniApoderado, pass);
-	}
-
-	@Transactional(readOnly = true)
-	@Override
-	public String findNomApeApoderadoByDniEstudiante(String dniEstudiante) {
-		return r.findNomApeApoderadoByDniEstudiante(dniEstudiante);
-	}
-
-	@Transactional(readOnly = true)
-	@Override
-	public Map<String, ?> buscarPorCorreo(String correo) {
-		return r.buscarPorCorreo(correo);
-
-	}
-
-	@Transactional(readOnly = true)
-	@Override
-	public Map<String, ?> buscarPorDniApoderado(String dniApoderado) {
-		return r.buscarPorDniApoderado(dniApoderado);
+	public ApoderadoSimple buscarPorDni(String dni) {
+		return r.buscarPorDni(dni);
 	}
 
 	@Transactional
 	@Override
-	public void nuevoApoderado(Map<String, Object> a) {
-		System.out.println(a.get("distrito_id"));
-
-		r.nuevoApoderado(a.get("dniApoderado").toString(), a.get("nombre").toString(), a.get("apellido").toString(),
+	public void nuevo(Apoderado a) {
+		/*a.get("dniApoderado").toString(), a.get("nombre").toString(), a.get("apellido").toString(),
 				a.get("celular").toString(), a.get("correo").toString(), a.get("pass").toString(),
 				a.get("direccion").toString(), Boolean.parseBoolean(a.get("estado").toString()),
-				Integer.parseInt(a.get("distrito_id").toString()));
+				Integer.parseInt(a.get("distrito_id").toString())*/
+//		r.nuevo(a);
 	}
-
-	@Transactional(readOnly = true)
-	@Override
-	public Collection<Map<String, ?>> buscarApoderados() {
-		return r.buscarApoderados();
-	}
-
-	@Transactional(readOnly = true)
-	@Override
-	public Map<String, ?> buscarApoderado(String dniApoderado) {
-		return r.buscarApoderado(dniApoderado);
-	}
-
+	
 	@Transactional
 	@Override
-	public void cambiarApoderado(Boolean estado, String dniApoderado) {
-		r.cambiarApoderado(estado, dniApoderado);
+	public void editar(String dni, Apoderado a) {
+//		r.editar(dni, a);
 	}
 
-	@Transactional
-	@Override
-	public void modificarApoderado(String nombre, String apellido, String celular, String correo, Integer distritoId,
-			String direccion, String dniApoderado) {
-		r.modificarApoderado(nombre, apellido, celular, correo, distritoId, direccion, dniApoderado);
+//	@Transactional(readOnly = true)
+//	@Override
+//	public Collection<Object[]> getNombreEstudiantesByDniApoderado(String dniApoderado) {
+//		return r.getNombreEstudiantesByDniApoderado(dniApoderado);
+//	}
+//
+//	@Transactional(readOnly = true)
+//	@Override
+//	public Map<String, ?> loginApoderado(String dniApoderado, String pass) {
+//		return r.loginApoderado(dniApoderado, pass);
+//	}
+//
+//	@Transactional(readOnly = true)
+//	@Override
+//	public String findNomApeApoderadoByDniEstudiante(String dniEstudiante) {
+//		return r.findNomApeApoderadoByDniEstudiante(dniEstudiante);
+//	}
+//
+//	@Transactional(readOnly = true)
+//	@Override
+//	public Map<String, ?> buscarPorCorreo(String correo) {
+//		return r.buscarPorCorreo(correo);
+//
+//	}
+//
+//	@Transactional(readOnly = true)
+//	@Override
+//	public Map<String, ?> buscarPorDniApoderado(String dniApoderado) {
+//		return r.buscarPorDniApoderado(dniApoderado);
+//	}
+//
 
-	}
+//
+//	@Transactional(readOnly = true)
+//	@Override
+//	public Collection<Map<String, ?>> buscarApoderados() {
+//		return r.buscarApoderados();
+//	}
+//
+//
+//	@Transactional
+//	@Override
+//	public void cambiarApoderado(Boolean estado, String dniApoderado) {
+//		r.cambiarApoderado(estado, dniApoderado);
+//	}
+//
 
 }

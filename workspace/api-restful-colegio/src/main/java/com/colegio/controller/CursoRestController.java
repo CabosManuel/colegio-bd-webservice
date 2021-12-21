@@ -24,30 +24,30 @@ public class CursoRestController {
 	@Autowired
 	private CursoService s;
 	
-	@GetMapping("/listar")
-	public ResponseEntity<?> listarCursoPorDniEstudiante(@RequestParam String dniEstudiante){
-		Collection<Object[]> objetosCurso = s.findByDniEstudiante(dniEstudiante);
-		
-		if(objetosCurso.isEmpty()) {
-			return new ResponseEntity<>("No hay cursos",HttpStatus.NO_CONTENT);
-		}
-		
-		return new ResponseEntity<>(MapperUtil.convertCollObjects_CursoMapper(objetosCurso), HttpStatus.OK);
-	}
+//	@GetMapping("/listar")
+//	public ResponseEntity<?> listarCursoPorDniEstudiante(@RequestParam String dniEstudiante){
+//		Collection<Object[]> objetosCurso = s.findByDniEstudiante(dniEstudiante);
+//		
+//		if(objetosCurso.isEmpty()) {
+//			return new ResponseEntity<>("No hay cursos",HttpStatus.NO_CONTENT);
+//		}
+//		
+//		return new ResponseEntity<>(MapperUtil.convertCollObjects_CursoMapper(objetosCurso), HttpStatus.OK);
+//	}
 	
-	@GetMapping("/buscar/{nivelId}/{gradoId}")
-	public ResponseEntity<?> buscar(@PathVariable Integer nivelId, @PathVariable Integer gradoId){
-		Collection<Map<String, Object>> cursosDb = s.buscarPorNivelGrado(nivelId, gradoId);		
-		return new ResponseEntity<>(MapperUtil.convertMapToCollCursoMapper(cursosDb), HttpStatus.OK);
-		
-		/*Collection<Curso> cursoOb = s.getfindByNivelGrado(nivelId, gradoId);
-		Collection<CursoMapper> cursoMapper = MapperUtil.convertCursosPorNivelGrado(cursoOb);
-		
-		if(cursoOb!=null) {
-			return new ResponseEntity<>(cursoMapper, HttpStatus.OK);
-		}
-		return new ResponseEntity<>("No existen cursos para el nivel " + nivelId + " y grado " + gradoId+ "." , HttpStatus.NOT_FOUND);*/
-	}
+//	@GetMapping("/buscar/{nivelId}/{gradoId}")
+//	public ResponseEntity<?> buscar(@PathVariable Integer nivelId, @PathVariable Integer gradoId){
+//		Collection<Map<String, Object>> cursosDb = s.buscarPorNivelGrado(nivelId, gradoId);		
+//		return new ResponseEntity<>(MapperUtil.convertMapToCollCursoMapper(cursosDb), HttpStatus.OK);
+//		
+//		/*Collection<Curso> cursoOb = s.getfindByNivelGrado(nivelId, gradoId);
+//		Collection<CursoMapper> cursoMapper = MapperUtil.convertCursosPorNivelGrado(cursoOb);
+//		
+//		if(cursoOb!=null) {
+//			return new ResponseEntity<>(cursoMapper, HttpStatus.OK);
+//		}
+//		return new ResponseEntity<>("No existen cursos para el nivel " + nivelId + " y grado " + gradoId+ "." , HttpStatus.NOT_FOUND);*/
+//	}
 	
 	@GetMapping("/buscarCurso/{cursoId}")
 	public ResponseEntity<?> buscar(@PathVariable Integer cursoId){

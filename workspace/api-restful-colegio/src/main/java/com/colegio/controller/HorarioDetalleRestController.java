@@ -51,18 +51,18 @@ public class HorarioDetalleRestController {
 	}
 	
 
-	@GetMapping("/buscar/{seccionId}/{trabajadorId}")
-	public ResponseEntity<?> buscarPorId(@PathVariable Integer seccionId, @PathVariable Integer trabajadorId){
-		
-		Collection<Map<String, ?>> horarioDetalleOb = hdservice.getfindBySeccion(seccionId, trabajadorId);
-		Collection<HorarioDetalleMapper> horarioDetalleMapper = MapperUtil.convertDetalleHorario(horarioDetalleOb);
-		
-		if(horarioDetalleOb!=null && !horarioDetalleOb.isEmpty()) {
-			return new ResponseEntity<>(horarioDetalleMapper, HttpStatus.OK);
-		}
-		return new ResponseEntity<>("Horario con el dni " + seccionId + " no existente.", HttpStatus.NOT_FOUND);
-		
-	}
+//	@GetMapping("/buscar/{seccionId}/{trabajadorId}")
+//	public ResponseEntity<?> buscarPorId(@PathVariable Integer seccionId, @PathVariable Integer trabajadorId){
+//		
+//		Collection<Map<String, ?>> horarioDetalleOb = hdservice.getfindBySeccion(seccionId, trabajadorId);
+//		Collection<HorarioDetalleMapper> horarioDetalleMapper = MapperUtil.convertDetalleHorario(horarioDetalleOb);
+//		
+//		if(horarioDetalleOb!=null && !horarioDetalleOb.isEmpty()) {
+//			return new ResponseEntity<>(horarioDetalleMapper, HttpStatus.OK);
+//		}
+//		return new ResponseEntity<>("Horario con el dni " + seccionId + " no existente.", HttpStatus.NOT_FOUND);
+//		
+//	}
 	
 	@GetMapping("/buscarHorarioDetalle/{seccionId}")
 	public ResponseEntity<?> buscarHorarioPorSeccion(@PathVariable Integer seccionId){

@@ -7,12 +7,9 @@ import java.util.Collection;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -27,12 +24,7 @@ public class HorarioCabecera implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer horarioCabeceraId;
-
-	@ManyToOne
-	@JoinColumn(name = "seccion_id", nullable = false, updatable = true, foreignKey = @ForeignKey(
-			foreignKeyDefinition = "foreign key(seccion_id) references seccion(seccion_id)"))
-	private Seccion seccion;
+	private Integer id;
 
 	@OneToMany(mappedBy = "horarioCabecera", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
@@ -41,20 +33,12 @@ public class HorarioCabecera implements Serializable {
 	public HorarioCabecera() {
 	}
 
-	public Integer getHorarioCabeceraId() {
-		return horarioCabeceraId;
+	public Integer geId() {
+		return id;
 	}
 
-	public void setHorarioCabeceraId(Integer horarioCabeceraId) {
-		this.horarioCabeceraId = horarioCabeceraId;
-	}
-
-	public Seccion getSeccion() {
-		return seccion;
-	}
-
-	public void setSeccion(Seccion seccion) {
-		this.seccion = seccion;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public Collection<HorarioDetalle> getHorariosDetalle() {

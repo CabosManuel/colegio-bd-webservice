@@ -10,7 +10,6 @@ public class MatriculaMapper {
 	private String nombrenivel;
 	private Integer grado;
 	private String nombregrado;
-	private SeccionMapper seccion;
 	private EstudianteMapper estudiante;
 
 	public MatriculaMapper() {
@@ -20,17 +19,17 @@ public class MatriculaMapper {
 		this.matriculaId = matriculaId;
 	}
 
-	public MatriculaMapper(Integer matriculaId, Date fecha, Integer nivel, String nombrenivel, Integer grado,
-			String nombregrado, SeccionMapper seccion, EstudianteMapper estudiante) {
-		this.matriculaId = matriculaId;
-		this.fecha = fecha;
-		this.nivel = nivel;
-		this.nombrenivel = nombrenivel;
-		this.grado = grado;
-		this.nombregrado = nombregrado;
-		this.seccion = seccion;
-		this.estudiante = estudiante;
-	}
+//	public MatriculaMapper(Integer matriculaId, Date fecha, Integer nivel, String nombrenivel, Integer grado,
+//			String nombregrado, SeccionMapper seccion, EstudianteMapper estudiante) {
+//		this.matriculaId = matriculaId;
+//		this.fecha = fecha;
+//		this.nivel = nivel;
+//		this.nombrenivel = nombrenivel;
+//		this.grado = grado;
+//		this.nombregrado = nombregrado;
+//		this.seccion = seccion;
+//		this.estudiante = estudiante;
+//	}
 
 	public Integer getMatriculaId() {
 		return matriculaId;
@@ -62,14 +61,6 @@ public class MatriculaMapper {
 
 	public void setGrado(Integer grado) {
 		this.grado = grado;
-	}
-
-	public SeccionMapper getSeccion() {
-		return seccion;
-	}
-
-	public void setSeccion(SeccionMapper seccion) {
-		this.seccion = seccion;
 	}
 
 	public EstudianteMapper getEstudiante() {

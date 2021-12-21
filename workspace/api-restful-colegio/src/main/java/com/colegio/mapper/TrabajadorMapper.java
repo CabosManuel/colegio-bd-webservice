@@ -15,7 +15,6 @@ public class TrabajadorMapper {
 	private String correo;
 	private String pass;
 	private Boolean estado;
-	private DistritoMapper distrito;
 
 	public TrabajadorMapper() {
 	}
@@ -30,22 +29,22 @@ public class TrabajadorMapper {
 		this.apellidos = apellidos;
 	}
 
-	public TrabajadorMapper(Integer trabajadorId, String cargo, String nombres, String apellidos, String dni,
-			Date fechaNacimiento, String celular, String direccion, String correo, String pass, Boolean estado,
-			DistritoMapper distrito) {
-		this.trabajadorId = trabajadorId;
-		this.cargo = cargo;
-		this.nombres = nombres;
-		this.apellidos = apellidos;
-		this.dni = dni;
-		this.fechaNacimiento = fechaNacimiento;
-		this.celular = celular;
-		this.direccion = direccion;
-		this.correo = correo;
-		this.pass = pass;
-		this.estado = estado;
-		this.distrito = distrito;
-	}
+//	public TrabajadorMapper(Integer trabajadorId, String cargo, String nombres, String apellidos, String dni,
+//			Date fechaNacimiento, String celular, String direccion, String correo, String pass, Boolean estado,
+//			DistritoMapper distrito) {
+//		this.trabajadorId = trabajadorId;
+//		this.cargo = cargo;
+//		this.nombres = nombres;
+//		this.apellidos = apellidos;
+//		this.dni = dni;
+//		this.fechaNacimiento = fechaNacimiento;
+//		this.celular = celular;
+//		this.direccion = direccion;
+//		this.correo = correo;
+//		this.pass = pass;
+//		this.estado = estado;
+//		this.distrito = distrito;
+//	}
 
 	public Integer getTrabajadorId() {
 		return trabajadorId;
@@ -125,14 +124,6 @@ public class TrabajadorMapper {
 
 	public void setPass(String pass) {
 		this.pass = pass;
-	}
-
-	public DistritoMapper getDistrito() {
-		return distrito;
-	}
-
-	public void setDistrito(DistritoMapper distrito) {
-		this.distrito = distrito;
 	}
 
 	public Boolean getEstado() {

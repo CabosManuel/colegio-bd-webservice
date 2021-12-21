@@ -21,7 +21,7 @@ public class Notificacion implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer notificacionId;
+	private Integer id;
 
 	@Column(length = 10, nullable = false)
 	private String tipo;
@@ -44,16 +44,16 @@ public class Notificacion implements Serializable {
 	private Character estado;
 
 	@ManyToOne
-	@JoinColumn(name = "matricula_id", nullable = false, foreignKey = @ForeignKey(
-			foreignKeyDefinition = "foreign key(matricula_id) references matricula(matricula_id)"))
+	@JoinColumn(name = "id_matricula", nullable = false, foreignKey = @ForeignKey(
+			foreignKeyDefinition = "foreign key(id) references matricula(id)"))
 	private Matricula matricula;
 
 	public Notificacion() {
 	}
 
-	public Notificacion(Integer notificacionId, String tipo, LocalDateTime fechaEnvio, LocalDateTime fechaLimite, String titulo,
+	public Notificacion(Integer id, String tipo, LocalDateTime fechaEnvio, LocalDateTime fechaLimite, String titulo,
 			String descripcion, Character estado) {
-		this.notificacionId = notificacionId;
+		this.id = id;
 		this.tipo = tipo;
 		this.fechaEnvio = fechaEnvio;
 		this.fechaLimite = fechaLimite;
@@ -62,12 +62,12 @@ public class Notificacion implements Serializable {
 		this.estado = estado;
 	}
 
-	public Integer getNotificacionId() {
-		return notificacionId;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setNotificacionId(Integer notificacionId) {
-		this.notificacionId = notificacionId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getTipo() {

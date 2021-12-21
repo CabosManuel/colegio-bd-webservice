@@ -3,10 +3,7 @@ package com.colegio.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -14,7 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -27,39 +23,36 @@ public class Curso implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer cursoId;
+	private Integer id;
 
 	@Column(length = 45, nullable = false)
 	private String nombre;
 
+	@ManyToOne
+	@JoinColumn(name = "id_trabajador", nullable = false, updatable = true, foreignKey = @ForeignKey(
+			foreignKeyDefinition = "foreign key(id) references trabajador(id)"))
+	private Trabajador trabajador;
+	
 	@OneToMany(mappedBy = "curso")
 	private Collection<Notas> notas = new ArrayList<>();
 
 	@OneToMany(mappedBy = "curso")
 	private Collection<HorarioDetalle> horariosDetalle = new ArrayList<>();
 
-	@ManyToMany(mappedBy = "cursos", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	private Set<Trabajador> trabajadores = new HashSet<>();
-	
-	@ManyToOne
-	@JoinColumn(name = "grado_id", nullable = false, updatable = false, foreignKey = @ForeignKey(
-			foreignKeyDefinition = "foreign key(grado_id) references grado(grado_id)"))
-	private Grado grado;
-
 	public Curso() {
 	}
 
-	public Curso(Integer cursoId, String nombre) {
-		this.cursoId = cursoId;
+	public Curso(Integer id, String nombre) {
+		this.id = id;
 		this.nombre = nombre;
 	}
 
-	public Integer getCursoId() {
-		return cursoId;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setCursoId(Integer cursoId) {
-		this.cursoId = cursoId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getNombre() {
@@ -68,6 +61,14 @@ public class Curso implements Serializable {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public Trabajador getTrabajador() {
+		return trabajador;
+	}
+
+	public void setTrabajador(Trabajador trabajador) {
+		this.trabajador = trabajador;
 	}
 
 	public Collection<Notas> getNotas() {
@@ -85,5 +86,5 @@ public class Curso implements Serializable {
 	public void setHorariosDetalle(Collection<HorarioDetalle> horariosDetalle) {
 		this.horariosDetalle = horariosDetalle;
 	}
-
+	
 }

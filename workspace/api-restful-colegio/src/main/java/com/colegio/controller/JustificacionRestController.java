@@ -28,16 +28,16 @@ public class JustificacionRestController {
 	@Autowired
 	private JustificacionService justificacionService;
 	
-	@GetMapping("/listar_justificaciones")
-	public ResponseEntity<?> getJustificacionesPorDniEstudiante(@RequestParam String dniEstudiante){
-		
-		Collection<Object[]> justificaciones = justificacionService.getJustificacionesByDniEstudiante(dniEstudiante);
-	
-		if(justificaciones.isEmpty())
-			return new ResponseEntity<>("No hay justificaciones", HttpStatus.NO_CONTENT);
-		
-		return new ResponseEntity<>(MapperUtil.convertCollObjects_JustificacionMapper(justificaciones), HttpStatus.OK);
-	}
+//	@GetMapping("/listar_justificaciones")
+//	public ResponseEntity<?> getJustificacionesPorDniEstudiante(@RequestParam String dniEstudiante){
+//		
+//		Collection<Object[]> justificaciones = justificacionService.getJustificacionesByDniEstudiante(dniEstudiante);
+//	
+//		if(justificaciones.isEmpty())
+//			return new ResponseEntity<>("No hay justificaciones", HttpStatus.NO_CONTENT);
+//		
+//		return new ResponseEntity<>(MapperUtil.convertCollObjects_JustificacionMapper(justificaciones), HttpStatus.OK);
+//	}
 	
 	@GetMapping("/listar")
 	public ResponseEntity<?> listar(){

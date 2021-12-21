@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.colegio.mapper.convert.ApoderadoConvert;
 import com.colegio.model.Apoderado;
 import com.colegio.model.Asistencia;
 import com.colegio.model.Curso;
@@ -17,8 +18,8 @@ import com.colegio.model.Matricula;
 import com.colegio.model.Notas;
 import com.colegio.model.Trabajador;
 
-public class MapperUtil {
-	
+public class Convert {
+
 //	public static Collection<EstudianteMapper> convert(Collection<Estudiante> itemsEstudiante) {
 //
 //		Collection<EstudianteMapper> itemsEstudianteMapper = new ArrayList<>();
@@ -26,19 +27,19 @@ public class MapperUtil {
 //		for (Estudiante estudiante : itemsEstudiante) {
 //
 //			EstudianteMapper mapper = new EstudianteMapper();
-//			mapper.setDniEstudiante(estudiante.getDni());
-//			mapper.setNombre(estudiante.getNombre());
-//			mapper.setApellido(estudiante.getApellido());
-//			mapper.setFnacimiento(estudiante.getFnacimiento());
+//			mapper.setDniEstudiante(estudiante.getDniEstudiante());
+////			mapper.setNombre(estudiante.getNombre());
+////			mapper.setApellido(estudiante.getApellido());
+////			mapper.setFnacimiento(estudiante.getFnacimiento());
 //			mapper.setCelular(estudiante.getCelular());
 //			mapper.setCorreo(estudiante.getCorreo());
 //			mapper.setDireccion(estudiante.getDireccion());
 //			// mapper.setPass(estudiante.getPass());
 //			mapper.setEstado(estudiante.getEstado());
 //			mapper.setCondicion(estudiante.getCondicion());
-//			mapper.setDistrito(
-//					new DistritoMapper(estudiante.getDistrito().getDistritoId(), estudiante.getDistrito().getNombre()));
-//			mapper.setApoderado(new ApoderadoMapper(estudiante.getApoderado().getDniApoderado()));
+////			mapper.setDistrito(
+////					new DistritoMapper(estudiante.getDistrito().getDistritoId(), estudiante.getDistrito().getNombre()));
+////			mapper.setApoderado(new ApoderadoMapper(estudiante.getApoderado().getDniApoderado()));
 //			itemsEstudianteMapper.add(mapper);
 //		}
 //		return itemsEstudianteMapper;
@@ -47,89 +48,69 @@ public class MapperUtil {
 //	public static EstudianteMapper convert(Estudiante estudiante) {
 //
 //		EstudianteMapper mapper = new EstudianteMapper();
-//		mapper.setDniEstudiante(estudiante.getDni());
-//		mapper.setNombre(estudiante.getNombre());
-//		mapper.setApellido(estudiante.getApellido());
-//		mapper.setFnacimiento(estudiante.getFnacimiento());
+//		mapper.setDniEstudiante(estudiante.getDniEstudiante());
+////		mapper.setNombre(estudiante.getNombre());
+////		mapper.setApellido(estudiante.getApellido());
+////		mapper.setFnacimiento(estudiante.getFnacimiento());
 //		mapper.setCelular(estudiante.getCelular());
 //		mapper.setCorreo(estudiante.getCorreo());
 //		mapper.setDireccion(estudiante.getDireccion());
-//		mapper.setPass(estudiante.getPass());
+////		mapper.setPass(estudiante.getPass());
 //		mapper.setEstado(estudiante.getEstado());
 //		mapper.setCondicion(estudiante.getCondicion());
-//		mapper.setDistrito(
-//				new DistritoMapper(estudiante.getDistrito().getDistritoId(), estudiante.getDistrito().getNombre()));
-//		mapper.setApoderado(new ApoderadoMapper(estudiante.getApoderado().getDniApoderado()));
+////		mapper.setDistrito(
+//////				new DistritoMapper(estudiante.getDistrito().getDistritoId(), estudiante.getDistrito().getNombre()));
+////		mapper.setApoderado(new ApoderadoMapper(estudiante.getApoderado().getDniApoderado()));
 //		return mapper;
 //
 //	}
-//	
+//
 //	public static Asistencia convert(Map<String, ?> mapasistencia) {
 //		Asistencia asistencia = new Asistencia();
 //		asistencia.setAsistenciaId(Integer.parseInt(mapasistencia.get("asistencia_id").toString()));
 //		asistencia.setEstado(Boolean.parseBoolean(mapasistencia.get("estado").toString()));
 //		return asistencia;
-//	} 
-//	
+//	}
+//
 //	// Map Estudiante a EstudianteLoginMapper
 //	public static EstudianteLoginMapper convertEstudianteToEstudianteLogin(Map<String, ?> e) {
-//		return new EstudianteLoginMapper(
-//				e.get("dni_estudiante").toString(),
-//				e.get("nombre").toString(),
-//				e.get("apellido").toString(),
-//				e.get("fnacimiento").toString(),
-//				e.get("celular").toString(),
-//				e.get("correo").toString(),
-//				e.get("direccion").toString(),
+//		return new EstudianteLoginMapper(e.get("dni_estudiante").toString(), e.get("nombre").toString(),
+//				e.get("apellido").toString(), e.get("fnacimiento").toString(), e.get("celular").toString(),
+//				e.get("correo").toString(), e.get("direccion").toString(),
 //				Integer.parseInt(e.get("distrito_id").toString()));
 //	}
 //
-//	//Horario Map
+//	// Horario Map
 //	public static Collection<HorarioDetalleMapper> convertDetalleHorario(Collection<Map<String, ?>> items) {
-//		
+//
 //		Collection<HorarioDetalleMapper> collection = new ArrayList<>();
-//		for(Map<String, ?> map: items) {
-//		collection.add(new HorarioDetalleMapper(Integer.parseInt(map.get("horario_detalle_id").toString()),
-//				map.get("dia").toString(),
-//				map.get("hora_inicio").toString(),
-//				map.get("hora_fin").toString(),
-//				Integer.parseInt(map.get("curso_id").toString()),
-//				map.get("nombre_curso").toString(),
-//				Integer.parseInt(map.get("trabajador_id").toString())));
+//		for (Map<String, ?> map : items) {
+//			collection.add(new HorarioDetalleMapper(Integer.parseInt(map.get("horario_detalle_id").toString()),
+//					map.get("dia").toString(), map.get("hora_inicio").toString(), map.get("hora_fin").toString(),
+//					Integer.parseInt(map.get("curso_id").toString()), map.get("nombre_curso").toString(),
+//					Integer.parseInt(map.get("trabajador_id").toString())));
 //		}
-//		
+//
 //		return collection;
 //	}
 //
 //	// Map Estudiante a EstudianteLoginMapper + apoderado
-//		public static EstudianteLoginMapper convertEstudianteToEstudianteLoginApoderado(Map<String, ?> e) {
-//			EstudianteLoginMapper estudiante = new EstudianteLoginMapper(
-//					e.get("dni_estudiante").toString(),
-//					e.get("nombre").toString(),
-//					e.get("apellido").toString(),
-//					e.get("fnacimiento").toString(),
-//					e.get("celular").toString(),
-//					e.get("correo").toString(),
-//					e.get("direccion").toString(),
-//					Integer.parseInt(e.get("distrito_id").toString()));
-//			estudiante.setApoderado(e.get("apoderado").toString());
-//			return estudiante;
-//		}
+//	public static EstudianteLoginMapper convertEstudianteToEstudianteLoginApoderado(Map<String, ?> e) {
+//		EstudianteLoginMapper estudiante = new EstudianteLoginMapper(e.get("dni_estudiante").toString(),
+//				e.get("nombre").toString(), e.get("apellido").toString(), e.get("fnacimiento").toString(),
+//				e.get("celular").toString(), e.get("correo").toString(), e.get("direccion").toString(),
+//				Integer.parseInt(e.get("distrito_id").toString()));
+//		estudiante.setApoderado(e.get("apoderado").toString());
+//		return estudiante;
+//	}
 //
 //	public static Estudiante convertMapToEstudiante(Map<String, Object> e) {
-//		return new Estudiante(
-//				e.get("dni_estudiante").toString(),
-//				e.get("nombre").toString(),
-//				e.get("apellido").toString(),
-//				(Date) e.get("fnacimiento"),
-//				e.get("celular").toString(),
-//				e.get("correo").toString(),
-//				e.get("direccion").toString(),
-//				e.get("pass").toString(),
-//				(Boolean) e.get("estado"),
-//				e.get("condicion").toString());
+//		return new Estudiante(e.get("dni_estudiante").toString(), e.get("nombre").toString(),
+//				e.get("apellido").toString(), (Date) e.get("fnacimiento"), e.get("celular").toString(),
+//				e.get("correo").toString(), e.get("direccion").toString(), e.get("pass").toString(),
+//				(Boolean) e.get("estado"), e.get("condicion").toString());
 //	}
-//		
+//
 //	// Mapper Collection<Object[]> a Collection<EstudianteMapper>
 //	public static Collection<EstudianteMapper> convertCollObjects_EstudianteMapper(Collection<Object[]> objetos) {
 //		Collection<EstudianteMapper> estudiantesMapper = new ArrayList<>();
@@ -151,19 +132,19 @@ public class MapperUtil {
 //		return estudianteMapper;
 //	}
 //
-//	public static Collection<NotaMapper> convertNotas(Collection<Nota> itemsNota) {
+//	public static Collection<NotaMapper> convertNotas(Collection<Notas> itemsNota) {
 //
 //		Collection<NotaMapper> itemsNotaMapper = new ArrayList<>();
 //
-//		for (Nota nota : itemsNota) {
+//		for (Notas nota : itemsNota) {
 //			NotaMapper mapper = new NotaMapper();
 //			// mapper.setNota_id(nota.getNotaId());
-//			mapper.setDni_estudiante(new EstudianteMapper(nota.getDni().getDni()));
-//			mapper.setCursom(new CursoMapper(nota.getCurso().getId(), nota.getCurso().getNombre()));
+//			mapper.setDni_estudiante(new EstudianteMapper(nota.getDniEstudiante().getDniEstudiante()));
+//			mapper.setCursom(new CursoMapper(nota.getCurso().getCursoId(), nota.getCurso().getNombre()));
 //			mapper.setNota1(nota.getNota1());
 //			mapper.setNota2(nota.getNota2());
 //			mapper.setNota3(nota.getNota3());
-//			mapper.setFecha(nota.getFecha());
+////			mapper.setFecha(nota.getFecha());
 //			// n.nota_id, c.curso_id, e.dni_estudiante, n.fecha,
 //			itemsNotaMapper.add(mapper);
 //		}
@@ -213,85 +194,29 @@ public class MapperUtil {
 //		return notaMapper;
 //	}
 //
-//	
-//	public static NotaMapper convert(Nota nota) {
+//	public static NotaMapper convert(Notas nota) {
 //
 //		NotaMapper mapper = new NotaMapper();
-//		mapper.setCursom(new CursoMapper(nota.getCurso().getId(), nota.getCurso().getNombre()));
-//		mapper.setDni_estudiante(new EstudianteMapper(nota.getDni().getDni()));
+//		mapper.setCursom(new CursoMapper(nota.getCurso().getCursoId(), nota.getCurso().getNombre()));
+//		mapper.setDni_estudiante(new EstudianteMapper(nota.getDniEstudiante().getDniEstudiante()));
 //		mapper.setNota1(nota.getNota1());
 //		mapper.setNota2(nota.getNota2());
 //		mapper.setNota3(nota.getNota3());
-//		mapper.setFecha(nota.getFecha());
+////		mapper.setFecha(nota.getFecha());
 //		return mapper;
 //
 //	}
-//	/**
-//	 * MAPPERS APODERADO
-//	 */
+//
 //	
-//	// Listar todos los apoderados
-//	public static Collection<ApoderadoMapper> convertApoderados(Collection<Apoderado> itemsApoderado) {
-//
-//		Collection<ApoderadoMapper> itemsApoderadoMapper = new ArrayList<>();
-//
-//		for (Apoderado apoderado : itemsApoderado) {
-//
-//			ApoderadoMapper mapper = new ApoderadoMapper();
-//			mapper.setDniApoderado(apoderado.getDniApoderado());
-//			mapper.setNombre(apoderado.getNombre());
-//			mapper.setApellido(apoderado.getApellido());
-//			mapper.setCelular(apoderado.getCelular());
-//			mapper.setCorreo(apoderado.getCorreo());
-//			// mapper.setPass(estudiante.getPass());
-//			mapper.setEstado(apoderado.getEstado());
-//			mapper.setDireccion(apoderado.getDireccion());
-//			mapper.setDistrito(
-//					new DistritoMapper(apoderado.getDistrito().getDistritoId(), apoderado.getDistrito().getNombre()));
-//
-//			itemsApoderadoMapper.add(mapper);
-//		}
-//		return itemsApoderadoMapper;
-//	}
-//
-//	// Listar por dni del apoderado
-//	public static ApoderadoMapper convert(Apoderado apoderado) {
-//
-//		ApoderadoMapper mapper = new ApoderadoMapper();
-//		mapper.setDniApoderado(apoderado.getDniApoderado());
-//		mapper.setNombre(apoderado.getNombre());
-//		mapper.setApellido(apoderado.getApellido());
-//		mapper.setCelular(apoderado.getCelular());
-//		mapper.setCorreo(apoderado.getCorreo());
-//		mapper.setPass(apoderado.getPass());
-//		mapper.setEstado(apoderado.getEstado());
-//		mapper.setDireccion(apoderado.getDireccion());
-//		mapper.setDistrito(
-//				new DistritoMapper(apoderado.getDistrito().getDistritoId(), apoderado.getDistrito().getNombre()));
-//		return mapper;
-//
-//	}
-//	
-//	// Map Apoderado a ApoderadoLoginMapper
-//	public static ApoderadoLoginMapper convertApoderadoToApoderadoLogin(Map<String, ?> a) {	
-//		return new ApoderadoLoginMapper(
-//				a.get("dni_apoderado").toString(),
-//				a.get("nombre").toString(),
-//				a.get("apellido").toString(),
-//				a.get("correo").toString(),
-//				a.get("celular").toString(),
-//				a.get("direccion").toString(),
-//				Integer.parseInt(a.get("distrito_id").toString()));
-//	}
 //
 //	// MATRICULA
 //	public static MatriculaMapper convert(Matricula matricula) {
 //
 //		MatriculaMapper mapper = new MatriculaMapper();
-//		mapper.setEstudiante(new EstudianteMapper(matricula.getEstudiante().getDni()));
+//		mapper.setEstudiante(new EstudianteMapper(matricula.getEstudiante().getDniEstudiante()));
 //		mapper.setFecha(matricula.getFecha());
-//		mapper.setNivel(matricula.getNivel());
-//		mapper.setGrado(matricula.getGrado());
+////		mapper.setNivel(matricula.getNivel());
+////		mapper.setGrado(matricula.getGrado());
 //		mapper.setSeccion(new SeccionMapper(matricula.getSeccion().getSeccionId(), matricula.getSeccion().getNombre()));
 //		return mapper;
 //	}
@@ -344,15 +269,14 @@ public class MapperUtil {
 //		mapper.setApellidos(trabajador.getApellidos());
 //		mapper.setCorreo(trabajador.getCorreo());
 //		mapper.setDireccion(trabajador.getDireccion());
-//		mapper.setPass(trabajador.getPass());
+////		mapper.setPass(trabajador.getPass());
 //		mapper.setEstado(trabajador.getEstado());
-//		mapper.setDistrito(
-//				new DistritoMapper(trabajador.getDistrito().getDistritoId(), trabajador.getDistrito().getNombre()));
+////		mapper.setDistrito(
+////				new DistritoMapper(trabajador.getDistrito().getDistritoId(), trabajador.getDistrito().getNombre()));
 //		return mapper;
 //
 //	}
 //
-//	
 //	public static Collection<TrabajadorMapper> convertTrabajadores(Collection<Trabajador> itemsTrabajador) {
 //
 //		Collection<TrabajadorMapper> itemsTrabajadorMapper = new ArrayList<>();
@@ -370,9 +294,9 @@ public class MapperUtil {
 //			mapper.setCorreo(trabajador.getCorreo());
 //			mapper.setDireccion(trabajador.getDireccion());
 //			mapper.setEstado(trabajador.getEstado());
-//			mapper.setPass(trabajador.getPass());
-//			mapper.setDistrito(
-//					new DistritoMapper(trabajador.getDistrito().getDistritoId(), trabajador.getDistrito().getNombre()));
+////			mapper.setPass(trabajador.getPass());
+////			mapper.setDistrito(
+////					new DistritoMapper(trabajador.getDistrito().getDistritoId(), trabajador.getDistrito().getNombre()));
 //			itemsTrabajadorMapper.add(mapper);
 //		}
 //		return itemsTrabajadorMapper;
@@ -443,7 +367,7 @@ public class MapperUtil {
 //		for (Curso curso : itemsCurso) {
 //
 //			CursoMapper mapper = new CursoMapper();
-//			mapper.setCurso_id(curso.getId());
+//			mapper.setCurso_id(curso.getCursoId());
 //			mapper.setNombre(curso.getNombre());
 //			itemsCursoMapper.add(mapper);
 //		}
@@ -476,7 +400,7 @@ public class MapperUtil {
 //
 //		return notificacionesMapper;
 //	}
-//	
+//
 //	/**
 //	 * MAPPER JUSTIFICACIONES
 //	 */
@@ -538,31 +462,31 @@ public class MapperUtil {
 //		HorarioCabeceraMapper mapper = new HorarioCabeceraMapper();
 //		HorarioDetalleMapper mapperDetalle = new HorarioDetalleMapper();
 //
-//		mapper.setEstado(horarioCabecera.getEstado());
+////		mapper.setEstado(horarioCabecera.getEstado());
 //		mapper.setSeccion(new SeccionMapper(horarioCabecera.getSeccion().getSeccionId()));
 //		mapper.setTrabajador(new TrabajadorMapper(horarioCabecera.getTrabajador().getTrabajadorId()));
-//		mapperDetalle.setHorarioCabecera(new HorarioCabeceraMapper(horarioCabecera.geId()));
+//		mapperDetalle.setHorarioCabecera(new HorarioCabeceraMapper(horarioCabecera.getHorarioCabeceraId()));
 //		return mapper;
 //
 //	}
 //
-//
 //	/*
-//	 * CAMBIOS A LA FECHA 03/01/2021*/
+//	 * CAMBIOS A LA FECHA 03/01/2021
+//	 */
 //	public static HorarioDetalleMapper convert(HorarioDetalle horariod) {
 //
 //		HorarioDetalleMapper mapper = new HorarioDetalleMapper();
 //		mapper.setHorarioDetalleId(horariod.getHorarioDetalleId());
 //		mapper.setDia(horariod.getDia());
-//		mapper.setCurso(new CursoMapper(horariod.getCurso().getId(), horariod.getCurso().getNombre()));
+//		mapper.setCurso(new CursoMapper(horariod.getCurso().getCursoId(), horariod.getCurso().getNombre()));
 //		mapper.setTrabajador(new TrabajadorMapper(horariod.getTrabajador().getTrabajadorId()));
-//		mapper.setHoraInicio(horariod.getHoraInicio());
-//		mapper.setHoraFin(horariod.getHoraFin());
-//		mapper.setHorarioCabecera(new HorarioCabeceraMapper(horariod.getHorarioCabecera().geId()));
+////		mapper.setHoraInicio(horariod.getHoraInicio());
+////		mapper.setHoraFin(horariod.getHoraFin());
+//		mapper.setHorarioCabecera(new HorarioCabeceraMapper(horariod.getHorarioCabecera().getHorarioCabeceraId()));
 //		return mapper;
 //
 //	}
-//	
+//
 //	public static Collection<GradoMapper> convertGrados(Collection<Grado> itemsGrado) {
 //
 //		Collection<GradoMapper> itemsGradoMapper = new ArrayList<>();
@@ -598,15 +522,15 @@ public class MapperUtil {
 //	public static Collection<HorarioDetalleMapper> convertHorariosD(Collection<HorarioDetalle> itemshorariod) {
 //
 //		Collection<HorarioDetalleMapper> itemsHorarioDMapper = new ArrayList<>();
-//		for(HorarioDetalle horariod : itemshorariod) {
+//		for (HorarioDetalle horariod : itemshorariod) {
 //			HorarioDetalleMapper mapper = new HorarioDetalleMapper();
 //			mapper.setHorarioDetalleId(horariod.getHorarioDetalleId());
 //			mapper.setDia(horariod.getDia());
-//			mapper.setCurso(new CursoMapper(horariod.getCurso().getId(), horariod.getCurso().getNombre()));
+//			mapper.setCurso(new CursoMapper(horariod.getCurso().getCursoId(), horariod.getCurso().getNombre()));
 //			mapper.setTrabajador(new TrabajadorMapper(horariod.getTrabajador().getTrabajadorId()));
-//			mapper.setHoraInicio(horariod.getHoraInicio());
-//			mapper.setHoraFin(horariod.getHoraFin());
-//			mapper.setHorarioCabecera(new HorarioCabeceraMapper(horariod.getHorarioCabecera().geId()));
+////			mapper.setHoraInicio(horariod.getHoraInicio());
+////			mapper.setHoraFin(horariod.getHoraFin());
+//			mapper.setHorarioCabecera(new HorarioCabeceraMapper(horariod.getHorarioCabecera().getHorarioCabeceraId()));
 //			itemsHorarioDMapper.add(mapper);
 //		}
 //		return itemsHorarioDMapper;
@@ -617,23 +541,20 @@ public class MapperUtil {
 //	public static Collection<CursoMapper> convertMapToCollCursoMapper(Collection<Map<String, Object>> cursosDb) {
 //		Collection<CursoMapper> cMappers = new ArrayList<>();
 //		for (Map<String, Object> map : cursosDb) {
-//			CursoMapper cMapper = new CursoMapper(
-//					(int) map.get("curso_id"),
-//					map.get("nombre").toString()); 
+//			CursoMapper cMapper = new CursoMapper((int) map.get("curso_id"), map.get("nombre").toString());
 //			cMappers.add(cMapper);
 //		}
-//		
+//
 //		return cMappers;
 //	}
 //
 //	// Convertir Collection<Map> a Collection<Trabajador Mapper>
-//	public static Collection<TrabajadorMapper> convertCollMapToCollTrabajadorMapper(Collection<Map<String, Object>> trabajador) {
+//	public static Collection<TrabajadorMapper> convertCollMapToCollTrabajadorMapper(
+//			Collection<Map<String, Object>> trabajador) {
 //		Collection<TrabajadorMapper> tMappers = new ArrayList<>();
 //		for (Map<String, Object> map : trabajador) {
-//			TrabajadorMapper tMapper = new TrabajadorMapper(
-//					(int) map.get("trabajador_id"),
-//					map.get("nombres").toString(),
-//					map.get("apellidos").toString()); 
+//			TrabajadorMapper tMapper = new TrabajadorMapper((int) map.get("trabajador_id"),
+//					map.get("nombres").toString(), map.get("apellidos").toString());
 //			tMappers.add(tMapper);
 //		}
 //		return tMappers;
@@ -643,27 +564,22 @@ public class MapperUtil {
 //	public static Collection<DistritoMapper> convertCollMapToCollDistritoMapper(Collection<Map<String, ?>> distritos) {
 //		Collection<DistritoMapper> dMappers = new ArrayList<>();
 //		for (Map<String, ?> map : distritos) {
-//			DistritoMapper dMappper = new DistritoMapper(
-//					(Integer) map.get("distrito_id"),
-//					map.get("nombre").toString());			
+//			DistritoMapper dMappper = new DistritoMapper((Integer) map.get("distrito_id"),
+//					map.get("nombre").toString());
 //			dMappers.add(dMappper);
 //		}
-//		
-//		
+//
 //		return dMappers;
 //	}
 //
-//	public static Collection<NotificacionMapper> convertCollMapToCollNotificacionMapper(Collection<Map<String, Object>> notificaciones) {
+//	public static Collection<NotificacionMapper> convertCollMapToCollNotificacionMapper(
+//			Collection<Map<String, Object>> notificaciones) {
 //		Collection<NotificacionMapper> tMappers = new ArrayList<>();
 //		for (Map<String, ?> map : notificaciones) {
-//			NotificacionMapper tMapper = new NotificacionMapper(
-//					(Integer) map.get("notificacion_id"),
-//					map.get("tipo").toString(),
-//					map.get("fecha_envio").toString(),
-//					map.get("titulo").toString(),
-//					map.get("descripcion").toString(),
-//					map.get("dni_estudiante").toString());
-//			if(!tMapper.getTipo().equals("comunicado")) {
+//			NotificacionMapper tMapper = new NotificacionMapper((Integer) map.get("notificacion_id"),
+//					map.get("tipo").toString(), map.get("fecha_envio").toString(), map.get("titulo").toString(),
+//					map.get("descripcion").toString(), map.get("dni_estudiante").toString());
+//			if (!tMapper.getTipo().equals("comunicado")) {
 //				tMapper.setFechaLimite(map.get("fecha_limite").toString());
 //				tMapper.setEstado((Character) map.get("estado"));
 //			}

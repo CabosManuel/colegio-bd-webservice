@@ -59,16 +59,16 @@ public class TrabajadorRestController {
 		return new ResponseEntity<>("Trabajador con esos parámetros no existe.", HttpStatus.NOT_FOUND);
 	}
 	
-	@GetMapping("/buscarPorCurso/{cursoId}")
-	public ResponseEntity<?> buscarPorCurso(@PathVariable Integer cursoId){
-		Collection</*Trabajador*/Map<String,Object>> trabajador = serviceT.getfindByCurso(cursoId);
-		//Collection<TrabajadorMapper> trabajadorMapper = MapperUtil.convertTrabajadoresPorCurso(trabajador);
-		
-		if(trabajador != null) {
-			return new ResponseEntity<>(MapperUtil.convertCollMapToCollTrabajadorMapper(trabajador)/*trabajadorMapper*/,HttpStatus.OK);
-		}		
-		return new ResponseEntity<>("Curso con ID: "+ cursoId +" no existe.",HttpStatus.NOT_FOUND);
-	}
+//	@GetMapping("/buscarPorCurso/{cursoId}")
+//	public ResponseEntity<?> buscarPorCurso(@PathVariable Integer cursoId){
+//		Collection</*Trabajador*/Map<String,Object>> trabajador = serviceT.getfindByCurso(cursoId);
+//		//Collection<TrabajadorMapper> trabajadorMapper = MapperUtil.convertTrabajadoresPorCurso(trabajador);
+//		
+//		if(trabajador != null) {
+//			return new ResponseEntity<>(MapperUtil.convertCollMapToCollTrabajadorMapper(trabajador)/*trabajadorMapper*/,HttpStatus.OK);
+//		}		
+//		return new ResponseEntity<>("Curso con ID: "+ cursoId +" no existe.",HttpStatus.NOT_FOUND);
+//	}
 	
 	@GetMapping("/buscarCursos/{trabajadorId}")
 	public ResponseEntity<?> buscarCursos(@PathVariable Integer trabajadorId){
@@ -113,7 +113,7 @@ public class TrabajadorRestController {
 			trabajadorDb.setDireccion(newTrabajador.getDireccion());
 			trabajadorDb.setCelular(newTrabajador.getCelular());
 			trabajadorDb.setCorreo(newTrabajador.getCorreo());
-			trabajadorDb.setPass(newTrabajador.getPass());
+//			trabajadorDb.setPass(newTrabajador.getPass());
 			trabajadorDb.setFechaNacimiento(newTrabajador.getFechaNacimiento());
 			
 			serviceT.update(trabajadorDb);

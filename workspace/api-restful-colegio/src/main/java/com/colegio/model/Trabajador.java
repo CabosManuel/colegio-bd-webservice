@@ -1,21 +1,17 @@
 package com.colegio.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.ForeignKey;
 
 @Table
 @Entity(name = "trabajador")
@@ -64,9 +60,8 @@ public class Trabajador implements Serializable {
 	@Column(nullable = false)
 	private Boolean estado;
 
-	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinTable(name = "trabajador_curso", joinColumns = @JoinColumn(name = "trabajador_id", nullable = false, foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(trabajador_id) references trabajador(trabajador_id)")), inverseJoinColumns = @JoinColumn(name = "curso_id", nullable = false, foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(curso_id) references curso(curso_id)")))
-	private Set<Curso> cursos = new HashSet<>();
+	@OneToMany(mappedBy = "trabajador")
+	private Collection<Curso> cursos = new ArrayList<>();
 
 	public Trabajador() {
 	}
@@ -193,11 +188,11 @@ public class Trabajador implements Serializable {
 		this.estado = estado;
 	}
 
-	public Set<Curso> getCursos() {
+	public Collection<Curso> getCursos() {
 		return cursos;
 	}
 
-	public void setCursos(Set<Curso> cursos) {
+	public void setCursos(Collection<Curso> cursos) {
 		this.cursos = cursos;
 	}
 

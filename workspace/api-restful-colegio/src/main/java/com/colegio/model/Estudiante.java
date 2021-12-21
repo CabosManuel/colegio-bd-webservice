@@ -24,7 +24,7 @@ public class Estudiante implements Serializable {
 
 	@Id
 	@Column(columnDefinition = "char(8)")
-	private String dniEstudiante;
+	private String dni;
 
 	@Column(length = 45, nullable = false)
 	private String nombres;
@@ -65,12 +65,12 @@ public class Estudiante implements Serializable {
 	}
 
 	public Estudiante(String dniEstudiante) {
-		this.dniEstudiante = dniEstudiante;
+		this.dni = dniEstudiante;
 	}
 
-	public Estudiante(String dniEstudiante, String nombres, String apellidos, LocalDate fechaNacimiento, String celular,
+	public Estudiante(String dni, String nombres, String apellidos, LocalDate fechaNacimiento, String celular,
 			String correo, String password, String distrito, String direccion, Boolean estado, String condicion) {
-		this.dniEstudiante = dniEstudiante;
+		this.dni = dni;
 		this.nombres = nombres;
 		this.apellidos = apellidos;
 		this.fechaNacimiento = fechaNacimiento;
@@ -83,12 +83,12 @@ public class Estudiante implements Serializable {
 		this.condicion = condicion;
 	}
 
-	public String getDniEstudiante() {
-		return dniEstudiante;
+	public String getDni() {
+		return dni;
 	}
 
-	public void setDniEstudiante(String dniEstudiante) {
-		this.dniEstudiante = dniEstudiante;
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 
 	public String getNombres() {
@@ -181,7 +181,7 @@ public class Estudiante implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Estudiante [dniEstudiante=" + dniEstudiante + ", nombre=" + nombres + ", apellido=" + apellidos
+		return "Estudiante [dni=" + dni + ", nombre=" + nombres + ", apellido=" + apellidos
 				+ ", fnacimiento=" + fechaNacimiento + ", celular=" + celular + ", correo=" + correo + ", direccion="
 				+ direccion + ", pass=" + password + ", estado=" + estado + ", condicion=" + condicion + ", distrito="
 				+ distrito + "]";

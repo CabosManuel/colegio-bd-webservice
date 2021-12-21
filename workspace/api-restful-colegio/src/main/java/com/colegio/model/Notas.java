@@ -20,48 +20,43 @@ public class Notas implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer notaId;
+	private Integer id;
 
-	@Column(columnDefinition = "tinyint")
+	@Column(columnDefinition = "tinyint", nullable = false)
 	private Integer nota1;
 
-	@Column(columnDefinition = "tinyint")
+	@Column(columnDefinition = "tinyint", nullable = false)
 	private Integer nota2;
 
-	@Column(columnDefinition = "tinyint")
+	@Column(columnDefinition = "tinyint", nullable = false)
 	private Integer nota3;
 
 	@ManyToOne
-	@JoinColumn(name = "seccion_id", nullable = false, updatable = true, foreignKey = @ForeignKey(
-			foreignKeyDefinition = "foreign key(seccion_id) references seccion(seccion_id)"))
-	private Seccion seccion;
-
-	@ManyToOne
-	@JoinColumn(name = "curso_id", nullable = false, updatable = true, foreignKey = @ForeignKey(
-			foreignKeyDefinition = "foreign key(curso_id) references curso(curso_id)"))
+	@JoinColumn(name = "id_curso", nullable = false, updatable = true, foreignKey = @ForeignKey(
+			foreignKeyDefinition = "foreign key(id) references curso(id)"))
 	private Curso curso;
 
 	@ManyToOne
-	@JoinColumn(name = "matricula_id", nullable = false, updatable = true, foreignKey = @ForeignKey(
-			foreignKeyDefinition = "foreign key(matricula_id) references matricula(matricula_id)"))
+	@JoinColumn(name = "id_matricula", nullable = false, updatable = true, foreignKey = @ForeignKey(
+			foreignKeyDefinition = "foreign key(id) references matricula(id)"))
 	private Matricula matricula;
 
 	public Notas() {
 	}
 
-	public Notas(Integer notaId, Integer nota1, Integer nota2, Integer nota3) {
-		this.notaId = notaId;
+	public Notas(Integer id, Integer nota1, Integer nota2, Integer nota3) {
+		this.id = id;
 		this.nota1 = nota1;
 		this.nota2 = nota2;
 		this.nota3 = nota3;
 	}
 
-	public Integer getNotaId() {
-		return notaId;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setNotaId(Integer notaId) {
-		this.notaId = notaId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public Integer getNota1() {
@@ -104,11 +99,4 @@ public class Notas implements Serializable {
 		this.matricula = matricula;
 	}
 
-	public Seccion getSeccion() {
-		return seccion;
-	}
-
-	public void setSeccion(Seccion seccion) {
-		this.seccion = seccion;
-	}
 }

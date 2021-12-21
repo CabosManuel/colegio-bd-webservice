@@ -13,7 +13,6 @@ public class EstudianteMapper {
 	private String pass;
 	private Boolean estado;
 	private String condicion;
-	private DistritoMapper distrito;
 	private Integer distritoId;
 	private ApoderadoMapper apoderado;
 	private String dniApoderado;
@@ -25,22 +24,22 @@ public class EstudianteMapper {
 		this.dniEstudiante = dniEstudiante;
 	}
 
-	public EstudianteMapper(String dniEstudiante, String nombre, String apellido, Date fnacimiento, String celular,
-			String correo, String direccion, String pass, Boolean estado, String condicion, DistritoMapper distrito,
-			ApoderadoMapper apoderado) {
-		this.dniEstudiante = dniEstudiante;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.fnacimiento = fnacimiento;
-		this.celular = celular;
-		this.correo = correo;
-		this.direccion = direccion;
-		this.pass = pass;
-		this.estado = estado;
-		this.distrito = distrito;
-		this.apoderado = apoderado;
-		this.condicion = condicion;
-	}
+//	public EstudianteMapper(String dniEstudiante, String nombre, String apellido, Date fnacimiento, String celular,
+//			String correo, String direccion, String pass, Boolean estado, String condicion, DistritoMapper distrito,
+//			ApoderadoMapper apoderado) {
+//		this.dniEstudiante = dniEstudiante;
+//		this.nombre = nombre;
+//		this.apellido = apellido;
+//		this.fnacimiento = fnacimiento;
+//		this.celular = celular;
+//		this.correo = correo;
+//		this.direccion = direccion;
+//		this.pass = pass;
+//		this.estado = estado;
+////		this.distrito = distrito;
+//		this.apoderado = apoderado;
+//		this.condicion = condicion;
+//	}
 
 	public EstudianteMapper(String dniEstudiante, String nombre, String apellido, Date fnacimiento, String celular,
 			String correo, String direccion, String pass, Boolean estado, String condicion) {
@@ -73,19 +72,19 @@ public class EstudianteMapper {
 		this.dniApoderado = dniApoderado;
 	}
 
-	public EstudianteMapper(String dniEstudiante, String nombre, String apellido, Date fnacimiento, String celular,
-			String correo, String direccion, Boolean estado, String condicion, DistritoMapper distrito) {
-		this.dniEstudiante = dniEstudiante;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.fnacimiento = fnacimiento;
-		this.celular = celular;
-		this.correo = correo;
-		this.direccion = direccion;
-		this.estado = estado;
-		this.condicion = condicion;
-		this.distrito = distrito;
-	}
+//	public EstudianteMapper(String dniEstudiante, String nombre, String apellido, Date fnacimiento, String celular,
+//			String correo, String direccion, Boolean estado, String condicion, DistritoMapper distrito) {
+//		this.dniEstudiante = dniEstudiante;
+//		this.nombre = nombre;
+//		this.apellido = apellido;
+//		this.fnacimiento = fnacimiento;
+//		this.celular = celular;
+//		this.correo = correo;
+//		this.direccion = direccion;
+//		this.estado = estado;
+//		this.condicion = condicion;
+//		this.distrito = distrito;
+//	}
 
 	public String getDniEstudiante() {
 		return dniEstudiante;
@@ -165,14 +164,6 @@ public class EstudianteMapper {
 
 	public void setCondicion(String condicion) {
 		this.condicion = condicion;
-	}
-
-	public DistritoMapper getDistrito() {
-		return distrito;
-	}
-
-	public void setDistrito(DistritoMapper distrito) {
-		this.distrito = distrito;
 	}
 
 	public ApoderadoMapper getApoderado() {
