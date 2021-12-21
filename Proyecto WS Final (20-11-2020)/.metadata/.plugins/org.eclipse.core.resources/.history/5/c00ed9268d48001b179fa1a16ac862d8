@@ -1,0 +1,88 @@
+package idat.edu.pe.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "permisos")
+public class Permiso implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Integer permisoId;
+
+	@Column(length = 1000)
+	String titulo;
+	@Column
+	String descripcion;
+	@Column
+	Character estado;
+	
+	@ManyToOne
+	@JoinColumn(name = "dni_estudiante",nullable = false,
+		foreignKey = @ForeignKey(foreignKeyDefinition = 
+		"foreign key(dni_estudiante) references estudiantes(dni_estudiante)"))
+	private Estudiante dniEstudiante;
+
+	public Permiso() {
+	}
+
+	public Permiso(Integer permisoId, String titulo, String descripcion, Character estado) {
+		this.permisoId = permisoId;
+		this.titulo = titulo;
+		this.descripcion = descripcion;
+		this.estado = estado;
+	}
+
+	public Integer getPermisoId() {
+		return permisoId;
+	}
+
+	public void setPermisoId(Integer permisoId) {
+		this.permisoId = permisoId;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public Character getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Character estado) {
+		this.estado = estado;
+	}
+
+	public Estudiante getDniEstudiante() {
+		return dniEstudiante;
+	}
+
+	public void setDniEstudiante(Estudiante dniEstudiante) {
+		this.dniEstudiante = dniEstudiante;
+	}
+
+}

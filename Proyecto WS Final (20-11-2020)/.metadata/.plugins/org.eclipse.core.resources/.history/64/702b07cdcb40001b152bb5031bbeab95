@@ -1,0 +1,33 @@
+package idat.edu.pe.controller;
+
+import java.util.Collection;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import idat.edu.pe.mapper.NotaMapper;
+import idat.edu.pe.service.NotaService;
+
+@RestController
+@RequestMapping("/rest/nota")
+public class NotaRestController {
+	
+	@Autowired
+	private NotaService s;
+	
+	@GetMapping("/{dniEstudiante}/{anio}")					//@RequestParam	
+	public ResponseEntity<?> listarNotasDniEstudianteAnio(@PathVariable String dniEstudiante, @PathVariable String anio){
+		Collection</*NotaMapper*/Object[]> notasMapper = s.findByDniEstudianteAnio(dniEstudiante, anio);
+		
+		if(notasMapper.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		
+		return new ResponseEntity<>(notasMapper,HttpStatus.OK);
+	}
+}

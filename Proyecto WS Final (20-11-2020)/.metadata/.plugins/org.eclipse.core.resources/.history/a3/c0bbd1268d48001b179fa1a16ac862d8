@@ -1,0 +1,88 @@
+package idat.edu.pe.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="comunicados")
+public class Comunicado implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer comunicado_id;
+	
+	@Column
+	private String titulo;
+	@Column
+	private String descripción;
+	@Column
+	private Date fecha;
+	
+	@ManyToOne
+	@JoinColumn(name = "dni_estudiante",nullable = false,
+		foreignKey = @ForeignKey(foreignKeyDefinition = 
+		"foreign key(dni_estudiante) references estudiantes(dni_estudiante)"))
+	private Estudiante dniEstudiante;
+
+	public Comunicado() {
+	}
+
+	public Comunicado(Integer comunicado_id, String titulo, String descripción, Date fecha) {
+		this.comunicado_id = comunicado_id;
+		this.titulo = titulo;
+		this.descripción = descripción;
+		this.fecha = fecha;
+	}
+
+	public Integer getComunicado_id() {
+		return comunicado_id;
+	}
+
+	public void setComunicado_id(Integer comunicado_id) {
+		this.comunicado_id = comunicado_id;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public String getDescripción() {
+		return descripción;
+	}
+
+	public void setDescripción(String descripción) {
+		this.descripción = descripción;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public Estudiante getDniEstudiante() {
+		return dniEstudiante;
+	}
+
+	public void setDniEstudiante(Estudiante dniEstudiante) {
+		this.dniEstudiante = dniEstudiante;
+	}
+}

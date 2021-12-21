@@ -1,0 +1,27 @@
+package idat.edu.pe.repository;
+
+import java.util.Collection;
+import java.util.Map;
+
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+
+import idat.edu.pe.model.Notificacion;
+
+public interface NotificacionRepository extends CrudRepository<Notificacion, Integer>{
+	
+	@Query(value = "select n.notificacion_id, n.titulo, n.tipo, n.fecha_envio, n.fecha_limite, n.estado, n.dni_estudiante, n.descripcion "+
+			"from notificaciones n " + 
+			"where n.dni_estudiante like ?1 and " + 
+		    	"(n.tipo like ?2 or n.tipo like ?3 or n.tipo like ?4) " + 
+			"order by n.fecha_envio desc", nativeQuery = true)
+	Collection<Object[]> getNotificacionesByDniEstudianteTipo(String dniEstudiante, String tipo1, String tipo2, String tipo3);
+	
+	@Query(value = "update notificaciones set estado = ?1 " +
+						"where notificacion_id = ?2", nativeQuery = true)
+	void confirmarCitacion(Character estado, Integer notificacionId);
+	
+	@Query(value = "select * from notificaciones where notificacion_id = ?", nativeQuery = true)
+	Map<String, Object> buscarPorId(Integer notificacionId);
+}

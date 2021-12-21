@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;idat.edu.pe.mapper.NotaMappero&apos; to &apos;NotaMapper&apos;&#x0D;&#x0A;- Original project: &apos;AppWebServiceRest&apos;&#x0D;&#x0A;- Original element: &apos;idat.edu.pe.mapper.NotaMappero&apos;&#x0D;&#x0A;- Renamed element: &apos;idat.edu.pe.mapper.NotaMapper&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;NotaMappero&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;idat.edu.pe.mapper{NotaMappero.java[NotaMappero" matchStrategy="1" name="NotaMapper" qualified="false" references="true" similarDeclarations="false" stamp="1608173923312" textual="false" version="1.0"/>
+</session>
