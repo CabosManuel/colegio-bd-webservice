@@ -1,7 +1,7 @@
 USE bd_mpb_spring;
 
-SELECT * FROM apoderados;
-select * from asistencias;
+SELECT * FROM apoderado;
+select * from asistencia;
 SELECT * FROM cursos;
 select * from distritos;
 select * from estudiantes;
